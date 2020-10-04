@@ -12,6 +12,11 @@ public class PlayerMouvement : MonoBehaviour
     public float accelerationTime = 0.5f;
     public float deccelerationTime = 0.5f;
 
+    public float dashSpeed;
+    public float dashTime;
+    private float dashTimeHolder;
+    public bool isDashing = false;
+
     public Rigidbody2D rb;
     public Camera cam;
 
@@ -21,6 +26,10 @@ public class PlayerMouvement : MonoBehaviour
     public AnimationCurve acceleration = AnimationCurve.EaseInOut(0, 0, 0.75f, 2);
     public AnimationCurve decceleration = AnimationCurve.EaseInOut(0, 1, 1, 0);
 
+    private void Start()
+    {
+        dashTimeHolder = dashTime;
+    }
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -30,6 +39,8 @@ public class PlayerMouvement : MonoBehaviour
     {
         Mouvement();
         Aim();
+        DashAttempt();
+        Dash();
     }
 
     void Mouvement()
@@ -78,5 +89,28 @@ public class PlayerMouvement : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90.0f;
         rb.rotation = angle;
+    }
+
+    void DashAttempt()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            isDashing = true;
+        }
+    }
+    void Dash()
+    {
+        if (isDashing == true && dashTime > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x * dashSpeed, rb.velocity.y * dashSpeed);
+            dashTime -= Time.deltaTime;
+        }
+
+
+        if (dashTime <= 0)
+        {
+            isDashing = false;
+            dashTime = dashTimeHolder;
+        }
     }
 }
