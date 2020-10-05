@@ -41,9 +41,9 @@ public class Shooting : MonoBehaviour
     private bool canShoot;
     private bool canSwordShoot;
     private bool pistolCanShoot;
-    private bool gatlingEquiped;
-    private bool shootgunEquiped;
-    private bool pistolEquiped;
+    public bool gatlingEquiped;
+    public bool shootgunEquiped;
+    public bool pistolEquiped;
 
     private bool gatlingOnFire;
     private bool shootgunOnFire;
@@ -64,7 +64,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire2") && canSwordShoot)
+        if (Input.GetButtonDown("Fire2") && canSwordShoot)
         {
             SwordShoot();
             canSwordShoot = false;

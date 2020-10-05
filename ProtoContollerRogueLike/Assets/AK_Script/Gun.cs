@@ -13,8 +13,10 @@ public class Gun : ScriptableObject
     // General Information
     public float damage;
     public float accuracy;
+    public float fireRate;
     public int ammoCount;
     public GameObject ammoType;
+    public List<GameObject> shootingPoints = new List<GameObject>();
 
 
     // Specific
