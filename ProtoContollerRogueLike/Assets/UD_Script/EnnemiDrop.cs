@@ -14,47 +14,59 @@ public class EnnemiDrop : MonoBehaviour
 
     void Start()
     {
-        
+        moduleDropRate = moduleDropRate + weaponDropRate;
+        consummableDropRate = moduleDropRate + consummableDropRate;
     }
 
-    void Update()
-    {
-    }
-
-    private void FixedUpdate()
-    {
-        if(willDrop == true)
-        {
-            ChooseDropType();
-            willDrop = false;
-        }
-    }
+    //private void FixedUpdate()
+    //{
+    //    if(willDrop == true)
+    //    {
+    //        ChooseDropType();
+    //        willDrop = false;
+    //    }
+    //}
 
     public void LanchDrop()
     {
         willDrop = true;
     }
 
-    private void ChooseDropType()
+    public void ChooseDropType()
     {
-        int randomnumber = Random.Range(1, weaponDropRate);
-        if (randomnumber == 1)
+        int randomnumber = Random.Range(1, 100);
+        if (randomnumber >= 1 && randomnumber <=weaponDropRate)
         {
             print("drop gun");
             Destroy(gameObject);
         }
-        else if(randomnumber!=1) randomnumber = Random.Range(1, moduleDropRate);
-        if (randomnumber == 1)
+        //else if(randomnumber!=1) 
+        //    randomnumber = Random.Range(1, moduleDropRate);
+
+        if (randomnumber > weaponDropRate && randomnumber <= moduleDropRate)
         {
             print("drop module");
             Destroy(gameObject);
         }
-        else if (randomnumber != 1) randomnumber = Random.Range(1, consummableDropRate);
-        if (randomnumber == 1)
+        //else if (randomnumber != 1) 
+        //    randomnumber = Random.Range(1, consummableDropRate);
+
+        if (randomnumber > moduleDropRate && randomnumber <= consummableDropRate)
         {
             print("drop consummable");
             Destroy(gameObject);
         }
-        else if (randomnumber != 1) print("no loot"); Destroy(gameObject);
+
+        if (randomnumber > consummableDropRate)
+        {
+            print("No Drop!");
+            Destroy(gameObject);
+        }
+        //else if (randomnumber != 1)
+        //{
+        //    print("no loot");
+        //    Destroy(gameObject);
+        //}
+
     }
 }

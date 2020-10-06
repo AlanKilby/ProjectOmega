@@ -26,6 +26,7 @@ public class EnnemisScript : MonoBehaviour
     private void Start()
     {
         takeDamage = false;
+        ED = GetComponent<EnnemiDrop>();
         anim = GetComponent<Animator>();
     }
 
@@ -42,7 +43,11 @@ public class EnnemisScript : MonoBehaviour
                 Death();
             }
             else Death();*/
-            LootDrop();
+
+
+            //LootDrop();
+
+
             Death();
         }
         if (combatEnable)
@@ -111,6 +116,7 @@ public class EnnemisScript : MonoBehaviour
 
     public void Death()
     {
+        ED.ChooseDropType();
         Destroy(gameObject);
     }
 
