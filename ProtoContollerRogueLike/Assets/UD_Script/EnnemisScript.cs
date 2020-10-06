@@ -22,9 +22,11 @@ public class EnnemisScript : MonoBehaviour
 
     public bool takeDamage;
     public bool combatEnable;
+    [SerializeField] private bool isAttacking;
 
     private void Start()
     {
+        isAttacking = false;
         takeDamage = false;
         ED = GetComponent<EnnemiDrop>();
         anim = GetComponent<Animator>();
@@ -68,11 +70,17 @@ public class EnnemisScript : MonoBehaviour
     void UpdateAnim()
     {
         anim.SetBool("takeDamage", takeDamage);
+        anim.SetBool("isAttacking", isAttacking);
     }
 
     public void StopAnimTakeDamage()
     {
         takeDamage = false;
+    }
+    
+    public void StopAnimAttack()
+    {
+        isAttacking = false;
     }
 
     private void CheckCombatEnable()
@@ -96,6 +104,7 @@ public class EnnemisScript : MonoBehaviour
             if (hitInfo.CompareTag("Player"))
             {
                 hitInfo.GetComponent<PlayerHealth>().TakeDamage(damage);
+                isAttacking = true;
             }
         }
     }
