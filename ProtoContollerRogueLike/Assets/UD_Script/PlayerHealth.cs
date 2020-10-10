@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int totalPlayerHealth;
-    public static int currentPlayerHealth;
+    public float totalPlayerHealth;
+    public float currentPlayerHealth;
+    public float healthPercent;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        healthPercent = (currentPlayerHealth / totalPlayerHealth);
     }
 
     public void TakeDamage(int damage)

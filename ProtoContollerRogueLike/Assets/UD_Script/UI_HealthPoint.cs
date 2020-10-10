@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UI_HealthPoint : MonoBehaviour
 {
+    [SerializeField] PlayerHealth PH;
+
     Text currentHealth;
 
     void Start()
@@ -16,7 +18,7 @@ public class UI_HealthPoint : MonoBehaviour
     {
         if(currentHealth != null)
         {
-            currentHealth.text = PlayerHealth.currentPlayerHealth.ToString();
+            currentHealth.text = PH.currentPlayerHealth.ToString();
         }
     }
 }
