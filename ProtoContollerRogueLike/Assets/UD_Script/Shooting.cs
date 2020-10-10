@@ -49,8 +49,12 @@ public class Shooting : MonoBehaviour
     private bool shootgunOnFire;
     private bool swordOnFire;
 
+    [SerializeField] private Animator anim;
+
     private void Start()
     {
+        anim = GetComponent<Animator>();
+
         gatlingEquiped = true;
         shootgunEquiped = false;
         pistolEquiped = false;
@@ -120,6 +124,7 @@ public class Shooting : MonoBehaviour
         }
 
         ChangeWeapon();
+        UpdateAnims();
 
     }
 
@@ -237,6 +242,13 @@ public class Shooting : MonoBehaviour
         currentPistolFireRate = currentPistolFireRate * fireRateMultiplier;
         currentGatlingFireRate = currentGatlingFireRate * fireRateMultiplier;
         currentShootgunFireRate = currentShootgunFireRate * fireRateMultiplier;
+    }
+
+    void UpdateAnims()
+    {
+        anim.SetBool("pistolEquiped",pistolEquiped);
+        anim.SetBool("shootgunEquiped", shootgunEquiped);
+        anim.SetBool("gatlingEquiped", gatlingEquiped);
     }
 }
 
