@@ -6,7 +6,7 @@ public class EnnemisScript : MonoBehaviour
 {
     public LayerMask whatIsPlayer;
 
-    [SerializeField] EnnemiDrop ED;
+    [SerializeField] LootDrop lootDrop;
     [SerializeField] private Animator anim;
 
     public int health;
@@ -28,7 +28,7 @@ public class EnnemisScript : MonoBehaviour
     {
         isAttacking = false;
         takeDamage = false;
-        ED = GetComponent<EnnemiDrop>();
+        lootDrop = GetComponent<LootDrop>();
         anim = GetComponent<Animator>();
     }
 
@@ -125,7 +125,7 @@ public class EnnemisScript : MonoBehaviour
 
     public void Death()
     {
-        ED.ChooseDropType();
+        lootDrop.DropLoot();
         Destroy(gameObject);
     }
 

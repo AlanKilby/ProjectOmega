@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7505568576916813262}
   - component: {fileID: 7505568576916813249}
   - component: {fileID: 7505568576916813250}
-  - component: {fileID: 6255145615357382288}
+  - component: {fileID: 3180845383275757529}
   - component: {fileID: 2018466331}
   m_Layer: 11
   m_Name: Ennemis Test
@@ -199,7 +199,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
-  ED: {fileID: 6255145615357382288}
+  ED: {fileID: 0}
   anim: {fileID: 7505568576916813249}
   health: 20
   damage: 1
@@ -213,7 +213,7 @@ MonoBehaviour:
   takeDamage: 0
   combatEnable: 0
   isAttacking: 0
---- !u!114 &6255145615357382288
+--- !u!114 &3180845383275757529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,14 +222,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7505568576916813263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f2ae56b46744c5419457c1c3c85d292, type: 3}
+  m_Script: {fileID: 11500000, guid: 156563478d8b4ab42b17b91a37a81a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ES: {fileID: 7505568576916813250}
-  weaponDropRate: 3
-  moduleDropRate: 3
-  consummableDropRate: 3
-  willDrop: 0
+  baseDropRate: 80
+  dropGun: 25
+  dropModule: 25
+  dropPowerUp: 25
 --- !u!114 &2018466331
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,11 +16,9 @@ public class Gun : ScriptableObject
     public float fireRate;
     public int ammoCount;
     public GameObject ammoType;
-    public List<GameObject> shootingPoints = new List<GameObject>();
 
 
     // Specific
-    public float dropRate;
     public string rarity;
 
     // Sound
