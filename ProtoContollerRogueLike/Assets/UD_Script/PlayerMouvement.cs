@@ -7,10 +7,10 @@ public class PlayerMouvement : MonoBehaviour
     private bool playerIsMoving;
 
     public float playerSpeed = 5.0f;
-    public float timeSinceAccelerated;
-    public float timeSinceDeccelerated;
-    public float accelerationTime = 0.5f;
-    public float deccelerationTime = 0.5f;
+    //public float timeSinceAccelerated;
+    //public float timeSinceDeccelerated;
+    //public float accelerationTime = 0.5f;
+    //public float deccelerationTime = 0.5f;
 
     public float dashSpeed;
     public float dashTime;
@@ -23,8 +23,8 @@ public class PlayerMouvement : MonoBehaviour
     public Vector2 playerInput;
     Vector2 mousePos;
 
-    public AnimationCurve acceleration = AnimationCurve.EaseInOut(0, 0, 0.75f, 2);
-    public AnimationCurve decceleration = AnimationCurve.EaseInOut(0, 1, 1, 0);
+    //public AnimationCurve acceleration = AnimationCurve.EaseInOut(0, 0, 0.75f, 2);
+    //public AnimationCurve decceleration = AnimationCurve.EaseInOut(0, 1, 1, 0);
 
     private void Start()
     {
@@ -53,33 +53,34 @@ public class PlayerMouvement : MonoBehaviour
 
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        if (!playerIsMoving)
-        {
-            timeSinceAccelerated = 0;
-            timeSinceDeccelerated += Time.deltaTime;
-        }
-        else if (playerIsMoving)
-        {
-            timeSinceAccelerated += Time.deltaTime;
-            timeSinceDeccelerated = 0;
-        }
+        //if (!playerIsMoving)
+        //{
+        //    timeSinceAccelerated = 0;
+        //    timeSinceDeccelerated += Time.deltaTime;
+        //}
+        //else if (playerIsMoving)
+        //{
+        //    timeSinceAccelerated += Time.deltaTime;
+        //    timeSinceDeccelerated = 0;
+        //}
 
-        float accelerationMultiplier = 1;
-        if (accelerationTime > 0)
-            accelerationMultiplier = acceleration.Evaluate(timeSinceAccelerated / accelerationTime);
+        //float accelerationMultiplier = 1;
+        //if (accelerationTime > 0)
+        //    accelerationMultiplier = acceleration.Evaluate(timeSinceAccelerated / accelerationTime);
 
-        float deccelerationMultiplier = 1;
-        if (deccelerationTime > 0)
-            deccelerationMultiplier = decceleration.Evaluate(timeSinceDeccelerated / deccelerationTime);
+        //float deccelerationMultiplier = 1;
+        //if (deccelerationTime > 0)
+        //    deccelerationMultiplier = decceleration.Evaluate(timeSinceDeccelerated / deccelerationTime);
 
         if (playerIsMoving)
         {
-            rb.velocity = playerInput.normalized * playerSpeed * accelerationMultiplier;
+            rb.velocity = playerInput.normalized * playerSpeed; /** accelerationMultiplier;*/
         }
 
         if (!playerIsMoving)
         {
-            rb.velocity = new Vector2(rb.velocity.x * deccelerationMultiplier, rb.velocity.y * deccelerationMultiplier);
+            //rb.velocity = new Vector2(rb.velocity.x * deccelerationMultiplier, rb.velocity.y * deccelerationMultiplier);
+            rb.velocity = new Vector2(rb.velocity.x * 0, rb.velocity.y * 0);
         }
 
     }
