@@ -8,8 +8,11 @@ public class PlayerHealth : MonoBehaviour
     public float currentPlayerHealth;
     public float healthPercent;
 
+    Animator anim;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
         currentPlayerHealth = totalPlayerHealth;
     }
     private void Update()

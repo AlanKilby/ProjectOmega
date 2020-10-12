@@ -16,6 +16,10 @@ public class PlayerMouvement : MonoBehaviour
     public float dashTime;
     private float dashTimeHolder;
     public bool isDashing = false;
+    public bool canDash;
+    public float dashReloadTimeSet;
+    public float dashReloadTimer;
+    public float dashTimePercent;
 
     public Rigidbody2D rb;
     public Camera cam;
@@ -41,6 +45,7 @@ public class PlayerMouvement : MonoBehaviour
         Aim();
         DashAttempt();
         Dash();
+        DashTimer();
     }
 
     void Mouvement()
@@ -94,7 +99,7 @@ public class PlayerMouvement : MonoBehaviour
 
     void DashAttempt()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKey(KeyCode.Space) && canDash)
         {
             isDashing = true;
         }
@@ -103,6 +108,8 @@ public class PlayerMouvement : MonoBehaviour
     {
         if (isDashing == true && dashTime > 0)
         {
+            canDash = false;
+            dashReloadTimer = 0.0f;
             rb.velocity = new Vector2(rb.velocity.x * dashSpeed, rb.velocity.y * dashSpeed);
             dashTime -= Time.deltaTime;
         }
@@ -113,5 +120,18 @@ public class PlayerMouvement : MonoBehaviour
             isDashing = false;
             dashTime = dashTimeHolder;
         }
+    }
+
+    void DashTimer()
+    {
+        if (!canDash)
+        {
+            dashReloadTimer += Time.deltaTime;
+        }
+        if (dashReloadTimer > dashReloadTimeSet)
+        {
+            canDash = true;
+        }
+        dashTimePercent = dashReloadTimer / dashReloadTimeSet;
     }
 }
