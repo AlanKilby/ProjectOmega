@@ -23,6 +23,7 @@ public class PlayerMouvement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Camera cam;
+    [SerializeField] private Animator anim;
 
     public Vector2 playerInput;
     Vector2 mousePos;
@@ -33,10 +34,17 @@ public class PlayerMouvement : MonoBehaviour
     private void Start()
     {
         dashTimeHolder = dashTime;
+        anim = GetComponent<Animator>();
     }
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        UpdateAnim();
+    }
+
+    void UpdateAnim()
+    {
+        anim.SetBool("isDashing", isDashing);
     }
 
     private void FixedUpdate()
