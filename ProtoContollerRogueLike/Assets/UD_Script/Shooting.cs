@@ -82,7 +82,7 @@ public class Shooting : MonoBehaviour
             fireRateTimer = currentGatlingFireRate;
         }
 
-        if (Input.GetButton("Fire1") && canShoot && shootgunEquiped && shootgunCurrentAmmo>0.0f)
+        if (Input.GetButtonDown("Fire1") && canShoot && shootgunEquiped && shootgunCurrentAmmo>0.0f)
         {
             ShootgunShoot();
             canShoot = false;

@@ -14,6 +14,7 @@ public class EnnemisScript : MonoBehaviour
     public int dropRate;
 
     [SerializeField] private Transform attackHitBoxPos;
+    [SerializeField] private Transform playerPos;
     [SerializeField] private LayerMask whatIsKillable;
     [SerializeField] private float attackRadius;
 
@@ -30,6 +31,7 @@ public class EnnemisScript : MonoBehaviour
         takeDamage = false;
         lootDrop = GetComponent<LootDrop>();
         anim = GetComponent<Animator>();
+        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     private void Update()
@@ -59,6 +61,7 @@ public class EnnemisScript : MonoBehaviour
             combatEnable = false;
         }
         CheckCombatEnable();
+        PlayerDirection(); //de l'ancien script d'alan, ne convient plus au pathfinding a*
     }
 
     public void TakeDamage(int damage)
@@ -121,6 +124,15 @@ public class EnnemisScript : MonoBehaviour
         {
             print("loot !");
         }
+    }
+
+    void PlayerDirection()
+    {
+        Vector3 diff = playerPos.position - gameObject.transform.position;
+        diff.Normalize();
+
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
     public void Death()
