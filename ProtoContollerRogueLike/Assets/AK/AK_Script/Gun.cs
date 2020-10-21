@@ -14,14 +14,19 @@ public class Gun : ScriptableObject
     public float damage;
     public float accuracy;
     public float fireRate;
-    public int ammoCount;
     public GameObject ammoType;
+    public float bulletVelocity;
 
 
     // Specific
     public string rarity;
 
     // Sound
-    public List<AudioSource> gunSounds = new List<AudioSource>();
+    public List<AudioClip> gunSounds = new List<AudioClip>();
+
+    //Graphics
+    public Sprite[] weaponSprites;
+    public GameObject gunIcon;
+
 
 }

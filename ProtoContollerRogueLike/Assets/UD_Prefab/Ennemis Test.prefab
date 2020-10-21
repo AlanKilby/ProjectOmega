@@ -199,12 +199,13 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
-  ED: {fileID: 0}
+  lootDrop: {fileID: 0}
   anim: {fileID: 7505568576916813249}
   health: 20
   damage: 1
   dropRate: 2
   attackHitBoxPos: {fileID: 7452885125503361993}
+  playerPos: {fileID: 0}
   whatIsKillable:
     serializedVersion: 2
     m_Bits: 512
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDropRate: 80
-  dropGun: 25
+  dropGun: 50
   dropModule: 25
   dropPowerUp: 25
 --- !u!114 &2018466331
