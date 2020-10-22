@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 8628224788671534790}
   - component: {fileID: 8628224788671534791}
   m_Layer: 11
-  m_Name: Zombie
+  m_Name: UD_Zombie
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,9 +231,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDropRate: 80
-  dropGun: 25
-  dropModule: 25
-  dropPowerUp: 25
+  dropGun: 90
+  dropModule: 5
+  dropPowerUp: 5
 --- !u!114 &2275653038146730262
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class Weapon : MonoBehaviour
     float fireRateTimer;
     Inventory inventory;
     AudioSource audioSource;
+    string gunID;
+    public int gunSlot;
     
 
 
@@ -29,6 +31,8 @@ public class Weapon : MonoBehaviour
         isEquipped = false;
         gunSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         gunSpriteRenderer.sprite = gun.weaponSprites[0];
+        gunID = gun.ID;
+        Debug.Log(gunID);
     }
 
     void Update()
@@ -61,19 +65,25 @@ public class Weapon : MonoBehaviour
             }
         }
 
-       
+        
+
+
 
     }
 
     void WeaponShooting()
     {
-        if (canShoot)
+        if (canShoot && gunSlot == inventory.equippedSlot)
         {
-            GameObject bullet = Instantiate(gun.ammoType, shootingPoints[0].transform.position, shootingPoints[0].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
-            inventory.ammoCounter--;
+            for (int i = 0; i < shootingPoints.Length; i++)
+            {
+                GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
+                                            
+            }
             audioSource.PlayOneShot(gun.gunSounds[0]);
+            inventory.ammoCounter--;
             canShoot = false;
         }
 
@@ -87,7 +97,13 @@ public class Weapon : MonoBehaviour
             {
                 if(inventory.isFull[i] == false)
                 {
+                    inventory.gunGameObject[i] = gameObject;
+
+                    gunSlot = i;
+
                     isEquipped = true;
+
+                    inventory.gunID[i] = gunID;
 
                     inventory.isFull[i] = true;
 
@@ -105,7 +121,8 @@ public class Weapon : MonoBehaviour
 
                     break;
                 }
-                else if(inventory.isFull[i] == true && ammoCount > 0)
+                
+                if(inventory.isFull[i] == true  && ammoCount > 0 && gunID == inventory.gunID[i])
                 {
                     inventory.ammoCounter += ammoCount;
                     ammoCount = 0;
