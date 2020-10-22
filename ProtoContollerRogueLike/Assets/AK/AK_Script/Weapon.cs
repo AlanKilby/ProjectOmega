@@ -101,6 +101,8 @@ public class Weapon : MonoBehaviour
 
                     inventory.ammoCounter += ammoCount;
 
+                    ammoCount = 0;
+
                     break;
                 }
                 else if(inventory.isFull[i] == true && ammoCount > 0)
