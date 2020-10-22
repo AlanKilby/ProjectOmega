@@ -28,7 +28,7 @@ public class LootDrop : MonoBehaviour
             if(Random.value <= dropGun)
             {
                 Debug.Log("Drop Gun");
-                Instantiate(weaponList.weapons[Random.Range(0,weaponList.weapons.Length)], gameObject.transform.position, Quaternion.identity);
+                Instantiate(weaponList.weapons[Random.Range(0,weaponList.weapons.Length)], gameObject.transform.position, Quaternion.Euler(0,0,Random.Range(-180,180)));
                 Destroy(gameObject);
             }
             else if (Random.value > dropGun && Random.value <= dropModule)

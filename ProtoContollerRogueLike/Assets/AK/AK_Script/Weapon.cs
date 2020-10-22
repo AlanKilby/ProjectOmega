@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     AudioSource audioSource;
     string gunID;
     public int gunSlot;
+    bool gunAlreadyInInv;
     
 
 
@@ -33,6 +34,7 @@ public class Weapon : MonoBehaviour
         gunSpriteRenderer.sprite = gun.weaponSprites[0];
         gunID = gun.ID;
         Debug.Log(gunID);
+        gunAlreadyInInv = false;
     }
 
     void Update()
@@ -95,7 +97,7 @@ public class Weapon : MonoBehaviour
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
-                if(inventory.isFull[i] == false)
+                if(inventory.isFull[i] == false && gunAlreadyInInv == false)
                 {
                     inventory.gunGameObject[i] = gameObject;
 
@@ -124,6 +126,7 @@ public class Weapon : MonoBehaviour
                 
                 if(inventory.isFull[i] == true  && ammoCount > 0 && gunID == inventory.gunID[i])
                 {
+                    gunAlreadyInInv = true;
                     inventory.ammoCounter += ammoCount;
                     ammoCount = 0;
                     audioSource.PlayOneShot(gun.gunSounds[1]);
