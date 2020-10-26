@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 8628224788671534798}
   - component: {fileID: 8628224788671534785}
   - component: {fileID: 8628224788671534784}
-  - component: {fileID: 8628224788671534787}
   - component: {fileID: 8628224788671534796}
   - component: {fileID: 8628224788671534799}
   - component: {fileID: 3724508107944942804}
@@ -51,6 +50,7 @@ GameObject:
   - component: {fileID: 8628224788671534790}
   - component: {fileID: 8628224788671534791}
   - component: {fileID: -3984994149851973399}
+  - component: {fileID: -384066386972813496}
   m_Layer: 11
   m_Name: UD_Zombie
   m_TagString: Ennemi
@@ -65,7 +65,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8628224788671534786}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.14580452, y: 1.6786318, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -144,32 +144,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8628224788671534787
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8628224788671534786}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015834987, y: -0.06334019}
-  m_SpriteTilingProperty:
-    border: {x: 0.15625, y: 0.03125, z: 0.1875, w: 0.1875}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.04, y: 0.04}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.60142434, y: 0.7482586}
-  m_EdgeRadius: 0
 --- !u!95 &8628224788671534796
 Animator:
   serializedVersion: 3
@@ -201,24 +175,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6caa1763b1075fb4bac48d108f8ac2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
   lootDrop: {fileID: 0}
   anim: {fileID: 8628224788671534796}
   health: 20
-  damage: 1
   dropRate: 2
-  attackHitBoxPos: {fileID: 8717079819833229508}
-  playerPos: {fileID: 0}
-  whatIsKillable:
-    serializedVersion: 2
-    m_Bits: 512
-  attackRadius: 0.3
-  zombieHitFireRate: 0.5
   takeDamage: 0
-  combatEnable: 0
-  isAttacking: 0
 --- !u!114 &3724508107944942804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,3 +318,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisRoom: {fileID: 0}
+--- !u!114 &-384066386972813496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628224788671534786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb766e6cacdc1a4589c70536b2c582e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  anim: {fileID: 8628224788671534796}
+  damage: 1
+  attackHitBoxPos: {fileID: 8717079819833229508}
+  playerPos: {fileID: 0}
+  whatIsKillable:
+    serializedVersion: 2
+    m_Bits: 512
+  attackRadius: 0.28
+  zombieHitFireRate: 0.5
+  combatEnable: 0
+  isAttacking: 0

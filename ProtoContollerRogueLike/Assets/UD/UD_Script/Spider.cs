@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Spider : MonoBehaviour
 {
+    public LayerMask whatIsPlayer;
+    public LayerMask whatIsEnvironement;
+
     public float speed;
     public float affraidArea;
     public float spiderFireRate;
@@ -13,7 +16,7 @@ public class Spider : MonoBehaviour
     public float spiderBulletForce;
 
     private bool canShoot;
-    private bool playerInSight;
+    [SerializeField] private bool playerInSight;
 
     public Transform firePoint;
     public Transform playerPos;
@@ -24,7 +27,7 @@ public class Spider : MonoBehaviour
 
     private void Start()
     {
-        thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
+        //thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();  ///////A REMETTRE PLUS TARD
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     private void Update()
@@ -36,16 +39,22 @@ public class Spider : MonoBehaviour
             diff.Normalize();
 
             float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+            transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
 
             CheckPlayerPosition();
             FireRateTimer();
-            PlayerInSight();
             if(playerInSight && canShoot)
             {
                 Shoot();
+                spiderFireRateTimer = spiderFireRate;
+                canShoot = false;
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        PlayerInSight();
     }
 
     private void CheckPlayerPosition()
@@ -81,12 +90,31 @@ public class Spider : MonoBehaviour
 
     private void PlayerInSight()
     {
-        RaycastHit2D sight = Physics2D.Linecast(transform.position, playerPos.position);
-        if (sight.collider.CompareTag("Player"))
+        RaycastHit2D sight = Physics2D.Linecast(transform.position, playerPos.position, whatIsEnvironement);
+        /*if (sight.collider.CompareTag("Player"))
         {
+            print("see player");
             playerInSight = true;
         }
-        else playerInSight = false;
+        else if (!sight.collider.CompareTag("Player"))
+        {
+            playerInSight = false; print("no see player");
+        }*/
+        playerInSight = true;
+        if (sight.collider.CompareTag("Environement"))
+        {
+            print("obstacle");
+            playerInSight = false;
+        }
+        /*if (!sight.collider.CompareTag("Environement"))
+        {
+            playerInSight = true;
+        }*/
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, playerPos.position);
     }
 
 }
