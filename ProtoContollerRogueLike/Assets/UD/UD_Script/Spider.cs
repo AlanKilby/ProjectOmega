@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Pathfinding;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class Spider : MonoBehaviour
     public float spiderBulletForce;
 
     private bool canShoot;
+    public bool playerInAffraidArea;
     [SerializeField] private bool playerInSight;
 
     public Transform firePoint;
@@ -23,25 +25,24 @@ public class Spider : MonoBehaviour
     public RoomTriggerCollider thisRoom;
 
     public GameObject spiderBulletPrefab;
+    public GameObject ownAffraidArea;
     [SerializeField] private Rigidbody2D ownRB;
 
     private void Start()
     {
         //thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();  ///////A REMETTRE PLUS TARD
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        //ownRB = GetComponent<Rigidbody2D>(); //Créer bug de pathfiding
     }
     private void Update()
     {
         if (thisRoom.playerIsInTheRoom == true)
         {
-            // Cette partie du script fut trouvee sur le forum Unity https://answers.unity.com/questions/585035/lookat-2d-equivalent-.html?_ga=2.230719519.1043224240.1601999147-1783980511.1597703941
-            Vector3 diff = playerPos.position - gameObject.transform.position;
-            diff.Normalize();
-
-            float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
-
-            CheckPlayerPosition();
+            if (playerInSight)
+            {
+                LookToPlayer();
+            }
+            //CheckPlayerPosition();
             FireRateTimer();
             if(playerInSight && canShoot)
             {
@@ -49,12 +50,48 @@ public class Spider : MonoBehaviour
                 spiderFireRateTimer = spiderFireRate;
                 canShoot = false;
             }
+            Move();
         }
     }
 
     private void FixedUpdate()
     {
         PlayerInSight();
+    }
+
+    private void Move()
+    {
+        if (!playerInSight)
+        {
+            gameObject.GetComponent<AIPath>().enabled = true;
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            ownAffraidArea.SetActive(false);
+            playerInAffraidArea = false;
+        }
+        else
+        {
+            gameObject.GetComponent<AIPath>().enabled = false;
+            ownAffraidArea.SetActive(true);
+        }
+
+        /*if (playerInAffraidArea)
+        {
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+        }
+        if (!playerInAffraidArea)
+        {
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+        }*/
+    }
+
+    private void LookToPlayer()
+    {
+        // Cette partie du script fut trouvee sur le forum Unity https://answers.unity.com/questions/585035/lookat-2d-equivalent-.html?_ga=2.230719519.1043224240.1601999147-1783980511.1597703941
+        Vector3 diff = playerPos.position - gameObject.transform.position;
+        diff.Normalize();
+
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
     private void CheckPlayerPosition()
@@ -64,8 +101,16 @@ public class Spider : MonoBehaviour
         {
             if (playerPos.CompareTag("Player"))
             {
-                ownRB.AddForce(transform.forward * (-speed), ForceMode2D.Force);
+                playerInAffraidArea = true;
             }
+            else
+            {
+                playerInAffraidArea = false;
+            }
+        }
+        if (playerInAffraidArea)
+        {
+            ownRB.AddForce(transform.forward * (-speed), ForceMode2D.Force);
         }
     }
 
@@ -101,9 +146,8 @@ public class Spider : MonoBehaviour
             playerInSight = false; print("no see player");
         }*/
         playerInSight = true;
-        if (sight.collider.CompareTag("Environement"))
+        if (sight.collider.CompareTag("Environement") && sight != null)
         {
-            print("obstacle");
             playerInSight = false;
         }
         /*if (!sight.collider.CompareTag("Environement"))
@@ -115,6 +159,7 @@ public class Spider : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, playerPos.position);
+        Gizmos.DrawWireSphere(transform.position, affraidArea);
     }
 
 }

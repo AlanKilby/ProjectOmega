@@ -20,20 +20,22 @@ public class SwordAttack : MonoBehaviour
     public bool gotInput;
     public bool isAttacking;
 
-    [SerializeField]
-    private Shooting Sh;
-
     [SerializeField] private Animator anim;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
+        combatEnabled = true;
     }
 
     private void Update()
     {
         CheckAttacks();
+        if (Input.GetButtonDown("Fire2"))
+        {
+            GetAttackInput();
+        }
     }
 
     public void GetAttackInput()
