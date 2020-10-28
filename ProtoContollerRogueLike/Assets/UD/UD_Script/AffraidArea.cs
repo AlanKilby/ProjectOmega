@@ -6,6 +6,15 @@ public class AffraidArea : MonoBehaviour
 {
     [SerializeField] Spider Sp;
 
+    private void Update()
+    {
+
+        if (!Sp.playerInSight)
+        {
+            Sp.playerInAffraidArea = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

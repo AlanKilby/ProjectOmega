@@ -9,16 +9,21 @@ public class Spider : MonoBehaviour
     public LayerMask whatIsPlayer;
     public LayerMask whatIsEnvironement;
 
-    public float speed;
-    public float affraidArea;
+    public float fleeSpeed;
+    //public float affraidArea;
     public float spiderFireRate;
     private float spiderFireRateTimer;
     public float spiderImprecision;
     public float spiderBulletForce;
+    [SerializeField] private float ownRBvelocityX;
+    [SerializeField] private float ownRBvelocityY;
+    [SerializeField] [Range(0.0f, 1.0f)] private float lastHopeShootvelocityLimiteX;
+    [SerializeField] [Range(0.0f, 1.0f)] private float lastHopeShootvelocityLimiteY;
 
     private bool canShoot;
     public bool playerInAffraidArea;
-    [SerializeField] private bool playerInSight;
+    public bool lastHopeShoot;
+    public bool playerInSight;
 
     public Transform firePoint;
     public Transform playerPos;
@@ -30,9 +35,10 @@ public class Spider : MonoBehaviour
 
     private void Start()
     {
-        //thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();  ///////A REMETTRE PLUS TARD
+        playerInAffraidArea = false;
+        thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        //ownRB = GetComponent<Rigidbody2D>(); //Créer bug de pathfiding
+        ownRB = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
@@ -44,7 +50,7 @@ public class Spider : MonoBehaviour
             }
             //CheckPlayerPosition();
             FireRateTimer();
-            if(playerInSight && canShoot)
+            if(playerInSight && canShoot && (!playerInAffraidArea||lastHopeShoot))
             {
                 Shoot();
                 spiderFireRateTimer = spiderFireRate;
@@ -68,20 +74,34 @@ public class Spider : MonoBehaviour
             ownAffraidArea.SetActive(false);
             playerInAffraidArea = false;
         }
-        else
+        if (playerInSight)
         {
             gameObject.GetComponent<AIPath>().enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             ownAffraidArea.SetActive(true);
         }
 
-        /*if (playerInAffraidArea)
+        if (playerInAffraidArea)
         {
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            Vector3 fleeDirection = playerPos.position - gameObject.transform.position;
+            fleeDirection.Normalize();
+            ownRB.AddForce(fleeDirection * (-fleeSpeed));
         }
         if (!playerInAffraidArea)
         {
-            gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
-        }*/
+            ownRB.velocity = new Vector2(0, 0);
+        }
+
+        ownRBvelocityX = Mathf.Abs(ownRB.velocity.x);
+        ownRBvelocityY = Mathf.Abs(ownRB.velocity.y);
+
+        Vector2 lastHope = new Vector2(lastHopeShootvelocityLimiteX, lastHopeShootvelocityLimiteY);
+        if (ownRBvelocityX <= lastHope.x && ownRBvelocityY <= lastHope.y)
+        {
+            lastHopeShoot = true;
+        }
+        else lastHopeShoot = false;
     }
 
     private void LookToPlayer()
@@ -94,7 +114,7 @@ public class Spider : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
 
-    private void CheckPlayerPosition()
+    /*private void CheckPlayerPosition()
     {
         Collider2D playerPos = Physics2D.OverlapCircle(transform.position, affraidArea);
         if(playerPos != null)
@@ -112,7 +132,7 @@ public class Spider : MonoBehaviour
         {
             ownRB.AddForce(transform.forward * (-speed), ForceMode2D.Force);
         }
-    }
+    }*/
 
     private void Shoot()
     {
@@ -150,16 +170,12 @@ public class Spider : MonoBehaviour
         {
             playerInSight = false;
         }
-        /*if (!sight.collider.CompareTag("Environement"))
-        {
-            playerInSight = true;
-        }*/
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, playerPos.position);
-        Gizmos.DrawWireSphere(transform.position, affraidArea);
+        //Gizmos.DrawWireSphere(transform.position, affraidArea);
     }
 
 }

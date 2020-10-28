@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     public int damage;
 
     bool coroutineRunning = false;
+    public bool isEnnemyBullet;
 
     private void Start()
     {
@@ -41,7 +42,7 @@ public class Bullet : MonoBehaviour
         {
 
             Rigidbody2D enemy = hitInfo.collider.GetComponent<Rigidbody2D>();
-            if (hitInfo.collider.CompareTag("Ennemi"))
+            if (hitInfo.collider.CompareTag("Ennemi") && !isEnnemyBullet)
             {
                 hitInfo.collider.GetComponent<EnnemisScript>().TakeDamage(damage);
                 /*enemy.isKinematic = false;
@@ -50,7 +51,17 @@ public class Bullet : MonoBehaviour
                 enemy.AddForce(difference, ForceMode2D.Impulse);
                 StartCoroutine(KnockCo(enemy));*/
                 Destroy(gameObject);
-             }
+            }
+            if (hitInfo.collider.CompareTag("Player") && isEnnemyBullet)
+            {
+                hitInfo.collider.GetComponent<PlayerHealth>().TakeDamage(damage);
+                /*enemy.isKinematic = false;
+                Vector2 difference = enemy.transform.position - transform.position;
+                difference = difference.normalized * poussée;
+                enemy.AddForce(difference, ForceMode2D.Impulse);
+                StartCoroutine(KnockCo(enemy));*/
+                Destroy(gameObject);
+            }
 
             if (hitInfo.collider.CompareTag("Environement"))
             {

@@ -60,7 +60,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.46
+  m_Radius: 4.88
 --- !u!1 &2152293155314350561
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +213,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 2152293155997732549}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6d80a3306e1cc6349a064d6e780cd129, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -257,12 +257,16 @@ MonoBehaviour:
   whatIsEnvironement:
     serializedVersion: 2
     m_Bits: 4096
-  speed: 1
-  affraidArea: 3.64
+  speed: 3
   spiderFireRate: 1
   spiderImprecision: 0
   spiderBulletForce: 3
-  playerInAffraidArea: 0
+  ownRBvelocityX: 0.75
+  ownRBvelocityY: 0
+  lastHopeShootvelocityLimiteX: 0.3
+  lastHopeShootvelocityLimiteY: 0.3
+  playerInAffraidArea: 1
+  lastHopeShoot: 0
   playerInSight: 0
   firePoint: {fileID: 2152293155314350560}
   playerPos: {fileID: 0}
@@ -350,10 +354,10 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 180
-  slowdownDistance: 0.6
+  slowdownDistance: 0.97
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
+  endReachedDistance: 0.63
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
