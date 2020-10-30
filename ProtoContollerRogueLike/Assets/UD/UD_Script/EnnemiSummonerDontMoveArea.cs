@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AffraidArea : MonoBehaviour
+public class EnnemiSummonerDontMoveArea : MonoBehaviour
 {
-    [SerializeField] Spider Sp;
+    [SerializeField] EnnemiSummoner ES;
 
     private void Update()
     {
 
-        if (!Sp.playerInSight)
+        if (!ES.playerInSight)
         {
-            Sp.playerInAffraidArea = false;
+            ES.playerInDontMoveArea = false;
         }
     }
 
@@ -19,22 +19,22 @@ public class AffraidArea : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Sp.playerInAffraidArea = true;
+            ES.playerInDontMoveArea = true;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Sp.playerInAffraidArea = true;
+            ES.playerInDontMoveArea = true;
         }
     }
-    
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Sp.playerInAffraidArea = false;
+            ES.playerInDontMoveArea = false;
         }
     }
 }

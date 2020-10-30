@@ -8,9 +8,13 @@ public class EnnemiSummoner : MonoBehaviour
     public LayerMask whatIsPlayer;
     public LayerMask whatIsEnvironement;
 
+    [SerializeField] private Animator anim;
+
     public float fleeSpeed;
     public float summonRate;
     private float summonRateTimer;
+    public float summoningLenght;
+    private float summoningTimer;
     [SerializeField] private float ownRBvelocityX;
     [SerializeField] private float ownRBvelocityY;
     [SerializeField] [Range(0.0f, 1.0f)] private float lastHopeShootvelocityLimiteX;
@@ -19,6 +23,7 @@ public class EnnemiSummoner : MonoBehaviour
     private bool canSummon;
     private bool isSummoning;
     public bool playerInAffraidArea;
+    public bool playerInDontMoveArea;
     public bool lastHopeSummon;
     public bool playerInSight;
 
@@ -39,6 +44,7 @@ public class EnnemiSummoner : MonoBehaviour
         thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ownRB = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -50,14 +56,17 @@ public class EnnemiSummoner : MonoBehaviour
                 LookToPlayer();
             }
             FireRateTimer();
+            SummoningTimer();
             if (playerInSight && canSummon && (!playerInAffraidArea || lastHopeSummon))
             {
-                Summon();
                 summonRateTimer = summonRate;
+                summoningTimer = summoningLenght;
                 canSummon = false;
+                isSummoning = true;
             }
             Move();
         }
+        UpdateAnims();
     }
 
     private void FixedUpdate()
@@ -65,9 +74,20 @@ public class EnnemiSummoner : MonoBehaviour
         PlayerInSight();
     }
 
+    void UpdateAnims()
+    {
+        anim.SetBool("isSummoning", isSummoning);
+    }
+
+    public void StopSummoningAnim()
+    {
+        isSummoning = false;
+        Summon();
+    }
+
     private void Move()
     {
-        if (!playerInSight)
+        /*if (!playerInSight)
         {
             gameObject.GetComponent<AIPath>().enabled = true;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
@@ -86,10 +106,26 @@ public class EnnemiSummoner : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             ownAffraidArea.SetActive(false);
             playerInAffraidArea = false;
+        }*/
+        
+        if (!isSummoning && !playerInDontMoveArea)
+        {
+            gameObject.GetComponent<AIPath>().enabled = true;
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            ownAffraidArea.SetActive(true);
         }
+        if (isSummoning)
+        {
+            gameObject.GetComponent<AIPath>().enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            ownAffraidArea.SetActive(false);
+            playerInAffraidArea = false;
+        }
+        
 
         if (playerInAffraidArea)
         {
+            gameObject.GetComponent<AIPath>().enabled = false;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             Vector3 fleeDirection = playerPos.position - gameObject.transform.position;
             fleeDirection.Normalize();
@@ -98,6 +134,11 @@ public class EnnemiSummoner : MonoBehaviour
         if (!playerInAffraidArea)
         {
             ownRB.velocity = new Vector2(0, 0);
+        }
+        if (playerInDontMoveArea)
+        {
+            gameObject.GetComponent<AIPath>().enabled = false;
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
         }
 
         ownRBvelocityX = Mathf.Abs(ownRB.velocity.x);
@@ -133,11 +174,20 @@ public class EnnemiSummoner : MonoBehaviour
         if (!canSummon)
         {
             summonRateTimer -= Time.deltaTime;
-            isSummoning = true;
             if (summonRateTimer < 0.0f)
             {
-                isSummoning = false;
                 canSummon = true;
+            }
+        }
+    }
+    private void SummoningTimer()
+    {
+        if (isSummoning)
+        {
+            summoningTimer -= Time.deltaTime;
+            if (summoningTimer < 0.0f)
+            {
+                StopSummoningAnim();
             }
         }
     }
@@ -146,9 +196,12 @@ public class EnnemiSummoner : MonoBehaviour
     {
         RaycastHit2D sight = Physics2D.Linecast(transform.position, playerPos.position, whatIsEnvironement);
         playerInSight = true;
-        if (sight.collider.CompareTag("Environement") && sight != null)
+        if(sight != false)
         {
-            playerInSight = false;
+            if (sight.collider.CompareTag("Environement"))
+            {
+                playerInSight = false;
+            }
         }
     }
 

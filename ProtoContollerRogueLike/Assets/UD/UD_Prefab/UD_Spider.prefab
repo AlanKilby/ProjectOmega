@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 4588835750151446174}
   - component: {fileID: 4588835750151446175}
   - component: {fileID: 4588835750151446112}
-  - component: {fileID: -2514668945451496836}
   - component: {fileID: 4588835750151446173}
   - component: {fileID: 4588835750151446170}
   - component: {fileID: 4588835750151446169}
@@ -240,41 +239,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-2514668945451496836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4588835750151446113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 401d726d7de77c247b732207a56982fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  whatIsEnvironement:
-    serializedVersion: 2
-    m_Bits: 0
-  fleeSpeed: 0
-  summonRate: 0
-  ownRBvelocityX: 0
-  ownRBvelocityY: 0
-  lastHopeShootvelocityLimiteX: 0
-  lastHopeShootvelocityLimiteY: 0
-  playerInAffraidArea: 0
-  lastHopeSummon: 0
-  playerInSight: 0
-  spawnPoint1: {fileID: 0}
-  spawnPoint2: {fileID: 0}
-  spawnPoint3: {fileID: 0}
-  playerPos: {fileID: 0}
-  thisRoom: {fileID: 0}
-  minionsPrefab: {fileID: 0}
-  ownAffraidArea: {fileID: 0}
-  ownRB: {fileID: 0}
 --- !u!114 &4588835750151446173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +257,7 @@ MonoBehaviour:
   whatIsEnvironement:
     serializedVersion: 2
     m_Bits: 4096
-  fleeSpeed: 0
+  fleeSpeed: 3
   spiderFireRate: 1
   spiderImprecision: 0
   spiderBulletForce: 3

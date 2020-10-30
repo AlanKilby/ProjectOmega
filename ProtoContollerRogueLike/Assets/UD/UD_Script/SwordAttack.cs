@@ -72,10 +72,10 @@ public class SwordAttack : MonoBehaviour
                 hitInfo.GetComponent<EnnemisScript>().TakeDamage(damage);
             }
 
-            if (hitInfo.CompareTag("Environement"))
+            /*if (hitInfo.CompareTag("Environement"))
             {
                 Destroy(gameObject);
-            }
+            }*/
         }
     }
 

@@ -22,6 +22,13 @@ public class AffraidAreaSummoner : MonoBehaviour
             ES.playerInAffraidArea = true;
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            ES.playerInAffraidArea = true;
+        }
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {

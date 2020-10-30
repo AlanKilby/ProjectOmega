@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class EnnemiSummonerSpawner : MonoBehaviour
 {
+    public LayerMask whatIsEnvironement;
     [SerializeField] EnnemiSummoner ES;
 
     public Transform currentRoom;
     public RoomTriggerCollider isPlayerInRoom;
     public float spawnChance;
+    [SerializeField] private float spawnZoneRadius;
 
-    private bool spawnZoneAllowed;
+    [SerializeField] private bool spawnZoneAllowed;
 
+    [SerializeField] GameObject minionsPlayground;
     private void Start()
     {
+        spawnZoneAllowed = true;
         currentRoom = gameObject.transform.parent;
         isPlayerInRoom = currentRoom.GetComponentInParent<RoomTriggerCollider>();
     }
 
     public void SpawnEnemy()
     {
-        Debug.Log("SpawnedMinions");
-        Instantiate(ES.minionsPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
-        //GameObject minion = Instantiate(ES.minionsPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
-        //minion.transform.SetParent(currentRoom);
-        /*int i;
+        //Instantiate(ES.minionsPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
+        if (spawnZoneAllowed)
+        {
+            GameObject minion = Instantiate(ES.minionsPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
+            minion.transform.SetParent(minionsPlayground.transform);
+        }
+        /* POUR AJOUTER UNE CHANCE DE FAIRE SPAWNER
+        int i;
 
         i = Random.Range(1, 101);
 
@@ -35,19 +42,33 @@ public class EnnemiSummonerSpawner : MonoBehaviour
         }*/
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*public void CheckSpawnZone()
     {
-        if (collision.CompareTag("Environement"))
+        Collider2D hitInfo = Physics2D.OverlapCircle(gameObject.transform.position, spawnZoneRadius, whatIsEnvironement);
+        if (hitInfo != null)
         {
-            spawnZoneAllowed = true;
+            if (!hitInfo.CompareTag("Environement"))
+            {
+                SpawnEnemy();
+            }
+        }
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Environement")
+        {
+            print("CollisionEnter");
+            spawnZoneAllowed = false;
         }
     }
     
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.CompareTag("Environement"))
+        if (other.gameObject.tag == "Environement")
         {
-            spawnZoneAllowed = false;
+            print("CollisionExit");
+            spawnZoneAllowed = true;
         }
     }
 }
