@@ -462,8 +462,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7117853998174313420}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.15, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7117853997672600971}
@@ -648,7 +648,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   anim: {fileID: 7117853998174313456}
-  fleeSpeed: 200
+  fleeSpeed: 50
   summonRate: 5
   summoningLenght: 2
   ownRBvelocityX: 0
@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 7117853998204430288}
   m_Layer: 0
   m_Name: UD_Summoner
-  m_TagString: Untagged
+  m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

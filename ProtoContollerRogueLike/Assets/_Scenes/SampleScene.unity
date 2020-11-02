@@ -13878,6 +13878,8 @@ MonoBehaviour:
   dashReloadTimeSet: 2
   dashReloadTimer: 0
   dashTimePercent: 0
+  playerRBVelovityX: 0
+  playerRBVelovityY: 0
   rb: {fileID: 1752818713}
   cam: {fileID: 519420031}
   anim: {fileID: 1752818720}
@@ -15354,6 +15356,12 @@ PrefabInstance:
       propertyPath: enemies.Array.data[1]
       value: 
       objectReference: {fileID: 4588835750151446113, guid: 7f9332d9d853cc24caf1927ca97877b5,
+        type: 3}
+    - target: {fileID: 809148373185888897, guid: b4d71b36c64ab59468d09a1aec54d00c,
+        type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 7117853998204430289, guid: c784408ec831bc149827f7f9d8f756b7,
         type: 3}
     - target: {fileID: 809148373185888910, guid: b4d71b36c64ab59468d09a1aec54d00c,
         type: 3}

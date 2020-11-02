@@ -20,6 +20,8 @@ public class PlayerMouvement : MonoBehaviour
     public float dashReloadTimeSet;
     public float dashReloadTimer;
     public float dashTimePercent;
+    public float playerRBVelovityX;
+    public float playerRBVelovityY;
 
     public Rigidbody2D rb;
     public Camera cam;
@@ -54,6 +56,7 @@ public class PlayerMouvement : MonoBehaviour
         DashAttempt();
         Dash();
         DashTimer();
+        RBVelocityShow();
     }
 
     void Mouvement()
@@ -103,6 +106,12 @@ public class PlayerMouvement : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90.0f;
         rb.rotation = angle;
+    }
+
+    void RBVelocityShow()
+    {
+        playerRBVelovityX = transform.InverseTransformDirection(rb.velocity).x;
+        playerRBVelovityY = transform.InverseTransformDirection(rb.velocity).y;
     }
 
     void DashAttempt()

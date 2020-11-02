@@ -26,8 +26,9 @@ public class EnemySpawner : MonoBehaviour
 
         if (i <= spawnChance && i >= 1)
         {
-            Debug.Log("Spawned");
-            Instantiate(enemyList.enemies[0], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
+            int j = Random.Range(0, enemyList.enemies.Length);
+            //Debug.Log("Spawned");
+            Instantiate(enemyList.enemies[j], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
         }
     }
 }

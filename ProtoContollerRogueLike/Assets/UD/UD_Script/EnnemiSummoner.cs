@@ -129,7 +129,7 @@ public class EnnemiSummoner : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             Vector3 fleeDirection = playerPos.position - gameObject.transform.position;
             fleeDirection.Normalize();
-            ownRB.AddForce(fleeDirection * (-fleeSpeed));
+            ownRB.AddForce(fleeDirection * (-fleeSpeed), ForceMode2D.Force);
         }
         if (!playerInAffraidArea)
         {
