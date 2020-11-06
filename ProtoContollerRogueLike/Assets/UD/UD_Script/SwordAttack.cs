@@ -6,6 +6,7 @@ public class SwordAttack : MonoBehaviour
 {
     public LayerMask whatIsEnnemy;
 
+    PlayerHealth PH;
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
@@ -14,19 +15,23 @@ public class SwordAttack : MonoBehaviour
     private LayerMask whatIsKillable;
     [SerializeField]
     private float attackRadius;
+    public float vampireHealthStollen;
 
     public int damage;
 
     public bool gotInput;
     public bool isAttacking;
+    public bool isVampire;
 
     [SerializeField] private Animator anim;
 
     private void Start()
     {
+        PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         combatEnabled = true;
+        isVampire = false;
     }
 
     private void Update()
@@ -70,6 +75,17 @@ public class SwordAttack : MonoBehaviour
             {
                 Debug.Log("DAMAGE");
                 hitInfo.GetComponent<EnnemisScript>().TakeDamage(damage);
+                if (isVampire)
+                {
+                    if (PH.currentPlayerHealth < PH.totalPlayerHealth - vampireHealthStollen)
+                    {
+                        PH.currentPlayerHealth = PH.currentPlayerHealth + vampireHealthStollen;
+                    }
+                    else
+                    {
+                        PH.currentPlayerHealth = PH.totalPlayerHealth;
+                    }
+                }
             }
 
             /*if (hitInfo.CompareTag("Environement"))
