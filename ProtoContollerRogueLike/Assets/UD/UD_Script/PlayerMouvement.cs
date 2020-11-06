@@ -29,6 +29,8 @@ public class PlayerMouvement : MonoBehaviour
 
     public Vector2 playerInput;
     Vector2 mousePos;
+    [SerializeField] Vector3 lastInput;
+
 
     //public AnimationCurve acceleration = AnimationCurve.EaseInOut(0, 0, 0.75f, 2);
     //public AnimationCurve decceleration = AnimationCurve.EaseInOut(0, 1, 1, 0);
@@ -52,11 +54,16 @@ public class PlayerMouvement : MonoBehaviour
     private void FixedUpdate()
     {
         Mouvement();
-        Aim();
+        if (!isDashing)
+        {
+            Aim();
+        }
+        else LookLock();
         DashAttempt();
         Dash();
         DashTimer();
         RBVelocityShow();
+        InputDetector();
     }
 
     void Mouvement()
@@ -108,6 +115,20 @@ public class PlayerMouvement : MonoBehaviour
         rb.rotation = angle;
     }
 
+    void InputDetector()
+    {
+        if (!isDashing)
+        {
+            lastInput = playerInput;
+        }
+    }
+
+    void LookLock()
+    {
+        float angle = Mathf.Atan2(lastInput.y, lastInput.x) * Mathf.Rad2Deg - 90.0f;
+        rb.rotation = angle;
+    }
+
     void RBVelocityShow()
     {
         playerRBVelovityX = transform.InverseTransformDirection(rb.velocity).x;
@@ -116,7 +137,7 @@ public class PlayerMouvement : MonoBehaviour
 
     void DashAttempt()
     {
-        if (Input.GetKey(KeyCode.Space) && canDash)
+        if (Input.GetKey(KeyCode.Space) && canDash && rb.velocity != new Vector2(0,0))
         {
             isDashing = true;
         }

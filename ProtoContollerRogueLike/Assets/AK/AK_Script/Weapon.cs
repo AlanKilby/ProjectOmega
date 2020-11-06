@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Gun gun;
+    public PlayerMouvement PM;
 
     //Graphics 
     public SpriteRenderer gunSpriteRenderer;
@@ -27,6 +28,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
         audioSource = gameObject.GetComponent<AudioSource>();
         canShoot = true;
         isEquipped = false;
@@ -51,7 +53,7 @@ public class Weapon : MonoBehaviour
         }
 
         //Shooting
-        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter > 0)
+        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter > 0 && !PM.isDashing)
         {
             WeaponShooting();
         }

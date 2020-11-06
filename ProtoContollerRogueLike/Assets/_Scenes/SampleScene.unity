@@ -13851,6 +13851,7 @@ GameObject:
   - component: {fileID: 1752818718}
   - component: {fileID: 1752818721}
   - component: {fileID: 1752818722}
+  - component: {fileID: 1752818723}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -14148,6 +14149,24 @@ MonoBehaviour:
   ammoCounter: 0
   ammoCounterAA12: 0
   equippedSlot: 0
+--- !u!114 &1752818723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752818711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e826191097e1340add57d550d9566c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torchLight: {fileID: 53580256}
+  bugChance: 25
+  timeBetweenBug: 5
+  firstDisappearTime: 0.1
+  timeBetweenDisappear: 0.4
+  secondDisappearTime: 0.2
 --- !u!1001 &1771791805
 PrefabInstance:
   m_ObjectHideFlags: 0
