@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class Module : MonoBehaviour
 {
-    public float fireRateMultiplier;
+    public GameObject moduleIcon;
+    public float spawnProbability;
+    public int moduleSlot;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") == true)
-        {
-            collision.GetComponent<Shooting>().UpgradeRateOfFire(fireRateMultiplier);
-            Destroy(gameObject);
-        }
-    }
 }

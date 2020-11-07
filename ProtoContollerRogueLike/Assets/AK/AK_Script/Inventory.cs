@@ -5,9 +5,12 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public bool[] isFull;
+    public bool[] isFullModule;
     public string[] gunID;
     public GameObject[] gunGameObject;
+    public GameObject[] moduleGameObject;
     public GameObject[] slots;
+    public GameObject[] moduleSlots;
 
     public int ammoCounter;
     public int ammoCounterAA12;
@@ -36,6 +39,19 @@ public class Inventory : MonoBehaviour
                 gunGameObject[i].GetComponent<Weapon>().gunSpriteRenderer.enabled = true;
             }
 
-        }       
+        } 
+        
+        /*for (int i = 0; i < isFullModule.Length; i++)
+        {
+            if (equippedSlot != moduleGameObject[i].GetComponent<Module>().moduleSlot)
+            {
+                gunGameObject[i].GetComponent<Weapon>().gunSpriteRenderer.enabled = false;
+            }
+            if (equippedSlot == moduleGameObject[i].GetComponent<Module>().moduleSlot)
+            {
+                gunGameObject[i].GetComponent<Weapon>().gunSpriteRenderer.enabled = true;
+            }
+
+        }*/       
     }
 }
