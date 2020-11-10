@@ -14239,12 +14239,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2506bf58e9e5a046a76aeff3c8820c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFull: 0000
+  isFull: 000000
   isFullModule: 000000
   gunID:
   - 
   - 
+  - 
+  ammoCounter: 000000000000000000000000
   gunGameObject:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   moduleGameObject:
@@ -14259,8 +14262,6 @@ MonoBehaviour:
   - {fileID: 6821621379200668759}
   - {fileID: 1760738776}
   - {fileID: 887647915}
-  ammoCounter: 0
-  ammoCounterAA12: 0
   equippedSlot: 0
 --- !u!114 &1752818723
 MonoBehaviour:
@@ -15788,7 +15789,7 @@ PrefabInstance:
     - target: {fileID: 1236445777880336933, guid: c4b998b872bb1e047b673db3778e5e7d,
         type: 3}
       propertyPath: m_Name
-      value: Weapon
+      value: AK-47
       objectReference: {fileID: 0}
     - target: {fileID: 1236445777880336933, guid: c4b998b872bb1e047b673db3778e5e7d,
         type: 3}

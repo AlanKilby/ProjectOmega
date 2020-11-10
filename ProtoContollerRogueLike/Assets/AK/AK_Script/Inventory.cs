@@ -7,13 +7,11 @@ public class Inventory : MonoBehaviour
     public bool[] isFull;
     public bool[] isFullModule;
     public string[] gunID;
+    public int[] ammoCounter;
     public GameObject[] gunGameObject;
     public GameObject[] moduleGameObject;
     public GameObject[] slots;
     public GameObject[] moduleSlots;
-
-    public int ammoCounter;
-    public int ammoCounterAA12;
 
     public int equippedSlot;
 
@@ -27,6 +25,10 @@ public class Inventory : MonoBehaviour
         {
             equippedSlot = 1;
         }
+        if (Input.GetKeyDown("3"))
+        {
+            equippedSlot = 2;
+        }
 
         for (int i = 0; i < isFull.Length; i++)
         {
@@ -38,6 +40,7 @@ public class Inventory : MonoBehaviour
             {
                 gunGameObject[i].GetComponent<Weapon>().gunSpriteRenderer.enabled = true;
             }
+
 
         } 
         

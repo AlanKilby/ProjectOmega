@@ -15,8 +15,9 @@ public class Gun : ScriptableObject
     public float accuracy;
     public float fireRate;
     public GameObject ammoType;
+    public int ammoID;
     public float bulletVelocity;
-
+    
 
     // Specific
     public string rarity;

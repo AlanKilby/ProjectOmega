@@ -53,7 +53,7 @@ public class Weapon : MonoBehaviour
         }
 
         //Shooting
-        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter > 0 && !PM.isDashing)
+        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
         {
             WeaponShooting();
         }
@@ -87,7 +87,7 @@ public class Weapon : MonoBehaviour
                                             
             }
             audioSource.PlayOneShot(gun.gunSounds[0]);
-            inventory.ammoCounter--;
+            inventory.ammoCounter[gun.ammoID]--;
             canShoot = false;
         }
 
@@ -99,6 +99,7 @@ public class Weapon : MonoBehaviour
         {
             for (int i = 0; i < inventory.slots.Length; i++)
             {
+                // If the inventory IS NOT full AND the gun IS NOT already in the inventory pick up the gun
                 if(inventory.isFull[i] == false && gunAlreadyInInv == false)
                 {
                     inventory.gunGameObject[i] = gameObject;
@@ -119,17 +120,18 @@ public class Weapon : MonoBehaviour
 
                     transform.rotation = collision.transform.rotation;
 
-                    inventory.ammoCounter += ammoCount;
+                    inventory.ammoCounter[gun.ammoID] += ammoCount;
 
                     ammoCount = 0;
 
                     break;
                 }
                 
+                // If the inventory IS full AND the gun IS already in the inventory pick up the ammo.
                 if(inventory.isFull[i] == true  && ammoCount > 0 && gunID == inventory.gunID[i])
                 {
                     gunAlreadyInInv = true;
-                    inventory.ammoCounter += ammoCount;
+                    inventory.ammoCounter[gun.ammoID] += ammoCount;
                     ammoCount = 0;
                     audioSource.PlayOneShot(gun.gunSounds[1]);
                 }
