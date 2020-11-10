@@ -23,6 +23,14 @@ public class PlayerMouvement : MonoBehaviour
     public float playerRBVelovityX;
     public float playerRBVelovityY;
 
+    //Ajout Gus
+    private string currentAnimation;
+
+    const string PLAYER_IDLE = "PlayerIdle";
+    const string PLAYER_WALK = "PlayerWalk";
+    const string PLAYER_DASH = "PlayerDash";
+    //
+
     public Rigidbody2D rb;
     public Camera cam;
     [SerializeField] private Animator anim;
@@ -43,13 +51,14 @@ public class PlayerMouvement : MonoBehaviour
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        UpdateAnim();
+        //UpdateAnim();
+
     }
 
-    void UpdateAnim()
+    /*void UpdateAnim()
     {
-        anim.SetBool("isDashing", isDashing);
-    }
+        //anim.SetBool("isDashing", isDashing);
+    }*/
 
     private void FixedUpdate()
     {
@@ -68,11 +77,22 @@ public class PlayerMouvement : MonoBehaviour
 
     void Mouvement()
     {
-        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        //Ajout Gus
+        if (!isDashing)
+        //
         {
-            playerIsMoving = true;
+            if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+            {
+                playerIsMoving = true;
+                ChangeAnimationState(PLAYER_WALK);
+            }
+            else
+            {
+                playerIsMoving = false;
+                ChangeAnimationState(PLAYER_IDLE);
+            }
         }
-        else playerIsMoving = false;
+
 
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -137,9 +157,15 @@ public class PlayerMouvement : MonoBehaviour
 
     void DashAttempt()
     {
-        if (Input.GetKey(KeyCode.Space) && canDash && rb.velocity != new Vector2(0,0))
+        if (Input.GetKey(KeyCode.Space) && canDash && rb.velocity != new Vector2(0, 0))
         {
             isDashing = true;
+            //Ajout Gus
+            ChangeAnimationState(PLAYER_DASH);
+            //anim.Play(PLAYER_DASH);
+            //
+            
+            
         }
     }
     void Dash()
@@ -171,5 +197,20 @@ public class PlayerMouvement : MonoBehaviour
             canDash = true;
         }
         dashTimePercent = dashReloadTimer / dashReloadTimeSet;
+    }
+
+    //Ajout Gus
+    void ChangeAnimationState(string newAnimation)
+    {
+       
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+
+        currentAnimation = newAnimation;
+
+     //
+
+
     }
 }

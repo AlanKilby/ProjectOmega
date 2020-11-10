@@ -17,6 +17,15 @@ public class SwordAttack : MonoBehaviour
     private float attackRadius;
     public float vampireHealthStollen;
 
+    /*Ajout Gus
+    private string currentAnimation;
+
+    [SerializeField]
+    private float attackDelay = 0.1f;
+
+    const string PLAYER_ATTACK = "PlayerAttack";
+    */
+
     public int damage;
 
     public bool gotInput;
@@ -60,6 +69,8 @@ public class SwordAttack : MonoBehaviour
                 gotInput = false;
                 isAttacking = true;
                 anim.SetBool("isAttacking", isAttacking);
+                //Ajout Gus ChangeAnimationState(PLAYER_ATTACK);
+                //Invoke("AttackComplete", attackDelay);
             }
         }
     }
@@ -99,10 +110,32 @@ public class SwordAttack : MonoBehaviour
     {
         isAttacking = false;
         anim.SetBool("isAttacking", isAttacking);
+        
     }
 
+
+    
+    
+   
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackHitBoxPos.position, attackRadius);
     }
+
+    /*Ajout Gus
+    void AttackComplete()
+    {
+        isAttacking = false;
+    }
+    
+    
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+
+        currentAnimation = newAnimation;
+    }
+    */
 }

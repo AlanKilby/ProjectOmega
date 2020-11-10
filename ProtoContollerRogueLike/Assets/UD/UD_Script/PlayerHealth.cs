@@ -12,6 +12,11 @@ public class PlayerHealth : MonoBehaviour
     public bool hasQuickRevive;
 
     Animator anim;
+    //Ajout Gus
+    private string currentAnimation;
+
+    const string PLAYER_DEATH = "PlayerDeath";
+    //
 
     void Start()
     {
@@ -22,7 +27,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (currentPlayerHealth <= 0 && !hasQuickRevive)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            //Ajout Gus
+            Die();
+            return;
+            //
         }
         if (currentPlayerHealth <= 0 && hasQuickRevive)
         {
@@ -31,9 +40,35 @@ public class PlayerHealth : MonoBehaviour
         }
         healthPercent = (currentPlayerHealth / totalPlayerHealth);
     }
+    //Ajout Gus
+    public void Die()
+    {
+        GetComponent<PlayerMouvement>().enabled = false;
+        GetComponent<Shooting>().enabled = false;
+        GetComponent<SwordAttack>().enabled = false;
+        ChangeAnimationState(PLAYER_DEATH);
+        //anim.SetBool("isDead", true);
+        Destroy(gameObject, 1.85f);
+    }
+    // 2 problèmes persistent : - continue de tirer pendant l'anim de mort, stop script alan
+    //                          - mettre rigidbody xy 0 0
+
+    //
+
 
     public void TakeDamage(int damage)
     {
         currentPlayerHealth -= damage;
     }
+   
+    //Ajout Gus
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+
+        currentAnimation = newAnimation;
+    }
+    //
 }

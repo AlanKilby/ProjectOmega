@@ -35,7 +35,17 @@ public class EnnemiSummoner : MonoBehaviour
     public GameObject spawnPoint3;
     public GameObject minionsPrefab;
     public GameObject ownAffraidArea;
+
+    //Ajout Gus
+    private string currentAnimation;
+
+    const string SUMMONER_IDLE = "SummonerIdle";
+    const string SUMMONER_CAST = "SummonerCast";
+    const string SUMMONER_WALK = "SummonerWalk";
+    //
+
     [SerializeField] private Rigidbody2D ownRB;
+
 
 
     void Start()
@@ -76,13 +86,17 @@ public class EnnemiSummoner : MonoBehaviour
 
     void UpdateAnims()
     {
-        anim.SetBool("isSummoning", isSummoning);
+        //anim.SetBool("isSummoning", isSummoning);
+        //ChangeAnimationState(SUMMONER_CAST);
+
+
     }
 
     public void StopSummoningAnim()
     {
         isSummoning = false;
         Summon();
+        
     }
 
     private void Move()
@@ -113,6 +127,7 @@ public class EnnemiSummoner : MonoBehaviour
             gameObject.GetComponent<AIPath>().enabled = true;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             ownAffraidArea.SetActive(true);
+            ChangeAnimationState(SUMMONER_WALK);
         }
         if (isSummoning)
         {
@@ -134,11 +149,13 @@ public class EnnemiSummoner : MonoBehaviour
         if (!playerInAffraidArea)
         {
             ownRB.velocity = new Vector2(0, 0);
+            
         }
         if (playerInDontMoveArea)
         {
             gameObject.GetComponent<AIPath>().enabled = false;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            
         }
 
         ownRBvelocityX = Mathf.Abs(ownRB.velocity.x);
@@ -167,6 +184,7 @@ public class EnnemiSummoner : MonoBehaviour
         spawnPoint1.GetComponent<EnnemiSummonerSpawner>().SpawnEnemy();
         spawnPoint2.GetComponent<EnnemiSummonerSpawner>().SpawnEnemy();
         spawnPoint3.GetComponent<EnnemiSummonerSpawner>().SpawnEnemy();
+        //ChangeAnimationState(SUMMONER_CAST);
     }
 
     private void FireRateTimer()
@@ -188,6 +206,7 @@ public class EnnemiSummoner : MonoBehaviour
             if (summoningTimer < 0.0f)
             {
                 StopSummoningAnim();
+
             }
         }
     }
@@ -209,4 +228,15 @@ public class EnnemiSummoner : MonoBehaviour
     {
         Gizmos.DrawLine(transform.position, playerPos.position);
     }
+
+    //Ajout Gus
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+
+        currentAnimation = newAnimation;
+    }
+    //
 }

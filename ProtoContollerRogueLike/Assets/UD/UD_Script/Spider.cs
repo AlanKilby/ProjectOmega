@@ -8,6 +8,10 @@ public class Spider : MonoBehaviour
 {
     public LayerMask whatIsPlayer;
     public LayerMask whatIsEnvironement;
+    // Ajout Gus
+    private Animator anim;
+    private string currentAnimation;
+    //
 
     public float fleeSpeed;
     //public float affraidArea;
@@ -19,6 +23,12 @@ public class Spider : MonoBehaviour
     [SerializeField] private float ownRBvelocityY;
     [SerializeField] [Range(0.0f, 1.0f)] private float lastHopeShootvelocityLimiteX;
     [SerializeField] [Range(0.0f, 1.0f)] private float lastHopeShootvelocityLimiteY;
+
+    //Ajout Gus
+    const string SPIDERIDLE = "SpiderIdle";
+    const string SPIDERWALK = "SpiderWalk";
+    const string SPIDERATTACK = "SpiderAttack";
+    //
 
     private bool canShoot;
     public bool playerInAffraidArea;
@@ -39,6 +49,10 @@ public class Spider : MonoBehaviour
         thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ownRB = GetComponent<Rigidbody2D>();
+
+        //Ajout Gus
+        anim = GetComponent<Animator>();
+        //
     }
     private void Update()
     {
@@ -73,6 +87,9 @@ public class Spider : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             ownAffraidArea.SetActive(false);
             playerInAffraidArea = false;
+            //Ajout Gus
+            //ChangeAnimationState(SPIDERIDLE);
+            //    
         }
         if (playerInSight)
         {
@@ -87,6 +104,9 @@ public class Spider : MonoBehaviour
             Vector3 fleeDirection = playerPos.position - gameObject.transform.position;
             fleeDirection.Normalize();
             ownRB.AddForce(fleeDirection * (-fleeSpeed));
+            //Ajout Gus
+            //ChangeAnimationState(SPIDERWALK);
+            //     
         }
         if (!playerInAffraidArea)
         {
@@ -139,6 +159,9 @@ public class Spider : MonoBehaviour
         GameObject bullet = Instantiate(spiderBulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-spiderImprecision, spiderImprecision)));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(bullet.transform.up * spiderBulletForce, ForceMode2D.Impulse);
+        //Ajout Gus
+        ChangeAnimationState(SPIDERATTACK);
+        //
     }
 
     private void FireRateTimer()
@@ -176,6 +199,17 @@ public class Spider : MonoBehaviour
     {
         Gizmos.DrawLine(transform.position, playerPos.position);
         //Gizmos.DrawWireSphere(transform.position, affraidArea);
+
+
     }
 
+    //Ajout Gus
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+        currentAnimation = newAnimation;
+    }
+    //
 }

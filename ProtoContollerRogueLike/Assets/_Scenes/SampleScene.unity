@@ -13971,8 +13971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  dashSpeed: 4
-  dashTime: 0.2
+  dashSpeed: 2
+  dashTime: 0.5
   isDashing: 0
   canDash: 0
   dashReloadTimeSet: 2
@@ -14164,7 +14164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474c6ae39777bb148afed41a1c0e86fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalPlayerHealth: 100
+  totalPlayerHealth: 10
   currentPlayerHealth: 0
   healthPercent: 0
   healthRegenWithQuickRevive: 0
@@ -14205,7 +14205,7 @@ Animator:
   m_GameObject: {fileID: 1752818711}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1b3a85a11dd82ea418fd6c5e13ada022, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8d7b51a58cc3e84449fb6b9a77861779, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -15484,10 +15484,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyList
       objectReference: {fileID: 0}
+    - target: {fileID: 809148373185888896, guid: b4d71b36c64ab59468d09a1aec54d00c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 809148373185888897, guid: b4d71b36c64ab59468d09a1aec54d00c,
         type: 3}
       propertyPath: enemies.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 809148373185888897, guid: b4d71b36c64ab59468d09a1aec54d00c,
         type: 3}
@@ -15505,7 +15510,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemies.Array.data[2]
       value: 
-      objectReference: {fileID: 7117853998204430289, guid: c784408ec831bc149827f7f9d8f756b7,
+      objectReference: {fileID: 1400664473505832391, guid: 65659be93cf727741bc1020f6dbe6072,
         type: 3}
     - target: {fileID: 809148373185888910, guid: b4d71b36c64ab59468d09a1aec54d00c,
         type: 3}
