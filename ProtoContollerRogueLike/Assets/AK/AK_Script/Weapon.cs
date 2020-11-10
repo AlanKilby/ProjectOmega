@@ -22,13 +22,11 @@ public class Weapon : MonoBehaviour
     string gunID;
     public int gunSlot;
     bool gunAlreadyInInv;
+    
 
-    GameObject player;
-    bool pickUpAvailable = false;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
         audioSource = gameObject.GetComponent<AudioSource>();
@@ -71,15 +69,6 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("v"))
-        {
-            DropWeapon();
-        }
-
-        if(pickUpAvailable == true && Input.GetKeyDown("e"))
-        {
-            PickUpWeapon();
-        }
         
 
 
@@ -104,85 +93,53 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void DropWeapon()
-    {
-        if(gunSlot == inventory.equippedSlot)
-        {
-            transform.SetParent(inventory.gunHolder.transform);
-            inventory.gunGameObject[gunSlot] = null;
-            isEquipped = false;
-            inventory.gunID[gunSlot] = null;
-            inventory.isFull[gunSlot] = false;
-
-            // Destroys Gun Icon from UI
-            foreach (Transform child in inventory.slots[gunSlot].transform)
-            {
-                GameObject.Destroy(child.gameObject);
-            }
-        }
-    }
-
-    void PickUpWeapon()
-    {
-        for (int i = 0; i < inventory.slots.Length; i++)
-        {
-            // If the inventory IS NOT full AND the gun IS NOT already in the inventory pick up the gun
-            if (inventory.isFull[i] == false && gunAlreadyInInv == false)
-            {
-                inventory.gunGameObject[i] = gameObject;
-
-                gunSlot = i;
-
-                isEquipped = true;
-
-                inventory.gunID[i] = gunID;
-
-                inventory.isFull[i] = true;
-
-                Instantiate(gun.gunIcon, inventory.slots[i].transform, false);
-
-                transform.SetParent(player.transform);
-
-                transform.localPosition = new Vector2(-0.35f, 0.15f);
-
-                transform.rotation = player.transform.rotation;
-
-                inventory.ammoCounter[gun.ammoID] += ammoCount;
-
-                ammoCount = 0;
-
-                break;
-            }
-
-            
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            pickUpAvailable = true;
-
             for (int i = 0; i < inventory.slots.Length; i++)
             {
+                // If the inventory IS NOT full AND the gun IS NOT already in the inventory pick up the gun
+                if(inventory.isFull[i] == false && gunAlreadyInInv == false)
+                {
+                    inventory.gunGameObject[i] = gameObject;
+
+                    gunSlot = i;
+
+                    isEquipped = true;
+
+                    inventory.gunID[i] = gunID;
+
+                    inventory.isFull[i] = true;
+
+                    Instantiate(gun.gunIcon, inventory.slots[i].transform, false);
+
+                    transform.SetParent(collision.transform);
+
+                    transform.localPosition = new Vector2(-0.35f,0.15f);
+
+                    transform.rotation = collision.transform.rotation;
+
+                    inventory.ammoCounter[gun.ammoID] += ammoCount;
+
+                    ammoCount = 0;
+
+                    break;
+                }
+                
                 // If the inventory IS full AND the gun IS already in the inventory pick up the ammo.
-                if (inventory.isFull[i] == true && ammoCount > 0 && gunID == inventory.gunID[i])
+                if(inventory.isFull[i] == true  && ammoCount > 0 && gunID == inventory.gunID[i])
                 {
                     gunAlreadyInInv = true;
                     inventory.ammoCounter[gun.ammoID] += ammoCount;
                     ammoCount = 0;
                     audioSource.PlayOneShot(gun.gunSounds[1]);
                 }
+
             }
+            
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            pickUpAvailable = false;
-        }
-    }
+    
 }
