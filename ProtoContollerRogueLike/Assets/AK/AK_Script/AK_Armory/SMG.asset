@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb4fa2c7defb50438b3d0b2dab9eb17, type: 3}
+  m_Name: SMG
+  m_EditorClassIdentifier: 
+  name: SMG
+  ID: SMG
+  damage: 50
+  accuracy: 1.5
+  fireRate: 100
+  ammoType: {fileID: 2598178787122597424, guid: b180bebc5dd798d45a62d4eaa5e05356,
+    type: 3}
+  ammoID: 2
+  bulletVelocity: 25
+  rarity: 
+  gunSounds:
+  - {fileID: 8300000, guid: 68a362e1a2a9bd3488b304f7d000a2d1, type: 3}
+  - {fileID: 8300000, guid: b41413196c986b443954d1026011b2dd, type: 3}
+  weaponSprites:
+  - {fileID: 21300000, guid: c137615822d5a8a4ca5d27327c08621d, type: 3}
+  - {fileID: 21300000, guid: 45c469fe90c917a4e805a2e2efb06449, type: 3}
+  - {fileID: 21300000, guid: d9bb46739bd20e94f8711d14dbd03df6, type: 3}
+  gunIcon: {fileID: 4409010906359140636, guid: 2a491f6e5efd7cc49b9688aa75c1c160, type: 3}

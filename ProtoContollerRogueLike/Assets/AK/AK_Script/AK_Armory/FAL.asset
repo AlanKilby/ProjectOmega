@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb4fa2c7defb50438b3d0b2dab9eb17, type: 3}
+  m_Name: FAL
+  m_EditorClassIdentifier: 
+  name: FAL
+  ID: FAL
+  damage: 100
+  accuracy: 0.5
+  fireRate: 100
+  ammoType: {fileID: 2324112710848005084, guid: 31aba7a27514a144fa2e3ecf62a139aa,
+    type: 3}
+  ammoID: 0
+  bulletVelocity: 20
+  rarity: 
+  gunSounds:
+  - {fileID: 8300000, guid: 990abadbe08f8d8479666a7f6222510b, type: 3}
+  - {fileID: 8300000, guid: b41413196c986b443954d1026011b2dd, type: 3}
+  weaponSprites:
+  - {fileID: 21300000, guid: 6c77dcefe351c074dbc59b6a31af04c0, type: 3}
+  - {fileID: 21300000, guid: 24673defe7a99c7429afed0506d73462, type: 3}
+  - {fileID: 21300000, guid: 505121703aefc0b4687d905285cbe908, type: 3}
+  gunIcon: {fileID: 5088000187046124564, guid: b92263c8cb5ef084b9d34b1a7bf570f0, type: 3}
