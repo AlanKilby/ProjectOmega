@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public bool hasQuickRevive;
 
     Animator anim;
+    Rigidbody2D rb;
     //Ajout Gus
     private string currentAnimation;
 
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         currentPlayerHealth = totalPlayerHealth;
     }
     private void Update()
@@ -43,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
     //Ajout Gus
     public void Die()
     {
+        rb.velocity = new Vector2 (0.0f, 0.0f);
         GetComponent<PlayerMouvement>().enabled = false;
         GetComponent<Shooting>().enabled = false;
         GetComponent<SwordAttack>().enabled = false;
