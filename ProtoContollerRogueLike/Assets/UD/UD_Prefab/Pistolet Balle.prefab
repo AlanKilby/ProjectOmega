@@ -98,9 +98,15 @@ MonoBehaviour:
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 6144
+  whatIsEnnemi:
+    serializedVersion: 2
+    m_Bits: 2048
   bulletLifeTime: 1
   distance: 0.2
-  damage: 1
+  moduleExplosiveChargeRadius: 1
+  damage: 2
+  moduleExplosiveChargeDamage: 1
+  isEnnemyBullet: 0
 --- !u!50 &695137603491453610
 Rigidbody2D:
   serializedVersion: 4

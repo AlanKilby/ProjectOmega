@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    PlayerModuleStation PMS;
+
     public LayerMask whatIsSolid;
+    public LayerMask whatIsEnnemi;
 
     public float bulletLifeTime;
     float lifeTimer;
     public float distance;
+    public float moduleExplosiveChargeRadius;
     /*public float poussée;
     public float knockTime;*/
 
     public int damage;
+    public int moduleExplosiveChargeDamage;
 
     bool coroutineRunning = false;
     public bool isEnnemyBullet;
 
     private void Start()
     {
+        PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModuleStation>();
         lifeTimer = 0.0f;
     }
 
@@ -50,6 +56,19 @@ public class Bullet : MonoBehaviour
                 difference = difference.normalized * poussée;
                 enemy.AddForce(difference, ForceMode2D.Impulse);
                 StartCoroutine(KnockCo(enemy));*/
+                if (PMS.moduleExplosiveCharge)
+                {
+                    Collider2D explosiveHit = Physics2D.OverlapCircle(gameObject.transform.position, moduleExplosiveChargeRadius, whatIsEnnemi);
+                    if (explosiveHit != null)
+                    {
+                        if (explosiveHit.CompareTag("Ennemi"))
+                        {
+                            Debug.Log("DAMAGE");
+                            explosiveHit.GetComponent<EnnemisScript>().TakeDamage(moduleExplosiveChargeDamage);
+                        }
+                    }
+                }
+
                 Destroy(gameObject);
             }
             if (hitInfo.collider.CompareTag("Player") && isEnnemyBullet)
@@ -68,6 +87,11 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(gameObject.transform.position, moduleExplosiveChargeRadius);
     }
 
     /*private IEnumerator KnockCo(Rigidbody2D enemy)
