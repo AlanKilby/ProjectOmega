@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Update()
     {
+        healthPercent = (currentPlayerHealth / totalPlayerHealth);
         if (currentPlayerHealth <= 0 && !hasQuickRevive)
         {
             //Destroy(gameObject);
@@ -40,7 +41,6 @@ public class PlayerHealth : MonoBehaviour
             currentPlayerHealth = healthRegenWithQuickRevive;
             hasQuickRevive = false;
         }
-        healthPercent = (currentPlayerHealth / totalPlayerHealth);
     }
     //Ajout Gus
     public void Die()
