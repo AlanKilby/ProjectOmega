@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163558160866863348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.79, y: -0.82, z: 0}
+  m_LocalPosition: {x: -0.79, y: 1.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1163558162623733007}
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.938
+  m_FalloffIntensity: 0.433
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
   m_ShapeLightFalloffSize: 1.25
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapeLightFalloffOffset: {x: 0, y: -2.73}
   m_ShapePath:
   - {x: 0.5710594, y: 0.53725505, z: 0}
   - {x: 25.332006, y: 64.59449, z: 0}
@@ -429,7 +429,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.46473056}
+  m_Offset: {x: 0.06, y: -0.65}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -440,7 +440,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28125, y: 1.0236639}
+  m_Size: {x: 1.7, y: 1.53}
   m_EdgeRadius: 0
 --- !u!95 &1163558162623733044
 Animator:
@@ -670,6 +670,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f39c54ba2b0d0246a3101e275540a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatIsAcide:
+    serializedVersion: 2
+    m_Bits: 32768
+  acideDamage: 1
+  acideDetectionRadius: 0.5
+  acideDetectionRadiusXoffset: 0.06
+  acideDetectionRadiusYoffset: -0.65
+  acideDamageRate: 1
 --- !u!1 &1163558162730517402
 GameObject:
   m_ObjectHideFlags: 0

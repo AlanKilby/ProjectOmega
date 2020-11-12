@@ -9,9 +9,12 @@ public class PlayerHealth : MonoBehaviour
     public float healthPercent;
     [HideInInspector] public float healthRegenWithQuickRevive;
 
+    public int quickReviveIconSlot;
+
     public bool hasQuickRevive;
 
     Animator anim;
+    Inventory In;
     Rigidbody2D rb;
     //Ajout Gus
     private string currentAnimation;
@@ -23,6 +26,7 @@ public class PlayerHealth : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        In = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         currentPlayerHealth = totalPlayerHealth;
     }
     private void Update()
@@ -39,9 +43,27 @@ public class PlayerHealth : MonoBehaviour
         if (currentPlayerHealth <= 0 && hasQuickRevive)
         {
             currentPlayerHealth = healthRegenWithQuickRevive;
-            hasQuickRevive = false;
+            hasQuickRevive = false; 
+            foreach (Transform child in In.moduleSlots[quickReviveIconSlot].transform)
+            {
+                Destroy(child.gameObject);
+            }
+            In.isFullModule[quickReviveIconSlot] = false;
+            RemoveFromList(quickReviveIconSlot);
         }
     }
+
+    void RemoveFromList(int index)
+    {
+        if (index >= 0 && index < In.moduleSlots.Length)
+        {
+
+            Destroy(In.moduleGameObject[index]);
+            In.moduleGameObject[quickReviveIconSlot] = null;
+
+        }
+    }
+
     //Ajout Gus
     public void Die()
     {
