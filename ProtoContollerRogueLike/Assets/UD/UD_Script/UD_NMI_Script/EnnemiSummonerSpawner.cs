@@ -58,7 +58,6 @@ public class EnnemiSummonerSpawner : MonoBehaviour
     {
         if (other.gameObject.tag == "Environement")
         {
-            print("CollisionEnter");
             spawnZoneAllowed = false;
         }
     }
@@ -67,7 +66,6 @@ public class EnnemiSummonerSpawner : MonoBehaviour
     {
         if (other.gameObject.tag == "Environement")
         {
-            print("CollisionExit");
             spawnZoneAllowed = true;
         }
     }

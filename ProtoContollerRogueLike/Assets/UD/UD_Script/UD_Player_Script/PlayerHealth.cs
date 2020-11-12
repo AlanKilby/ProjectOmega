@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     Animator anim;
     Inventory In;
+    PlayerMouvement PM;
     Rigidbody2D rb;
     //Ajout Gus
     private string currentAnimation;
@@ -27,8 +28,11 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         In = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
         currentPlayerHealth = totalPlayerHealth;
+        hasQuickRevive = false;
     }
+
     private void Update()
     {
         healthPercent = (currentPlayerHealth / totalPlayerHealth);
@@ -83,7 +87,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentPlayerHealth -= damage;
+        if(PM.isDashing && PM.hasModulePhaseShift)
+        {
+            
+        }
+        else currentPlayerHealth -= damage;
     }
    
     //Ajout Gus

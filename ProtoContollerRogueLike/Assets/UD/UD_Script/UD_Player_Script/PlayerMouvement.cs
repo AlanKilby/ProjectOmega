@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMouvement : MonoBehaviour
 {
     private bool playerIsMoving;
+    public bool hasModulePhaseShift;
 
     public float playerSpeed = 5.0f;
     //public float timeSinceAccelerated;
@@ -47,6 +48,7 @@ public class PlayerMouvement : MonoBehaviour
     {
         dashTimeHolder = dashTime;
         anim = GetComponent<Animator>();
+        hasModulePhaseShift = false;
     }
     void Update()
     {
