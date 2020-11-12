@@ -14,7 +14,6 @@ public class AnimationManager : MonoBehaviour
     const string C = "C'";
      
 
-
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -24,9 +23,6 @@ public class AnimationManager : MonoBehaviour
     //Pour activer animation A
     ChangeAnimationState(A);
      
-
-
-
 
      void ChangeAnimationState(string newAnimation)
     {   
@@ -42,17 +38,47 @@ public class AnimationManager : MonoBehaviour
 
 }   
      
-     
+//ENEMY FLASH
 
-void ChangeAnimationState(string newAnimation)
+private Material matWhite;
+private Material matDefault;
+SpriteRenderer sr;
+
+void Start()
 {
-    //empêche l'anim de s'interrompre elle-même
-    if (currentAnimation == newAnimation) return;
+sr = GetComponent<SpriteRenderer>();
+matWhite = Resources.Load("WhiteFlash", typeof(Material) as Material;
+matDefault = sr.material;
+}
 
-    //joue l'anim
-    anim.Play(newAnimation);
+//dans la focntion de mort
 
-    //reassign the current state
-    currentAnimation = newAnimation;
+sr.material = matWhite;
+if(health <=0)
+{
+Death();
+}
+else
+{
+Invoke("ResetMaterial", 0.1f);
+}
 
+//pour faire revenir à l'état de base
+
+void ResetMaterial()
+{
+sr.material = matDefault;
+}
+
+
+Pour désactiver un script à partir d'un autre (2 GameObject /=)
+
+ public GameObject otherobj;//your other object
+     public string scr;// your secound script name
+     void Start () {
+     (otherobj. GetComponent(scr) as MonoBehaviour).enabled = false;
+     }
+
+     
+    
 */

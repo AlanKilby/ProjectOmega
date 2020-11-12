@@ -135,8 +135,8 @@ public class EnnemiSummoner : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             ownAffraidArea.SetActive(false);
             playerInAffraidArea = false;
+            ChangeAnimationState(SUMMONER_CAST);
         }
-        
 
         if (playerInAffraidArea)
         {
@@ -145,17 +145,21 @@ public class EnnemiSummoner : MonoBehaviour
             Vector3 fleeDirection = playerPos.position - gameObject.transform.position;
             fleeDirection.Normalize();
             ownRB.AddForce(fleeDirection * (-fleeSpeed), ForceMode2D.Force);
+            ChangeAnimationState(SUMMONER_WALK);
+
         }
         if (!playerInAffraidArea)
         {
             ownRB.velocity = new Vector2(0, 0);
-            
+            //ChangeAnimationState(SUMMONER_IDLE);
+
         }
         if (playerInDontMoveArea)
         {
             gameObject.GetComponent<AIPath>().enabled = false;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            
+            ChangeAnimationState(SUMMONER_WALK);
+
         }
 
         ownRBvelocityX = Mathf.Abs(ownRB.velocity.x);
@@ -184,7 +188,6 @@ public class EnnemiSummoner : MonoBehaviour
         spawnPoint1.GetComponent<EnnemiSummonerSpawner>().SpawnEnemy();
         spawnPoint2.GetComponent<EnnemiSummonerSpawner>().SpawnEnemy();
         spawnPoint3.GetComponent<EnnemiSummonerSpawner>().SpawnEnemy();
-        //ChangeAnimationState(SUMMONER_CAST);
     }
 
     private void FireRateTimer()

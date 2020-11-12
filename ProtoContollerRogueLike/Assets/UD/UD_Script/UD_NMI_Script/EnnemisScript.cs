@@ -12,6 +12,12 @@ public class EnnemisScript : MonoBehaviour
     public int health;
     public int dropRate;
 
+    //Ajout Gus
+    private Material matWhite;
+    private Material matDefault;
+    SpriteRenderer sr;
+    //
+
     public bool takeDamage;
 
     private void Start()
@@ -19,28 +25,55 @@ public class EnnemisScript : MonoBehaviour
         takeDamage = false;
         lootDrop = GetComponent<LootDrop>();
         anim = GetComponent<Animator>();
+        
+        //Ajout Gus
+        sr = GetComponent<SpriteRenderer>();
+        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+        matDefault = sr.material;
+        //
     }
 
     private void Update()
     {
-        UpdateAnim();
-        if(health <= 0)
+        /*UpdateAnim();
+        if (health <= 0)
         {
             Death();
         }
         //PlayerDirection(); //de l'ancien script d'alan, ne convient plus au pathfinding a*
+    }*/
+   
     }
 
+    //Ajout Gus
+    void ResetMaterial() 
+    { 
+        sr.material = matDefault; 
+    }
+    //
+        
     public void TakeDamage(int damage)
     {
         health -= damage;
         takeDamage = true;
+        
+        //Ajout Gus
+        sr.material = matWhite;
+        if (health <= 0)
+        {
+            Death();
+        }
+        else
+        {
+            Invoke("ResetMaterial", 0.1f);
+        }
+        //
     }
 
-    void UpdateAnim()
+    /*void UpdateAnim()
     {
         anim.SetBool("takeDamage", takeDamage);
-    }
+    }*/
 
     public void StopAnimTakeDamage()
     {

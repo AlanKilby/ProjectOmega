@@ -88,7 +88,7 @@ public class Spider : MonoBehaviour
             ownAffraidArea.SetActive(false);
             playerInAffraidArea = false;
             //Ajout Gus
-            //ChangeAnimationState(SPIDERIDLE);
+            ChangeAnimationState(SPIDERWALK);
             //    
         }
         if (playerInSight)
@@ -96,6 +96,7 @@ public class Spider : MonoBehaviour
             gameObject.GetComponent<AIPath>().enabled = false;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             ownAffraidArea.SetActive(true);
+
         }
 
         if (playerInAffraidArea)
@@ -105,12 +106,15 @@ public class Spider : MonoBehaviour
             fleeDirection.Normalize();
             ownRB.AddForce(fleeDirection * (-fleeSpeed));
             //Ajout Gus
-            //ChangeAnimationState(SPIDERWALK);
+            ChangeAnimationState(SPIDERWALK);
             //     
         }
         if (!playerInAffraidArea)
         {
             ownRB.velocity = new Vector2(0, 0);
+            //Ajout Gus
+            //ChangeAnimationState(SPIDERIDLE);
+            //  
         }
 
         ownRBvelocityX = Mathf.Abs(ownRB.velocity.x);

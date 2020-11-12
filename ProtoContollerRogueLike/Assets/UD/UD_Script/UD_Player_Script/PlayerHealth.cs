@@ -19,8 +19,12 @@ public class PlayerHealth : MonoBehaviour
     Rigidbody2D rb;
     //Ajout Gus
     private string currentAnimation;
-
     const string PLAYER_DEATH = "PlayerDeath";
+
+    public GameObject otherobj;//your other object
+    public string scr;// your secound script name
+   
+
     //
 
     void Start()
@@ -74,15 +78,19 @@ public class PlayerHealth : MonoBehaviour
         rb.velocity = new Vector2 (0.0f, 0.0f);
         GetComponent<PlayerMouvement>().enabled = false;
         GetComponent<Shooting>().enabled = false;
+
+        // MUST FIX : continue de tirer pendant l'anim de mort (script Alan)
+ 
+        //GameObject.Find("Player").GetComponent<Weapon>().enabled = false;
+        //this.GetComponent<Weapon>().enabled = false;
+        //(otherobj.GetComponent(scr) as MonoBehaviour).enabled = false;
+        
         GetComponent<SwordAttack>().enabled = false;
         ChangeAnimationState(PLAYER_DEATH);
         //anim.SetBool("isDead", true);
         Destroy(gameObject, 1.85f);
     }
-    // 2 problèmes persistent : - continue de tirer pendant l'anim de mort, stop script alan
-    //                          - mettre rigidbody xy 0 0
-
-    //
+    //                          
 
 
     public void TakeDamage(int damage)
