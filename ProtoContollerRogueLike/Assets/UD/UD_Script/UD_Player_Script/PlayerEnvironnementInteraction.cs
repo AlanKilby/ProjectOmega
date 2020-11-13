@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerEnvironnementInteraction : MonoBehaviour
 {
     [SerializeField] LayerMask whatIsAcide;
+    [SerializeField] LayerMask whatIsRavin;
 
     PlayerHealth PH;
+    PlayerMouvement PM;
+    public Collider2D ownCollider2D;
 
     private bool isInAcide;
     private bool dealDamageActive;
@@ -21,11 +24,13 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     void Start()
     {
         PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
     }
 
     void Update()
     {
         AcideDealDamage();
+        RavinDetector();
     }
 
     private void AcideDealDamage()
@@ -62,6 +67,64 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
         Vector3 offset = new Vector3(acideDetectionRadiusXoffset, acideDetectionRadiusYoffset, 0.0f);
         Gizmos.DrawWireSphere(gameObject.transform.position, acideDetectionRadius);
     }
+
+    private void RavinDetector()
+    {
+        RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, acideDetectionRadius, new Vector2 (0,0), whatIsRavin);
+        if (hitInfo.collider != null)
+        {
+            if (PM.isDashing && hitInfo.collider.CompareTag("Ravin"))
+            {
+                EnableRavinCollision(hitInfo.collider);
+                print("enableCollision");
+            }
+            if (!PM.isDashing)
+            {
+                DiseableRavinCollision(hitInfo.collider);
+                print("diseableCollision");
+            }
+        }
+    }
+
+    private void EnableRavinCollision(Collider2D ravinCollider)
+    {
+        Physics2D.IgnoreCollision(ravinCollider, ownCollider2D, true);
+    }
+
+    private void DiseableRavinCollision(Collider2D ravinCollider)
+    {
+        Physics2D.IgnoreCollision(ravinCollider, ownCollider2D, false);
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (PM.isDashing && collision.gameObject.CompareTag("Ravin"))
+        {
+            EnableRavinCollision(collision.collider);
+            print("enableCollision");
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (PM.isDashing && collision.gameObject.CompareTag("Ravin"))
+        {
+            EnableRavinCollision(collision.collider);
+            print("enableCollision");
+        }
+        if (!PM.isDashing)
+        {
+            DiseableRavinCollision(collision.collider);
+            print("diseableCollision");
+        }
+    }
+   private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ravin"))
+        {
+            DiseableRavinCollision(collision.collider);
+            print("diseableCollision");
+        }
+    }*/
 
     /*private void OnCollisionEnter2D(Collision2D collision)
     {

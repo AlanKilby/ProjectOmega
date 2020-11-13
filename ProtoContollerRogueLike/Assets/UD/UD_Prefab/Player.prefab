@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 21491403}
   m_Layer: 0
   m_Name: PhaseShiftHit
-  m_TagString: Untagged
+  m_TagString: PhaseShiftDetector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   phaseShiftDetectionRadius: 0
-  damageDealedByHit: 0
+  damageDealed: 0
 --- !u!58 &21491403
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -741,6 +741,10 @@ MonoBehaviour:
   whatIsAcide:
     serializedVersion: 2
     m_Bits: 32768
+  whatIsRavin:
+    serializedVersion: 2
+    m_Bits: 65536
+  ownCollider2D: {fileID: 1163558162623733003}
   acideDamage: 1
   acideDetectionRadius: 0.5
   acideDetectionRadiusXoffset: 0.06
