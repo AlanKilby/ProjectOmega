@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7117853997327843487}
   - component: {fileID: 7117853997327843484}
   - component: {fileID: 6581017704296924936}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Spawn3
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnvironement:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   ES: {fileID: 7117853998174313423}
   currentRoom: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 7117853997840860483}
   - component: {fileID: 7117853997840860480}
   - component: {fileID: 6581017704247446939}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Spawn1
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnvironement:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   ES: {fileID: 7117853998174313423}
   currentRoom: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 7117853998001407334}
   - component: {fileID: 7117853998001407335}
   - component: {fileID: 6581017703189168249}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Spawn2
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnvironement:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16384
   ES: {fileID: 7117853998174313423}
   currentRoom: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 7117853998174313463}
   - component: {fileID: 7117853998174313460}
   - component: {fileID: 7117853998174313461}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Summoner
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
@@ -643,10 +643,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   whatIsEnvironement:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 16384
   anim: {fileID: 7117853998174313456}
   fleeSpeed: 50
   summonRate: 5

@@ -175,6 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6caa1763b1075fb4bac48d108f8ac2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 256
   lootDrop: {fileID: 0}
   anim: {fileID: 8628224788671534796}
   health: 20
@@ -332,14 +335,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   anim: {fileID: 8628224788671534796}
   damage: 1
   attackHitBoxPos: {fileID: 8717079819833229508}
   playerPos: {fileID: 0}
   whatIsKillable:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   attackRadius: 0.28
   zombieHitFireRate: 0.5
   combatEnable: 0

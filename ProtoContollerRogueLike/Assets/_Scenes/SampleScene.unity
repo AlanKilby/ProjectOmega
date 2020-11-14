@@ -15691,10 +15691,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 509157101048855274, guid: 376064b780bca324db5939b1b6f8c2d5,
+        type: 3}
+      propertyPath: whatIsAcide.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 509157101048855274, guid: 376064b780bca324db5939b1b6f8c2d5,
+        type: 3}
+      propertyPath: whatIsRavin.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
     - target: {fileID: 1163558162623732995, guid: 376064b780bca324db5939b1b6f8c2d5,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163558162623733001, guid: 376064b780bca324db5939b1b6f8c2d5,
+        type: 3}
+      propertyPath: whatIsEnnemy.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 1163558162623733004, guid: 376064b780bca324db5939b1b6f8c2d5,
         type: 3}

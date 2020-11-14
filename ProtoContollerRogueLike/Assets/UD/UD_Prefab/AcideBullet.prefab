@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2680451645030411492}
   - component: {fileID: 3678030650121732881}
   - component: {fileID: 1658742315297982032}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: AcideBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,8 +118,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 4608
+    m_Bits: 16384
+  whatIsEnnemi:
+    serializedVersion: 2
+    m_Bits: 512
   bulletLifeTime: 3
   distance: 0.5
+  moduleExplosiveChargeRadius: 0
   damage: 2
+  moduleExplosiveChargeDamage: 0
   isEnnemyBullet: 1
