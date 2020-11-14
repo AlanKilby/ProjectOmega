@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnvironement:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 24576
   ES: {fileID: 7117853998174313423}
   currentRoom: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnvironement:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 24576
   ES: {fileID: 7117853998174313423}
   currentRoom: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnvironement:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 24576
   ES: {fileID: 7117853998174313423}
   currentRoom: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -623,7 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   lootDrop: {fileID: 7117853998174313457}
   anim: {fileID: 7117853998174313456}
   health: 50
