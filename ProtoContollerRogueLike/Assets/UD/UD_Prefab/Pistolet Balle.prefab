@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1763493103018640030}
   - component: {fileID: 3476338040759218434}
   - component: {fileID: 695137603491453610}
+  - component: {fileID: -8868767209462732646}
   m_Layer: 10
   m_Name: Pistolet Balle
   m_TagString: Untagged
@@ -97,10 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 16896
   whatIsEnnemi:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 512
   bulletLifeTime: 1
   distance: 0.2
   moduleExplosiveChargeRadius: 1
@@ -128,3 +129,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &-8868767209462732646
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888116018726082938}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.078125, y: 0.25}
+    newSize: {x: 0.078125, y: 0.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.078125, y: 0.25}
+  m_EdgeRadius: 0

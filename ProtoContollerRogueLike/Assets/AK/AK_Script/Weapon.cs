@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public Gun gun;
     public PlayerMouvement PM;
+    public PlayerModuleStation PMS;
 
     //Graphics 
     public SpriteRenderer gunSpriteRenderer;
@@ -29,6 +30,7 @@ public class Weapon : MonoBehaviour
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
+        PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModuleStation>();
         audioSource = gameObject.GetComponent<AudioSource>();
         canShoot = true;
         isEquipped = false;
@@ -86,7 +88,14 @@ public class Weapon : MonoBehaviour
                 rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
                                             
             }
-            audioSource.PlayOneShot(gun.gunSounds[0]);
+            if (PMS.soulScream)
+            {
+                //Mettre le Play du Cri
+            }
+            else
+            {
+                audioSource.PlayOneShot(gun.gunSounds[0]);
+            }
             inventory.ammoCounter[gun.ammoID]--;
             canShoot = false;
         }

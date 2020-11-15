@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2484977107593352004}
   - component: {fileID: 2484977107593352007}
   - component: {fileID: 2484977107593352006}
-  - component: {fileID: 5688018293256943867}
   - component: {fileID: 7595496386387946455}
+  - component: {fileID: 5688018293256943867}
   m_Layer: 16
   m_Name: Module Explosive Charge
   m_TagString: Untagged
@@ -152,19 +152,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5688018293256943867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2484977107593352000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f60cdaef5205444b9ce9e324a71a28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mo: {fileID: 0}
 --- !u!114 &7595496386387946455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +168,16 @@ MonoBehaviour:
     type: 3}
   spawnProbability: 100
   moduleSlot: 0
+--- !u!114 &5688018293256943867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2484977107593352000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f60cdaef5205444b9ce9e324a71a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mo: {fileID: 7595496386387946455}

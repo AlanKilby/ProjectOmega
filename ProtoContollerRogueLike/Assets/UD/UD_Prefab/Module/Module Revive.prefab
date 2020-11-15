@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4826370078604909021}
   - component: {fileID: 4826370078604909022}
   - component: {fileID: 4826370078604909023}
-  - component: {fileID: 4826370078604909010}
   - component: {fileID: 715580000189751630}
+  - component: {fileID: 4826370078604909010}
   m_Layer: 16
   m_Name: Module Revive
   m_TagString: Untagged
@@ -152,20 +152,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4826370078604909010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4826370078604909017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0231ad68846e249af881897e04c93b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mo: {fileID: 715580000189751630}
-  healthRegenWithQuickRevive: 50
 --- !u!114 &715580000189751630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,3 +168,17 @@ MonoBehaviour:
     type: 3}
   spawnProbability: 100
   moduleSlot: 0
+--- !u!114 &4826370078604909010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826370078604909017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0231ad68846e249af881897e04c93b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mo: {fileID: 715580000189751630}
+  healthRegenWithQuickRevive: 50
