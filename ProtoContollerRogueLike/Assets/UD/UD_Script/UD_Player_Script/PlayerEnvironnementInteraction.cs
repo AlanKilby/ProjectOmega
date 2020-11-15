@@ -12,14 +12,23 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     public Collider2D ownCollider2D;
 
     private bool isInAcide;
-    private bool dealDamageActive;
+    private bool acideDealDamageActive;
+    private bool ravineDealDamageActive;
+    private bool isNearRavine;
+    private bool isTouchingRavine;
 
     [SerializeField] int acideDamage;
+    [SerializeField] int ravineDamage;
+    [SerializeField] float ravineDetectionRespawnIfDie;
     [SerializeField] float acideDetectionRadius;
     [SerializeField] float acideDetectionRadiusXoffset;
     [SerializeField] float acideDetectionRadiusYoffset;
     [SerializeField] float acideDamageRate;
+    [SerializeField] float ravineDamageRate;
     private float acideDamageRateTimer;
+    private float ravineDamageRateTimer;
+
+    Vector3 lastPositionBeforeRavine;
 
     void Start()
     {
@@ -30,45 +39,76 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     void Update()
     {
         AcideDealDamage();
-        RavinDetector();
-    }
-
-    private void AcideDealDamage()
-    {
-        if(isInAcide && dealDamageActive)
-        {
-            PH.TakeDamage(acideDamage);
-            dealDamageActive = false;
-            acideDamageRateTimer = acideDamageRate;
-        }
-        if(dealDamageActive == false)
-        {
-            acideDamageRateTimer -= Time.deltaTime;
-            if(acideDamageRateTimer <= 0.0f)
-            {
-                dealDamageActive = true;
-            }
-        }
+        RavineCollision();
+        //RavinDetector();
     }
 
     private void FixedUpdate()
     {
         CheckSurroundings();
+        LastPositionBeforeRavineSave();
+    }
+
+    private void LastPositionBeforeRavineSave()
+    {
+        if (!isNearRavine)
+        {
+            lastPositionBeforeRavine = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        }
+    }
+
+    private void RavineCollision()
+    {
+        if(isTouchingRavine && !PM.isDashing && ravineDealDamageActive)
+        {
+            PH.TakeDamage(ravineDamage);
+            gameObject.transform.position = lastPositionBeforeRavine;
+            ravineDealDamageActive = false;
+        }
+        if (ravineDealDamageActive == false)
+        {
+            ravineDamageRateTimer -= Time.deltaTime;
+            if (ravineDamageRateTimer <= 0.0f)
+            {
+                ravineDealDamageActive = true;
+            }
+        }
+    }
+
+    private void AcideDealDamage()
+    {
+        if(isInAcide && acideDealDamageActive)
+        {
+            PH.TakeDamage(acideDamage);
+            acideDealDamageActive = false;
+            acideDamageRateTimer = acideDamageRate;
+        }
+        if(acideDealDamageActive == false)
+        {
+            acideDamageRateTimer -= Time.deltaTime;
+            if(acideDamageRateTimer <= 0.0f)
+            {
+                acideDealDamageActive = true;
+            }
+        }
     }
 
     private void CheckSurroundings()
     {
         Vector3 offset = new Vector3(acideDetectionRadiusXoffset, acideDetectionRadiusYoffset, 0.0f);
         isInAcide = Physics2D.OverlapCircle(gameObject.transform.position + offset, acideDetectionRadius, whatIsAcide);
+        isNearRavine = Physics2D.OverlapCircle(gameObject.transform.position + offset, ravineDetectionRespawnIfDie, whatIsRavin);
+        isTouchingRavine = Physics2D.OverlapCircle(gameObject.transform.position + offset, acideDetectionRadius, whatIsRavin);
     }
 
     private void OnDrawGizmos()
     {
         Vector3 offset = new Vector3(acideDetectionRadiusXoffset, acideDetectionRadiusYoffset, 0.0f);
         Gizmos.DrawWireSphere(gameObject.transform.position, acideDetectionRadius);
+        Gizmos.DrawWireSphere(gameObject.transform.position, ravineDetectionRespawnIfDie);
     }
 
-    private void RavinDetector()
+    /*private void RavinDetector()
     {
         RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, acideDetectionRadius, new Vector2 (0,0), whatIsRavin);
         if (hitInfo.collider != null)
@@ -94,7 +134,7 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     private void DiseableRavinCollision(Collider2D ravinCollider)
     {
         Physics2D.IgnoreCollision(ravinCollider, ownCollider2D, false);
-    }
+    }*/
 
     /*private void OnCollisionEnter2D(Collision2D collision)
     {
