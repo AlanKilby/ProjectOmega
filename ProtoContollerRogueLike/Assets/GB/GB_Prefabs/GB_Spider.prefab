@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 4483270140053669576}
   - component: {fileID: 4483270140053669583}
   - component: {fileID: 4483270140053669582}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: GB_Spider
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
@@ -267,10 +267,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   whatIsEnvironement:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 16384
   fleeSpeed: 3
   spiderFireRate: 0.7
   spiderImprecision: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   lootDrop: {fileID: 677780095534232025}
   anim: {fileID: 677780095534231840}
   health: 30
