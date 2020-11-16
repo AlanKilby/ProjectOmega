@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2919829442815941452}
   - component: {fileID: 6689337455141403740}
   - component: {fileID: 2203488267270182930}
+  - component: {fileID: -8704625930512148651}
   m_Layer: 16
   m_Name: room_trl
   m_TagString: Untagged
@@ -122,3 +123,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
+--- !u!114 &-8704625930512148651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544940077074694356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d91b9684aeba2343ab3ad2f045ee1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomDesign:
+  - {fileID: 4308322995286931524, guid: 08b4ec44fbbc26d49be123de2ac09b37, type: 3}
+  - {fileID: 4396513123919055120, guid: be25a3254e4ec4941bfb6d54414b9480, type: 3}
+  - {fileID: 8597736145420448780, guid: 92cf6c401c80b3f4e91634387aaf6dab, type: 3}
+  - {fileID: 7352673263725910483, guid: fdb7385a47cf19a4ab45e5b892956eec, type: 3}
+  - {fileID: 9035068776575534009, guid: 2cb0f7d5b1076fe4da82b43a8ed08d51, type: 3}
+  - {fileID: 4726175846020422864, guid: 112a82b0e2795fc48bfdff222f9ce6fa, type: 3}
+  - {fileID: 4089240092035749999, guid: 5efbf882a718d3e459e060045cd93d52, type: 3}
