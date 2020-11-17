@@ -5,6 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     PlayerModuleStation PMS;
+    Rigidbody2D rb;
+
+    GameObject player;
 
     public LayerMask whatIsSolid;
     public LayerMask whatIsEnnemi;
@@ -13,6 +16,7 @@ public class Bullet : MonoBehaviour
     float lifeTimer;
     public float distance;
     public float moduleExplosiveChargeRadius;
+    public float counterBladeBulletSpeed;
     /*public float poussée;
     public float knockTime;*/
 
@@ -25,6 +29,8 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModuleStation>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody2D>();
         lifeTimer = 0.0f;
     }
 
@@ -132,6 +138,27 @@ public class Bullet : MonoBehaviour
             difference = difference.normalized * poussée;
             enemy.AddForce(difference, ForceMode2D.Impulse);
             StartCoroutine(KnockCo(enemy));*/
+            Destroy(gameObject);
+        }
+        if (collision.CompareTag("CounterBladeSlashArea") && isEnnemyBullet)
+        {
+            gameObject.layer = 18; //CounterBladeSlashArea Layer Number
+            //Quaternion rot180degrees = Quaternion.Euler(-transform.rotation.eulerAngles); POUR RENVOYER A L'ENVOYEUR
+            //rb.velocity = rb.velocity * -1; POUR ALLER VERS L'ENVOYEUR
+            /*gameObject.transform.rotation = player.transform.rotation;
+            Vector3 playerLook = new Vector3(player.transform.rotation.x, player.transform.rotation.y, player.transform.rotation.z);
+            playerLook = playerLook.normalized;*/
+            //rb.velocity = playerLook * counterBladeBulletSpeed;
+            /*rb.velocity = new Vector2(0, 0);
+            rb.AddForce(gameObject.transform.forward * rb.velocity, ForceMode2D.Impulse);*/
+            lifeTimer = 0.0f;
+            isEnnemyBullet = false;
+
+            GameObject bullet = Instantiate(gameObject, gameObject.transform.position, player.transform.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            Bullet Bu = bullet.GetComponent<Bullet>();
+            rb.AddForce(bullet.transform.up * counterBladeBulletSpeed, ForceMode2D.Impulse);
+            Bu.isEnnemyBullet = false;
             Destroy(gameObject);
         }
 

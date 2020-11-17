@@ -5,14 +5,16 @@ using UnityEngine;
 public class SwordAttack : MonoBehaviour
 {
     public LayerMask whatIsEnnemy;
+    [SerializeField]
+    private LayerMask whatIsKillable;
+
+    [SerializeField] GameObject CounterBladeSlashArea;
 
     PlayerHealth PH;
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
     private Transform attackHitBoxPos;
-    [SerializeField]
-    private LayerMask whatIsKillable;
     [SerializeField]
     private float attackRadius;
     public float vampireHealthStollen;
@@ -31,6 +33,7 @@ public class SwordAttack : MonoBehaviour
     public bool gotInput;
     public bool isAttacking;
     public bool isVampire;
+    public bool hasCounterBlade;
 
     [SerializeField] private Animator anim;
 
@@ -50,6 +53,11 @@ public class SwordAttack : MonoBehaviour
         {
             GetAttackInput();
         }
+        if(hasCounterBlade && isAttacking == true)
+        {
+            CounterBladeSlashArea.SetActive(true);
+        }
+        else CounterBladeSlashArea.SetActive(false);
     }
 
     public void GetAttackInput()

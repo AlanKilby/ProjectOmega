@@ -616,17 +616,19 @@ MonoBehaviour:
   whatIsEnnemy:
     serializedVersion: 2
     m_Bits: 512
-  combatEnabled: 0
-  attackHitBoxPos: {fileID: 1163558161971264413}
   whatIsKillable:
     serializedVersion: 2
     m_Bits: 2048
+  CounterBladeSlashArea: {fileID: 0}
+  combatEnabled: 0
+  attackHitBoxPos: {fileID: 1163558161971264413}
   attackRadius: 0.8
   vampireHealthStollen: 5
   damage: 10
   gotInput: 0
   isAttacking: 0
   isVampire: 0
+  hasCounterBlade: 0
   anim: {fileID: 1163558162623733044}
 --- !u!114 &1163558162623733002
 MonoBehaviour:
