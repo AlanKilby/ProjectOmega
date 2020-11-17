@@ -23,7 +23,15 @@ public class Weapon : MonoBehaviour
     string gunID;
     public int gunSlot;
     bool gunAlreadyInInv;
-    
+    [Header("Loading Gun ?")]
+    public bool isALoadingGun;
+    bool loadingGunCharging;
+    bool loadingGunIsChargedMax;
+    public float loadingGunTimeToChargeMax;
+    float loadingGunTimer;
+    public float loadingGunChargePercentage;
+    public int chargedMaxDamageMultiplicator;
+    public bool canStunWhenCharingMax;
 
 
     void Start()
@@ -39,6 +47,8 @@ public class Weapon : MonoBehaviour
         gunID = gun.ID;
         Debug.Log(gunID);
         gunAlreadyInInv = false;
+        loadingGunCharging = false;
+        loadingGunTimer = 0.0f;
     }
 
     void Update()
@@ -55,9 +65,36 @@ public class Weapon : MonoBehaviour
         }
 
         //Shooting
-        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
+        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing && !isALoadingGun)
         {
             WeaponShooting();
+        }
+
+        if (isALoadingGun)
+        {
+            if (isEquipped && Input.GetButtonDown("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
+            {
+                loadingGunCharging = true;
+            }
+
+            if(isEquipped && Input.GetButtonUp("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
+            {
+                WeaponShooting();
+                loadingGunChargePercentage = 0.0f;
+                loadingGunCharging = false;
+
+            }
+
+            if (!isEquipped || inventory.ammoCounter[gun.ammoID] <= 0 || PM.isDashing)
+            {
+                loadingGunCharging = false;
+            }
+
+        }
+
+        if (loadingGunCharging)
+        {
+            LoadingGunCharge();
         }
 
         //Fire Rate cooldown
@@ -71,8 +108,6 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        
-
 
 
     }
@@ -83,9 +118,29 @@ public class Weapon : MonoBehaviour
         {
             for (int i = 0; i < shootingPoints.Length; i++)
             {
-                GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
+                if (!isALoadingGun)
+                {
+                    GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
+                }
+                if (isALoadingGun)
+                {
+                    GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    Bullet Bu = bullet.GetComponent<Bullet>();
+                    //Bu.damage = Bu.damage * loadingGunChargePercentage; MARCHE PAS CAR % en Float et Damage en Int
+                    if (loadingGunIsChargedMax)
+                    {
+                        Bu.damage = Bu.damage * chargedMaxDamageMultiplicator;
+                        if (canStunWhenCharingMax)
+                        {
+                            Bu.canStun = true;
+                        }
+                    }
+                    rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
+                    loadingGunTimer = 0.0f;
+                }
                                             
             }
             if (PMS.soulScream)
@@ -150,5 +205,19 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    
+    void LoadingGunCharge()
+    {
+        if(loadingGunTimer <= loadingGunTimeToChargeMax)
+        {
+            loadingGunTimer += Time.deltaTime;
+        }
+        if(loadingGunTimer >= loadingGunTimeToChargeMax)
+        {
+            loadingGunIsChargedMax = true;
+        }
+        loadingGunChargePercentage = loadingGunTimer / loadingGunTimeToChargeMax;
+    }
+
+
+
 }

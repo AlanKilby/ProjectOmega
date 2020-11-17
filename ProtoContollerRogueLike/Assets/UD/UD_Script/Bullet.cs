@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
 
     bool coroutineRunning = false;
     public bool isEnnemyBullet;
+    public bool canStun;
 
     private void Start()
     {
@@ -113,6 +114,10 @@ public class Bullet : MonoBehaviour
             difference = difference.normalized * poussée;
             enemy.AddForce(difference, ForceMode2D.Impulse);
             StartCoroutine(KnockCo(enemy));*/
+            if (canStun)
+            {
+                collision.GetComponent<EnnemisScript>().Stun();
+            }
             if (PMS.moduleExplosiveCharge)
             {
                 Collider2D explosiveHit = Physics2D.OverlapCircle(gameObject.transform.position, moduleExplosiveChargeRadius, whatIsEnnemi);

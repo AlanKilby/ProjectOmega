@@ -12,6 +12,9 @@ public class EnnemisScript : MonoBehaviour
     public int health;
     public int dropRate;
 
+    private float stunTimer;
+    private float stunTimerSet;
+
     //Ajout Gus
     private Material matWhite;
     private Material matDefault;
@@ -68,6 +71,11 @@ public class EnnemisScript : MonoBehaviour
             Invoke("ResetMaterial", 0.1f);
         }
         //
+    }
+
+    public void Stun()
+    {
+        //Insérer le changement de vitesse en passant par le Pathfinding
     }
 
     /*void UpdateAnim()
