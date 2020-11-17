@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3119916938898619414}
   - component: {fileID: 3113115372798736155}
   - component: {fileID: 7149255463142347571}
+  - component: {fileID: 318805766648009435}
   m_Layer: 10
   m_Name: Balle
   m_TagString: Untagged
@@ -73,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 895dd656617522f47929f895b50b0acc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04978152de5c0674bbe7055a6661af38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.078125, y: 0.25}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -118,18 +119,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03151886, y: 0.005628407}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.078125, y: 0.25}
-    newSize: {x: 0.078125, y: 0.25}
+    oldSize: {x: 0.5, y: 0.5}
+    newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.078125, y: 0.25}
+  m_Size: {x: 0.16817889, y: 0.45937526}
   m_EdgeRadius: 0
 --- !u!114 &7149255463142347571
 MonoBehaviour:
@@ -156,3 +157,23 @@ MonoBehaviour:
   damage: 2
   moduleExplosiveChargeDamage: 1
   isEnnemyBullet: 0
+  canStun: 0
+--- !u!95 &318805766648009435
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036960700221565208}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cfac856a49ed9334c80ab316720b9826, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

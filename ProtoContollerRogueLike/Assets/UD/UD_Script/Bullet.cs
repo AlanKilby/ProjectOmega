@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     PlayerModuleStation PMS;
     Rigidbody2D rb;
+    Animator anim;
 
     GameObject player;
 
@@ -27,12 +28,16 @@ public class Bullet : MonoBehaviour
     public bool isEnnemyBullet;
     public bool canStun;
 
+    bool touchObstacle;
+
     private void Start()
     {
+        anim = GetComponent<Animator>();
         PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModuleStation>();
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         lifeTimer = 0.0f;
+        touchObstacle = false;
     }
 
     private void Update()
@@ -45,6 +50,96 @@ public class Bullet : MonoBehaviour
         if (lifeTimer > bulletLifeTime)
         {
             Destroy(gameObject);
+        }
+        if (touchObstacle)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
+        UpdateAnims();
+    }
+
+    void UpdateAnims()
+    {
+        anim.SetBool("touchObstacle", touchObstacle);
+    }
+
+    void DestroyBullet()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(gameObject.transform.position, moduleExplosiveChargeRadius);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
+        if (collision.CompareTag("Ennemi") && !isEnnemyBullet)
+        {
+            collision.GetComponent<EnnemisScript>().TakeDamage(damage);
+            /*enemy.isKinematic = false;
+            Vector2 difference = enemy.transform.position - transform.position;
+            difference = difference.normalized * poussée;
+            enemy.AddForce(difference, ForceMode2D.Impulse);
+            StartCoroutine(KnockCo(enemy));*/
+            if (canStun)
+            {
+                collision.GetComponent<EnnemisScript>().Stun();
+            }
+            if (PMS.moduleExplosiveCharge)
+            {
+                Collider2D explosiveHit = Physics2D.OverlapCircle(gameObject.transform.position, moduleExplosiveChargeRadius, whatIsEnnemi);
+                if (explosiveHit != null)
+                {
+                    if (explosiveHit.CompareTag("Ennemi"))
+                    {
+                        Debug.Log("DAMAGE");
+                        explosiveHit.GetComponent<EnnemisScript>().TakeDamage(moduleExplosiveChargeDamage);
+                    }
+                }
+            }
+            if (!PMS.soulScream)
+            {
+                touchObstacle = true;
+            }
+        }
+        if (collision.CompareTag("Player") && isEnnemyBullet)
+        {
+            collision.GetComponent<PlayerHealth>().TakeDamage(damage);
+            /*enemy.isKinematic = false;
+            Vector2 difference = enemy.transform.position - transform.position;
+            difference = difference.normalized * poussée;
+            enemy.AddForce(difference, ForceMode2D.Impulse);
+            StartCoroutine(KnockCo(enemy));*/
+            touchObstacle = true;
+        }
+        if (collision.CompareTag("CounterBladeSlashArea") && isEnnemyBullet)
+        {
+            gameObject.layer = 18; //CounterBladeSlashArea Layer Number
+            //Quaternion rot180degrees = Quaternion.Euler(-transform.rotation.eulerAngles); POUR RENVOYER A L'ENVOYEUR
+            //rb.velocity = rb.velocity * -1; POUR ALLER VERS L'ENVOYEUR
+            /*gameObject.transform.rotation = player.transform.rotation;
+            Vector3 playerLook = new Vector3(player.transform.rotation.x, player.transform.rotation.y, player.transform.rotation.z);
+            playerLook = playerLook.normalized;*/
+            //rb.velocity = playerLook * counterBladeBulletSpeed;
+            /*rb.velocity = new Vector2(0, 0);
+            rb.AddForce(gameObject.transform.forward * rb.velocity, ForceMode2D.Impulse);*/
+            lifeTimer = 0.0f;
+            isEnnemyBullet = false;
+
+            GameObject bullet = Instantiate(gameObject, gameObject.transform.position, player.transform.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            Bullet Bu = bullet.GetComponent<Bullet>();
+            rb.AddForce(bullet.transform.up * counterBladeBulletSpeed, ForceMode2D.Impulse);
+            Bu.isEnnemyBullet = false;
+            touchObstacle = true;
+        }
+
+        if (collision.CompareTag("Environement"))
+        {
+            touchObstacle = true;
         }
     }
 
@@ -97,81 +192,6 @@ public class Bullet : MonoBehaviour
             }
         }
     }*/
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(gameObject.transform.position, moduleExplosiveChargeRadius);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
-        if (collision.CompareTag("Ennemi") && !isEnnemyBullet)
-        {
-            collision.GetComponent<EnnemisScript>().TakeDamage(damage);
-            /*enemy.isKinematic = false;
-            Vector2 difference = enemy.transform.position - transform.position;
-            difference = difference.normalized * poussée;
-            enemy.AddForce(difference, ForceMode2D.Impulse);
-            StartCoroutine(KnockCo(enemy));*/
-            if (canStun)
-            {
-                collision.GetComponent<EnnemisScript>().Stun();
-            }
-            if (PMS.moduleExplosiveCharge)
-            {
-                Collider2D explosiveHit = Physics2D.OverlapCircle(gameObject.transform.position, moduleExplosiveChargeRadius, whatIsEnnemi);
-                if (explosiveHit != null)
-                {
-                    if (explosiveHit.CompareTag("Ennemi"))
-                    {
-                        Debug.Log("DAMAGE");
-                        explosiveHit.GetComponent<EnnemisScript>().TakeDamage(moduleExplosiveChargeDamage);
-                    }
-                }
-            }
-            if (!PMS.soulScream)
-            {
-                Destroy(gameObject);
-            }
-        }
-        if (collision.CompareTag("Player") && isEnnemyBullet)
-        {
-            collision.GetComponent<PlayerHealth>().TakeDamage(damage);
-            /*enemy.isKinematic = false;
-            Vector2 difference = enemy.transform.position - transform.position;
-            difference = difference.normalized * poussée;
-            enemy.AddForce(difference, ForceMode2D.Impulse);
-            StartCoroutine(KnockCo(enemy));*/
-            Destroy(gameObject);
-        }
-        if (collision.CompareTag("CounterBladeSlashArea") && isEnnemyBullet)
-        {
-            gameObject.layer = 18; //CounterBladeSlashArea Layer Number
-            //Quaternion rot180degrees = Quaternion.Euler(-transform.rotation.eulerAngles); POUR RENVOYER A L'ENVOYEUR
-            //rb.velocity = rb.velocity * -1; POUR ALLER VERS L'ENVOYEUR
-            /*gameObject.transform.rotation = player.transform.rotation;
-            Vector3 playerLook = new Vector3(player.transform.rotation.x, player.transform.rotation.y, player.transform.rotation.z);
-            playerLook = playerLook.normalized;*/
-            //rb.velocity = playerLook * counterBladeBulletSpeed;
-            /*rb.velocity = new Vector2(0, 0);
-            rb.AddForce(gameObject.transform.forward * rb.velocity, ForceMode2D.Impulse);*/
-            lifeTimer = 0.0f;
-            isEnnemyBullet = false;
-
-            GameObject bullet = Instantiate(gameObject, gameObject.transform.position, player.transform.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            Bullet Bu = bullet.GetComponent<Bullet>();
-            rb.AddForce(bullet.transform.up * counterBladeBulletSpeed, ForceMode2D.Impulse);
-            Bu.isEnnemyBullet = false;
-            Destroy(gameObject);
-        }
-
-        if (collision.CompareTag("Environement"))
-        {
-            Destroy(gameObject);
-        }
-    }
 
     /*private IEnumerator KnockCo(Rigidbody2D enemy)
     {
