@@ -9,6 +9,7 @@ public class EnnemiSummoner : MonoBehaviour
     public LayerMask whatIsEnvironement;
 
     [SerializeField] private Animator anim;
+    EnnemisScript ES;
 
     public float fleeSpeed;
     public float summonRate;
@@ -55,6 +56,7 @@ public class EnnemiSummoner : MonoBehaviour
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ownRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        ES = GetComponent<EnnemisScript>();
     }
 
     void Update()
@@ -144,7 +146,14 @@ public class EnnemiSummoner : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             Vector3 fleeDirection = playerPos.position - gameObject.transform.position;
             fleeDirection.Normalize();
-            ownRB.AddForce(fleeDirection * (-fleeSpeed), ForceMode2D.Force);
+            if (ES.isStunned)
+            {
+                ownRB.AddForce(fleeDirection * (-fleeSpeed * (1 - ES.stunSlowPercentageEffect / 100)), ForceMode2D.Force);
+            }
+            else
+            {
+                ownRB.AddForce(fleeDirection * (-fleeSpeed), ForceMode2D.Force);
+            }
             ChangeAnimationState(SUMMONER_WALK);
 
         }

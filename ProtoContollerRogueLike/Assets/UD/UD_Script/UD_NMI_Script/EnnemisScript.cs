@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnnemisScript : MonoBehaviour
 {
     public LayerMask whatIsPlayer;
+
+    AIPath AIP;
 
     [SerializeField] LootDrop lootDrop;
     [SerializeField] private Animator anim;
 
     public int health;
     public int dropRate;
+    public float speed;
 
+    public bool isStunned;
     private float stunTimer;
-    private float stunTimerSet;
+    public float stunTimerSet;
+    public float stunSlowPercentageEffect;
 
     //Ajout Gus
     private Material matWhite;
@@ -28,6 +34,9 @@ public class EnnemisScript : MonoBehaviour
         takeDamage = false;
         lootDrop = GetComponent<LootDrop>();
         anim = GetComponent<Animator>();
+        AIP = GetComponent<AIPath>();
+        AIP.maxSpeed = speed;
+        isStunned = false;
         
         //Ajout Gus
         sr = GetComponent<SpriteRenderer>();
@@ -45,7 +54,15 @@ public class EnnemisScript : MonoBehaviour
         }
         //PlayerDirection(); //de l'ancien script d'alan, ne convient plus au pathfinding a*
     }*/
-   
+        if (isStunned)
+        {
+            AIP.maxSpeed = speed * (1 - stunSlowPercentageEffect / 100);
+        }
+        else
+        {
+            AIP.maxSpeed = speed;
+        }
+        StunnedTimer();
     }
 
     //Ajout Gus
@@ -54,6 +71,18 @@ public class EnnemisScript : MonoBehaviour
         sr.material = matDefault; 
     }
     //
+
+    void StunnedTimer()
+    {
+        if (isStunned)
+        {
+            stunTimer -= Time.deltaTime;
+            if(stunTimer <= 0)
+            {
+                isStunned = false;
+            }
+        }
+    }
         
     public void TakeDamage(int damage)
     {
@@ -75,7 +104,8 @@ public class EnnemisScript : MonoBehaviour
 
     public void Stun()
     {
-        //Insérer le changement de vitesse en passant par le Pathfinding
+        isStunned = true;
+        stunTimer = stunTimerSet;
     }
 
     /*void UpdateAnim()

@@ -8,6 +8,9 @@ public class Spider : MonoBehaviour
 {
     public LayerMask whatIsPlayer;
     public LayerMask whatIsEnvironement;
+
+    EnnemisScript ES;
+
     // Ajout Gus
     private Animator anim;
     private string currentAnimation;
@@ -49,6 +52,7 @@ public class Spider : MonoBehaviour
         thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ownRB = GetComponent<Rigidbody2D>();
+        ES = GetComponent<EnnemisScript>();
 
         //Ajout Gus
         anim = GetComponent<Animator>();
@@ -103,8 +107,15 @@ public class Spider : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             Vector3 fleeDirection = playerPos.position - gameObject.transform.position;
-            fleeDirection.Normalize();
-            ownRB.AddForce(fleeDirection * (-fleeSpeed));
+            fleeDirection.Normalize(); 
+            if (ES.isStunned)
+            {
+                ownRB.AddForce(fleeDirection * (-fleeSpeed * (1 - ES.stunSlowPercentageEffect / 100)), ForceMode2D.Force);
+            }
+            else
+            {
+                ownRB.AddForce(fleeDirection * (-fleeSpeed), ForceMode2D.Force);
+            }
             //Ajout Gus
             ChangeAnimationState(SPIDERWALK);
             //     
