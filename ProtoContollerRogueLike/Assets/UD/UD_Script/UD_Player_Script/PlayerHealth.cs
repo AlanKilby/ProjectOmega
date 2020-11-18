@@ -20,6 +20,10 @@ public class PlayerHealth : MonoBehaviour
     //Ajout Gus
     private string currentAnimation;
     const string PLAYER_DEATH = "PlayerDeath";
+
+    private Material matWhite;
+    private Material matDefault;
+    SpriteRenderer sr;
     //
 
     void Start()
@@ -30,11 +34,18 @@ public class PlayerHealth : MonoBehaviour
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
         currentPlayerHealth = totalPlayerHealth;
         hasQuickRevive = false;
+
+        //Ajout Gus
+        sr = GetComponent<SpriteRenderer>();
+        matWhite = Resources.Load("PlayerFlash", typeof(Material)) as Material;
+        matDefault = sr.material;
+        //
     }
 
     private void Update()
     {
-        healthPercent = (currentPlayerHealth / totalPlayerHealth);
+
+        /*healthPercent = (currentPlayerHealth / totalPlayerHealth);
         if (currentPlayerHealth <= 0 && !hasQuickRevive)
         {
             //Destroy(gameObject);
@@ -46,15 +57,23 @@ public class PlayerHealth : MonoBehaviour
         if (currentPlayerHealth <= 0 && hasQuickRevive)
         {
             currentPlayerHealth = healthRegenWithQuickRevive;
-            hasQuickRevive = false; 
+            hasQuickRevive = false;
             foreach (Transform child in In.moduleSlots[quickReviveIconSlot].transform)
             {
                 Destroy(child.gameObject);
             }
             In.isFullModule[quickReviveIconSlot] = false;
             RemoveFromList(quickReviveIconSlot);
-        }
+        }*/
+
     }
+
+    //Ajout Gus
+    void ResetMaterial()
+    {
+        sr.material = matDefault;
+    }
+    //
 
     void RemoveFromList(int index)
     {
@@ -70,10 +89,10 @@ public class PlayerHealth : MonoBehaviour
     //Ajout Gus
     public void Die()
     {
-        rb.velocity = new Vector2 (0.0f, 0.0f);
+        rb.velocity = new Vector2(0.0f, 0.0f);
         GetComponent<PlayerMouvement>().enabled = false;
         GetComponent<Shooting>().enabled = false;
-        
+
         //Merci Alan !
         foreach (Transform child in transform)
         {
@@ -85,19 +104,49 @@ public class PlayerHealth : MonoBehaviour
         ChangeAnimationState(PLAYER_DEATH);
         //anim.SetBool("isDead", true);
         Destroy(gameObject, 1.85f);
-    }
-    //                          
+        //
+    }                    
 
 
     public void TakeDamage(int damage)
     {
-        if(PM.isDashing && PM.hasModulePhaseShift)
+        if (PM.isDashing && PM.hasModulePhaseShift)
         {
-            
+
         }
-        else currentPlayerHealth -= damage;
+        else
+        {
+            currentPlayerHealth -= damage;
+          //Ajout Gus
+            sr.material = matWhite;
+        }
+        healthPercent = (currentPlayerHealth / totalPlayerHealth);
+        if (currentPlayerHealth <= 0 && !hasQuickRevive)
+        {
+            //Destroy(gameObject);
+            //Ajout Gus
+            Die();
+            return;
+            //
+        }
+        if (currentPlayerHealth <= 0 && hasQuickRevive)
+        {
+            currentPlayerHealth = healthRegenWithQuickRevive;
+            hasQuickRevive = false;
+            foreach (Transform child in In.moduleSlots[quickReviveIconSlot].transform)
+            {
+                Destroy(child.gameObject);
+            }
+            In.isFullModule[quickReviveIconSlot] = false;
+            RemoveFromList(quickReviveIconSlot);
+        }
+        //Ajout Gus
+        if (currentPlayerHealth > 0)
+        {
+            Invoke("ResetMaterial", 0.1f);
+        }
     }
-   
+
     //Ajout Gus
     void ChangeAnimationState(string newAnimation)
     {

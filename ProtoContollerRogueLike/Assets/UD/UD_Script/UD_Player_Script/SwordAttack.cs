@@ -5,10 +5,6 @@ using UnityEngine;
 public class SwordAttack : MonoBehaviour
 {
     public LayerMask whatIsEnnemy;
-    [SerializeField]
-    private LayerMask whatIsKillable;
-
-    [SerializeField] GameObject CounterBladeSlashArea;
 
     PlayerHealth PH;
     [SerializeField]
@@ -16,24 +12,22 @@ public class SwordAttack : MonoBehaviour
     [SerializeField]
     private Transform attackHitBoxPos;
     [SerializeField]
+    private LayerMask whatIsKillable;
+    [SerializeField]
     private float attackRadius;
     public float vampireHealthStollen;
 
-    /*Ajout Gus
+    //Ajout Gus
     private string currentAnimation;
 
-    [SerializeField]
-    private float attackDelay = 0.1f;
-
-    const string PLAYER_ATTACK = "PlayerAttack";
-    */
+    const string PLAYER_SWORD = "PlayerSword";
+    //
 
     public int damage;
 
     public bool gotInput;
     public bool isAttacking;
     public bool isVampire;
-    public bool hasCounterBlade;
 
     [SerializeField] private Animator anim;
 
@@ -52,12 +46,9 @@ public class SwordAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             GetAttackInput();
+            ChangeAnimationState(PLAYER_SWORD);
+
         }
-        if(hasCounterBlade && isAttacking == true)
-        {
-            CounterBladeSlashArea.SetActive(true);
-        }
-        else CounterBladeSlashArea.SetActive(false);
     }
 
     public void GetAttackInput()
@@ -77,8 +68,6 @@ public class SwordAttack : MonoBehaviour
                 gotInput = false;
                 isAttacking = true;
                 anim.SetBool("isAttacking", isAttacking);
-                //Ajout Gus ChangeAnimationState(PLAYER_ATTACK);
-                //Invoke("AttackComplete", attackDelay);
             }
         }
     }
@@ -118,32 +107,24 @@ public class SwordAttack : MonoBehaviour
     {
         isAttacking = false;
         anim.SetBool("isAttacking", isAttacking);
-        
+
     }
 
-
-    
-    
-   
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackHitBoxPos.position, attackRadius);
     }
 
-    /*Ajout Gus
-    void AttackComplete()
-    {
-        isAttacking = false;
-    }
     
     
+    //Ajout Gus
     void ChangeAnimationState(string newAnimation)
     {
         if (currentAnimation == newAnimation) return;
 
         anim.Play(newAnimation);
 
-        currentAnimation = newAnimation;
+        //currentAnimation = newAnimation;
     }
-    */
+    //
 }

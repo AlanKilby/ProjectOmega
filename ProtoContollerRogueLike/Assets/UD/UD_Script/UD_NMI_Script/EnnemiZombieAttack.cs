@@ -10,6 +10,12 @@ public class EnnemiZombieAttack : MonoBehaviour
 
     public int damage;
 
+    //Ajout Gus
+    private string currentAnimation;
+    const string ZOMBIE_WALK = "ZombieWalk";
+    const string ZOMBIE_ATTACK = "ZombieAttack";
+    //
+
     [SerializeField] private Transform attackHitBoxPos;
     [SerializeField] private Transform playerPos;
     [SerializeField] private LayerMask whatIsKillable;
@@ -42,7 +48,7 @@ public class EnnemiZombieAttack : MonoBehaviour
 
     void UpdateAnim()
     {
-        anim.SetBool("isAttacking", isAttacking);
+        //anim.SetBool("isAttacking", isAttacking);
     }
 
     public void StopAnimAttack()
@@ -58,6 +64,9 @@ public class EnnemiZombieAttack : MonoBehaviour
             if (zombieHitFireRateTimer < 0.0f)
             {
                 combatEnable = true;
+                //Ajout Gus
+                ChangeAnimationState(ZOMBIE_WALK);
+                //
             }
         }
     }
@@ -72,7 +81,11 @@ public class EnnemiZombieAttack : MonoBehaviour
             {
                 hitInfo.GetComponent<PlayerHealth>().TakeDamage(damage);
                 isAttacking = true;
+                //Ajout Gus
+                ChangeAnimationState(ZOMBIE_ATTACK);
+                //
             }
+
         }
     }
 
@@ -80,4 +93,16 @@ public class EnnemiZombieAttack : MonoBehaviour
     {
         Gizmos.DrawWireSphere(attackHitBoxPos.position, attackRadius);
     }
+    
+    
+    //Ajout Gus
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+
+        currentAnimation = newAnimation;
+    }
+    //
 }

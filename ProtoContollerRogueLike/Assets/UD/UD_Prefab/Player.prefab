@@ -519,13 +519,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: -2311659948842064771, guid: 6a44526018840754f97ade646e23787d,
-    type: 3}
+  m_Sprite: {fileID: 712035800519618848, guid: e90228e1dc4288c4b8df7ed0d9b7a43a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.125, y: 7.8125}
+  m_Size: {x: 4.3125, y: 4.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -569,8 +568,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.1875, y: 8}
-    newSize: {x: 5.125, y: 7.8125}
+    oldSize: {x: 4.3125, y: 4.125}
+    newSize: {x: 4.3125, y: 4.125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -686,19 +685,17 @@ MonoBehaviour:
   whatIsEnnemy:
     serializedVersion: 2
     m_Bits: 512
+  combatEnabled: 0
+  attackHitBoxPos: {fileID: 1163558161971264413}
   whatIsKillable:
     serializedVersion: 2
     m_Bits: 512
-  CounterBladeSlashArea: {fileID: 1479435268}
-  combatEnabled: 0
-  attackHitBoxPos: {fileID: 1163558161971264413}
   attackRadius: 0.8
   vampireHealthStollen: 5
   damage: 10
   gotInput: 0
   isAttacking: 0
   isVampire: 0
-  hasCounterBlade: 0
   anim: {fileID: 1163558162623733044}
 --- !u!114 &1163558162623733002
 MonoBehaviour:

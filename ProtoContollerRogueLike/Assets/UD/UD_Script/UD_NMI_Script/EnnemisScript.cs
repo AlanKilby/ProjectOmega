@@ -31,7 +31,7 @@ public class EnnemisScript : MonoBehaviour
         
         //Ajout Gus
         sr = GetComponent<SpriteRenderer>();
-        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+        matWhite = Resources.Load("EnemyFlash", typeof(Material)) as Material;
         matDefault = sr.material;
         //
     }

@@ -164,7 +164,6 @@ public class PlayerMouvement : MonoBehaviour
             isDashing = true;
             //Ajout Gus
             ChangeAnimationState(PLAYER_DASH);
-            //anim.Play(PLAYER_DASH);
             //
             
             

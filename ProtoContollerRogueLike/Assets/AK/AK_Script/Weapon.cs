@@ -179,9 +179,10 @@ public class Weapon : MonoBehaviour
                     Instantiate(gun.gunIcon, inventory.slots[i].transform, false);
 
                     transform.SetParent(collision.transform);
-
-                    transform.localPosition = new Vector2(-0.35f,0.15f);
-
+                    
+                    //Modif Gus
+                    //transform.localPosition = new Vector2(-0.35f,0.15f);
+                    transform.localPosition = new Vector2(-0.52f, 0.75f);
                     transform.rotation = collision.transform.rotation;
 
                     inventory.ammoCounter[gun.ammoID] += ammoCount;

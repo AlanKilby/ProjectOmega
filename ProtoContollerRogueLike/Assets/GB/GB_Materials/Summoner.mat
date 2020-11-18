@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spider_Walk
+  m_Name: Summoner
   m_Shader: {fileID: -6465566751694194690, guid: 4f1e9e2404a9f584d825424f464130ed,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -25,11 +25,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Emission:
-        m_Texture: {fileID: 2800000, guid: 34919edceb843ed42a5027f5089d8a07, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7ee984d2618e14443b1def93b986ad01, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ed357cf14839afd41bebcd695f39ca94, type: 3}
+        m_Texture: {fileID: 2800000, guid: fe734ca9633e1ca428aaa38eb97390c4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     m_Colors:
-    - Color_2CE5E6D: {r: 0.15449657, g: 0.5214259, b: 0.840075, a: 0}
+    - Color_2CE5E6D: {r: 0.18346466, g: 0.69523454, b: 1.8443027, a: 0.07058824}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

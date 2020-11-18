@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 11400000, guid: 8460212d2f7d8494f8ce5dd3e99480e0, type: 2}
   PM: {fileID: 0}
+  PMS: {fileID: 0}
   gunSpriteRenderer: {fileID: 0}
   shootingPoints:
   - {fileID: 5014251510964584086}
@@ -102,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 14631c45e37b59c4aa82886c45963ca0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
