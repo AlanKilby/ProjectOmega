@@ -7,6 +7,9 @@ public class SwordAttack : MonoBehaviour
     public LayerMask whatIsEnnemy;
 
     PlayerHealth PH;
+    //Ajout Gus
+    PlayerMouvement PM;
+    //
     [SerializeField]
     private bool combatEnabled;
     [SerializeField]
@@ -16,12 +19,6 @@ public class SwordAttack : MonoBehaviour
     [SerializeField]
     private float attackRadius;
     public float vampireHealthStollen;
-
-    //Ajout Gus
-    private string currentAnimation;
-
-    const string PLAYER_SWORD = "PlayerSword";
-    //
 
     public int damage;
 
@@ -38,15 +35,23 @@ public class SwordAttack : MonoBehaviour
         anim.SetBool("canAttack", combatEnabled);
         combatEnabled = true;
         isVampire = false;
+        //Ajout Gus
+        PM = GetComponent<PlayerMouvement>();
+        //
     }
 
     private void Update()
     {
         CheckAttacks();
+        //Ajout Gus
+        CheckMovement();
+        //
+
         if (Input.GetButtonDown("Fire2"))
         {
             GetAttackInput();
-            ChangeAnimationState(PLAYER_SWORD);
+            
+            //ChangeAnimationState(PLAYER_SWORD);
 
         }
     }
@@ -71,6 +76,14 @@ public class SwordAttack : MonoBehaviour
             }
         }
     }
+
+    //Ajout Gus
+    private void CheckMovement() 
+    {
+        anim.SetBool("isMoving", PM.playerIsMoving);
+    }
+    //
+
 
     public void CheckAttackHitBox()
     {
@@ -114,17 +127,4 @@ public class SwordAttack : MonoBehaviour
     {
         Gizmos.DrawWireSphere(attackHitBoxPos.position, attackRadius);
     }
-
-    
-    
-    //Ajout Gus
-    void ChangeAnimationState(string newAnimation)
-    {
-        if (currentAnimation == newAnimation) return;
-
-        anim.Play(newAnimation);
-
-        //currentAnimation = newAnimation;
-    }
-    //
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMouvement : MonoBehaviour
 {
-    private bool playerIsMoving;
+    public bool playerIsMoving;
     public bool hasModulePhaseShift;
 
     public float playerSpeed = 5.0f;
