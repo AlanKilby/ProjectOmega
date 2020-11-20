@@ -20,7 +20,8 @@ public class SwordAttack : MonoBehaviour
     private float attackRadius;
     public float vampireHealthStollen;
 
-    public int damage;
+    [HideInInspector] public int damageUpgraded;
+    public int damageTotal;
 
     public bool gotInput;
     public bool isAttacking;
@@ -95,16 +96,16 @@ public class SwordAttack : MonoBehaviour
             if (hitInfo.CompareTag("Ennemi"))
             {
                 Debug.Log("DAMAGE");
-                hitInfo.GetComponent<EnnemisScript>().TakeDamage(damage);
+                hitInfo.GetComponent<EnnemisScript>().TakeDamage(damageUpgraded);
                 if (isVampire)
                 {
-                    if (PH.currentPlayerHealth < PH.totalPlayerHealth - vampireHealthStollen)
+                    if (PH.currentPlayerHealth < PH.totalPlayerHealthUpgraded - vampireHealthStollen)
                     {
                         PH.currentPlayerHealth = PH.currentPlayerHealth + vampireHealthStollen;
                     }
                     else
                     {
-                        PH.currentPlayerHealth = PH.totalPlayerHealth;
+                        PH.currentPlayerHealth = PH.totalPlayerHealthUpgraded;
                     }
                 }
             }

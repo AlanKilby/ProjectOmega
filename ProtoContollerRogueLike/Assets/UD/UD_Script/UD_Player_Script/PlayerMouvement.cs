@@ -19,6 +19,7 @@ public class PlayerMouvement : MonoBehaviour
     public bool isDashing = false;
     public bool canDash;
     public float dashReloadTimeSet;
+    [HideInInspector] public float dashReloadTimeUpgraded;
     public float dashReloadTimer;
     public float dashTimePercent;
     public float playerRBVelovityX;
@@ -193,11 +194,11 @@ public class PlayerMouvement : MonoBehaviour
         {
             dashReloadTimer += Time.deltaTime;
         }
-        if (dashReloadTimer > dashReloadTimeSet)
+        if (dashReloadTimer > dashReloadTimeUpgraded)
         {
             canDash = true;
         }
-        dashTimePercent = dashReloadTimer / dashReloadTimeSet;
+        dashTimePercent = dashReloadTimer / dashReloadTimeUpgraded;
     }
 
     //Ajout Gus

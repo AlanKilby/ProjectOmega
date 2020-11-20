@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float totalPlayerHealth;
+    public float totalPlayerHealthSet;
+    [HideInInspector] public float totalPlayerHealthUpgraded;
     public float currentPlayerHealth;
     public float healthPercent;
     [HideInInspector] public float healthRegenWithQuickRevive;
@@ -28,11 +29,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        totalPlayerHealthUpgraded = totalPlayerHealthSet; // A Set en tout début de partie
         anim = GetComponent<Animator>();
         rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         In = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
-        currentPlayerHealth = totalPlayerHealth;
+        currentPlayerHealth = totalPlayerHealthUpgraded;
         hasQuickRevive = false;
 
         //Ajout Gus
@@ -120,7 +122,7 @@ public class PlayerHealth : MonoBehaviour
           //Ajout Gus
             sr.material = matWhite;
         }
-        healthPercent = (currentPlayerHealth / totalPlayerHealth);
+        healthPercent = (currentPlayerHealth / totalPlayerHealthUpgraded);
         if (currentPlayerHealth <= 0 && !hasQuickRevive)
         {
             //Destroy(gameObject);
