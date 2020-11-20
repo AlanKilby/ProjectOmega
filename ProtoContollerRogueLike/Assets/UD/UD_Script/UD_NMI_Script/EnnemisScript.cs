@@ -8,6 +8,7 @@ public class EnnemisScript : MonoBehaviour
     public LayerMask whatIsPlayer;
 
     AIPath AIP;
+    CurrencySysteme CS;
 
     [SerializeField] LootDrop lootDrop;
     [SerializeField] private Animator anim;
@@ -15,6 +16,7 @@ public class EnnemisScript : MonoBehaviour
     public int health;
     public int dropRate;
     public float speed;
+    public int moneyDrop;
 
     public bool isStunned;
     private float stunTimer;
@@ -32,6 +34,7 @@ public class EnnemisScript : MonoBehaviour
     private void Start()
     {
         takeDamage = false;
+        CS = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrencySysteme>();
         lootDrop = GetComponent<LootDrop>();
         anim = GetComponent<Animator>();
         AIP = GetComponent<AIPath>();
@@ -129,6 +132,7 @@ public class EnnemisScript : MonoBehaviour
 
     public void Death()
     {
+        CS.currentMoneyAmount += moneyDrop;
         lootDrop.DropLoot();
         Destroy(gameObject);
     }

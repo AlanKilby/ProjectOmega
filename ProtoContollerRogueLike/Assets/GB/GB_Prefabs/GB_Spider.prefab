@@ -309,6 +309,11 @@ MonoBehaviour:
   anim: {fileID: 677780095534231840}
   health: 30
   dropRate: 2
+  speed: 2
+  moneyDrop: 2
+  isStunned: 0
+  stunTimerSet: 0
+  stunSlowPercentageEffect: 0
   takeDamage: 0
 --- !u!114 &677780095534232025
 MonoBehaviour:

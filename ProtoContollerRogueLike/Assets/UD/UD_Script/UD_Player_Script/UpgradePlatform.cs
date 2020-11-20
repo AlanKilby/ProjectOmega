@@ -8,23 +8,34 @@ public class UpgradePlatform : MonoBehaviour
     SwordAttack SA;
     PlayerMouvement PM;
 
+    [Header("Upgrade Health Total")]
     public float healthTotalUpgradeByTier;
     public float healthTotalUpgradeCountLimit;
     public float healthTotalUpgradeCountCurrent;
     public float healthTotalUpgradeCost;
     public float healthTotalUpgradeCostMultiplicatorByTier;
-    
+
+    [Header("Upgrade Dash Cooldown")]
     public float dashCooldownUpgradeByTier;
     public float dashCooldownUpgradeCountLimit;
     public float dashCooldownUpgradeCountCurrent;
     public float dashCooldownUpgradeCost;
     public float dashCooldownUpgradeCostMultiplicatorByTier;
 
+    [Header("Upgrade Sword Damage")]
     public int swordDamageUpgradeByTier;
     public float swordDamageUpgradeCountLimit;
     public float swordDamageUpgradeCountCurrent;
     public float swordDamageUpgradeCost;
     public float swordDamageUpgradeCostMultiplicatorByTier;
+
+    [Header("Upgrade Ammo Drop")]
+    public float ammoMultiplicatorByTier;
+    public float ammoMultiplicatorCountLimit;
+    public float ammoMultiplicatorCountCurrent;
+    public float ammoMultiplicatorCost;
+    public float ammoMultiplicatorCostMultiplicatorByTier;
+    [HideInInspector] public float ammoMultiplicatorCurrent;
 
     void Start()
     {
@@ -34,6 +45,7 @@ public class UpgradePlatform : MonoBehaviour
         healthTotalUpgradeCountCurrent = 0.0f;
         dashCooldownUpgradeCountCurrent = 0.0f;
         swordDamageUpgradeCountCurrent = 0.0f;
+        ammoMultiplicatorCountCurrent = 0.0f;
     }
 
     
@@ -59,6 +71,15 @@ public class UpgradePlatform : MonoBehaviour
         {
             SA.damageUpgraded += swordDamageUpgradeByTier;
             swordDamageUpgradeCountCurrent++;
+        }
+    }
+    
+    public void UpgradeAmmoMultiplicator()
+    {
+        if (ammoMultiplicatorCountCurrent < ammoMultiplicatorCountLimit)
+        {
+            ammoMultiplicatorCurrent = ammoMultiplicatorCurrent * ammoMultiplicatorByTier;
+            ammoMultiplicatorCountCurrent++;
         }
     }
 }

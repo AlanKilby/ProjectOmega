@@ -188,7 +188,7 @@ MonoBehaviour:
   m_UseNormalMap: 1
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
+  m_ShadowIntensity: 1
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
@@ -449,6 +449,8 @@ GameObject:
   - component: {fileID: 1163558162623733047}
   - component: {fileID: 1163558162623733040}
   - component: {fileID: 509157101048855274}
+  - component: {fileID: 1163558160880400662}
+  - component: {fileID: 8804865822545781548}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -608,6 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e9a779c9ad02d42b77f294a6316d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerIsMoving: 0
   hasModulePhaseShift: 0
   playerSpeed: 5
   dashSpeed: 2
@@ -615,6 +618,7 @@ MonoBehaviour:
   isDashing: 0
   canDash: 0
   dashReloadTimeSet: 2
+  dashReloadTimeUpgraded: 0
   dashReloadTimer: 0
   dashTimePercent: 0
   playerRBVelovityX: 0
@@ -692,7 +696,8 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 0.8
   vampireHealthStollen: 5
-  damage: 10
+  damageUpgraded: 0
+  damageTotal: 0
   gotInput: 0
   isAttacking: 0
   isVampire: 0
@@ -709,7 +714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474c6ae39777bb148afed41a1c0e86fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalPlayerHealth: 10
+  totalPlayerHealthSet: 0
+  totalPlayerHealthUpgraded: 0
   currentPlayerHealth: 0
   healthPercent: 0
   healthRegenWithQuickRevive: 0
@@ -823,6 +829,52 @@ MonoBehaviour:
   acideDetectionRadiusYoffset: -0.65
   acideDamageRate: 1
   ravineDamageRate: 0.5
+--- !u!114 &1163558160880400662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163558162623732995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce227e556baaf4248add3fb0c9a1293e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthTotalUpgradeByTier: 0
+  healthTotalUpgradeCountLimit: 0
+  healthTotalUpgradeCountCurrent: 0
+  healthTotalUpgradeCost: 0
+  healthTotalUpgradeCostMultiplicatorByTier: 0
+  dashCooldownUpgradeByTier: 0
+  dashCooldownUpgradeCountLimit: 0
+  dashCooldownUpgradeCountCurrent: 0
+  dashCooldownUpgradeCost: 0
+  dashCooldownUpgradeCostMultiplicatorByTier: 0
+  swordDamageUpgradeByTier: 0
+  swordDamageUpgradeCountLimit: 0
+  swordDamageUpgradeCountCurrent: 0
+  swordDamageUpgradeCost: 0
+  swordDamageUpgradeCostMultiplicatorByTier: 0
+  ammoMultiplicatorByTier: 0
+  ammoMultiplicatorCountLimit: 0
+  ammoMultiplicatorCountCurrent: 0
+  ammoMultiplicatorCost: 0
+  ammoMultiplicatorCostMultiplicatorByTier: 0
+  ammoMultiplicatorCurrent: 0
+--- !u!114 &8804865822545781548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163558162623732995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4723d0068e1e444f96a6dce5135e8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMoneyAmount: 0
 --- !u!1 &1163558162730517402
 GameObject:
   m_ObjectHideFlags: 0
