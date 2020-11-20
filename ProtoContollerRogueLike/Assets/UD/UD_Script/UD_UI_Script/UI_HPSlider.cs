@@ -29,6 +29,6 @@ public class UI_HPSlider : MonoBehaviour
 
     float CalculateSliderValue()
     {
-        return (PH.currentPlayerHealth / PH.totalPlayerHealth);
+        return (PH.currentPlayerHealth / PH.totalPlayerHealthUpgraded);
     }
 }

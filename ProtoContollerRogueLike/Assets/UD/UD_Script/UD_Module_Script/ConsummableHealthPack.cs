@@ -16,14 +16,14 @@ public class ConsummableHealthPack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
-            if (PH.currentPlayerHealth < PH.totalPlayerHealth - healthRegenerate)
+            if (PH.currentPlayerHealth < PH.totalPlayerHealthUpgraded - healthRegenerate)
             {
                 PH.currentPlayerHealth = PH.currentPlayerHealth + healthRegenerate;
                 Destroy(gameObject);
             }
             else
             {
-                PH.currentPlayerHealth = PH.totalPlayerHealth;
+                PH.currentPlayerHealth = PH.totalPlayerHealthUpgraded;
                 Destroy(gameObject);
             }
         }
