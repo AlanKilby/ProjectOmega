@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public float totalPlayerHealthSet;
-    [HideInInspector] public float totalPlayerHealthUpgraded;
+    public float totalPlayerHealthUpgraded;
     public float currentPlayerHealth;
     public float healthPercent;
     [HideInInspector] public float healthRegenWithQuickRevive;

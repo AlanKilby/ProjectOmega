@@ -47,6 +47,7 @@ public class UpgradePlatform : MonoBehaviour
         PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         SA = GameObject.FindGameObjectWithTag("Player").GetComponent<SwordAttack>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
+        CS = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrencySysteme>();
         healthTotalUpgradeCountCurrent = 0.0f;
         dashCooldownUpgradeCountCurrent = 0.0f;
         swordDamageUpgradeCountCurrent = 0.0f;
@@ -61,10 +62,10 @@ public class UpgradePlatform : MonoBehaviour
     
     public void UpgradeTotalHealth()
     {
-        if(healthTotalUpgradeCountCurrent < healthTotalUpgradeCountLimit)
+        if(healthTotalUpgradeCountCurrent < healthTotalUpgradeCountLimit && CS!=null)
         {
-            CS.currentMoneyAmount -= healthTotalUpgradeCost;
-            PH.totalPlayerHealthUpgraded += healthTotalUpgradeByTier;
+            CS.currentMoneyAmount = CS.currentMoneyAmount - healthTotalUpgradeCost;
+            PH.totalPlayerHealthUpgraded = PH.totalPlayerHealthUpgraded + healthTotalUpgradeByTier;
             healthTotalUpgradeCountCurrent ++;
             float healthTotalUpgradeCostCalculate = healthTotalUpgradeCost * healthTotalUpgradeCostMultiplicatorByTier;
             healthTotalUpgradeCost = (int)healthTotalUpgradeCostCalculate;
@@ -72,7 +73,7 @@ public class UpgradePlatform : MonoBehaviour
     }
     public void UpgradeDashCoolDown()
     {
-        if (dashCooldownUpgradeCountCurrent < dashCooldownUpgradeCountLimit)
+        if (dashCooldownUpgradeCountCurrent < dashCooldownUpgradeCountLimit && CS != null)
         {
             CS.currentMoneyAmount -= dashCooldownUpgradeCost;
             PM.dashReloadTimeUpgraded += dashCooldownUpgradeByTier;
@@ -83,7 +84,7 @@ public class UpgradePlatform : MonoBehaviour
     }
     public void UpgradeSwordDamage()
     {
-        if (swordDamageUpgradeCountCurrent < swordDamageUpgradeCountLimit)
+        if (swordDamageUpgradeCountCurrent < swordDamageUpgradeCountLimit && CS != null)
         {
             CS.currentMoneyAmount -= swordDamageUpgradeCost;
             SA.damageUpgraded += swordDamageUpgradeByTier;
@@ -95,7 +96,7 @@ public class UpgradePlatform : MonoBehaviour
     
     public void UpgradeAmmoMultiplicator()
     {
-        if (ammoMultiplicatorCountCurrent < ammoMultiplicatorCountLimit)
+        if (ammoMultiplicatorCountCurrent < ammoMultiplicatorCountLimit && CS != null)
         {
             CS.currentMoneyAmount -= ammoMultiplicatorCost;
             ammoMultiplicatorCurrent = ammoMultiplicatorCurrent * ammoMultiplicatorByTier;
