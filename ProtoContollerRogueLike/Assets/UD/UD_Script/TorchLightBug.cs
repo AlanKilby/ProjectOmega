@@ -18,6 +18,7 @@ public class TorchLightBug : MonoBehaviour
     void Start()
     {
         canBug = true;
+        torchLight.SetActive(true);
     }
 
     // Update is called once per frame
@@ -64,5 +65,13 @@ public class TorchLightBug : MonoBehaviour
         torchLight.SetActive(false);
         yield return new WaitForSeconds(secondDisappearTime);
         torchLight.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("HUB"))
+        {
+            torchLight.SetActive(false);
+        }
     }
 }

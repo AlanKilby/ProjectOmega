@@ -7,33 +7,38 @@ public class UpgradePlatform : MonoBehaviour
     PlayerHealth PH;
     SwordAttack SA;
     PlayerMouvement PM;
+    CurrencySysteme CS;
 
     [Header("Upgrade Health Total")]
     public float healthTotalUpgradeByTier;
     public float healthTotalUpgradeCountLimit;
     public float healthTotalUpgradeCountCurrent;
-    public float healthTotalUpgradeCost;
+    [HideInInspector] public int healthTotalUpgradeCost;
+    public int healthTotalUpgradeCostBase;
     public float healthTotalUpgradeCostMultiplicatorByTier;
 
     [Header("Upgrade Dash Cooldown")]
     public float dashCooldownUpgradeByTier;
     public float dashCooldownUpgradeCountLimit;
     public float dashCooldownUpgradeCountCurrent;
-    public float dashCooldownUpgradeCost;
+    [HideInInspector] public int dashCooldownUpgradeCost;
+    public int dashCooldownUpgradeCostBase;
     public float dashCooldownUpgradeCostMultiplicatorByTier;
 
     [Header("Upgrade Sword Damage")]
     public int swordDamageUpgradeByTier;
     public float swordDamageUpgradeCountLimit;
     public float swordDamageUpgradeCountCurrent;
-    public float swordDamageUpgradeCost;
+    [HideInInspector] public int swordDamageUpgradeCost;
+    public int swordDamageUpgradeCostBase;
     public float swordDamageUpgradeCostMultiplicatorByTier;
 
     [Header("Upgrade Ammo Drop")]
     public float ammoMultiplicatorByTier;
     public float ammoMultiplicatorCountLimit;
     public float ammoMultiplicatorCountCurrent;
-    public float ammoMultiplicatorCost;
+    [HideInInspector] public int ammoMultiplicatorCost;
+    public int ammoMultiplicatorCostBase;
     public float ammoMultiplicatorCostMultiplicatorByTier;
     [HideInInspector] public float ammoMultiplicatorCurrent;
 
@@ -46,6 +51,11 @@ public class UpgradePlatform : MonoBehaviour
         dashCooldownUpgradeCountCurrent = 0.0f;
         swordDamageUpgradeCountCurrent = 0.0f;
         ammoMultiplicatorCountCurrent = 0.0f;
+        healthTotalUpgradeCost = healthTotalUpgradeCostBase;
+        dashCooldownUpgradeCost = dashCooldownUpgradeCostBase;
+        swordDamageUpgradeCost = swordDamageUpgradeCostBase;
+        ammoMultiplicatorCost = ammoMultiplicatorCostBase;
+        ammoMultiplicatorCurrent = 0.0f;
     }
 
     
@@ -53,24 +63,33 @@ public class UpgradePlatform : MonoBehaviour
     {
         if(healthTotalUpgradeCountCurrent < healthTotalUpgradeCountLimit)
         {
+            CS.currentMoneyAmount -= healthTotalUpgradeCost;
             PH.totalPlayerHealthUpgraded += healthTotalUpgradeByTier;
             healthTotalUpgradeCountCurrent ++;
+            float healthTotalUpgradeCostCalculate = healthTotalUpgradeCost * healthTotalUpgradeCostMultiplicatorByTier;
+            healthTotalUpgradeCost = (int)healthTotalUpgradeCostCalculate;
         }
     }
     public void UpgradeDashCoolDown()
     {
         if (dashCooldownUpgradeCountCurrent < dashCooldownUpgradeCountLimit)
         {
+            CS.currentMoneyAmount -= dashCooldownUpgradeCost;
             PM.dashReloadTimeUpgraded += dashCooldownUpgradeByTier;
             dashCooldownUpgradeCountCurrent++;
+            float dashCooldownUpgradeCostCalculate = dashCooldownUpgradeCost * dashCooldownUpgradeCostMultiplicatorByTier;
+            dashCooldownUpgradeCost = (int)dashCooldownUpgradeCostCalculate;
         }
     }
     public void UpgradeSwordDamage()
     {
         if (swordDamageUpgradeCountCurrent < swordDamageUpgradeCountLimit)
         {
+            CS.currentMoneyAmount -= swordDamageUpgradeCost;
             SA.damageUpgraded += swordDamageUpgradeByTier;
             swordDamageUpgradeCountCurrent++;
+            float swordDamageUpgradeCostCalculate = swordDamageUpgradeCost * swordDamageUpgradeCostMultiplicatorByTier;
+            swordDamageUpgradeCost = (int)swordDamageUpgradeCostCalculate;
         }
     }
     
@@ -78,8 +97,11 @@ public class UpgradePlatform : MonoBehaviour
     {
         if (ammoMultiplicatorCountCurrent < ammoMultiplicatorCountLimit)
         {
+            CS.currentMoneyAmount -= ammoMultiplicatorCost;
             ammoMultiplicatorCurrent = ammoMultiplicatorCurrent * ammoMultiplicatorByTier;
             ammoMultiplicatorCountCurrent++;
+            float ammoMultiplicatorCostCalculate = ammoMultiplicatorCost * ammoMultiplicatorCostMultiplicatorByTier;
+            ammoMultiplicatorCost = (int)ammoMultiplicatorCostCalculate;
         }
     }
 }

@@ -11,7 +11,7 @@ public class UI_DashCoolDawn : MonoBehaviour
 
     void Start()
     {
-        
+        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
     }
 
     void Update()
