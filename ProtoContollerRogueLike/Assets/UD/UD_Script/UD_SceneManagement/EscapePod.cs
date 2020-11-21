@@ -10,7 +10,7 @@ public class EscapePod : MonoBehaviour
         Debug.Log("can escape");
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("UD_HUBtest");
         }
     }
 

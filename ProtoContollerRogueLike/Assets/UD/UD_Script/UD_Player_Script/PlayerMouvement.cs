@@ -50,6 +50,7 @@ public class PlayerMouvement : MonoBehaviour
         dashTimeHolder = dashTime;
         anim = GetComponent<Animator>();
         hasModulePhaseShift = false;
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
     void Update()
     {

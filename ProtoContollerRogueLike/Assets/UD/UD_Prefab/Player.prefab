@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 509157101048855274}
   - component: {fileID: 1163558160880400662}
   - component: {fileID: 8804865822545781548}
+  - component: {fileID: 1678157433}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -619,7 +620,7 @@ MonoBehaviour:
   canDash: 0
   dashReloadTimeSet: 2
   dashReloadTimeUpgraded: 0
-  dashReloadTimer: 0
+  dashReloadTimer: 3
   dashTimePercent: 0
   playerRBVelovityX: 0
   playerRBVelovityY: 0
@@ -689,6 +690,7 @@ MonoBehaviour:
   whatIsEnnemy:
     serializedVersion: 2
     m_Bits: 512
+  counterbladeSlashArea: {fileID: 0}
   combatEnabled: 0
   attackHitBoxPos: {fileID: 1163558161971264413}
   whatIsKillable:
@@ -701,6 +703,7 @@ MonoBehaviour:
   gotInput: 0
   isAttacking: 0
   isVampire: 0
+  hasCounterBlade: 0
   anim: {fileID: 1163558162623733044}
 --- !u!114 &1163558162623733002
 MonoBehaviour:
@@ -714,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474c6ae39777bb148afed41a1c0e86fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalPlayerHealthSet: 0
+  totalPlayerHealthSet: 20
   totalPlayerHealthUpgraded: 0
   currentPlayerHealth: 0
   healthPercent: 0
@@ -841,26 +844,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce227e556baaf4248add3fb0c9a1293e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthTotalUpgradeByTier: 0
-  healthTotalUpgradeCountLimit: 0
+  healthTotalUpgradeByTier: 20
+  healthTotalUpgradeCountLimit: 3
   healthTotalUpgradeCountCurrent: 0
   healthTotalUpgradeCost: 0
-  healthTotalUpgradeCostMultiplicatorByTier: 0
-  dashCooldownUpgradeByTier: 0
-  dashCooldownUpgradeCountLimit: 0
+  healthTotalUpgradeCostBase: 50
+  healthTotalUpgradeCostMultiplicatorByTier: 1.5
+  dashCooldownUpgradeByTier: 2
+  dashCooldownUpgradeCountLimit: 1
   dashCooldownUpgradeCountCurrent: 0
   dashCooldownUpgradeCost: 0
-  dashCooldownUpgradeCostMultiplicatorByTier: 0
-  swordDamageUpgradeByTier: 0
-  swordDamageUpgradeCountLimit: 0
+  dashCooldownUpgradeCostBase: 100
+  dashCooldownUpgradeCostMultiplicatorByTier: 2
+  swordDamageUpgradeByTier: 5
+  swordDamageUpgradeCountLimit: 4
   swordDamageUpgradeCountCurrent: 0
   swordDamageUpgradeCost: 0
-  swordDamageUpgradeCostMultiplicatorByTier: 0
-  ammoMultiplicatorByTier: 0
-  ammoMultiplicatorCountLimit: 0
+  swordDamageUpgradeCostBase: 25
+  swordDamageUpgradeCostMultiplicatorByTier: 2
+  ammoMultiplicatorByTier: 1.5
+  ammoMultiplicatorCountLimit: 3
   ammoMultiplicatorCountCurrent: 0
   ammoMultiplicatorCost: 0
-  ammoMultiplicatorCostMultiplicatorByTier: 0
+  ammoMultiplicatorCostBase: 200
+  ammoMultiplicatorCostMultiplicatorByTier: 1.25
   ammoMultiplicatorCurrent: 0
 --- !u!114 &8804865822545781548
 MonoBehaviour:
@@ -875,6 +882,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMoneyAmount: 0
+--- !u!114 &1678157433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163558162623732995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5efc21cffe06c42a07c2d4a30dd399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1163558162730517402
 GameObject:
   m_ObjectHideFlags: 0
