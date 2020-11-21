@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwordAttack : MonoBehaviour
 {
     public LayerMask whatIsEnnemy;
+    [SerializeField] GameObject counterbladeSlashArea;
 
     PlayerHealth PH;
     //Ajout Gus
@@ -26,12 +27,14 @@ public class SwordAttack : MonoBehaviour
     public bool gotInput;
     public bool isAttacking;
     public bool isVampire;
+    public bool hasCounterBlade;
 
     [SerializeField] private Animator anim;
 
     private void Start()
     {
         PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        counterbladeSlashArea = GameObject.FindGameObjectWithTag("CounterBladeSlashArea");
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         combatEnabled = true;
@@ -54,6 +57,14 @@ public class SwordAttack : MonoBehaviour
             
             //ChangeAnimationState(PLAYER_SWORD);
 
+        }
+        if (isAttacking && hasCounterBlade)
+        {
+            counterbladeSlashArea.SetActive(true);
+        }
+        else
+        {
+            counterbladeSlashArea.SetActive(false);
         }
     }
 

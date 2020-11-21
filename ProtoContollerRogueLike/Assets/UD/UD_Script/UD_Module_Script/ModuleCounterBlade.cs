@@ -32,7 +32,7 @@ public class ModuleCounterBlade : MonoBehaviour
 
                     transform.SetParent(In.moduleSlots[i].transform);
 
-                    //SA.hasCounterBlade = true;
+                    SA.hasCounterBlade = true;
 
                     gameObject.SetActive(false);
 
