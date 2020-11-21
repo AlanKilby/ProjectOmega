@@ -56,7 +56,7 @@ public class UpgradePlatform : MonoBehaviour
         dashCooldownUpgradeCost = dashCooldownUpgradeCostBase;
         swordDamageUpgradeCost = swordDamageUpgradeCostBase;
         ammoMultiplicatorCost = ammoMultiplicatorCostBase;
-        ammoMultiplicatorCurrent = 0.0f;
+        ammoMultiplicatorCurrent = 1.0f;
     }
 
     
@@ -66,6 +66,7 @@ public class UpgradePlatform : MonoBehaviour
         {
             CS.currentMoneyAmount = CS.currentMoneyAmount - healthTotalUpgradeCost;
             PH.totalPlayerHealthUpgraded = PH.totalPlayerHealthUpgraded + healthTotalUpgradeByTier;
+            PH.currentPlayerHealth = PH.totalPlayerHealthUpgraded;
             healthTotalUpgradeCountCurrent ++;
             float healthTotalUpgradeCostCalculate = healthTotalUpgradeCost * healthTotalUpgradeCostMultiplicatorByTier;
             healthTotalUpgradeCost = (int)healthTotalUpgradeCostCalculate;
@@ -76,7 +77,7 @@ public class UpgradePlatform : MonoBehaviour
         if (dashCooldownUpgradeCountCurrent < dashCooldownUpgradeCountLimit && CS != null)
         {
             CS.currentMoneyAmount -= dashCooldownUpgradeCost;
-            PM.dashReloadTimeUpgraded += dashCooldownUpgradeByTier;
+            PM.dashReloadTimeUpgraded -= dashCooldownUpgradeByTier;
             dashCooldownUpgradeCountCurrent++;
             float dashCooldownUpgradeCostCalculate = dashCooldownUpgradeCost * dashCooldownUpgradeCostMultiplicatorByTier;
             dashCooldownUpgradeCost = (int)dashCooldownUpgradeCostCalculate;
