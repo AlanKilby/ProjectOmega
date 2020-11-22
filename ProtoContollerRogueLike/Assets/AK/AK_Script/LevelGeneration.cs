@@ -7,7 +7,10 @@ public class LevelGeneration : MonoBehaviour
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0--> LR, index 1-->LRB, index 2-->LRT, index 3-->TLRB
 
-    public float moveAmount;
+    public float moveAmountHorizontal;
+    public float moveAmountVertical;
+
+    [SerializeField]
     private int direction;
 
     private float timeBtwRoom;
@@ -50,7 +53,7 @@ public class LevelGeneration : MonoBehaviour
             if (transform.position.x < maxX)
             {
                 downCounter = 0;
-                Vector2 newPos = new Vector2(transform.position.x + moveAmount, transform.position.y);
+                Vector2 newPos = new Vector2(transform.position.x + moveAmountHorizontal, transform.position.y);
                 transform.position = newPos;
 
                 int rand = Random.Range(0, rooms.Length);
@@ -76,7 +79,7 @@ public class LevelGeneration : MonoBehaviour
             if (transform.position.x > minX) 
             {
                 downCounter = 0;
-                Vector2 newPos = new Vector2(transform.position.x - moveAmount, transform.position.y);
+                Vector2 newPos = new Vector2(transform.position.x - moveAmountHorizontal, transform.position.y);
                 transform.position = newPos;
 
                 int rand = Random.Range(0, rooms.Length);
@@ -97,7 +100,8 @@ public class LevelGeneration : MonoBehaviour
 
             if(transform.position.y > minY)
             {
-                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
+                Collider2D collider2D1 = Physics2D.OverlapCircle(transform.position, 5, room);
+                Collider2D roomDetection = collider2D1;
 
                 if(roomDetection.GetComponent<RoomType>().type != 1  && roomDetection.GetComponent<RoomType>().type != 3)
                 {
@@ -120,7 +124,7 @@ public class LevelGeneration : MonoBehaviour
                    
                 }
 
-                Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmount);
+                Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmountVertical);
                 transform.position = newPos;
 
                 int rand = Random.Range(2, 3);
