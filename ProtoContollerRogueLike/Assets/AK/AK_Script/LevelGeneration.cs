@@ -6,6 +6,7 @@ public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0--> LR, index 1-->LRB, index 2-->LRT, index 3-->TLRB
+    public GameObject[] startingRooms;
 
     public float moveAmountHorizontal;
     public float moveAmountVertical;
@@ -24,12 +25,15 @@ public class LevelGeneration : MonoBehaviour
     public LayerMask room;
 
     private int downCounter;
+
+    [SerializeField]
+    private bool isFirstRoom;
     private void Start()
     {
         int randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
-        Instantiate(rooms[0], transform.position, Quaternion.identity);
-
+        Instantiate(startingRooms[0], transform.position, Quaternion.identity);
+        isFirstRoom = true;
         direction = Random.Range(1, 6);
     }
 
@@ -50,6 +54,7 @@ public class LevelGeneration : MonoBehaviour
     {
         if(direction == 1 || direction == 2) // Move RIGHT
         {
+            isFirstRoom = false;
             if (transform.position.x < maxX)
             {
                 downCounter = 0;
@@ -76,6 +81,8 @@ public class LevelGeneration : MonoBehaviour
             
         }else if (direction == 3 || direction == 4) // Move LEFT
         {
+            isFirstRoom = false;
+
             if (transform.position.x > minX) 
             {
                 downCounter = 0;
@@ -105,21 +112,35 @@ public class LevelGeneration : MonoBehaviour
 
                 if(roomDetection.GetComponent<RoomType>().type != 1  && roomDetection.GetComponent<RoomType>().type != 3)
                 {
-                    if(downCounter >= 2)
+                    if(downCounter >= 2 && !isFirstRoom)
                     {
                         roomDetection.GetComponent<RoomType>().RoomDestruction();
                         Instantiate(rooms[3], transform.position, Quaternion.identity);
                     }
                     else
                     {
-                        roomDetection.GetComponent<RoomType>().RoomDestruction();
-
-                        int randBottomRoom = Random.Range(1, 4);
-                        if (randBottomRoom == 2)
+                        if (isFirstRoom)
                         {
-                            randBottomRoom = 1;
+                            roomDetection.GetComponent<RoomType>().RoomDestruction();
+                            Instantiate(startingRooms[1], transform.position, Quaternion.identity);
+                            isFirstRoom = false;
+
+
                         }
-                        Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                        else
+                        {
+                            roomDetection.GetComponent<RoomType>().RoomDestruction();
+
+                            int randBottomRoom = Random.Range(1, 4);
+                            if (randBottomRoom == 2)
+                            {
+                                randBottomRoom = 1;
+                            }
+                            Instantiate(rooms[randBottomRoom], transform.position, Quaternion.identity);
+                            isFirstRoom = false;
+
+                        }
+
                     }
                    
                 }

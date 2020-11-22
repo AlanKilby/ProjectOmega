@@ -1027,7 +1027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1459190774
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1305,6 +1305,9 @@ MonoBehaviour:
   - {fileID: 7706726948686665865, guid: a3b6e44cdf3920c4e9ee2b0fd9a7c6e5, type: 3}
   - {fileID: 6023886090970369626, guid: a87b5ec5387b50c498ae14b6f961ebc2, type: 3}
   - {fileID: 8925670095702884381, guid: 67c9a96825b82694a82ef9cceb0e0fcf, type: 3}
+  startingRooms:
+  - {fileID: 1186759316110967203, guid: af14fa1d7d9774e4684d003f13954b4c, type: 3}
+  - {fileID: 2382869899979290713, guid: 3ea8713d501aaea4995f5a3ada06e46c, type: 3}
   moveAmountHorizontal: 26
   moveAmountVertical: 18
   direction: 0
@@ -1316,6 +1319,7 @@ MonoBehaviour:
   room:
     serializedVersion: 2
     m_Bits: 131072
+  isFirstRoom: 1
 --- !u!4 &1574707486
 Transform:
   m_ObjectHideFlags: 0
