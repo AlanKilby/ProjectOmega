@@ -6,7 +6,8 @@ public class LevelGeneration : MonoBehaviour
 {
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0--> LR, index 1-->LRB, index 2-->LRT, index 3-->TLRB
-    public GameObject[] startingRooms;
+    public GameObject[] startingRooms; // Rooms where the player will start
+    public GameObject[] bossRooms; // Rooms where the boss will spawn
 
     public float moveAmountHorizontal;
     public float moveAmountVertical;
@@ -26,10 +27,13 @@ public class LevelGeneration : MonoBehaviour
 
     private int downCounter;
 
+    private Vector2 oldPos;
+
     [SerializeField]
     private bool isFirstRoom;
     private void Start()
     {
+        oldPos = transform.position;
         int randStartingPos = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randStartingPos].position;
         Instantiate(startingRooms[0], transform.position, Quaternion.identity);
@@ -144,7 +148,7 @@ public class LevelGeneration : MonoBehaviour
                     }
                    
                 }
-
+                oldPos = transform.position;
                 Vector2 newPos = new Vector2(transform.position.x, transform.position.y - moveAmountVertical);
                 transform.position = newPos;
 
@@ -156,6 +160,13 @@ public class LevelGeneration : MonoBehaviour
             else //STOP LEVEL GENERATION
             {
                 StopGeneration = true;
+
+                Collider2D collider2D1 = Physics2D.OverlapCircle(transform.position, 5, room);
+                Collider2D roomDetection = collider2D1;
+
+                roomDetection.GetComponent<RoomType>().RoomDestruction();
+
+                Instantiate(bossRooms[0], transform.position, Quaternion.identity);
             }
            
         }
