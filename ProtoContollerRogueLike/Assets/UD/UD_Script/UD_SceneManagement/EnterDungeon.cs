@@ -10,7 +10,7 @@ public class EnterDungeon : MonoBehaviour
         Debug.Log("can escape");
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("UD_Dungeon");
+            SceneManager.LoadScene("ProceduralGeneration");
         }
     }
 }
