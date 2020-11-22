@@ -5135,6 +5135,8 @@ GameObject:
   - component: {fileID: 5637545344528384195}
   - component: {fileID: 6576554379910144948}
   - component: {fileID: 7037874833288058600}
+  - component: {fileID: -3565130859956271500}
+  - component: {fileID: -1847238536587076423}
   m_Layer: 17
   m_Name: StartingRoomRL
   m_TagString: Untagged
@@ -5181,7 +5183,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5195,7 +5197,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 26, y: 18}
   m_EdgeRadius: 0
 --- !u!114 &7037874833288058600
 MonoBehaviour:
@@ -5217,6 +5219,33 @@ MonoBehaviour:
   - {fileID: 9035068776575534009, guid: 2cb0f7d5b1076fe4da82b43a8ed08d51, type: 3}
   - {fileID: 4726175846020422864, guid: 112a82b0e2795fc48bfdff222f9ce6fa, type: 3}
   - {fileID: 4089240092035749999, guid: 5efbf882a718d3e459e060045cd93d52, type: 3}
+--- !u!114 &-3565130859956271500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186759316110967203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cf689f39c207949a881ae7078efd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIsInTheRoom: 0
+--- !u!114 &-1847238536587076423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186759316110967203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f892b43bbde5b11478922995e3fd2886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInRoom: {fileID: 0}
+  mainCameraPos: {fileID: 0}
 --- !u!1 &2228793034793332508
 GameObject:
   m_ObjectHideFlags: 0
