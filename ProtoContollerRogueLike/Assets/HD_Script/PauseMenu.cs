@@ -8,8 +8,14 @@ public class PauseMenu : MonoBehaviour
     public bool pause;
     public GameObject pauseMenuUI;
 
-      
-   
+    GameObject player;
+    GameObject UI;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        UI = GameObject.Find("UI");
+    }
 
     void Update()
     {
@@ -48,6 +54,8 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu() 
     {
+        Destroy(player);
+        Destroy(UI);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }

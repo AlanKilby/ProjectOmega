@@ -180,7 +180,7 @@ public class PlayerMouvement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x * dashSpeed, rb.velocity.y * dashSpeed);
             dashTime -= Time.deltaTime;
         }
-
+        
 
         if (dashTime <= 0)
         {
@@ -216,4 +216,15 @@ public class PlayerMouvement : MonoBehaviour
 
 
     }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Environement"))
+        {
+            if (isDashing)
+            {
+                isDashing = false;
+            }
+        }
+    }*/
 }

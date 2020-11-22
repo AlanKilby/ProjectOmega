@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     public Gun gun;
     public PlayerMouvement PM;
     public PlayerModuleStation PMS;
+    UpgradePlatform UP;
 
     //Graphics 
     public SpriteRenderer gunSpriteRenderer;
@@ -23,6 +24,7 @@ public class Weapon : MonoBehaviour
     string gunID;
     public int gunSlot;
     bool gunAlreadyInInv;
+    public bool gunInHand; //Ajout Ulric pour Pastille Pistol
     [Header("Loading Gun ?")]
     public bool isALoadingGun;
     bool loadingGunCharging;
@@ -39,6 +41,7 @@ public class Weapon : MonoBehaviour
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
         PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModuleStation>();
+        UP = GameObject.FindGameObjectWithTag("Player").GetComponent<UpgradePlatform>();
         audioSource = gameObject.GetComponent<AudioSource>();
         canShoot = true;
         isEquipped = false;
@@ -108,7 +111,15 @@ public class Weapon : MonoBehaviour
             }
         }
 
-
+        //Ulric : Check If Gun is In Hand
+        if(gunSlot == inventory.equippedSlot)
+        {
+            gunInHand = true;
+        }
+        else
+        {
+            gunInHand = false;
+        }
 
     }
 
@@ -185,7 +196,7 @@ public class Weapon : MonoBehaviour
                     transform.localPosition = new Vector2(-0.52f, 0.75f);
                     transform.rotation = collision.transform.rotation;
 
-                    inventory.ammoCounter[gun.ammoID] += ammoCount;
+                    inventory.ammoCounter[gun.ammoID] += (int)(ammoCount * UP.ammoMultiplicatorCurrent);
 
                     ammoCount = 0;
 
@@ -196,7 +207,7 @@ public class Weapon : MonoBehaviour
                 if(inventory.isFull[i] == true  && ammoCount > 0 && gunID == inventory.gunID[i])
                 {
                     gunAlreadyInInv = true;
-                    inventory.ammoCounter[gun.ammoID] += ammoCount;
+                    inventory.ammoCounter[gun.ammoID] += (int)(ammoCount * UP.ammoMultiplicatorCurrent);
                     ammoCount = 0;
                     audioSource.PlayOneShot(gun.gunSounds[1]);
                 }

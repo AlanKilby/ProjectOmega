@@ -67,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
             In.isFullModule[quickReviveIconSlot] = false;
             RemoveFromList(quickReviveIconSlot);
         }*/
+        healthPercent = (currentPlayerHealth / totalPlayerHealthUpgraded);
 
     }
 
@@ -122,7 +123,6 @@ public class PlayerHealth : MonoBehaviour
           //Ajout Gus
             sr.material = matWhite;
         }
-        healthPercent = (currentPlayerHealth / totalPlayerHealthUpgraded);
         if (currentPlayerHealth <= 0 && !hasQuickRevive)
         {
             //Destroy(gameObject);

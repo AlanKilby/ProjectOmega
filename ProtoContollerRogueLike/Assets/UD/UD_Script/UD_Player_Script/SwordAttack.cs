@@ -20,6 +20,7 @@ public class SwordAttack : MonoBehaviour
     [SerializeField]
     private float attackRadius;
     public float vampireHealthStollen;
+    public float counterBladeActiveTimeSet;
 
     [HideInInspector] public int damageUpgraded;
     public int damageTotal;
@@ -42,6 +43,8 @@ public class SwordAttack : MonoBehaviour
         //Ajout Gus
         PM = GetComponent<PlayerMouvement>();
         //
+        counterbladeSlashArea.SetActive(false);
+        damageUpgraded = damageTotal;
     }
 
     private void Update()
@@ -58,14 +61,14 @@ public class SwordAttack : MonoBehaviour
             //ChangeAnimationState(PLAYER_SWORD);
 
         }
-        if (isAttacking && hasCounterBlade)
+        /*if (isAttacking && hasCounterBlade)
         {
             counterbladeSlashArea.SetActive(true);
         }
         else
         {
             counterbladeSlashArea.SetActive(false);
-        }
+        }*/
     }
 
     public void GetAttackInput()
@@ -126,6 +129,10 @@ public class SwordAttack : MonoBehaviour
                 Destroy(gameObject);
             }*/
         }
+        if (hasCounterBlade)
+        {
+            StartCoroutine(CounterBladeCheck());
+        }
     }
 
     private void FinishAttack()
@@ -138,5 +145,12 @@ public class SwordAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackHitBoxPos.position, attackRadius);
+    }
+
+    private IEnumerator CounterBladeCheck()
+    {
+        counterbladeSlashArea.SetActive(true);
+        yield return new WaitForSeconds(counterBladeActiveTimeSet);
+        counterbladeSlashArea.SetActive(false);
     }
 }
