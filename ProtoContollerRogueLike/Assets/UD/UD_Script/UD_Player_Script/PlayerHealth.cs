@@ -123,11 +123,13 @@ public class PlayerHealth : MonoBehaviour
         {
 
         }
-        else
+        else if (currentPlayerHealth > 0) //Ajout Gus
         {
             currentPlayerHealth -= damage;
           //Ajout Gus
             sr.material = matWhite;
+            Invoke("ResetMaterial", 0.1f);
+          //
         }
         if (currentPlayerHealth <= 0 && !hasQuickRevive)
         {
@@ -147,11 +149,6 @@ public class PlayerHealth : MonoBehaviour
             }
             In.isFullModule[quickReviveIconSlot] = false;
             RemoveFromList(quickReviveIconSlot);
-        }
-        //Ajout Gus
-        if (currentPlayerHealth > 0)
-        {
-            Invoke("ResetMaterial", 0.1f);
         }
     }
     private void StartMenu()
