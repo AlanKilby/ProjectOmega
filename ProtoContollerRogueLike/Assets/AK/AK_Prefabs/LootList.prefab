@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6595590116734310077}
   - component: {fileID: 6595590116734310066}
+  - component: {fileID: 7319567175640029594}
   m_Layer: 0
   m_Name: WeaponList
-  m_TagString: Untagged
+  m_TagString: LootList
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,5 +45,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 2581459040186150273, guid: d847caffe17765849b8da08b5f950740, type: 3}
-  - {fileID: 1216892109916422450, guid: 3b0f753e7f97ccd41bb4d1a107a117ab, type: 3}
+  - {fileID: 1394812389236299386, guid: 9f6eca2a76b11734285a6d162d580574, type: 3}
+  - {fileID: 950439952722567472, guid: 45a5f6f23975e274aabbeb7052a5210f, type: 3}
+--- !u!114 &7319567175640029594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595590116734310067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae22980f4c90a504eaca298cca0923e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modules:
+  - {fileID: 3818624137073302449, guid: a101ed4a3b085744cb266f14daa7a920, type: 3}
+  - {fileID: 7292068260437953, guid: 8a1e3dfef529f9545bbae368b6dd089b, type: 3}
+  - {fileID: 4826370078604909017, guid: 523acefe0211a8a40b79dddcac7c6f7e, type: 3}
+  - {fileID: 3366356262841465307, guid: 33a0f703184c47944af5037948cbd97d, type: 3}
+  - {fileID: 2484977107593352000, guid: 8961263dd6692654dbb8a94c6da59a81, type: 3}
+  - {fileID: 8395520723465719830, guid: 5b6e6f30c405e6942a2ed37132f9394b, type: 3}

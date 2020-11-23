@@ -121,14 +121,7 @@ public class EnnemisScript : MonoBehaviour
         takeDamage = false;
     }
 
-    public void LootDrop()
-    {
-        int rand = Random.Range(1, 100);
-        if (rand >= 1 && rand <= dropRate)
-        {
-            print("loot !");
-        }
-    }
+    
 
     public void Death()
     {

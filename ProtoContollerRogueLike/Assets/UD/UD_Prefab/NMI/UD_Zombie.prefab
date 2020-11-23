@@ -182,6 +182,11 @@ MonoBehaviour:
   anim: {fileID: 8628224788671534796}
   health: 20
   dropRate: 2
+  speed: 0
+  moneyDrop: 0
+  isStunned: 0
+  stunTimerSet: 0
+  stunSlowPercentageEffect: 0
   takeDamage: 0
 --- !u!114 &3724508107944942804
 MonoBehaviour:
@@ -195,10 +200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156563478d8b4ab42b17b91a37a81a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDropRate: 80
-  dropGun: 90
-  dropModule: 5
-  dropPowerUp: 5
+  baseDropRate: 50
+  dropGun: 30
+  dropModule: 30
+  dropPowerUp: 30
 --- !u!114 &2275653038146730262
 MonoBehaviour:
   m_ObjectHideFlags: 0
