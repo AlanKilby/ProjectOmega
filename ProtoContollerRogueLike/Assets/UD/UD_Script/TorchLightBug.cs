@@ -72,6 +72,23 @@ public class TorchLightBug : MonoBehaviour
         if (collision.CompareTag("HUB"))
         {
             torchLight.SetActive(false);
+            canBug = false;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("HUB"))
+        {
+            torchLight.SetActive(false);
+            canBug = false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("HUB"))
+        {
+            torchLight.SetActive(true);
+            canBug = true;
         }
     }
 }
