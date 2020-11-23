@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    GameObject UI;
+
     public float totalPlayerHealthSet;
     public float totalPlayerHealthUpgraded;
     public float currentPlayerHealth;
@@ -34,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
         rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         In = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
+        UI = GameObject.Find("UI");
         currentPlayerHealth = totalPlayerHealthUpgraded;
         hasQuickRevive = false;
 
@@ -105,6 +109,8 @@ public class PlayerHealth : MonoBehaviour
 
         GetComponent<SwordAttack>().enabled = false;
         ChangeAnimationState(PLAYER_DEATH);
+        Destroy(UI);
+        Invoke("StartMenu", 1.7f);
         //anim.SetBool("isDead", true);
         Destroy(gameObject, 1.85f);
         //
@@ -147,6 +153,10 @@ public class PlayerHealth : MonoBehaviour
         {
             Invoke("ResetMaterial", 0.1f);
         }
+    }
+    private void StartMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     //Ajout Gus
