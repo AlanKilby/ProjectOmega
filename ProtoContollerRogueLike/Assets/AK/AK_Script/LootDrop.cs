@@ -12,11 +12,13 @@ public class LootDrop : MonoBehaviour
     private WeaponList weaponList;
     private ModuleList moduleList;
 
+    public RoomTriggerCollider thisRoom;
 
     private void Start()
     {
         weaponList = GameObject.FindGameObjectWithTag("LootList").GetComponent<WeaponList>();
         moduleList = GameObject.FindGameObjectWithTag("LootList").GetComponent<ModuleList>();
+        thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
 
         dropModule = (dropGun + dropModule);
         dropPowerUp = (dropModule + dropPowerUp);
@@ -37,12 +39,14 @@ public class LootDrop : MonoBehaviour
             {
                 Debug.Log("Drop Gun");
                 GameObject drop = Instantiate(weaponList.weapons[Random.Range(0,weaponList.weapons.Length)], gameObject.transform.position, Quaternion.Euler(0,0,Random.Range(-180,180)));
+                drop.transform.SetParent(thisRoom.transform);
                 Destroy(gameObject);
             }
             else if (randomDrop > dropGun && randomDrop <= dropModule)
             {
                 Debug.Log("Drop Module");
                 GameObject drop = Instantiate(moduleList.modules[Random.Range(0, moduleList.modules.Length)], gameObject.transform.position, Quaternion.identity);
+                drop.transform.SetParent(thisRoom.transform);
                 Destroy(gameObject);
             }
             else if (randomDrop > dropModule && randomDrop <= dropPowerUp )
