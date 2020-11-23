@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6595590116734310066}
   - component: {fileID: 7319567175640029594}
   m_Layer: 0
-  m_Name: WeaponList
+  m_Name: LootList
   m_TagString: LootList
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 1394812389236299386, guid: 9f6eca2a76b11734285a6d162d580574, type: 3}
-  - {fileID: 950439952722567472, guid: 45a5f6f23975e274aabbeb7052a5210f, type: 3}
+  - {fileID: 8751382321535061194, guid: 8dd600c6a38b6a9479c26fd6314b48e8, type: 3}
+  - {fileID: 3690154127464323754, guid: bb1b1f21427974743b8bc4b9888a5677, type: 3}
+  - {fileID: 2065175863727355431, guid: 7aec2af04f4db7f459b83f27282dd214, type: 3}
 --- !u!114 &7319567175640029594
 MonoBehaviour:
   m_ObjectHideFlags: 0
