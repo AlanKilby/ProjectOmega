@@ -30,6 +30,11 @@ public class PlayerHealth : MonoBehaviour
     SpriteRenderer sr;
     //
 
+    [Header ("Shield")]
+    public int shieldHealthPointSet;
+    [HideInInspector] public int shieldHealthPointCurrent;
+    [HideInInspector] public bool hasShield;
+
     void Start()
     {
         totalPlayerHealthUpgraded = totalPlayerHealthSet; // A Set en tout début de partie
@@ -72,6 +77,10 @@ public class PlayerHealth : MonoBehaviour
             RemoveFromList(quickReviveIconSlot);
         }*/
         healthPercent = (currentPlayerHealth / totalPlayerHealthUpgraded);
+        if (shieldHealthPointCurrent <= 0)
+        {
+            hasShield = false;
+        }
 
     }
 
@@ -125,12 +134,24 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (currentPlayerHealth > 0) //Ajout Gus
         {
-            currentPlayerHealth -= damage;
-          //Ajout Gus
-            sr.material = matWhite;
-            Invoke("ResetMaterial", 0.1f);
-          //
+            if (hasShield)
+            {
+                shieldHealthPointCurrent -= damage;
+                //Ajout Gus
+                sr.material = matWhite;
+                Invoke("ResetMaterial", 0.1f);
+                //
+            }
+            else
+            {
+                currentPlayerHealth -= damage;
+                //Ajout Gus
+                sr.material = matWhite;
+                Invoke("ResetMaterial", 0.1f);
+                //
+            }
         }
+
         if (currentPlayerHealth <= 0 && !hasQuickRevive)
         {
             //Destroy(gameObject);
@@ -139,6 +160,7 @@ public class PlayerHealth : MonoBehaviour
             return;
             //
         }
+
         if (currentPlayerHealth <= 0 && hasQuickRevive)
         {
             currentPlayerHealth = healthRegenWithQuickRevive;
@@ -151,6 +173,13 @@ public class PlayerHealth : MonoBehaviour
             RemoveFromList(quickReviveIconSlot);
         }
     }
+
+    public void StartShield()
+    {
+        shieldHealthPointCurrent = shieldHealthPointSet;
+        hasShield = true;
+    }
+
     private void StartMenu()
     {
         SceneManager.LoadScene("Menu");

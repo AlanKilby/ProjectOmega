@@ -5,16 +5,16 @@ using UnityEngine;
 public class ConsumablePlatform : MonoBehaviour
 {
     [Header("Unlimited Ammo")]
-    [HideInInspector] public bool hasUnlimitedAmmo;
     public float unlimitedAmmoTimeSet;
     [HideInInspector] public float unlimitedAmmoTimer;
+    [HideInInspector] public bool hasUnlimitedAmmo;
 
     [Header("DoublePoint")]
-    [HideInInspector] public bool hasDoublePoint;
     public float doublePointTimeSet;
     [HideInInspector] public float doublePointTimer;
     public int doublePointMultiplicatorSet;
     [HideInInspector] public int doublePointCurrentMultiplicator;
+    [HideInInspector] public bool hasDoublePoint;
 
 
 
