@@ -21,7 +21,7 @@ public class UD_NukeConsumable : MonoBehaviour
             {
                 if (child1.CompareTag("Ennemi"))
                 {
-                    foreach (Transform child2 in thisRoom.transform)
+                    /*foreach (Transform child2 in thisRoom.transform)
                     {
                         if (child2.CompareTag("Ennemi"))
                         {
@@ -34,7 +34,7 @@ public class UD_NukeConsumable : MonoBehaviour
                             }
                             child2.GetComponent<EnnemisScript>().TakeDamage(nukeDamage);
                         }
-                    }
+                    }*/ // ECLATE
                     child1.GetComponent<EnnemisScript>().TakeDamage(nukeDamage);
                 }
             }

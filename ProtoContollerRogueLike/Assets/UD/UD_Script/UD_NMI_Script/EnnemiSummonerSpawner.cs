@@ -14,7 +14,7 @@ public class EnnemiSummonerSpawner : MonoBehaviour
 
     [SerializeField] private bool spawnZoneAllowed;
 
-    [SerializeField] GameObject minionsPlayground;
+    //[SerializeField] GameObject minionsPlayground;
     private void Start()
     {
         spawnZoneAllowed = true;
@@ -28,7 +28,7 @@ public class EnnemiSummonerSpawner : MonoBehaviour
         if (spawnZoneAllowed)
         {
             GameObject minion = Instantiate(ES.minionsPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
-            minion.transform.SetParent(minionsPlayground.transform);
+            minion.transform.SetParent(isPlayerInRoom.transform);
         }
         /* POUR AJOUTER UNE CHANCE DE FAIRE SPAWNER
         int i;

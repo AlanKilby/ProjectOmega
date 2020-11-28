@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 936270834601924863}
   ChargingWeapon: {fileID: 760899648}
+  fill: {fileID: 0}
 --- !u!1 &921896644
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,11 +556,13 @@ MonoBehaviour:
   isEquipped: 0
   fireRate: 0.05
   gunSlot: 0
+  gunInHand: 0
   isALoadingGun: 1
   loadingGunTimeToChargeMax: 1
   loadingGunChargePercentage: 0
   chargedMaxDamageMultiplicator: 5
   canStunWhenCharingMax: 1
+  isUnlimitedAmmoGun: 1
 --- !u!212 &4756036016220822889
 SpriteRenderer:
   m_ObjectHideFlags: 0

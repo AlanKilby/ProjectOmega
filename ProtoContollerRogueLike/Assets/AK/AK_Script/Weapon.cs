@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public PlayerMouvement PM;
     public PlayerModuleStation PMS;
     UpgradePlatform UP;
+    ConsumablePlatform CP;
 
     //Graphics 
     public SpriteRenderer gunSpriteRenderer;
@@ -34,6 +35,8 @@ public class Weapon : MonoBehaviour
     public float loadingGunChargePercentage;
     public int chargedMaxDamageMultiplicator;
     public bool canStunWhenCharingMax;
+    [Header("Unlimited Ammo ?")]
+    public bool isUnlimitedAmmoGun;
 
 
     void Start()
@@ -42,6 +45,7 @@ public class Weapon : MonoBehaviour
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
         PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModuleStation>();
         UP = GameObject.FindGameObjectWithTag("Player").GetComponent<UpgradePlatform>();
+        CP = GameObject.FindGameObjectWithTag("Player").GetComponent<ConsumablePlatform>();
         audioSource = gameObject.GetComponent<AudioSource>();
         canShoot = true;
         isEquipped = false;
@@ -162,7 +166,10 @@ public class Weapon : MonoBehaviour
             {
                 audioSource.PlayOneShot(gun.gunSounds[0]);
             }
-            inventory.ammoCounter[gun.ammoID]--;
+            if(!isUnlimitedAmmoGun && !CP.hasUnlimitedAmmo)
+            {
+                inventory.ammoCounter[gun.ammoID]--;
+            }
             canShoot = false;
         }
 
