@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFull: 000000
-  isFullModule: 000000
+  isFullModule: 0000000000000000
   gunID:
   - 
   - 
@@ -918,6 +918,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c087893c66b4f4fa82adc4e946ea53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasUnlimitedAmmo: 0
+  unlimitedAmmoTimeSet: 10
+  unlimitedAmmoTimer: 0
+  hasDoublePoint: 0
+  doublePointTimeSet: 20
+  doublePointTimer: 0
+  doublePointMultiplicatorSet: 2
+  doublePointCurrentMultiplicator: 0
 --- !u!1 &1163558162730517402
 GameObject:
   m_ObjectHideFlags: 0

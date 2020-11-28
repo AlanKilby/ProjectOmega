@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class ConsumablePlatform : MonoBehaviour
 {
-    // Unlimited Ammo Consumable
+    [Header("Unlimited Ammo")]
     [HideInInspector] public bool hasUnlimitedAmmo;
     public float unlimitedAmmoTimeSet;
     [HideInInspector] public float unlimitedAmmoTimer;
+
+    [Header("DoublePoint")]
+    [HideInInspector] public bool hasDoublePoint;
+    public float doublePointTimeSet;
+    [HideInInspector] public float doublePointTimer;
+    public int doublePointMultiplicatorSet;
+    [HideInInspector] public int doublePointCurrentMultiplicator;
+
 
 
     void Start()
     {
         hasUnlimitedAmmo = false;
+        hasDoublePoint = false;
+        doublePointCurrentMultiplicator = 1;
     }
 
     void Update()
     {
         UnlimitedAmmoTimer();
+        DoublePointTimer();
     }
 
     private void UnlimitedAmmoTimer()
@@ -32,9 +43,29 @@ public class ConsumablePlatform : MonoBehaviour
         }
     }
 
+    private void DoublePointTimer()
+    {
+        if (hasDoublePoint)
+        {
+            doublePointTimer -= Time.deltaTime;
+            if (doublePointTimer <= 0.0f)
+            {
+                doublePointCurrentMultiplicator = 1;
+                hasDoublePoint = false;
+            }
+        }
+    }
+
     public void StartUnlimitedAmmo()
     {
         unlimitedAmmoTimer = unlimitedAmmoTimeSet;
         hasUnlimitedAmmo = true;
+    }
+    
+    public void StartDoublePoint()
+    {
+        doublePointCurrentMultiplicator = doublePointMultiplicatorSet;
+        doublePointTimer = doublePointTimeSet;
+        hasDoublePoint = true;
     }
 }

@@ -125,7 +125,8 @@ public class EnnemisScript : MonoBehaviour
 
     public void Death()
     {
-        CS.currentMoneyAmount += moneyDrop;
+        CS.GainMoney(moneyDrop);
+        //CS.currentMoneyAmount += moneyDrop;
         lootDrop.DropLoot();
         Destroy(gameObject);
     }
