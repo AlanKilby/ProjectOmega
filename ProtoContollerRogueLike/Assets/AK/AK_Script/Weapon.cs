@@ -12,6 +12,10 @@ public class Weapon : MonoBehaviour
 
     //Graphics 
     public SpriteRenderer gunSpriteRenderer;
+    GameObject ownIcon;
+    GameObject ownIconSlot;
+    [SerializeField] Vector3 iconOffsetWhenInHand;
+    Vector3 ownIconSlotDefaultPosition;
 
     //Technical Parts
     public GameObject[] shootingPoints;
@@ -69,6 +73,18 @@ public class Weapon : MonoBehaviour
         if(!isEquipped && ammoCount <= 0)
         {
             gunSpriteRenderer.sprite = gun.weaponSprites[2];
+        }
+
+        //Icon Offset When In Hand
+        if (gunInHand)
+        {
+            ownIcon.transform.position = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
+            ownIconSlot.transform.position = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
+        }
+        else
+        {
+            ownIcon.transform.position = ownIconSlotDefaultPosition;
+            ownIconSlot.transform.position = ownIconSlotDefaultPosition;
         }
 
         //Shooting
@@ -194,7 +210,11 @@ public class Weapon : MonoBehaviour
 
                     inventory.isFull[i] = true;
 
-                    Instantiate(gun.gunIcon, inventory.slots[i].transform, false);
+                    ownIcon = Instantiate(gun.gunIcon, inventory.slots[i].transform, false);
+
+                    ownIconSlot = inventory.slots[i];
+
+                    ownIconSlotDefaultPosition = ownIconSlot.transform.position;
 
                     transform.SetParent(collision.transform);
                     
