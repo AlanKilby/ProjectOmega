@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4704972490389386440}
   m_Layer: 0
   m_Name: SpawnPlayer
-  m_TagString: Untagged
+  m_TagString: SpawnPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 3866082098940061210}
   m_Layer: 0
   m_Name: SceneManager
-  m_TagString: SpawnPlayer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   - {x: -9.6868105, y: 4.7404346, z: 0}
   m_ShapePathHash: 734726350
   m_Mesh: {fileID: 0}
-  m_InstanceId: 87320
+  m_InstanceId: 26738
 --- !u!1 &4224457059390320949
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   - {x: 10.29038, y: 8.308101, z: 0}
   m_ShapePathHash: 1664123056
   m_Mesh: {fileID: 0}
-  m_InstanceId: 87316
+  m_InstanceId: 26734
 --- !u!1 &5135370373383771870
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   - {x: 1.2723312, y: -8.66947, z: 0}
   m_ShapePathHash: -799439361
   m_Mesh: {fileID: 0}
-  m_InstanceId: 87346
+  m_InstanceId: 26764
 --- !u!1 &6581901216412051982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,7 +2321,7 @@ MonoBehaviour:
   - {x: 1.2723312, y: -8.66947, z: 0}
   m_ShapePathHash: -1162434350
   m_Mesh: {fileID: 0}
-  m_InstanceId: 87340
+  m_InstanceId: 26758
 --- !u!1 &8617027841489950077
 GameObject:
   m_ObjectHideFlags: 0

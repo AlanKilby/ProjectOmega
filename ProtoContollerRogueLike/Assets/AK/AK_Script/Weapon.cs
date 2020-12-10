@@ -13,7 +13,9 @@ public class Weapon : MonoBehaviour
     //Graphics 
     public SpriteRenderer gunSpriteRenderer;
     GameObject ownIcon;
+    RectTransform ownIconRect;
     GameObject ownIconSlot;
+    RectTransform ownIconSlotRect;
     [SerializeField] Vector3 iconOffsetWhenInHand;
     Vector3 ownIconSlotDefaultPosition;
 
@@ -78,13 +80,13 @@ public class Weapon : MonoBehaviour
         //Icon Offset When In Hand
         if (gunInHand)
         {
-            ownIcon.transform.position = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
-            ownIconSlot.transform.position = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
+            ownIconRect.anchoredPosition = iconOffsetWhenInHand;
+            ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
         }
         else
         {
-            ownIcon.transform.position = ownIconSlotDefaultPosition;
-            ownIconSlot.transform.position = ownIconSlotDefaultPosition;
+            ownIconRect.anchoredPosition = new Vector3(0,0,0);
+            ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition;
         }
 
         //Shooting
@@ -210,11 +212,16 @@ public class Weapon : MonoBehaviour
 
                     inventory.isFull[i] = true;
 
-                    ownIcon = Instantiate(gun.gunIcon, inventory.slots[i].transform, false);
-
                     ownIconSlot = inventory.slots[i];
 
-                    ownIconSlotDefaultPosition = ownIconSlot.transform.position;
+                    ownIconSlotDefaultPosition = ownIconSlot.GetComponent<RectTransform>().anchoredPosition;
+
+                    ownIcon = Instantiate(gun.gunIcon, inventory.slots[i].transform, false);
+
+                    ownIconRect = ownIcon.GetComponent<RectTransform>();
+
+                    ownIconSlotRect = ownIconSlot.GetComponent<RectTransform>();
+
 
                     transform.SetParent(collision.transform);
                     
