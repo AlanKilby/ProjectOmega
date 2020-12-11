@@ -119,15 +119,22 @@ public class PlayerMouvement : MonoBehaviour
         //if (deccelerationTime > 0)
         //    deccelerationMultiplier = decceleration.Evaluate(timeSinceDeccelerated / deccelerationTime);
 
-        if (playerIsMoving)
+        if (GameManagement.GameIsPaused)
         {
-            rb.velocity = playerInput.normalized * playerSpeed; /** accelerationMultiplier;*/
-        }
-
-        if (!playerIsMoving)
-        {
-            //rb.velocity = new Vector2(rb.velocity.x * deccelerationMultiplier, rb.velocity.y * deccelerationMultiplier);
             rb.velocity = new Vector2(rb.velocity.x * 0, rb.velocity.y * 0);
+        }
+        else
+        {
+            if (playerIsMoving)
+            {
+                rb.velocity = playerInput.normalized * playerSpeed; /** accelerationMultiplier;*/
+            }
+
+            if (!playerIsMoving)
+            {
+                //rb.velocity = new Vector2(rb.velocity.x * deccelerationMultiplier, rb.velocity.y * deccelerationMultiplier);
+                rb.velocity = new Vector2(rb.velocity.x * 0, rb.velocity.y * 0);
+            }
         }
 
     }
@@ -161,7 +168,7 @@ public class PlayerMouvement : MonoBehaviour
 
     void DashAttempt()
     {
-        if (Input.GetKey(KeyCode.Space) && canDash && rb.velocity != new Vector2(0, 0))
+        if (Input.GetKey(KeyCode.Space) && canDash && rb.velocity != new Vector2(0, 0) && !GameManagement.GameIsPaused)
         {
             isDashing = true;
             //Ajout Gus

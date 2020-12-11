@@ -90,7 +90,7 @@ public class Weapon : MonoBehaviour
         }
 
         //Shooting
-        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing && !isALoadingGun)
+        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing && !isALoadingGun && !GameManagement.GameIsPaused)
         {
             WeaponShooting();
         }

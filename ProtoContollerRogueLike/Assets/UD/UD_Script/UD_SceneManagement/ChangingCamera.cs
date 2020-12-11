@@ -15,6 +15,7 @@ public class ChangingCamera : MonoBehaviour
         PlayerUI = GameObject.FindGameObjectWithTag("PlayerUI").GetComponent<Canvas>();
         cam = GetComponent<Camera>();
         PM.cam = cam;
+        PlayerUI.worldCamera = cam;
     }
 
 }
