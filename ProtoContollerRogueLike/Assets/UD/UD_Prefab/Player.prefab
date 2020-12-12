@@ -612,6 +612,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e9a779c9ad02d42b77f294a6316d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whatIsEnvironment:
+    serializedVersion: 2
+    m_Bits: 16384
   playerIsMoving: 0
   hasModulePhaseShift: 0
   playerSpeed: 5
@@ -625,6 +628,7 @@ MonoBehaviour:
   dashTimePercent: 0
   playerRBVelovityX: 0
   playerRBVelovityY: 0
+  wallDetectionRadius: 1
   rb: {fileID: 1163558162623733005}
   cam: {fileID: 0}
   anim: {fileID: 1163558162623733044}

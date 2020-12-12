@@ -16,6 +16,7 @@ public class ChangingCamera : MonoBehaviour
         cam = GetComponent<Camera>();
         PM.cam = cam;
         PlayerUI.worldCamera = cam;
+        PlayerUI.sortingLayerName = "UppestLayer";
     }
 
 }
