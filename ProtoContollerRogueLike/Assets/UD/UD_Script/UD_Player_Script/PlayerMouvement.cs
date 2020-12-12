@@ -29,6 +29,7 @@ public class PlayerMouvement : MonoBehaviour
 
     private bool wallIsNear;
     public float wallDetectionRadius;
+    public Vector3 wallDetectionPosition;
 
     //Ajout Gus
     private string currentAnimation;
@@ -225,12 +226,12 @@ public class PlayerMouvement : MonoBehaviour
 
     private void CheckSurroundings()
     {
-        wallIsNear = Physics2D.OverlapCircle(gameObject.transform.position, wallDetectionRadius, whatIsEnvironment);
+        wallIsNear = Physics2D.OverlapCircle(wallDetectionPosition, wallDetectionRadius, whatIsEnvironment);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(gameObject.transform.position, wallDetectionRadius);
+        Gizmos.DrawWireSphere(wallDetectionPosition, wallDetectionRadius);
     }
 
     //Ajout Gus

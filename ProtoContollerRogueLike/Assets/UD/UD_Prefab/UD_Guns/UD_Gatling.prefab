@@ -81,7 +81,7 @@ MonoBehaviour:
   PM: {fileID: 0}
   PMS: {fileID: 0}
   gunSpriteRenderer: {fileID: 0}
-  iconOffsetWhenInHand: {x: 0, y: 0.5, z: 0}
+  iconOffsetWhenInHand: {x: 0, y: 10, z: 0}
   shootingPoints:
   - {fileID: 3590970812123272044}
   ammoCount: 300
@@ -94,6 +94,7 @@ MonoBehaviour:
   loadingGunChargePercentage: 0
   chargedMaxDamageMultiplicator: 0
   canStunWhenCharingMax: 0
+  lifeTimeMultiplicatorWhenCharged: 0
   isUnlimitedAmmoGun: 0
 --- !u!212 &2871898901275256708
 SpriteRenderer:

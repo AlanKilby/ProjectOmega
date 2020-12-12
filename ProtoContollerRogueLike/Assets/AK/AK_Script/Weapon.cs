@@ -81,12 +81,10 @@ public class Weapon : MonoBehaviour
         //Icon Offset When In Hand
         if (gunInHand)
         {
-            ownIconRect.anchoredPosition = iconOffsetWhenInHand;
             ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
         }
         else
         {
-            ownIconRect.anchoredPosition = new Vector3(0,0,0);
             ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition;
         }
 
