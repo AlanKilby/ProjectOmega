@@ -559,10 +559,11 @@ MonoBehaviour:
   gunSlot: 0
   gunInHand: 0
   isALoadingGun: 1
-  loadingGunTimeToChargeMax: 1
+  loadingGunTimeToChargeMax: 0.6
   loadingGunChargePercentage: 0
   chargedMaxDamageMultiplicator: 5
   canStunWhenCharingMax: 1
+  lifeTimeMultiplicatorWhenCharged: 3
   isUnlimitedAmmoGun: 1
 --- !u!212 &4756036016220822889
 SpriteRenderer:

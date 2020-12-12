@@ -615,8 +615,8 @@ MonoBehaviour:
   playerIsMoving: 0
   hasModulePhaseShift: 0
   playerSpeed: 5
-  dashSpeed: 2
-  dashTime: 0.5
+  dashSpeed: 4
+  dashTime: 0.3
   isDashing: 0
   canDash: 0
   dashReloadTimeSet: 2
@@ -726,7 +726,7 @@ MonoBehaviour:
   healthRegenWithQuickRevive: 0
   quickReviveIconSlot: 0
   hasQuickRevive: 0
-  shieldHealthPointSet: 0
+  shieldHealthPointSet: 100
   shieldHealthPointCurrent: 0
   hasShield: 0
 --- !u!114 &1163558162623733045

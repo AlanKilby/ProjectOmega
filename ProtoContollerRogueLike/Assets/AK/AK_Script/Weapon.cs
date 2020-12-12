@@ -41,6 +41,7 @@ public class Weapon : MonoBehaviour
     public float loadingGunChargePercentage;
     public int chargedMaxDamageMultiplicator;
     public bool canStunWhenCharingMax;
+    public float lifeTimeMultiplicatorWhenCharged;
     [Header("Unlimited Ammo ?")]
     public bool isUnlimitedAmmoGun;
 
@@ -166,6 +167,7 @@ public class Weapon : MonoBehaviour
                     if (loadingGunIsChargedMax)
                     {
                         Bu.damage = Bu.damage * chargedMaxDamageMultiplicator;
+                        Bu.bulletLifeTime = Bu.bulletLifeTime * lifeTimeMultiplicatorWhenCharged;
                         if (canStunWhenCharingMax)
                         {
                             Bu.canStun = true;
@@ -173,6 +175,7 @@ public class Weapon : MonoBehaviour
                     }
                     rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
                     loadingGunTimer = 0.0f;
+                    loadingGunIsChargedMax = false;
                 }
                                             
             }

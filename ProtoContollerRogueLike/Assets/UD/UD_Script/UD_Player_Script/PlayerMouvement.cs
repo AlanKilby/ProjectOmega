@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMouvement : MonoBehaviour
 {
+    public LayerMask whatIsEnvironment;
+
     public bool playerIsMoving;
     public bool hasModulePhaseShift;
 
@@ -24,6 +26,9 @@ public class PlayerMouvement : MonoBehaviour
     public float dashTimePercent;
     public float playerRBVelovityX;
     public float playerRBVelovityY;
+
+    private bool wallIsNear;
+    public float wallDetectionRadius;
 
     //Ajout Gus
     private string currentAnimation;
@@ -51,6 +56,7 @@ public class PlayerMouvement : MonoBehaviour
         anim = GetComponent<Animator>();
         hasModulePhaseShift = false;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        dashReloadTimeUpgraded = dashReloadTimeSet;
     }
     void Update()
     {
@@ -77,6 +83,7 @@ public class PlayerMouvement : MonoBehaviour
         DashTimer();
         RBVelocityShow();
         InputDetector();
+        CheckSurroundings();
     }
 
     void Mouvement()
@@ -180,6 +187,13 @@ public class PlayerMouvement : MonoBehaviour
     }
     void Dash()
     {
+        if (wallIsNear && isDashing)
+        {
+            print("touch Wall");
+            rb.velocity = new Vector3(0, 0, 0);
+            dashTime = 0.0f;
+        }
+
         if (isDashing == true && dashTime > 0)
         {
             canDash = false;
@@ -209,6 +223,16 @@ public class PlayerMouvement : MonoBehaviour
         dashTimePercent = dashReloadTimer / dashReloadTimeUpgraded;
     }
 
+    private void CheckSurroundings()
+    {
+        wallIsNear = Physics2D.OverlapCircle(gameObject.transform.position, wallDetectionRadius, whatIsEnvironment);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(gameObject.transform.position, wallDetectionRadius);
+    }
+
     //Ajout Gus
     void ChangeAnimationState(string newAnimation)
     {
@@ -230,7 +254,9 @@ public class PlayerMouvement : MonoBehaviour
         {
             if (isDashing)
             {
+                rb.velocity = new Vector3(0, 0, 0);
                 isDashing = false;
+                dashTime = dashTimeHolder;
             }
         }
     }*/
