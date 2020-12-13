@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1737,10 +1737,10 @@ MonoBehaviour:
   - {fileID: 4207703063893176707, guid: 53e1cd6f362e9e642b4ef0b2bec316c6, type: 3}
   - {fileID: 3810576781560207150, guid: 31b2f0371bdc32743b7f8631c69104bb, type: 3}
   startingRooms:
-  - {fileID: 1186759316110967203, guid: af14fa1d7d9774e4684d003f13954b4c, type: 3}
-  - {fileID: 2382869899979290713, guid: 3ea8713d501aaea4995f5a3ada06e46c, type: 3}
+  - {fileID: 3346380228933041921, guid: 9dc20f0e8f1e99b4691637e3dbc4e1c1, type: 3}
+  - {fileID: 6779495693192679006, guid: 5057fc37b56a80a4b833dca610fec29b, type: 3}
   bossRooms:
-  - {fileID: 8241356598744559101, guid: d5c2acf5708a17f43ba1f1930c8d020e, type: 3}
+  - {fileID: 4207703063893176707, guid: 53e1cd6f362e9e642b4ef0b2bec316c6, type: 3}
   moveAmountHorizontal: 26
   moveAmountVertical: 18
   direction: 0
