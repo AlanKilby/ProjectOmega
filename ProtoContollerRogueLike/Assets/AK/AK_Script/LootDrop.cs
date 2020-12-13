@@ -14,6 +14,7 @@ public class LootDrop : MonoBehaviour
 
     public RoomTriggerCollider thisRoom;
 
+    
     private void Start()
     {
         weaponList = GameObject.FindGameObjectWithTag("LootList").GetComponent<WeaponList>();
@@ -38,6 +39,8 @@ public class LootDrop : MonoBehaviour
             if(randomDrop <= dropGun)
             {
                 Debug.Log("Drop Gun");
+
+
                 GameObject drop = Instantiate(weaponList.weapons[Random.Range(0,weaponList.weapons.Length)], gameObject.transform.position, Quaternion.Euler(0,0,Random.Range(-180,180)));
                 drop.transform.SetParent(thisRoom.transform);
                 Destroy(gameObject);
