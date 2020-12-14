@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     GameObject UI;
+    GameObject sol;
+    GameObject Room;
+
 
     public float totalPlayerHealthSet;
     public float totalPlayerHealthUpgraded;
@@ -30,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
     SpriteRenderer sr;
     //
 
-    [Header ("Shield")]
+    [Header("Shield")]
     public int shieldHealthPointSet;
     [HideInInspector] public int shieldHealthPointCurrent;
     [HideInInspector] public bool hasShield;
@@ -43,6 +46,8 @@ public class PlayerHealth : MonoBehaviour
         In = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
         UI = GameObject.Find("UI");
+        sol = GameObject.Find("Sol");
+        Room = GameObject.Find("RoomObjects");
         currentPlayerHealth = totalPlayerHealthUpgraded;
         hasQuickRevive = false;
 
@@ -119,11 +124,15 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<SwordAttack>().enabled = false;
         ChangeAnimationState(PLAYER_DEATH);
         Destroy(UI);
-        Invoke("StartMenu", 1.7f);
+        Destroy(sol);
+        Destroy(Room);
         //anim.SetBool("isDead", true);
-        Destroy(gameObject, 1.85f);
+        Invoke("GameOver", 1.69f);
+        Destroy(gameObject, 1.70f);
+        
+
         //
-    }                    
+    }
 
 
     public void TakeDamage(int damage)
@@ -140,11 +149,13 @@ public class PlayerHealth : MonoBehaviour
                 //Ajout Gus
                 sr.material = matWhite;
                 Invoke("ResetMaterial", 0.1f);
+                FindObjectOfType<AudioManager>().Play("Damage Hit");
                 //
             }
             else
             {
                 currentPlayerHealth -= damage;
+                FindObjectOfType<AudioManager>().Play("Damage Hit");
                 //Ajout Gus
                 sr.material = matWhite;
                 Invoke("ResetMaterial", 0.1f);
@@ -156,6 +167,9 @@ public class PlayerHealth : MonoBehaviour
         {
             //Destroy(gameObject);
             //Ajout Gus
+            FindObjectOfType<AudioManager>().StopPlaying("Damage Hit");
+            FindObjectOfType<AudioManager>().StopPlaying("Fight Music");
+            FindObjectOfType<AudioManager>().Play("Death");
             Die();
             return;
             //
@@ -180,9 +194,9 @@ public class PlayerHealth : MonoBehaviour
         hasShield = true;
     }
 
-    private void StartMenu()
+    private void GameOver()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("GameOver");
     }
 
     //Ajout Gus
@@ -194,5 +208,4 @@ public class PlayerHealth : MonoBehaviour
 
         currentAnimation = newAnimation;
     }
-    //
 }

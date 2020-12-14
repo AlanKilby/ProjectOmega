@@ -62,8 +62,11 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
         if(isTouchingRavine && !PM.isDashing && ravineDealDamageActive)
         {
             PH.TakeDamage(ravineDamage);
+            FindObjectOfType<AudioManager>().StopPlaying("Damage Hit");
+            FindObjectOfType<AudioManager>().Play("Chasm");
             gameObject.transform.position = lastPositionBeforeRavine;
             ravineDealDamageActive = false;
+            
         }
         if (ravineDealDamageActive == false)
         {
@@ -71,6 +74,8 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
             if (ravineDamageRateTimer <= 0.0f)
             {
                 ravineDealDamageActive = true;
+                
+
             }
         }
     }
@@ -80,6 +85,9 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
         if(isInAcide && acideDealDamageActive)
         {
             PH.TakeDamage(acideDamage);
+            FindObjectOfType<AudioManager>().StopPlaying("Damage Hit");
+            FindObjectOfType<AudioManager>().Play("Acid");
+
             acideDealDamageActive = false;
             acideDamageRateTimer = acideDamageRate;
         }

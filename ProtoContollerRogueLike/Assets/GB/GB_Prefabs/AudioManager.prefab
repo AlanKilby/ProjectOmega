@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5015181202427633535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5015181202427633533}
+  - component: {fileID: 5015181202427633532}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5015181202427633533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015181202427633535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.241459, y: 0.6037985, z: -6.4023438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5015181202427633532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015181202427633535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06738430c3aa33c44b5cfa4260c4aa2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Fight Music
+    clip: {fileID: 8300000, guid: c4daed8fb03b7344dba5685a7c250ba8, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: b8ec92494d4950643a286b87cd2d0331, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: f5f228e058396584799e81b6a57bd2d5, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Damage Hit
+    clip: {fileID: 8300000, guid: a7b3bc8bb627db743953890c8779db96, type: 3}
+    volume: 0.285
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Sword
+    clip: {fileID: 8300000, guid: 3ae9b848aad79a548a6e22b1d5ca7a92, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Press Play
+    clip: {fileID: 8300000, guid: 9507a64ecec3cf740b47033ead9c7afe, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Handgun Charge
+    clip: {fileID: 8300000, guid: 14ab92d618d7a0547afca289b0e7ef21, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Handgun Shot
+    clip: {fileID: 8300000, guid: 4dc6285498b79c84a9e7e29c212d0e1c, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Chasm
+    clip: {fileID: 8300000, guid: 7d1a819f450a31b45a731c5bddd987c9, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Acid
+    clip: {fileID: 8300000, guid: d8e6401614529b242b8cf8ce72f0be0c, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep
+    clip: {fileID: 8300000, guid: 7170e420f626e0e48a81b9f5085823d2, type: 3}
+    volume: 0.506
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Gatling
+    clip: {fileID: 8300000, guid: f68c6af7bcdf0ad4f9a25dcca029a67e, type: 3}
+    volume: 0.172
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shotgun
+    clip: {fileID: 8300000, guid: 6215f88a21c40014ea8df65cd121b090, type: 3}
+    volume: 0.147
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Reload
+    clip: {fileID: 8300000, guid: 0775d8ffa09acec4d98498ba2ad2ecb0, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

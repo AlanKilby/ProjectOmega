@@ -163,6 +163,12 @@ public class PlayerMouvement : MonoBehaviour
         }
     }
 
+    void Footstep() 
+    {
+        FindObjectOfType<AudioManager>().Play("Footstep");
+    }
+        
+
     void LookLock()
     {
         float angle = Mathf.Atan2(lastInput.y, lastInput.x) * Mathf.Rad2Deg - 90.0f;
@@ -181,6 +187,7 @@ public class PlayerMouvement : MonoBehaviour
         {
             isDashing = true;
             //Ajout Gus
+            FindObjectOfType<AudioManager>().Play("Dash");
             ChangeAnimationState(PLAYER_DASH);
             //
             

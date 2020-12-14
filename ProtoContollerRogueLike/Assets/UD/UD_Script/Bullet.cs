@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     PlayerModuleStation PMS;
+    PlayerHealth PH;
     Rigidbody2D rb;
     Animator anim;
 
@@ -33,6 +34,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
+        PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModuleStation>();
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
@@ -56,6 +58,10 @@ public class Bullet : MonoBehaviour
             rb.velocity = new Vector3(0, 0, 0);
         }
         UpdateAnims();
+        if (PH.currentPlayerHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void UpdateAnims()
@@ -63,7 +69,7 @@ public class Bullet : MonoBehaviour
         anim.SetBool("touchObstacle", touchObstacle);
     }
 
-    void DestroyBullet()
+    public void DestroyBullet()
     {
         Destroy(gameObject);
     }

@@ -88,6 +88,7 @@ public class SwordAttack : MonoBehaviour
                 gotInput = false;
                 isAttacking = true;
                 anim.SetBool("isAttacking", isAttacking);
+                FindObjectOfType<AudioManager>().Play("Sword");
             }
         }
     }

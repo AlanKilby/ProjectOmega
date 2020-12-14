@@ -91,6 +91,7 @@ public class Weapon : MonoBehaviour
         //Shooting
         if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing && !isALoadingGun && !GameManagement.GameIsPaused)
         {
+            //FindObjectOfType<AudioManager>().StopPlaying("Handgun Charge");
             WeaponShooting();
         }
 
@@ -98,15 +99,15 @@ public class Weapon : MonoBehaviour
         {
             if (isEquipped && Input.GetButtonDown("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
             {
+                audioSource.PlayOneShot(gun.gunSounds[0]);
                 loadingGunCharging = true;
             }
 
-            if(isEquipped && Input.GetButtonUp("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
+            if (isEquipped && Input.GetButtonUp("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
             {
                 WeaponShooting();
                 loadingGunChargePercentage = 0.0f;
                 loadingGunCharging = false;
-
             }
 
             if (!isEquipped || inventory.ammoCounter[gun.ammoID] <= 0 || PM.isDashing)
@@ -183,7 +184,8 @@ public class Weapon : MonoBehaviour
             }
             else
             {
-                audioSource.PlayOneShot(gun.gunSounds[0]);
+                //FindObjectOfType<AudioManager>().Play("Handgun Shot");
+                audioSource.PlayOneShot(gun.gunSounds[1]);
             }
             if(!isUnlimitedAmmoGun && !CP.hasUnlimitedAmmo)
             {
@@ -226,7 +228,6 @@ public class Weapon : MonoBehaviour
 
                     transform.SetParent(collision.transform);
                     
-                    //Modif Gus
                     //transform.localPosition = new Vector2(-0.35f,0.15f);
                     transform.localPosition = new Vector2(-0.52f, 0.75f);
                     transform.rotation = collision.transform.rotation;
@@ -244,7 +245,7 @@ public class Weapon : MonoBehaviour
                     gunAlreadyInInv = true;
                     inventory.ammoCounter[gun.ammoID] += (int)(ammoCount * UP.ammoMultiplicatorCurrent);
                     ammoCount = 0;
-                    audioSource.PlayOneShot(gun.gunSounds[1]);
+                    FindObjectOfType<AudioManager>().Play("Reload");
                 }
 
             }
@@ -254,9 +255,9 @@ public class Weapon : MonoBehaviour
 
     void LoadingGunCharge()
     {
-        if(loadingGunTimer <= loadingGunTimeToChargeMax)
+        if (loadingGunTimer <= loadingGunTimeToChargeMax)
         {
-            loadingGunTimer += Time.deltaTime;
+            loadingGunTimer += Time.deltaTime;   
         }
         if(loadingGunTimer >= loadingGunTimeToChargeMax)
         {
