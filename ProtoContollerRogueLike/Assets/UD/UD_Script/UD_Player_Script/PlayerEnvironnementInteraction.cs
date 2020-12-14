@@ -82,21 +82,24 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
 
     private void AcideDealDamage()
     {
-        if(isInAcide && acideDealDamageActive)
+        if (!PM.isDashing)
         {
-            PH.TakeDamage(acideDamage);
-            FindObjectOfType<AudioManager>().StopPlaying("Damage Hit");
-            FindObjectOfType<AudioManager>().Play("Acid");
-
-            acideDealDamageActive = false;
-            acideDamageRateTimer = acideDamageRate;
-        }
-        if(acideDealDamageActive == false)
-        {
-            acideDamageRateTimer -= Time.deltaTime;
-            if(acideDamageRateTimer <= 0.0f)
+            if (isInAcide && acideDealDamageActive)
             {
-                acideDealDamageActive = true;
+                PH.TakeDamage(acideDamage);
+                FindObjectOfType<AudioManager>().StopPlaying("Damage Hit");
+                FindObjectOfType<AudioManager>().Play("Acid");
+
+                acideDealDamageActive = false;
+                acideDamageRateTimer = acideDamageRate;
+            }
+            if (acideDealDamageActive == false)
+            {
+                acideDamageRateTimer -= Time.deltaTime;
+                if (acideDamageRateTimer <= 0.0f)
+                {
+                    acideDealDamageActive = true;
+                }
             }
         }
     }

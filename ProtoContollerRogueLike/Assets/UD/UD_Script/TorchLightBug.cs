@@ -67,7 +67,8 @@ public class TorchLightBug : MonoBehaviour
         torchLight.SetActive(true);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /* FOR DESACTIVATE LIGHT IN HUB BUT MAKE BUG IN PROCEDURAL SCENE
+     * private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("HUB"))
         {
@@ -90,5 +91,5 @@ public class TorchLightBug : MonoBehaviour
             torchLight.SetActive(true);
             canBug = true;
         }
-    }
+    }*/
 }
