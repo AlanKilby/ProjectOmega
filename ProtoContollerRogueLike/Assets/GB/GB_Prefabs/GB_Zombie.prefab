@@ -202,9 +202,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDropRate: 50
-  dropGun: 30
-  dropModule: 30
+  dropGun: 85
+  dropModule: 10
   dropPowerUp: 5
+  thisRoom: {fileID: 0}
 --- !u!114 &2259558575928151974
 MonoBehaviour:
   m_ObjectHideFlags: 0

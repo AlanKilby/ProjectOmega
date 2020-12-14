@@ -40,9 +40,9 @@ public class LootDrop : MonoBehaviour
             {
                 Debug.Log("Drop Gun");
 
-
-                GameObject drop = Instantiate(weaponList.weapons[Random.Range(0,weaponList.weapons.Length)], gameObject.transform.position, Quaternion.Euler(0,0,Random.Range(-180,180)));
-                drop.transform.SetParent(thisRoom.transform);
+                weaponList.DropGun(thisRoom.transform, gameObject.transform);
+                //GameObject drop = Instantiate(weaponList.weapons[Random.Range(0,weaponList.weapons.Length)], gameObject.transform.position, Quaternion.Euler(0,0,Random.Range(-180,180)));
+                //drop.transform.SetParent(thisRoom.transform);
                 Destroy(gameObject);
             }
             else if (randomDrop > dropGun && randomDrop <= dropModule)
