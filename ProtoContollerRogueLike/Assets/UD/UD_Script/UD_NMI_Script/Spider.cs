@@ -40,7 +40,7 @@ public class Spider : MonoBehaviour
 
     public Transform firePoint;
     public Transform playerPos;
-    public RoomTriggerCollider thisRoom;
+    public CameraSystem thisRoom;
 
     public GameObject spiderBulletPrefab;
     public GameObject ownAffraidArea;
@@ -49,7 +49,7 @@ public class Spider : MonoBehaviour
     private void Start()
     {
         playerInAffraidArea = false;
-        thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ownRB = GetComponent<Rigidbody2D>();
         ES = GetComponent<EnnemisScript>();

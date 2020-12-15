@@ -29,7 +29,7 @@ public class EnnemiSummoner : MonoBehaviour
     public bool playerInSight;
 
     public Transform playerPos;
-    public RoomTriggerCollider thisRoom;
+    public CameraSystem thisRoom;
 
     public GameObject spawnPoint1;
     public GameObject spawnPoint2;
@@ -52,7 +52,7 @@ public class EnnemiSummoner : MonoBehaviour
     void Start()
     {
         playerInAffraidArea = false;
-        thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ownRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

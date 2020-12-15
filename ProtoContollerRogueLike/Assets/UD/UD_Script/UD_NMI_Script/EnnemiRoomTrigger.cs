@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class EnnemiRoomTrigger : MonoBehaviour
 {
-    public RoomTriggerCollider thisRoom;
+    public CameraSystem thisRoom;
 
     void Start()
     {
         gameObject.GetComponent<AIPath>().enabled = false;
-        thisRoom = GameObject.FindGameObjectWithTag("RoomTrigger").GetComponentInParent<RoomTriggerCollider>();
+        thisRoom = GetComponentInParent<CameraSystem>();
     }
 
     void Update()
