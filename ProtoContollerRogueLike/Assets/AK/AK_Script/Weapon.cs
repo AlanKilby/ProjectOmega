@@ -79,13 +79,16 @@ public class Weapon : MonoBehaviour
         }
 
         //Icon Offset When In Hand
-        if (gunInHand)
+        if(ownIconSlotRect != null)
         {
-            ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
-        }
-        else
-        {
-            ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition;
+            if (gunInHand)
+            {
+                ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
+            }
+            else
+            {
+                ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition;
+            }
         }
 
         //Shooting
