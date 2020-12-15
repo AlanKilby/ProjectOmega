@@ -17,7 +17,7 @@ public class CameraSystem : MonoBehaviour
     {
         if (isPlayerInRoom.playerIsInTheRoom)
         {
-            mainCameraPos.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y,mainCameraPos.position.z);
+            mainCameraPos.position = new Vector3(gameObject.transform.position.x-2, gameObject.transform.position.y,mainCameraPos.position.z);
         }
     }
 }
