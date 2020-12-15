@@ -61,7 +61,7 @@ public class EnnemiSummoner : MonoBehaviour
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom == true)
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom == true)
         {
             if (playerInSight)
             {

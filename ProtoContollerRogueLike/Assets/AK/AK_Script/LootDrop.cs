@@ -12,14 +12,14 @@ public class LootDrop : MonoBehaviour
     private WeaponList weaponList;
     private ModuleList moduleList;
 
-    public RoomTriggerCollider thisRoom;
+    public CameraSystem thisRoom;
 
     
     private void Start()
     {
         weaponList = GameObject.FindGameObjectWithTag("LootList").GetComponent<WeaponList>();
         moduleList = GameObject.FindGameObjectWithTag("LootList").GetComponent<ModuleList>();
-        thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
 
         dropModule = (dropGun + dropModule);
         dropPowerUp = (dropModule + dropPowerUp);

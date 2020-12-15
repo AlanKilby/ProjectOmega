@@ -60,7 +60,7 @@ public class Spider : MonoBehaviour
     }
     private void Update()
     {
-        if (thisRoom.playerIsInTheRoom == true)
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom == true)
         {
             if (playerInSight)
             {
