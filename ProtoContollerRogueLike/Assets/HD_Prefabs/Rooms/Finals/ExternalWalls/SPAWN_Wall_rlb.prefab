@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 1304090889473185531}
   - component: {fileID: 2751520709681529123}
   - component: {fileID: 7994262064569140869}
-  - component: {fileID: 8222112958731739350}
   m_Layer: 17
   m_Name: SPAWN_Wall_rlb
   m_TagString: Environement
@@ -1038,21 +1037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f892b43bbde5b11478922995e3fd2886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerInRoom: {fileID: 0}
+  playerIsInTheRoom: {fileID: 0}
   mainCameraPos: {fileID: 0}
---- !u!114 &8222112958731739350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9094759799707080312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa839838c282f074fbb65103e261a616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
 --- !u!1001 &1859899132249333908
 PrefabInstance:
   m_ObjectHideFlags: 0

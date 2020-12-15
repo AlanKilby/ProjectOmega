@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 174550196356082477}
   - component: {fileID: -9198563966317608965}
   - component: {fileID: 3184912537545686638}
-  - component: {fileID: 6815824878721334938}
   m_Layer: 17
   m_Name: Wall_rlbt
   m_TagString: Environement
@@ -1009,21 +1008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f892b43bbde5b11478922995e3fd2886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerInRoom: {fileID: 0}
+  playerIsInTheRoom: {fileID: 0}
   mainCameraPos: {fileID: 0}
---- !u!114 &6815824878721334938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3810576781560207150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa839838c282f074fbb65103e261a616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 4
 --- !u!1001 &7014078090918170973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1034,7 +1020,7 @@ PrefabInstance:
     - target: {fileID: 1981904321075661256, guid: abba7caa5bca9ba4db87d5db3c590f8e,
         type: 3}
       propertyPath: type
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6001816632499282852, guid: abba7caa5bca9ba4db87d5db3c590f8e,
         type: 3}

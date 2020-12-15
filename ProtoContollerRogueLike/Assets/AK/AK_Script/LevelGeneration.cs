@@ -111,8 +111,9 @@ public class LevelGeneration : MonoBehaviour
 
             if(transform.position.y > minY)
             {
-                Collider2D collider2D1 = Physics2D.OverlapCircle(transform.position, 5, room);
-                Collider2D roomDetection = collider2D1;
+                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 5, room);
+                Debug.Log(roomDetection);
+                //Collider2D roomDetection = collider2D1;
 
                 if(roomDetection.GetComponent<RoomType>().type != 1  && roomDetection.GetComponent<RoomType>().type != 3)
                 {
@@ -161,8 +162,9 @@ public class LevelGeneration : MonoBehaviour
             {
                 StopGeneration = true;
 
-                Collider2D collider2D1 = Physics2D.OverlapCircle(transform.position, 5, room);
-                Collider2D roomDetection = collider2D1;
+                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 5, room);
+                Debug.Log(roomDetection);
+                //Collider2D roomDetection = collider2D1;
 
                 roomDetection.GetComponent<RoomType>().RoomDestruction();
 

@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 6736503626288454046}
   - component: {fileID: 2515437924896898141}
   - component: {fileID: 6639172255121285031}
-  - component: {fileID: 7880738362494647267}
   m_Layer: 17
   m_Name: SPAWN_Wall_rl
   m_TagString: Environement
@@ -1146,21 +1145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f892b43bbde5b11478922995e3fd2886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerInRoom: {fileID: 0}
+  playerIsInTheRoom: {fileID: 0}
   mainCameraPos: {fileID: 0}
---- !u!114 &7880738362494647267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538125844331880694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa839838c282f074fbb65103e261a616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
 --- !u!1001 &186292850055093674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1172,11 +1158,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoomTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 6001816632499282852, guid: abba7caa5bca9ba4db87d5db3c590f8e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8563274117771177581, guid: abba7caa5bca9ba4db87d5db3c590f8e,
         type: 3}
