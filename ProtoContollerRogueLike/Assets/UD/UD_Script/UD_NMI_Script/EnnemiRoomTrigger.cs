@@ -10,7 +10,7 @@ public class EnnemiRoomTrigger : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<AIPath>().enabled = false;
-        thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
+        thisRoom = GameObject.FindGameObjectWithTag("RoomTrigger").GetComponentInParent<RoomTriggerCollider>();
     }
 
     void Update()

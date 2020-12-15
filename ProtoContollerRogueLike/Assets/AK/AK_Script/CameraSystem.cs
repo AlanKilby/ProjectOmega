@@ -9,7 +9,7 @@ public class CameraSystem : MonoBehaviour
 
     private void Start()
     {
-        isPlayerInRoom = GetComponentInParent<RoomTriggerCollider>();
+        isPlayerInRoom = GetComponentInChildren<RoomTriggerCollider>();
         mainCameraPos = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
