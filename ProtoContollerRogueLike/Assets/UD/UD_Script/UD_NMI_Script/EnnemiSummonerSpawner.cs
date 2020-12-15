@@ -8,7 +8,7 @@ public class EnnemiSummonerSpawner : MonoBehaviour
     [SerializeField] EnnemiSummoner ES;
 
     public Transform currentRoom;
-    public RoomTriggerCollider isPlayerInRoom;
+    public CameraSystem isPlayerInRoom;
     public float spawnChance;
     [SerializeField] private float spawnZoneRadius;
 
@@ -19,7 +19,7 @@ public class EnnemiSummonerSpawner : MonoBehaviour
     {
         spawnZoneAllowed = true;
         currentRoom = gameObject.transform.parent;
-        isPlayerInRoom = currentRoom.GetComponentInParent<RoomTriggerCollider>();
+        isPlayerInRoom = currentRoom.GetComponentInParent<CameraSystem>();
     }
 
     public void SpawnEnemy()

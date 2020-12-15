@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class UD_NukeConsumable : MonoBehaviour
 {
-    public RoomTriggerCollider thisRoom;
+    public CameraSystem thisRoom;
 
     public int nukeDamage;
 
     private void Start()
     {
-        thisRoom = gameObject.GetComponentInParent<RoomTriggerCollider>();
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
