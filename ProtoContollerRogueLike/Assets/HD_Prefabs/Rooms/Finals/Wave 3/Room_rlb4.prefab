@@ -779,7 +779,7 @@ MonoBehaviour:
   - {x: -0.35051727, y: 0.23241615, z: 0}
   m_ShapePathHash: -1259051819
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44320
+  m_InstanceId: -80724
 --- !u!1 &2547638298929565413
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +855,7 @@ MonoBehaviour:
   - {x: -0.4896736, y: 0.4483714, z: 0}
   m_ShapePathHash: -162458237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44270
+  m_InstanceId: -80688
 --- !u!1 &2771685340618476857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,48 +1193,32 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 6136220582070069786}
     m_ColliderPaths:
-    - - X: -59999900
-        Y: -40000041
-      - X: -59999900
-        Y: -29999959
-      - X: -59999959
-        Y: -29999900
-      - X: -100000041
-        Y: -29999900
-      - X: -100000100
-        Y: -29999959
-      - X: -100000100
-        Y: -40000041
-      - X: -100000041
-        Y: -40000100
-      - X: -59999959
-        Y: -40000100
-    - - X: 60000100
-        Y: -40000041
-      - X: 60000100
-        Y: -29999959
-      - X: 60000041
-        Y: -29999900
-      - X: 19999959
-        Y: -29999900
-      - X: 19999900
-        Y: -29999959
-      - X: 19999900
-        Y: -40000041
-      - X: 19999959
-        Y: -40000100
-      - X: 60000041
-        Y: -40000100
+    - - X: -60000000
+        Y: -30000000
+      - X: -100000000
+        Y: -30000000
+      - X: -100000000
+        Y: -40000000
+      - X: -60000000
+        Y: -40000000
+    - - X: 60000000
+        Y: -30000000
+      - X: 20000000
+        Y: -30000000
+      - X: 20000000
+        Y: -40000000
+      - X: 60000000
+        Y: -40000000
   m_CompositePaths:
     m_Paths:
-    - - {x: -6.0000253, y: -4.00001}
-      - {x: -6.0000253, y: -2.99999}
-      - {x: -10.00001, y: -3.0000253}
-      - {x: -9.999974, y: -4.00001}
-    - - {x: 5.9999747, y: -4.00001}
-      - {x: 5.9999747, y: -2.99999}
-      - {x: 1.99999, y: -3.0000253}
-      - {x: 2.0000253, y: -4.00001}
+    - - {x: 5.999971, y: -4}
+      - {x: 5.999971, y: -3}
+      - {x: 2, y: -3.0000293}
+      - {x: 2.0000293, y: -4}
+    - - {x: -6.000029, y: -4}
+      - {x: -6.000029, y: -3}
+      - {x: -10, y: -3.0000293}
+      - {x: -9.99997, y: -4}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!1 &2774325613177870993
@@ -1297,7 +1281,7 @@ MonoBehaviour:
   - {x: -0.35051727, y: 0.23241615, z: 0}
   m_ShapePathHash: -1259051819
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44302
+  m_InstanceId: -80730
 --- !u!1 &2919463178052257902
 GameObject:
   m_ObjectHideFlags: 0
@@ -5279,7 +5263,7 @@ MonoBehaviour:
   - {x: -0.4896736, y: 0.4483714, z: 0}
   m_ShapePathHash: -162458237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44294
+  m_InstanceId: -80700
 --- !u!1 &4201038485707463413
 GameObject:
   m_ObjectHideFlags: 0
@@ -5801,7 +5785,7 @@ MonoBehaviour:
   - {x: -0.4896736, y: 0.4483714, z: 0}
   m_ShapePathHash: -162458237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44328
+  m_InstanceId: -80706
 --- !u!1 &5680152182289074329
 GameObject:
   m_ObjectHideFlags: 0
@@ -5877,7 +5861,7 @@ MonoBehaviour:
   - {x: -0.4896736, y: 0.4483714, z: 0}
   m_ShapePathHash: -162458237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44272
+  m_InstanceId: -80694
 --- !u!1 &6664969279517261973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5969,7 +5953,7 @@ MonoBehaviour:
   - {x: -0.7699112, y: -0.32179636, z: 0}
   m_ShapePathHash: -664882711
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44244
+  m_InstanceId: -80718
 --- !u!1 &6851580258626725790
 GameObject:
   m_ObjectHideFlags: 0
@@ -6116,7 +6100,7 @@ MonoBehaviour:
   - {x: -0.7074827, y: -0.360572, z: 0}
   m_ShapePathHash: -13203751
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44248
+  m_InstanceId: -80712
 --- !u!1001 &768224267516502781
 PrefabInstance:
   m_ObjectHideFlags: 0
