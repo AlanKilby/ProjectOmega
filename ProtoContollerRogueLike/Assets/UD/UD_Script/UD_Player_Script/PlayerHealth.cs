@@ -126,6 +126,9 @@ public class PlayerHealth : MonoBehaviour
         Destroy(UI);
         Destroy(sol);
         Destroy(Room);
+        Destroy(GameObject.Find("DifficultyPanel"));
+        Destroy(GameObject.Find("GameManager"));
+        //Destroy l'audio manager
         //anim.SetBool("isDead", true);
         Invoke("GameOver", 1.69f);
         Destroy(gameObject, 1.70f);

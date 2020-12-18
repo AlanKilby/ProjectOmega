@@ -7,6 +7,7 @@ public class EnnemiZombieAttack : MonoBehaviour
     public LayerMask whatIsPlayer;
 
     [SerializeField] private Animator anim;
+    DifficultyPanel DP;
 
     public int damage;
 
@@ -32,6 +33,9 @@ public class EnnemiZombieAttack : MonoBehaviour
         isAttacking = false;
         anim = GetComponent<Animator>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        DP = GameObject.Find("DifficultyPanel").GetComponent<DifficultyPanel>();
+        //Augmentation des dégâts en fonction de la difficulté et des stages
+        damage = (int)Mathf.Round((damage + DP.currentStageDamageBonusForZombie) * DP.currentModDamageMultiplier); 
     }
 
     private void Update()

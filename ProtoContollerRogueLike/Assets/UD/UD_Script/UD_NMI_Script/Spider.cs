@@ -10,6 +10,7 @@ public class Spider : MonoBehaviour
     public LayerMask whatIsEnvironement;
 
     EnnemisScript ES;
+    DifficultyPanel DP;
 
     // Ajout Gus
     private Animator anim;
@@ -53,6 +54,7 @@ public class Spider : MonoBehaviour
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ownRB = GetComponent<Rigidbody2D>();
         ES = GetComponent<EnnemisScript>();
+        DP = GameObject.Find("DifficultyPanel").GetComponent<DifficultyPanel>();
 
         //Ajout Gus
         anim = GetComponent<Animator>();
@@ -173,6 +175,9 @@ public class Spider : MonoBehaviour
     {
         GameObject bullet = Instantiate(spiderBulletPrefab, firePoint.position, firePoint.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-spiderImprecision, spiderImprecision)));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        Bullet bu = bullet.GetComponent<Bullet>();
+        //Augmentation des dégâts en fonction de la difficulté et des stages
+        bu.damage = (int)Mathf.Round((bu.damage + DP.currentStageDamageBonusForZombie) * DP.currentModDamageMultiplier); 
         rb.AddForce(bullet.transform.up * spiderBulletForce, ForceMode2D.Impulse);
         //Ajout Gus
         ChangeAnimationState(SPIDERATTACK);
