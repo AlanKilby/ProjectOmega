@@ -307,6 +307,9 @@ MonoBehaviour:
     m_Bits: 256
   lootDrop: {fileID: 677780095534232025}
   anim: {fileID: 677780095534231840}
+  isZombie: 0
+  isSpider: 1
+  isSummoner: 0
   health: 30
   dropRate: 2
   speed: 2
@@ -331,6 +334,7 @@ MonoBehaviour:
   dropGun: 0
   dropModule: 0
   dropPowerUp: 0
+  thisRoom: {fileID: 0}
 --- !u!114 &4483270140053669576
 MonoBehaviour:
   m_ObjectHideFlags: 0

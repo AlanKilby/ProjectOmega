@@ -9,10 +9,18 @@ public class EnnemisScript : MonoBehaviour
 
     AIPath AIP;
     CurrencySysteme CS;
+    DifficultyPanel DP;
 
     [SerializeField] LootDrop lootDrop;
     [SerializeField] private Animator anim;
 
+    [Header("Type of Enemy ?")]
+    [SerializeField] private bool isZombie;
+    [SerializeField] private bool isSpider;
+    [SerializeField] private bool isSummoner;
+
+
+    [Header("Stats")]
     public int health;
     public int dropRate;
     public float speed;
@@ -40,6 +48,22 @@ public class EnnemisScript : MonoBehaviour
         AIP = GetComponent<AIPath>();
         AIP.maxSpeed = speed;
         isStunned = false;
+
+        DP = GameObject.Find("DifficultyPanel").GetComponent<DifficultyPanel>();
+
+        //Augmentation des HP en fonction de la difficulté et des stages
+        if (isZombie)
+        {
+            health = (int)Mathf.Round((health + DP.currentStageHPBonusForZombie) * DP.currentModHPMultiplier);
+        }
+        if (isSpider)
+        {
+            health = (int)Mathf.Round((health + DP.currentStageHPBonusForSpider) * DP.currentModHPMultiplier);
+        }
+        if (isSummoner)
+        {
+            health = (int)Mathf.Round((health + DP.currentStageHPBonusForSummoner) * DP.currentModHPMultiplier);
+        }
         
         //Ajout Gus
         sr = GetComponent<SpriteRenderer>();

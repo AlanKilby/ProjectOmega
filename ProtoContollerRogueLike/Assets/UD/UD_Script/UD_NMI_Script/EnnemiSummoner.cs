@@ -10,6 +10,7 @@ public class EnnemiSummoner : MonoBehaviour
 
     [SerializeField] private Animator anim;
     EnnemisScript ES;
+    DifficultyPanel DP;
 
     public float fleeSpeed;
     public float summonRate;
@@ -57,6 +58,8 @@ public class EnnemiSummoner : MonoBehaviour
         ownRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         ES = GetComponent<EnnemisScript>();
+        DP = GameObject.Find("DifficultyPanel").GetComponent<DifficultyPanel>();
+        summonRate = (int)Mathf.Round((summonRate - DP.currentStageSpawnRateBonusForSummoner));
     }
 
     void Update()

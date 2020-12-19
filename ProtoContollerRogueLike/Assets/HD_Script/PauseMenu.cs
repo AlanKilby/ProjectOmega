@@ -55,6 +55,9 @@ public class PauseMenu : MonoBehaviour
     {
         Destroy(player);
         Destroy(UI);
+        Destroy(GameObject.Find("DifficultyPanel"));
+        Destroy(GameObject.Find("GameManager"));
+        //Destroy l'audio manager
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }

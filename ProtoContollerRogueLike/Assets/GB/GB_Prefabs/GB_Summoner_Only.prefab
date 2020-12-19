@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 9218145522360350907}
   - component: {fileID: 9218145522360350906}
   m_Layer: 9
-  m_Name: Summoner
+  m_Name: GB_Summoner_Only
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,6 +413,9 @@ MonoBehaviour:
     m_Bits: 256
   lootDrop: {fileID: 9218145522360350910}
   anim: {fileID: 9218145522360350911}
+  isZombie: 0
+  isSpider: 0
+  isSummoner: 1
   health: 50
   dropRate: 2
   speed: 1
