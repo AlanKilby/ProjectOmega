@@ -31,6 +31,11 @@ public class Bullet : MonoBehaviour
 
     bool touchObstacle;
 
+    [Header("Invicibility Delay For NMI bullet")]
+    [SerializeField] float invicibilityDelaySet;
+    float invicibilityDelayTimer;
+    bool isInvicible;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -40,6 +45,11 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lifeTimer = 0.0f;
         touchObstacle = false;
+        if (isEnnemyBullet)
+        {
+            invicibilityDelayTimer = invicibilityDelaySet;
+        }
+        isInvicible = true;
     }
 
     private void Update()
@@ -62,6 +72,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        InvicibilityTimer();
     }
 
     void UpdateAnims()
@@ -143,9 +154,21 @@ public class Bullet : MonoBehaviour
             touchObstacle = true;
         }
 
-        if (collision.CompareTag("Environement"))
+        if (collision.CompareTag("Environement") && !isInvicible)
         {
             touchObstacle = true;
+        }
+    }
+
+    void InvicibilityTimer()
+    {
+        if (isInvicible)
+        {
+            invicibilityDelayTimer -= Time.deltaTime;
+            if (invicibilityDelayTimer <= 0)
+            {
+                isInvicible = false;
+            }
         }
     }
 
