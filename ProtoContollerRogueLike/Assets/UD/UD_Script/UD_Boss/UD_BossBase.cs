@@ -58,8 +58,9 @@ public class UD_BossBase : MonoBehaviour
         }
         else
         {
-            PlayerDirection();
+            //EFFETS SI IL EST N'EST PAS STUN
         }
+        PlayerDirection();
         StunnedTimer();
     }
 

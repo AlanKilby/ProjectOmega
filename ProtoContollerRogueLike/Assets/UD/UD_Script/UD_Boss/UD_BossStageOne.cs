@@ -13,23 +13,46 @@ public class UD_BossStageOne : MonoBehaviour
     bool canSpray;
 
     [Header("Acide Shoot")]
-    [SerializeField] GameObject acideShoot;
+    [SerializeField] UD_AcideShootBoss acideShootObject;
     [SerializeField] float shootRate;
     float shootRateTimer;
+    [SerializeField] float shootAcideDelaySet;
     bool canShoot;
 
     void Start()
     {
+        shootRateTimer = shootRate;
+        canShoot = false;
+        sprayRateTimer = sprayRate;
+        canSpray = false;
         acideWarning.SetActive(false);
     }
 
     void Update()
     {
         AcideSprayTimer();
+        AcideShootTimer();
         if (canSpray)
         {
             StartCoroutine(AcideSprayShoot());
         }
+        if (canShoot)
+        {
+            acideShootObject.isOn = true;
+            acideShootObject.shootAcideDelay = shootAcideDelaySet;
+            shootRateTimer = shootRate;
+            canShoot = false;
+        }
+    }
+
+    IEnumerator AcideSprayShoot()
+    {
+        sprayRateTimer = sprayRate;
+        canSpray = false;
+        acideWarning.SetActive(true);
+        yield return new WaitForSeconds(warningDelay);
+        acideWarning.SetActive(false);
+        GameObject acideSprayLaunched = Instantiate(acideSpray, gameObject.transform.localPosition, gameObject.transform.rotation);
     }
 
     void AcideSprayTimer()
@@ -44,13 +67,16 @@ public class UD_BossStageOne : MonoBehaviour
         }
     }
 
-    IEnumerator AcideSprayShoot()
+    void AcideShootTimer()
     {
-        sprayRateTimer = sprayRate;
-        canSpray = false;
-        acideWarning.SetActive(true);
-        yield return new WaitForSeconds(warningDelay);
-        acideWarning.SetActive(false); 
-        GameObject acideSprayLaunched = Instantiate(acideSpray, gameObject.transform.localPosition, gameObject.transform.rotation);
+        if (!canShoot)
+        {
+            shootRateTimer -= Time.deltaTime;
+            if (shootRateTimer <= 0)
+            {
+                canShoot = true;
+            }
+        }
     }
+    
 }
