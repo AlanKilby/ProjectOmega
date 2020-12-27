@@ -25,6 +25,8 @@ public class UD_BossBase : MonoBehaviour
     public float stunTimerSet;
     public float stunSlowPercentageEffect;
 
+    [HideInInspector] public bool isAlive;
+
     //Ajout Gus
     private Material matWhite;
     private Material matDefault;
@@ -35,6 +37,7 @@ public class UD_BossBase : MonoBehaviour
 
     private void Start()
     {
+        isAlive = true;
         takeDamage = false;
         CS = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrencySysteme>();
         lootDrop = GetComponent<LootDrop>();
@@ -92,6 +95,7 @@ public class UD_BossBase : MonoBehaviour
         sr.material = matWhite;
         if (health <= 0)
         {
+            isAlive = false;
             Death();
         }
         else
@@ -123,7 +127,7 @@ public class UD_BossBase : MonoBehaviour
     {
         CS.GainMoney(moneyDrop);
         //CS.currentMoneyAmount += moneyDrop;
-        lootDrop.DropLoot();
+        //lootDrop.DropLoot(); //A VOIR CE QU'IL LOOT A LA MORT
         Destroy(gameObject);
     }
 

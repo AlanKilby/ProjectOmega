@@ -105,23 +105,47 @@ public class Bullet : MonoBehaviour
             {
                 collision.GetComponent<EnnemisScript>().Stun();
             }
-            if (PMS.moduleExplosiveCharge)
-            {
-                Collider2D explosiveHit = Physics2D.OverlapCircle(gameObject.transform.position, moduleExplosiveChargeRadius, whatIsEnnemi);
-                if (explosiveHit != null)
-                {
-                    if (explosiveHit.CompareTag("Ennemi"))
-                    {
-                        Debug.Log("DAMAGE");
-                        explosiveHit.GetComponent<EnnemisScript>().TakeDamage(moduleExplosiveChargeDamage);
-                    }
-                }
-            }
+            ApplyExplosiveModuleEffect();
             if (!PMS.soulScream)
             {
                 touchObstacle = true;
             }
         }
+
+        if (collision.CompareTag("Boss") && !isEnnemyBullet)
+        {
+            collision.GetComponent<UD_BossBase>().TakeDamage(damage);
+            ApplyExplosiveModuleEffect();
+            if (!PMS.soulScream)
+            {
+                touchObstacle = true;
+            }
+        }
+
+        if (collision.CompareTag("Tentacle") && !isEnnemyBullet)
+        {
+            UD_TentacleBoss tentacleScript = collision.GetComponent<UD_TentacleBoss>();
+            if (tentacleScript != null)
+            {
+                tentacleScript.TakeDamage(damage);
+            }
+            ApplyExplosiveModuleEffect();
+            if (!PMS.soulScream)
+            {
+                touchObstacle = true;
+            }
+        }
+
+        if (collision.CompareTag("BossEgg") && !isEnnemyBullet)
+        {
+            collision.GetComponent<UD_EggBoss>().Spawn();
+            ApplyExplosiveModuleEffect();
+            if (!PMS.soulScream)
+            {
+                touchObstacle = true;
+            }
+        }
+
         if (collision.CompareTag("Player") && isEnnemyBullet)
         {
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
@@ -132,6 +156,7 @@ public class Bullet : MonoBehaviour
             StartCoroutine(KnockCo(enemy));*/
             touchObstacle = true;
         }
+
         if (collision.CompareTag("CounterBladeSlashArea") && isEnnemyBullet)
         {
             gameObject.layer = 18; //CounterBladeSlashArea Layer Number
@@ -168,6 +193,37 @@ public class Bullet : MonoBehaviour
             if (invicibilityDelayTimer <= 0)
             {
                 isInvicible = false;
+            }
+        }
+    }
+
+    void ApplyExplosiveModuleEffect()
+    {
+        if (PMS.moduleExplosiveCharge)
+        {
+            Collider2D explosiveHit = Physics2D.OverlapCircle(gameObject.transform.position, moduleExplosiveChargeRadius, whatIsEnnemi);
+            if (explosiveHit != null)
+            {
+                if (explosiveHit.CompareTag("Ennemi"))
+                {
+                    Debug.Log("DAMAGE");
+                    explosiveHit.GetComponent<EnnemisScript>().TakeDamage(moduleExplosiveChargeDamage);
+                }
+                if (explosiveHit.CompareTag("Boss"))
+                {
+                    Debug.Log("DAMAGE");
+                    explosiveHit.GetComponent<UD_BossBase>().TakeDamage(moduleExplosiveChargeDamage);
+                }
+                if (explosiveHit.CompareTag("Tentacle"))
+                {
+                    Debug.Log("DAMAGE");
+                    explosiveHit.GetComponent<UD_TentacleBoss>().TakeDamage(moduleExplosiveChargeDamage);
+                }
+                if (explosiveHit.CompareTag("BossEgg"))
+                {
+                    Debug.Log("DAMAGE");
+                    explosiveHit.GetComponent<UD_EggBoss>().Spawn();
+                }
             }
         }
     }

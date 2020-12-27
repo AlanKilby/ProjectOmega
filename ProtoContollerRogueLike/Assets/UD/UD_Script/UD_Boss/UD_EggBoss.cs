@@ -36,7 +36,7 @@ public class UD_EggBoss : MonoBehaviour
 
     }
 
-    void Spawn()
+    public void Spawn()
     {
         for(int i = 0; i < spawnerOfThisEggList.Length; i++)
         {

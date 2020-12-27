@@ -28,8 +28,12 @@ public class UD_BossStageTwo : MonoBehaviour
             for (int i = 0; i < tentacleSpawn.Length; i++)
             {
                 GameObject tentacle = Instantiate(tentacleObject, tentacleSpawn[i].position, tentacleSpawn[i].rotation);
+                print("instantiate tentacle no " + i+1);
                 UD_TentacleBoss tentacleScript = tentacleSpawn[i].GetComponent<UD_TentacleBoss>();
-                tentacleScript.lifeTimer = tentacleLifeDelaySet;
+                if (tentacleScript != null)
+                {
+                    tentacleScript.lifeTimer = tentacleLifeDelaySet;
+                }
             }
             /*GameObject tentacle1 = Instantiate(tentacleObject, tentacleSpawn1.position, tentacleSpawn1.rotation);
             UD_TentacleBoss tentacle1Script = tentacleSpawn1.GetComponent<UD_TentacleBoss>();

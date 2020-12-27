@@ -35,15 +35,20 @@ public class UD_TentacleBoss : MonoBehaviour
 
     void Start()
     {
-        //boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<UD_BossBase>();
+        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<UD_BossBase>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
         tentacleUp = true;
         canTurn = true;
+        hitToPlayerDetector.SetActive(false);
     }
 
     void Update()
     {
+        if(!boss.isAlive || boss == null)
+        {
+            Destroy(gameObject);
+        }
         if(canAttack && playerIsInAttackArea)
         {
             StartCoroutine(TentacleAttackShoot());
@@ -114,7 +119,11 @@ public class UD_TentacleBoss : MonoBehaviour
     {
         health -= damage;
 
-        //Ajout Gus
+        if (health <= 0)
+        {
+            Death();
+        }
+        /*//Ajout Gus
         sr.material = matWhite;
         if (health <= 0)
         {
@@ -124,7 +133,7 @@ public class UD_TentacleBoss : MonoBehaviour
         {
             Invoke("ResetMaterial", 0.1f);
         }
-        //
+        //*/ //GUS DOIT Y VOIR
     }
 
     public void Death()

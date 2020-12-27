@@ -124,6 +124,55 @@ public class SwordAttack : MonoBehaviour
                     }
                 }
             }
+            if (hitInfo.CompareTag("Boss"))
+            {
+                Debug.Log("DAMAGE");
+                hitInfo.GetComponent<UD_BossBase>().TakeDamage(damageUpgraded);
+                /*if (isVampire)
+                {
+                    if (PH.currentPlayerHealth < PH.totalPlayerHealthUpgraded - vampireHealthStollen)
+                    {
+                        PH.currentPlayerHealth = PH.currentPlayerHealth + vampireHealthStollen;
+                    }
+                    else
+                    {
+                        PH.currentPlayerHealth = PH.totalPlayerHealthUpgraded;
+                    }
+                }*/ //POUR NE PAS QUE LE JOUEUR SE HEAL SUR LE BOSS J'AI SUPPR CETTE PARTIE - ULRIC
+            }
+            if (hitInfo.CompareTag("Tentacle"))
+            {
+                Debug.Log("DAMAGE");
+                hitInfo.GetComponent<UD_TentacleBoss>().TakeDamage(damageUpgraded);
+                if (isVampire)
+                {
+                    if (PH.currentPlayerHealth < PH.totalPlayerHealthUpgraded - vampireHealthStollen)
+                    {
+                        PH.currentPlayerHealth = PH.currentPlayerHealth + vampireHealthStollen;
+                    }
+                    else
+                    {
+                        PH.currentPlayerHealth = PH.totalPlayerHealthUpgraded;
+                    }
+                }
+            }
+            if (hitInfo.CompareTag("BossEgg"))
+            {
+                Debug.Log("DAMAGE");
+                hitInfo.GetComponent<UD_EggBoss>().Spawn();
+                /*if (isVampire)
+                {
+                    if (PH.currentPlayerHealth < PH.totalPlayerHealthUpgraded - vampireHealthStollen)
+                    {
+                        PH.currentPlayerHealth = PH.currentPlayerHealth + vampireHealthStollen;
+                    }
+                    else
+                    {
+                        PH.currentPlayerHealth = PH.totalPlayerHealthUpgraded;
+                    }
+                }*/ //POUR NE PAS QUE LE JOUEUR SE HEAL SUR LES OEUFS J'AI SUPPR CETTE PARTIE - ULRIC
+            }
+
 
             /*if (hitInfo.CompareTag("Environement"))
             {
