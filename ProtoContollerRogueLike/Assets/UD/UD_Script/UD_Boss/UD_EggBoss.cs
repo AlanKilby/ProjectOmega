@@ -24,7 +24,7 @@ public class UD_EggBoss : MonoBehaviour
     {
         if (isMoving)
         {
-            rb.velocity -= new Vector2(slowDownSpeed, slowDownSpeed) * Time.deltaTime;
+            //rb.velocity -= new Vector2(slowDownSpeed, slowDownSpeed) * Time.deltaTime;
             ownRBvelocityX = Mathf.Abs(rb.velocity.x);
             ownRBvelocityY = Mathf.Abs(rb.velocity.y);
             if (ownRBvelocityX <= 0.0f && ownRBvelocityY <=0.0f)
@@ -58,6 +58,11 @@ public class UD_EggBoss : MonoBehaviour
             {
                 Spawn();
             }
+        }
+        if (collision.CompareTag("Environement"))
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            isMoving = false;
         }
     }
 }

@@ -11,9 +11,15 @@ public class UD_BossStageThree : MonoBehaviour
     float launchEggRateTimer;
     bool canLaunchEgg;
 
+    CameraSystem isPlayerInRoom;
+    public Transform currentRoom;
+
     void Start()
     {
         launchEggRateTimer = launchEggRate;
+        canLaunchEgg = false;
+        currentRoom = gameObject.transform.parent;
+        isPlayerInRoom = currentRoom.GetComponentInParent<CameraSystem>();
     }
 
     void Update()
@@ -22,11 +28,15 @@ public class UD_BossStageThree : MonoBehaviour
         {
             for(int i = 0; i < launchEggPoints.Length; i++)
             {
-                GameObject bullet = Instantiate(eggPrefab, launchEggPoints[i].transform.position, launchEggPoints[i].transform.rotation);
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(bullet.transform.up * eggLaunchVelocity, ForceMode2D.Impulse);
+                GameObject egg = Instantiate(eggPrefab, launchEggPoints[i].transform.position, launchEggPoints[i].transform.rotation);
+                Rigidbody2D rb = egg.GetComponent<Rigidbody2D>();
+                rb.AddForce(egg.transform.up * eggLaunchVelocity, ForceMode2D.Impulse);
+                egg.transform.SetParent(isPlayerInRoom.transform);
             }
+            launchEggRateTimer = launchEggRate;
+            canLaunchEgg = false;
         }
+        LaunchEggTimer();
     }
 
     void LaunchEggTimer()

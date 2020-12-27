@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 5312821054547255413}
   - component: {fileID: 5312821054547255418}
   - component: {fileID: 5312821054547255419}
-  m_Layer: 9
+  m_Layer: 19
   m_Name: Boss_StageOne_Himself
   m_TagString: Boss
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -180,6 +180,7 @@ MonoBehaviour:
   isStunned: 0
   stunTimerSet: 0
   stunSlowPercentageEffect: 0
+  isAlive: 0
   takeDamage: 0
 --- !u!114 &5312821054547255418
 MonoBehaviour:
