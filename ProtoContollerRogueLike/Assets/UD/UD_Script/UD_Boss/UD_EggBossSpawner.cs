@@ -35,7 +35,7 @@ public class UD_EggBossSpawner : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Environement")
+        if (other.gameObject.tag == "Environement" || other.gameObject.tag == "BossEgg")
         {
             spawnZoneAllowed = false;
         }
@@ -43,7 +43,7 @@ public class UD_EggBossSpawner : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Environement")
+        if (other.gameObject.tag == "Environement" || other.gameObject.tag == "BossEgg")
         {
             spawnZoneAllowed = true;
         }

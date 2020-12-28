@@ -59,7 +59,7 @@ public class UD_EggBoss : MonoBehaviour
                 Spawn();
             }
         }
-        if (collision.CompareTag("Environement"))
+        if (collision.CompareTag("Environement") || collision.CompareTag("BossEgg"))
         {
             rb.velocity = new Vector3(0, 0, 0);
             isMoving = false;
