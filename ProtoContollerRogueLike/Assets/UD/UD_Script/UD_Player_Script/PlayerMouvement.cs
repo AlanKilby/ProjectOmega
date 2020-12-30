@@ -48,6 +48,7 @@ public class PlayerMouvement : MonoBehaviour
     Vector2 mousePos;
     [SerializeField] Vector3 lastInput;
 
+    Vector2 dashVelocity;
 
     //public AnimationCurve acceleration = AnimationCurve.EaseInOut(0, 0, 0.75f, 2);
     //public AnimationCurve decceleration = AnimationCurve.EaseInOut(0, 1, 1, 0);
@@ -183,9 +184,10 @@ public class PlayerMouvement : MonoBehaviour
 
     void DashAttempt()
     {
-        if (Input.GetKey(KeyCode.Space) && canDash && rb.velocity != new Vector2(0, 0) && !GameManagement.GameIsPaused)
+        if (Input.GetKey(KeyCode.Space) && canDash && rb.velocity != new Vector2(0, 0) && !GameManagement.GameIsPaused && !wallIsNear)
         {
             isDashing = true;
+            dashVelocity = new Vector2(rb.velocity.x * dashSpeed, rb.velocity.y * dashSpeed);
             //Ajout Gus
             FindObjectOfType<AudioManager>().Play("Dash");
             ChangeAnimationState(PLAYER_DASH);
@@ -203,20 +205,21 @@ public class PlayerMouvement : MonoBehaviour
             dashTime = 0.0f;
         }
 
-        if (isDashing == true && dashTime > 0)
-        {
-            canDash = false;
-            dashReloadTimer = 0.0f;
-            rb.velocity = new Vector2(rb.velocity.x * dashSpeed, rb.velocity.y * dashSpeed);
-            dashTime -= Time.deltaTime;
-        }
-        
-
         if (dashTime <= 0)
         {
             isDashing = false;
             dashTime = dashTimeHolder;
         }
+
+        if (isDashing == true && dashTime > 0)
+        {
+            canDash = false;
+            dashReloadTimer = 0.0f;
+            rb.velocity = dashVelocity;
+            //rb.velocity = new Vector2(rb.velocity.x * dashSpeed, rb.velocity.y * dashSpeed);
+            dashTime -= Time.deltaTime;
+        }       
+
     }
 
     void DashTimer()
