@@ -26,6 +26,8 @@ public class ModulePhaseShift : MonoBehaviour
             {
                 if (In.isFullModule[i] == false)
                 {
+                    Mo.LaunchPopUp();
+
                     In.moduleGameObject[i] = gameObject; //Met le module dans la liste
 
                     Mo.moduleSlot = i; //Attribue un slot au Module
