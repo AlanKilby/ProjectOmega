@@ -29,9 +29,12 @@ public class Bullet : MonoBehaviour
 
     bool touchObstacle;
 
+    bool hasRandomRotationOnHit;
+
     [Header("Explosive Ammo Module")]
     public float moduleExplosiveChargeRadius;
     public int moduleExplosiveChargeDamage;
+    bool isExplosiveAmmo;
 
 
     [Header("Piercing Ammo Module")]
@@ -58,6 +61,14 @@ public class Bullet : MonoBehaviour
         }
         isInvicible = true;
         currentEnemyPenetrate = maxEnemyPenetrate;
+        if (PMS.moduleExplosiveCharge)
+        {
+            isExplosiveAmmo = true;
+        }
+        else
+        {
+            isExplosiveAmmo = false;
+        }
     }
 
     private void Update()
@@ -67,12 +78,18 @@ public class Bullet : MonoBehaviour
             //EnnemiDetector();
         }
         lifeTimer += Time.deltaTime;
-        if (lifeTimer > bulletLifeTime)
+        if (lifeTimer > bulletLifeTime && !touchObstacle)
         {
             Destroy(gameObject);
         }
         if (touchObstacle)
         {
+            if (!hasRandomRotationOnHit)
+            {
+                float randomZRotation = Random.Range(0, 360);
+                gameObject.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, randomZRotation);
+                hasRandomRotationOnHit = true;
+            }
             rb.velocity = new Vector3(0, 0, 0);
         }
         UpdateAnims();
@@ -90,6 +107,7 @@ public class Bullet : MonoBehaviour
     void UpdateAnims()
     {
         anim.SetBool("touchObstacle", touchObstacle);
+        anim.SetBool("isExplosiveAmmo", isExplosiveAmmo);
     }
 
     public void DestroyBullet()
@@ -209,6 +227,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.CompareTag("Environement") && !isInvicible)
         {
+            ApplyExplosiveModuleEffect();
             touchObstacle = true;
         }
     }
