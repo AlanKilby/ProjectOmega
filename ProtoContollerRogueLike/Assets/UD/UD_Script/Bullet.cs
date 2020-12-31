@@ -17,19 +17,26 @@ public class Bullet : MonoBehaviour
     public float bulletLifeTime;
     float lifeTimer;
     public float distance;
-    public float moduleExplosiveChargeRadius;
     public float counterBladeBulletSpeed;
     /*public float poussée;
     public float knockTime;*/
 
     public int damage;
-    public int moduleExplosiveChargeDamage;
 
     bool coroutineRunning = false;
     public bool isEnnemyBullet;
     public bool canStun;
 
     bool touchObstacle;
+
+    [Header("Explosive Ammo Module")]
+    public float moduleExplosiveChargeRadius;
+    public int moduleExplosiveChargeDamage;
+
+
+    [Header("Piercing Ammo Module")]
+    public int maxEnemyPenetrate;
+    int currentEnemyPenetrate;
 
     [Header("Invicibility Delay For NMI bullet")]
     [SerializeField] float invicibilityDelaySet;
@@ -50,6 +57,7 @@ public class Bullet : MonoBehaviour
             invicibilityDelayTimer = invicibilityDelaySet;
         }
         isInvicible = true;
+        currentEnemyPenetrate = maxEnemyPenetrate;
     }
 
     private void Update()
@@ -73,6 +81,10 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         InvicibilityTimer();
+        if(currentEnemyPenetrate <= 0)
+        {
+            touchObstacle = true;
+        }
     }
 
     void UpdateAnims()
@@ -110,6 +122,10 @@ public class Bullet : MonoBehaviour
             {
                 touchObstacle = true;
             }
+            else
+            {
+                currentEnemyPenetrate--;
+            }
         }
 
         if (collision.CompareTag("Boss") && !isEnnemyBullet)
@@ -119,6 +135,10 @@ public class Bullet : MonoBehaviour
             if (!PMS.soulScream)
             {
                 touchObstacle = true;
+            }
+            else
+            {
+                currentEnemyPenetrate--;
             }
         }
 
@@ -134,6 +154,10 @@ public class Bullet : MonoBehaviour
             {
                 touchObstacle = true;
             }
+            else
+            {
+                currentEnemyPenetrate--;
+            }
         }
 
         if (collision.CompareTag("BossEgg") && !isEnnemyBullet)
@@ -143,6 +167,10 @@ public class Bullet : MonoBehaviour
             if (!PMS.soulScream)
             {
                 touchObstacle = true;
+            }
+            else
+            {
+                currentEnemyPenetrate--;
             }
         }
 

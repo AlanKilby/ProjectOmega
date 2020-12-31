@@ -152,12 +152,14 @@ MonoBehaviour:
     m_Bits: 512
   bulletLifeTime: 2
   distance: 0.4
-  moduleExplosiveChargeRadius: 1
   counterBladeBulletSpeed: 10
   damage: 2
-  moduleExplosiveChargeDamage: 1
   isEnnemyBullet: 0
   canStun: 0
+  moduleExplosiveChargeRadius: 1
+  moduleExplosiveChargeDamage: 1
+  maxEnemyPenetrate: 3
+  invicibilityDelaySet: 0
 --- !u!95 &318805766648009435
 Animator:
   serializedVersion: 3
