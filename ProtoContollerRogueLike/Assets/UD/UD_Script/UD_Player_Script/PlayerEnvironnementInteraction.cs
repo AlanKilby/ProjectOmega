@@ -9,6 +9,7 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
 
     PlayerHealth PH;
     PlayerMouvement PM;
+    PostProcessEffect PPEGreen;
     public Collider2D ownCollider2D;
 
     private bool isInAcide;
@@ -34,6 +35,7 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     {
         PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
+        PPEGreen = GameObject.Find("InAcideEffect").GetComponent<PostProcessEffect>();
     }
 
     void Update()
@@ -47,6 +49,7 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     {
         CheckSurroundings();
         LastPositionBeforeRavineSave();
+        PostProcessGreenEffect();
     }
 
     private void LastPositionBeforeRavineSave()
@@ -101,6 +104,20 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
                     acideDealDamageActive = true;
                 }
             }
+        }
+    }
+
+    void PostProcessGreenEffect()
+    {
+        if (isInAcide)
+        {
+            PPEGreen.canDisappear = false;
+            PPEGreen.canAppear = true;
+        }
+        else
+        {
+            PPEGreen.canDisappear = true;
+            PPEGreen.canAppear = false;
         }
     }
 

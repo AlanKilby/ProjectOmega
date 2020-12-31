@@ -8,6 +8,7 @@ public class SwordAttack : MonoBehaviour
     [SerializeField] GameObject counterbladeSlashArea;
 
     PlayerHealth PH;
+    PostProcessEffect PPERed;
     //Ajout Gus
     PlayerMouvement PM;
     //
@@ -36,6 +37,7 @@ public class SwordAttack : MonoBehaviour
     {
         PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         counterbladeSlashArea = GameObject.FindGameObjectWithTag("CounterBladeSlashArea");
+        PPERed = GameObject.Find("VampireEffect").GetComponent<PostProcessEffect>();
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         combatEnabled = true;
@@ -57,7 +59,6 @@ public class SwordAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             GetAttackInput();
-            
             //ChangeAnimationState(PLAYER_SWORD);
 
         }
@@ -114,6 +115,9 @@ public class SwordAttack : MonoBehaviour
                 hitInfo.GetComponent<EnnemisScript>().TakeDamage(damageUpgraded);
                 if (isVampire)
                 {
+                    PPERed.LaunchEffectToMax();
+                    PPERed.canDisappear = true;
+                    PPERed.canAppear = false;
                     if (PH.currentPlayerHealth < PH.totalPlayerHealthUpgraded - vampireHealthStollen)
                     {
                         PH.currentPlayerHealth = PH.currentPlayerHealth + vampireHealthStollen;

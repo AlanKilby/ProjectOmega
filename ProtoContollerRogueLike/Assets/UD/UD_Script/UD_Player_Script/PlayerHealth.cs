@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     GameObject sol;
     GameObject Room;
 
+    PostProcessEffect PPERedHealth;
 
     public float totalPlayerHealthSet;
     public float totalPlayerHealthUpgraded;
@@ -33,6 +34,10 @@ public class PlayerHealth : MonoBehaviour
     SpriteRenderer sr;
     //
 
+    [Header("Low Health Setting")]
+    [SerializeField] float percentageToSetLowHealth;
+    bool playerIsLowHealth;
+
     [Header("Shield")]
     public int shieldHealthPointSet;
     [HideInInspector] public int shieldHealthPointCurrent;
@@ -48,8 +53,10 @@ public class PlayerHealth : MonoBehaviour
         UI = GameObject.Find("UI");
         sol = GameObject.Find("Sol");
         Room = GameObject.Find("RoomObjects");
+        PPERedHealth = GameObject.Find("LowHealthEffect").GetComponent<PostProcessEffect>();
         currentPlayerHealth = totalPlayerHealthUpgraded;
         hasQuickRevive = false;
+        playerIsLowHealth = false;
 
         //Ajout Gus
         sr = GetComponent<SpriteRenderer>();
@@ -82,6 +89,17 @@ public class PlayerHealth : MonoBehaviour
             RemoveFromList(quickReviveIconSlot);
         }*/
         healthPercent = (currentPlayerHealth / totalPlayerHealthUpgraded);
+
+        if(healthPercent*100 <= percentageToSetLowHealth)
+        {
+            playerIsLowHealth = true;
+        }
+        else
+        {
+            playerIsLowHealth = false;
+        }
+        LowHealthEffect();
+
         if (shieldHealthPointCurrent <= 0)
         {
             hasShield = false;
@@ -200,6 +218,21 @@ public class PlayerHealth : MonoBehaviour
     private void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    void LowHealthEffect()
+    {
+        if (playerIsLowHealth)
+        {
+            PPERedHealth.canAppear = true;
+            PPERedHealth.canDisappear = false;
+        }
+        else
+        {
+            PPERedHealth.canAppear = false;
+            PPERedHealth.canDisappear = true;
+
+        }
     }
 
     //Ajout Gus
