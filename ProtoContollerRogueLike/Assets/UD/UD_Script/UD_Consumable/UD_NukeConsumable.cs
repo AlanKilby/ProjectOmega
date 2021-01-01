@@ -8,15 +8,22 @@ public class UD_NukeConsumable : MonoBehaviour
 
     public int nukeDamage;
 
+    bool explode;
+    Animator nukeFeedback;
+
     private void Start()
     {
+        explode = false;
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
+        nukeFeedback = GameObject.Find("NukeFeedback").GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
+            explode = true;
+            nukeFeedback.SetBool("explode", explode);
             foreach(Transform child1 in thisRoom.transform)
             {
                 if (child1.CompareTag("Ennemi"))
