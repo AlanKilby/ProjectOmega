@@ -7,11 +7,11 @@ public class UI_HPBar : MonoBehaviour
 {
     Image HealthBar;
 
-    PlayerHealth PH;
+    [SerializeField] PlayerHealth PH;
 
     void Start()
     {
-        PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        //PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         HealthBar = GetComponent<Image>();
     }
 

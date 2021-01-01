@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class UI_CurrencyCounter : MonoBehaviour
 {
-    CurrencySysteme CS;
 
     Text currencyShowed;
 
     void Start()
     {
-        CS = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrencySysteme>();
         currencyShowed = GetComponent<Text>();
     }
 
@@ -19,7 +17,7 @@ public class UI_CurrencyCounter : MonoBehaviour
     {
         if (currencyShowed != null)
         {
-            currencyShowed.text = CS.currentMoneyAmount.ToString();
+            currencyShowed.text = CurrencySysteme.currentMoneyAmount.ToString();
         }
     }
 }

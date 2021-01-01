@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
 
 
     [Header("Piercing Ammo Module")]
-    public int maxEnemyPenetrate;
+    [Range(1, 10)] public int maxEnemyPenetrate;
     int currentEnemyPenetrate;
 
     [Header("Invicibility Delay For NMI bullet")]

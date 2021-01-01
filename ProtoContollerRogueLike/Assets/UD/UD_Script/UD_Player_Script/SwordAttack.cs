@@ -35,7 +35,7 @@ public class SwordAttack : MonoBehaviour
 
     private void Start()
     {
-        PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        PH = GetComponent<PlayerHealth>();
         counterbladeSlashArea = GameObject.FindGameObjectWithTag("CounterBladeSlashArea");
         PPERed = GameObject.Find("VampireEffect").GetComponent<PostProcessEffect>();
         anim = GetComponent<Animator>();

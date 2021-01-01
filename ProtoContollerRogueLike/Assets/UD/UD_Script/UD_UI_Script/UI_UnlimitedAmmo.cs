@@ -7,11 +7,11 @@ public class UI_UnlimitedAmmo : MonoBehaviour
 {
     [SerializeField] Image graph;
 
-    ConsumablePlatform CP;
+    [SerializeField] ConsumablePlatform CP;
 
     void Start()
     {
-        CP = GameObject.FindGameObjectWithTag("Player").GetComponent<ConsumablePlatform>();
+        //CP = GameObject.FindGameObjectWithTag("Player").GetComponent<ConsumablePlatform>();
         graph.gameObject.SetActive(false);
     }
 

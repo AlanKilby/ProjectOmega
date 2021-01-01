@@ -6,7 +6,7 @@ public class CurrencySysteme : MonoBehaviour
 {
     ConsumablePlatform CP;
 
-    public int currentMoneyAmount;
+    public static int currentMoneyAmount;
 
     private void Start()
     {

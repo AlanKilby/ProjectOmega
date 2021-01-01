@@ -33,8 +33,8 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
 
     void Start()
     {
-        PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
+        PH = GetComponent<PlayerHealth>();
+        PM = GetComponent<PlayerMouvement>();
         PPEGreen = GameObject.Find("InAcideEffect").GetComponent<PostProcessEffect>();
     }
 

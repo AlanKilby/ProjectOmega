@@ -24,19 +24,19 @@ public class UI_UpgradeButton : MonoBehaviour
 
     public void ButtonClicked()
     {
-        if (isHealthMaxUpgrade && CS.currentMoneyAmount>=UP.healthTotalUpgradeCost)
+        if (isHealthMaxUpgrade && CurrencySysteme.currentMoneyAmount>=UP.healthTotalUpgradeCost)
         {
             UP.UpgradeTotalHealth();
         }
-        if (isDashCooldownUpgrade && CS.currentMoneyAmount >= UP.dashCooldownUpgradeCost)
+        if (isDashCooldownUpgrade && CurrencySysteme.currentMoneyAmount >= UP.dashCooldownUpgradeCost)
         {
             UP.UpgradeDashCoolDown();
         }
-        if (isSwordDamageUpgrade && CS.currentMoneyAmount >= UP.swordDamageUpgradeCost)
+        if (isSwordDamageUpgrade && CurrencySysteme.currentMoneyAmount >= UP.swordDamageUpgradeCost)
         {
             UP.UpgradeSwordDamage();
         }
-        if (isAmmoDropUpgrade && CS.currentMoneyAmount >= UP.ammoMultiplicatorCost)
+        if (isAmmoDropUpgrade && CurrencySysteme.currentMoneyAmount >= UP.ammoMultiplicatorCost)
         {
             UP.UpgradeAmmoMultiplicator();
         }

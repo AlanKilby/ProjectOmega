@@ -126,12 +126,13 @@ MonoBehaviour:
     m_Bits: 512
   bulletLifeTime: 3
   distance: 0.5
-  moduleExplosiveChargeRadius: 0
   counterBladeBulletSpeed: 10
   damage: 2
-  moduleExplosiveChargeDamage: 0
   isEnnemyBullet: 1
   canStun: 0
+  moduleExplosiveChargeRadius: 0
+  moduleExplosiveChargeDamage: 0
+  maxEnemyPenetrate: 1
   invicibilityDelaySet: 0.2
 --- !u!61 &7921756034084149444
 BoxCollider2D:

@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     public int quickReviveIconSlot;
 
     public bool hasQuickRevive;
+    bool isDead;
 
     Animator anim;
     Inventory In;
@@ -47,9 +48,9 @@ public class PlayerHealth : MonoBehaviour
     {
         totalPlayerHealthUpgraded = totalPlayerHealthSet; // A Set en tout début de partie
         anim = GetComponent<Animator>();
-        rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        In = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-        PM = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMouvement>();
+        rb = GetComponent<Rigidbody2D>();
+        In = GetComponent<Inventory>();
+        PM = GetComponent<PlayerMouvement>();
         UI = GameObject.Find("UI");
         sol = GameObject.Find("Sol");
         Room = GameObject.Find("RoomObjects");
@@ -57,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
         currentPlayerHealth = totalPlayerHealthUpgraded;
         hasQuickRevive = false;
         playerIsLowHealth = false;
+        isDead = false;
 
         //Ajout Gus
         sr = GetComponent<SpriteRenderer>();
@@ -144,8 +146,8 @@ public class PlayerHealth : MonoBehaviour
         Destroy(UI);
         Destroy(sol);
         Destroy(Room);
-        Destroy(GameObject.Find("DifficultyPanel"));
-        Destroy(GameObject.Find("GameManager"));
+        /*Destroy(GameObject.Find("DifficultyPanel"));
+        Destroy(GameObject.Find("GameManager"));*/ //ON DOIT LES CONSERVER PUISQ'ON CREE UN NV JOUEUR
         //Destroy l'audio manager
         //anim.SetBool("isDead", true);
         Invoke("GameOver", 1.69f);
@@ -184,9 +186,10 @@ public class PlayerHealth : MonoBehaviour
             }
         }
 
-        if (currentPlayerHealth <= 0 && !hasQuickRevive)
+        if (currentPlayerHealth <= 0 && !hasQuickRevive && !isDead)
         {
             //Destroy(gameObject);
+            isDead = true;
             //Ajout Gus
             FindObjectOfType<AudioManager>().StopPlaying("Damage Hit");
             FindObjectOfType<AudioManager>().StopPlaying("Fight Music");
@@ -217,7 +220,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        //SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("UD_HUBnewCharacter");
     }
 
     void LowHealthEffect()

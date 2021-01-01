@@ -7,11 +7,11 @@ public class UI_Shield : MonoBehaviour
 {
     [SerializeField] Image graph;
 
-    PlayerHealth PH;
+    [SerializeField] PlayerHealth PH;
 
     void Start()
     {
-        PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        //PH = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         graph.gameObject.SetActive(false);
     }
 
