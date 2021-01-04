@@ -78,11 +78,12 @@ public class Spider : MonoBehaviour
             }
             Move();
         }
+        Invoke("PlayerInSight", 0.2f);
     }
 
     private void FixedUpdate()
     {
-        PlayerInSight();
+        //PlayerInSight();
     }
 
     private void Move()
@@ -209,9 +210,12 @@ public class Spider : MonoBehaviour
             playerInSight = false; print("no see player");
         }*/
         playerInSight = true;
-        if (sight.collider.CompareTag("Environement") && sight != null)
+        if(sight.collider != null)
         {
-            playerInSight = false;
+            if (sight.collider.CompareTag("Environement"))
+            {
+                playerInSight = false;
+            }
         }
     }
 
