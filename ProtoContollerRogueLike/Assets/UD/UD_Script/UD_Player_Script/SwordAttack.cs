@@ -88,6 +88,7 @@ public class SwordAttack : MonoBehaviour
             {
                 gotInput = false;
                 isAttacking = true;
+                combatEnabled = false;
                 anim.SetBool("isAttacking", isAttacking);
                 FindObjectOfType<AudioManager>().Play("Sword");
             }
@@ -191,6 +192,7 @@ public class SwordAttack : MonoBehaviour
 
     private void FinishAttack()
     {
+        combatEnabled = true;
         isAttacking = false;
         anim.SetBool("isAttacking", isAttacking);
 

@@ -6,6 +6,8 @@ public class PlayerMouvement : MonoBehaviour
 {
     public LayerMask whatIsEnvironment;
 
+    SwordAttack SA;
+
     public bool playerIsMoving;
     public bool hasModulePhaseShift;
 
@@ -57,6 +59,7 @@ public class PlayerMouvement : MonoBehaviour
     {
         dashTimeHolder = dashTime;
         anim = GetComponent<Animator>();
+        SA = GetComponent<SwordAttack>();
         hasModulePhaseShift = false;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         dashReloadTimeUpgraded = dashReloadTimeSet;
@@ -98,12 +101,18 @@ public class PlayerMouvement : MonoBehaviour
             if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
             {
                 playerIsMoving = true;
-                ChangeAnimationState(PLAYER_WALK);
+                if (!SA.isAttacking)
+                {
+                    ChangeAnimationState(PLAYER_WALK);
+                }
             }
             else
             {
-                playerIsMoving = false;
-                ChangeAnimationState(PLAYER_IDLE);
+                playerIsMoving = false; 
+                if (!SA.isAttacking)
+                {
+                    ChangeAnimationState(PLAYER_IDLE);
+                }
             }
         }
 
