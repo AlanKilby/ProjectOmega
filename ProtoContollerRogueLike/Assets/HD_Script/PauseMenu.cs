@@ -20,18 +20,28 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !GameManagement.GameIsLoading)
         {
-
-            if (GameManagement.GameIsPaused)
+            if (pause)
             {
-                
                 Resume();
             }
-                
             else
             {
-                
-                Pause();
+                if (!GameManagement.GameIsPaused)
+                {
+                    Pause();
+                }
             }
+            /*if (GameManagement.GameIsPaused)
+            {
+                if (pause)
+                {
+                    Resume();
+                }                
+            }                
+            else
+            {                
+                Pause();
+            }*/
         }
     }
 

@@ -25,12 +25,14 @@ public class UI_VendingMachineOpenClose : MonoBehaviour
     public void OpenVendingMachine()
     {
         vendingMachineUI.SetActive(true);
+        GameManagement.GameIsPaused = true;
         Time.timeScale = 0f;
     }
 
     public void CloseVendingMachine()
     {
         vendingMachineUI.SetActive(false);
+        GameManagement.GameIsPaused = false;
         Time.timeScale = 1f;
     }
 
