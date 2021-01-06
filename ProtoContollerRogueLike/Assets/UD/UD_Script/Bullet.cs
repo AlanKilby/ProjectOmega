@@ -40,6 +40,7 @@ public class Bullet : MonoBehaviour
     [Header("Piercing Ammo Module")]
     [Range(1, 10)] public int maxEnemyPenetrate;
     int currentEnemyPenetrate;
+    [SerializeField] GameObject enemyPiercedFeedbackObject;
 
     [Header("Invicibility Delay For NMI bullet")]
     [SerializeField] float invicibilityDelaySet;
@@ -142,6 +143,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
+                Instantiate(enemyPiercedFeedbackObject, gameObject.transform.position, gameObject.transform.rotation);
                 currentEnemyPenetrate--;
             }
         }
@@ -156,6 +158,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
+                Instantiate(enemyPiercedFeedbackObject, gameObject.transform.position, gameObject.transform.rotation);
                 currentEnemyPenetrate--;
             }
         }
@@ -174,6 +177,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
+                Instantiate(enemyPiercedFeedbackObject, gameObject.transform.position, gameObject.transform.rotation);
                 currentEnemyPenetrate--;
             }
         }
@@ -188,6 +192,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
+                Instantiate(enemyPiercedFeedbackObject, gameObject.transform.position, gameObject.transform.rotation);
                 currentEnemyPenetrate--;
             }
         }

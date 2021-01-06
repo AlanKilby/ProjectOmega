@@ -184,6 +184,7 @@ public class Weapon : MonoBehaviour
             if (PMS.soulScream)
             {
                 //Mettre le Play du Cri
+                audioSource.PlayOneShot(gun.gunSounds[1]);
             }
             else
             {

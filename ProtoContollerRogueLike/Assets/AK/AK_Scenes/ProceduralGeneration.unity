@@ -1734,7 +1734,7 @@ GameObject:
   - component: {fileID: 1574707485}
   m_Layer: 0
   m_Name: LevelGeneration
-  m_TagString: Untagged
+  m_TagString: LevelGen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1751,6 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e017534832359e4d890cab7bd4438bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentDifficulty: 0
   startingPositions:
   - {fileID: 334717517}
   - {fileID: 1061083962}

@@ -42,6 +42,8 @@ public class PlayerMouvement : MonoBehaviour
     const string PLAYER_DASH = "PlayerDash";
     //
 
+    const string PLAYER_DASH_ATTACK = "PlayerDashAttack";
+
     public Rigidbody2D rb;
     public Camera cam;
     [SerializeField] private Animator anim;
@@ -101,7 +103,7 @@ public class PlayerMouvement : MonoBehaviour
             if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
             {
                 playerIsMoving = true;
-                if (!SA.isAttacking)
+                if (!SA.isAttacking && !isDashing)
                 {
                     ChangeAnimationState(PLAYER_WALK);
                 }
@@ -109,7 +111,7 @@ public class PlayerMouvement : MonoBehaviour
             else
             {
                 playerIsMoving = false; 
-                if (!SA.isAttacking)
+                if (!SA.isAttacking && !isDashing)
                 {
                     ChangeAnimationState(PLAYER_IDLE);
                 }
@@ -197,12 +199,22 @@ public class PlayerMouvement : MonoBehaviour
         {
             isDashing = true;
             dashVelocity = new Vector2(rb.velocity.x * dashSpeed, rb.velocity.y * dashSpeed);
-            //Ajout Gus
-            FindObjectOfType<AudioManager>().Play("Dash");
-            ChangeAnimationState(PLAYER_DASH);
-            //
-            
-            
+            if (!hasModulePhaseShift)
+            {
+                //Ajout Gus
+                FindObjectOfType<AudioManager>().Play("Dash");
+                ChangeAnimationState(PLAYER_DASH);
+                //
+            }
+            if (hasModulePhaseShift)
+            {
+                //Ajout Gus
+                FindObjectOfType<AudioManager>().Play("Dash");
+                ChangeAnimationState(PLAYER_DASH_ATTACK);
+                //
+            }
+
+
         }
     }
     void Dash()
