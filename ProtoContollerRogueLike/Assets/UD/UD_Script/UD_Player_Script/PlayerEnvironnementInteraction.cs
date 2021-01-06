@@ -4,31 +4,32 @@ using UnityEngine;
 
 public class PlayerEnvironnementInteraction : MonoBehaviour
 {
-    [SerializeField] LayerMask whatIsAcide;
-    [SerializeField] LayerMask whatIsRavin;
-
     PlayerHealth PH;
     PlayerMouvement PM;
     PostProcessEffect PPEGreen;
     public Collider2D ownCollider2D;
 
+    [Header("Acide Interaction")]
+    [SerializeField] LayerMask whatIsAcide;
     private bool isInAcide;
     private bool acideDealDamageActive;
-    private bool ravineDealDamageActive;
-    private bool isNearRavine;
-    private bool isTouchingRavine;
 
     [SerializeField] int acideDamage;
-    [SerializeField] int ravineDamage;
-    [SerializeField] float ravineDetectionRespawnIfDie;
     [SerializeField] float acideDetectionRadius;
     [SerializeField] float acideDetectionRadiusXoffset;
     [SerializeField] float acideDetectionRadiusYoffset;
     [SerializeField] float acideDamageRate;
-    [SerializeField] float ravineDamageRate;
     private float acideDamageRateTimer;
-    private float ravineDamageRateTimer;
 
+    [Header("*OBSOLETE* Ravine Interaction")]
+    [SerializeField] LayerMask whatIsRavin;
+    private bool ravineDealDamageActive;
+    private bool isNearRavine;
+    private bool isTouchingRavine;
+    [SerializeField] int ravineDamage;
+    [SerializeField] float ravineDamageRate;
+    [SerializeField] float ravineDetectionRespawnIfDie;
+    private float ravineDamageRateTimer;
     Vector3 lastPositionBeforeRavine;
 
     void Start()
@@ -41,14 +42,14 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     void Update()
     {
         AcideDealDamage();
-        RavineCollision();
+        //RavineCollision(); //N'est plus appelée car la méchanique est abandonnée
         //RavinDetector();
     }
 
     private void FixedUpdate()
     {
         CheckSurroundings();
-        LastPositionBeforeRavineSave();
+        //LastPositionBeforeRavineSave(); //N'est plus appelée car la méchanique est abandonnée
         PostProcessGreenEffect();
     }
 
@@ -125,8 +126,8 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     {
         Vector3 offset = new Vector3(acideDetectionRadiusXoffset, acideDetectionRadiusYoffset, 0.0f);
         isInAcide = Physics2D.OverlapCircle(gameObject.transform.position + offset, acideDetectionRadius, whatIsAcide);
-        isNearRavine = Physics2D.OverlapCircle(gameObject.transform.position + offset, ravineDetectionRespawnIfDie, whatIsRavin);
-        isTouchingRavine = Physics2D.OverlapCircle(gameObject.transform.position + offset, acideDetectionRadius, whatIsRavin);
+        //isNearRavine = Physics2D.OverlapCircle(gameObject.transform.position + offset, ravineDetectionRespawnIfDie, whatIsRavin); //N'est plus appelée car la méchanique est abandonnée
+        //isTouchingRavine = Physics2D.OverlapCircle(gameObject.transform.position + offset, acideDetectionRadius, whatIsRavin); //N'est plus appelée car la méchanique est abandonnée
     }
 
     private void OnDrawGizmos()

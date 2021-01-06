@@ -647,7 +647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnvironment:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 24576
   playerIsMoving: 0
   hasModulePhaseShift: 0
   playerSpeed: 5
@@ -871,21 +871,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f39c54ba2b0d0246a3101e275540a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownCollider2D: {fileID: 1163558162623733003}
   whatIsAcide:
     serializedVersion: 2
     m_Bits: 4096
-  whatIsRavin:
-    serializedVersion: 2
-    m_Bits: 8192
-  ownCollider2D: {fileID: 1163558162623733003}
   acideDamage: 1
-  ravineDamage: 1
-  ravineDetectionRespawnIfDie: 3
   acideDetectionRadius: 0.4
   acideDetectionRadiusXoffset: 0.06
   acideDetectionRadiusYoffset: -0.65
   acideDamageRate: 1
+  whatIsRavin:
+    serializedVersion: 2
+    m_Bits: 8192
+  ravineDamage: 1
   ravineDamageRate: 0.5
+  ravineDetectionRespawnIfDie: 3
 --- !u!114 &1163558160880400662
 MonoBehaviour:
   m_ObjectHideFlags: 0

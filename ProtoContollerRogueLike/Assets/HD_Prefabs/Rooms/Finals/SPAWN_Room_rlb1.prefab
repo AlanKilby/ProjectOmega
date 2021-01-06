@@ -1557,7 +1557,7 @@ MonoBehaviour:
   - {x: 1.5137018, y: 0.40115517, z: 0}
   m_ShapePathHash: -1443205818
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41504
+  m_InstanceId: 42272
 --- !u!1 &2325401551326967923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5851,7 +5851,7 @@ MonoBehaviour:
   - {x: 1.476135, y: 0.40132225, z: 0}
   m_ShapePathHash: -616565237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41556
+  m_InstanceId: 42324
 --- !u!1 &3642407245981526760
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,6 +5921,7 @@ GameObject:
   - component: {fileID: 1057413520541792081}
   - component: {fileID: 714886174096079042}
   - component: {fileID: 5736413426365555097}
+  - component: {fileID: 6136515908884414838}
   m_Layer: 13
   m_Name: Ravin
   m_TagString: Ravin
@@ -6064,7 +6065,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -6076,7 +6077,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3953160426712240917}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -6087,8 +6088,32 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7
+--- !u!66 &6136515908884414838
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953160426712240917}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 714886174096079042}
+    m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &4639087891140562550
 GameObject:
   m_ObjectHideFlags: 0
@@ -6186,7 +6211,7 @@ MonoBehaviour:
   - {x: 1.4739196, y: 0.40152207, z: 0}
   m_ShapePathHash: 714147342
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41524
+  m_InstanceId: 42292
 --- !u!1 &7831645028293508424
 GameObject:
   m_ObjectHideFlags: 0
@@ -6248,7 +6273,7 @@ MonoBehaviour:
   - {x: -0.46308422, y: 0.42616796, z: 0}
   m_ShapePathHash: 625430805
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41494
+  m_InstanceId: 42262
 --- !u!1001 &1346851825652314734
 PrefabInstance:
   m_ObjectHideFlags: 0

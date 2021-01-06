@@ -62,7 +62,7 @@ MonoBehaviour:
   - {x: -0.36131907, y: 0.034369946, z: 0}
   m_ShapePathHash: 1265803997
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40794
+  m_InstanceId: 41422
 --- !u!1 &1050201728388874865
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   - {x: -0.38580513, y: -0.8570674, z: 0}
   m_ShapePathHash: -410556830
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40874
+  m_InstanceId: 41502
 --- !u!1 &1627408616393487963
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1581,7 @@ MonoBehaviour:
   - {x: -0.36131907, y: 0.034369946, z: 0}
   m_ShapePathHash: 1265803997
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40786
+  m_InstanceId: 41414
 --- !u!1 &2927036935872814003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1652,7 @@ GameObject:
   - component: {fileID: 1494682140552103434}
   - component: {fileID: 1439264784921495961}
   - component: {fileID: 6163553343280042178}
+  - component: {fileID: 4560914745733283067}
   m_Layer: 13
   m_Name: Ravin
   m_TagString: Ravin
@@ -1816,7 +1817,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -1828,7 +1829,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3228782917148516942}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1839,8 +1840,32 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7
+--- !u!66 &4560914745733283067
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3228782917148516942}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1439264784921495961}
+    m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &3793433359494663295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,7 +2201,7 @@ MonoBehaviour:
   - {x: -0.38580513, y: -0.8570674, z: 0}
   m_ShapePathHash: -1933594277
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40766
+  m_InstanceId: 41394
 --- !u!1 &4204109022679288104
 GameObject:
   m_ObjectHideFlags: 0
@@ -6118,7 +6143,7 @@ MonoBehaviour:
   - {x: -0.36131907, y: 0.034369946, z: 0}
   m_ShapePathHash: 1265803997
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40782
+  m_InstanceId: 41410
 --- !u!1 &5289682527271935378
 GameObject:
   m_ObjectHideFlags: 0
@@ -6185,7 +6210,7 @@ MonoBehaviour:
   - {x: -0.36131907, y: 0.034369946, z: 0}
   m_ShapePathHash: 1961950523
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40792
+  m_InstanceId: 41420
 --- !u!1 &5639785600133506261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6288,7 +6313,7 @@ MonoBehaviour:
   - {x: -0.36131907, y: 0.034369946, z: 0}
   m_ShapePathHash: 12551497
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40750
+  m_InstanceId: 41378
 --- !u!1 &7512747863083892220
 GameObject:
   m_ObjectHideFlags: 0
@@ -6361,7 +6386,7 @@ MonoBehaviour:
   - {x: -0.38580513, y: -0.8570674, z: 0}
   m_ShapePathHash: 1175087127
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40836
+  m_InstanceId: 41464
 --- !u!1 &8104403941548528524
 GameObject:
   m_ObjectHideFlags: 0
@@ -6428,7 +6453,7 @@ MonoBehaviour:
   - {x: -0.38580513, y: -0.8570674, z: 0}
   m_ShapePathHash: 53798701
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40838
+  m_InstanceId: 41466
 --- !u!1001 &687366102943449643
 PrefabInstance:
   m_ObjectHideFlags: 0
