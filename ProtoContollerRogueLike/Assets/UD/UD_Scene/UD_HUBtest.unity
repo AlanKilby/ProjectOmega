@@ -3991,100 +3991,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: healthTotalUpgradeByTier
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: healthTotalUpgradeCountLimit
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: healthTotalUpgradeCostBase
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: healthTotalUpgradeCostMultiplicatorByTier
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: dashCooldownUpgradeByTier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: dashCooldownUpgradeCountLimit
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: dashCooldownUpgradeCostBase
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: dashCooldownUpgradeCostMultiplicatorByTier
-      value: 1.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: swordDamageUpgradeByTier
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: swordDamageUpgradeCountLimit
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: swordDamageUpgradeCostBase
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: swordDamageUpgradeCostMultiplicatorByTier
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: ammoMultiplicatorByTier
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: ammoMultiplicatorCountLimit
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: ammoMultiplicatorCostBase
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558160880400662, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: ammoMultiplicatorCostMultiplicatorByTier
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1163558162623732995, guid: 376064b780bca324db5939b1b6f8c2d5,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558162623732995, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1163558162623733002, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: totalPlayerHealthSet
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1163558162623733004, guid: 376064b780bca324db5939b1b6f8c2d5,
         type: 3}
@@ -4094,12 +4004,12 @@ PrefabInstance:
     - target: {fileID: 1163558162623733007, guid: 376064b780bca324db5939b1b6f8c2d5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: -3.63
       objectReference: {fileID: 0}
     - target: {fileID: 1163558162623733007, guid: 376064b780bca324db5939b1b6f8c2d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.97
+      value: -3.61
       objectReference: {fileID: 0}
     - target: {fileID: 1163558162623733007, guid: 376064b780bca324db5939b1b6f8c2d5,
         type: 3}
@@ -4145,11 +4055,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8804865822545781548, guid: 376064b780bca324db5939b1b6f8c2d5,
-        type: 3}
-      propertyPath: currentMoneyAmount
-      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 376064b780bca324db5939b1b6f8c2d5, type: 3}
@@ -7919,6 +7824,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5216563357533050810, guid: c932a77d1dcda2244b5492157dde19e9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216563357533050810, guid: c932a77d1dcda2244b5492157dde19e9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216563357533050810, guid: c932a77d1dcda2244b5492157dde19e9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216563357533050811, guid: c932a77d1dcda2244b5492157dde19e9,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1439321351
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216563357533050811, guid: c932a77d1dcda2244b5492157dde19e9,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216563357533050811, guid: c932a77d1dcda2244b5492157dde19e9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5216563358795530061, guid: c932a77d1dcda2244b5492157dde19e9,
         type: 3}
       propertyPath: m_Name

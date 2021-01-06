@@ -273,9 +273,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   fleeSpeed: 3
-  spiderFireRate: 0.7
+  spiderFireRate: 1.68
   spiderImprecision: 0
-  spiderBulletForce: 3
+  spiderBulletForce: 6
   ownRBvelocityX: 0.75
   ownRBvelocityY: 0
   lastHopeShootvelocityLimiteX: 0.3
@@ -286,7 +286,7 @@ MonoBehaviour:
   firePoint: {fileID: 677780094334141956}
   playerPos: {fileID: 0}
   thisRoom: {fileID: 0}
-  spiderBulletPrefab: {fileID: 1460572243853163105, guid: 8cff21c8e59d1f440b22d01516db1e27,
+  spiderBulletPrefab: {fileID: 1460572243853163105, guid: e17039e175ed57e4486a7be3cb6de0ae,
     type: 3}
   ownAffraidArea: {fileID: 677780094266220886}
   ownRB: {fileID: 677780095534232030}
@@ -313,7 +313,7 @@ MonoBehaviour:
   health: 30
   dropRate: 2
   speed: 2
-  moneyDrop: 2
+  moneyDrop: 50
   isStunned: 0
   stunTimerSet: 0
   stunSlowPercentageEffect: 0

@@ -4040,7 +4040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.9000015, y: -0.37}
+  m_AnchoredPosition: {x: -5.9000015, y: -0.3699999}
   m_SizeDelta: {x: 16.179384, y: 15.962648}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798360430
@@ -4491,6 +4491,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5015181202427633532, guid: e65b3f9b9d32d964c93f8b702888aad9,
+        type: 3}
+      propertyPath: sounds.Array.data[5].volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5015181202427633533, guid: e65b3f9b9d32d964c93f8b702888aad9,
         type: 3}
       propertyPath: m_LocalPosition.x

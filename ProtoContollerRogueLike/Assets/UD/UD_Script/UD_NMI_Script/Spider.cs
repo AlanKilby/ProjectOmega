@@ -182,6 +182,7 @@ public class Spider : MonoBehaviour
         rb.AddForce(bullet.transform.up * spiderBulletForce, ForceMode2D.Impulse);
         //Ajout Gus
         ChangeAnimationState(SPIDERATTACK);
+        FindObjectOfType<AudioManager>().Play("Spider Shot");
         //
     }
 

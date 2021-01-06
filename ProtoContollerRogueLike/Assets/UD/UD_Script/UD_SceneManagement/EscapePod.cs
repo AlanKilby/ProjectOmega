@@ -17,6 +17,8 @@ public class EscapePod : MonoBehaviour
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             escapeStart = true;
+            FindObjectOfType<AudioManager>().StopPlaying("Fight Music"); 
+            FindObjectOfType<AudioManager>().Play("Teleport In");
 
             for (int i = 0; i < escapeSpawners.Length; i++)
             {
@@ -35,6 +37,8 @@ public class EscapePod : MonoBehaviour
         if(escapeTimer <= 0)
         {
             SceneManager.LoadScene("UD_HUBtest");
+            FindObjectOfType<AudioManager>().Play("Hub Music");
+            FindObjectOfType<AudioManager>().Play("Hub Ambient");
         }
     }
 

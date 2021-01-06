@@ -220,8 +220,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
-        //SceneManager.LoadScene("GameOver");
-        SceneManager.LoadScene("UD_HUBnewCharacter");
+        SceneManager.LoadScene("GameOver");
+        //SceneManager.LoadScene("UD_HUBnewCharacter");
     }
 
     void LowHealthEffect()

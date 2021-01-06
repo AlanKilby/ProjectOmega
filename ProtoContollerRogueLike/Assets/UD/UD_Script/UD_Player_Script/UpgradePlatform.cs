@@ -64,6 +64,7 @@ public class UpgradePlatform : MonoBehaviour
     {
         if(healthTotalUpgradeCountCurrent < healthTotalUpgradeCountLimit && CS!=null)
         {
+            FindObjectOfType<AudioManager>().Play("Buying"); 
             CurrencySysteme.currentMoneyAmount = CurrencySysteme.currentMoneyAmount - healthTotalUpgradeCost;
             PH.totalPlayerHealthUpgraded = PH.totalPlayerHealthUpgraded + healthTotalUpgradeByTier;
             PH.currentPlayerHealth = PH.totalPlayerHealthUpgraded;
@@ -71,39 +72,50 @@ public class UpgradePlatform : MonoBehaviour
             float healthTotalUpgradeCostCalculate = healthTotalUpgradeCost * healthTotalUpgradeCostMultiplicatorByTier;
             healthTotalUpgradeCost = (int)healthTotalUpgradeCostCalculate;
         }
+        else FindObjectOfType<AudioManager>().Play("Fully Upgraded");
+        // ajouter également FindObjectOfType<AudioManager>().Play("Not Enough Money");
     }
     public void UpgradeDashCoolDown()
     {
         if (dashCooldownUpgradeCountCurrent < dashCooldownUpgradeCountLimit && CS != null)
         {
+            FindObjectOfType<AudioManager>().Play("Buying"); 
             CurrencySysteme.currentMoneyAmount -= dashCooldownUpgradeCost;
             PM.dashReloadTimeUpgraded -= dashCooldownUpgradeByTier;
             dashCooldownUpgradeCountCurrent++;
             float dashCooldownUpgradeCostCalculate = dashCooldownUpgradeCost * dashCooldownUpgradeCostMultiplicatorByTier;
             dashCooldownUpgradeCost = (int)dashCooldownUpgradeCostCalculate;
         }
+        else FindObjectOfType<AudioManager>().Play("Fully Upgraded");
+        // ajouter également FindObjectOfType<AudioManager>().Play("Not Enough Money");
     }
     public void UpgradeSwordDamage()
     {
         if (swordDamageUpgradeCountCurrent < swordDamageUpgradeCountLimit && CS != null)
         {
+            FindObjectOfType<AudioManager>().Play("Buying"); 
             CurrencySysteme.currentMoneyAmount -= swordDamageUpgradeCost;
             SA.damageUpgraded += swordDamageUpgradeByTier;
             swordDamageUpgradeCountCurrent++;
             float swordDamageUpgradeCostCalculate = swordDamageUpgradeCost * swordDamageUpgradeCostMultiplicatorByTier;
             swordDamageUpgradeCost = (int)swordDamageUpgradeCostCalculate;
         }
+        else FindObjectOfType<AudioManager>().Play("Fully Upgraded");
+        // ajouter également FindObjectOfType<AudioManager>().Play("Not Enough Money");
     }
-    
+
     public void UpgradeAmmoMultiplicator()
     {
         if (ammoMultiplicatorCountCurrent < ammoMultiplicatorCountLimit && CS != null)
         {
+            FindObjectOfType<AudioManager>().Play("Buying"); 
             CurrencySysteme.currentMoneyAmount -= ammoMultiplicatorCost;
             ammoMultiplicatorCurrent = ammoMultiplicatorCurrent * ammoMultiplicatorByTier;
             ammoMultiplicatorCountCurrent++;
             float ammoMultiplicatorCostCalculate = ammoMultiplicatorCost * ammoMultiplicatorCostMultiplicatorByTier;
             ammoMultiplicatorCost = (int)ammoMultiplicatorCostCalculate;
         }
+        else FindObjectOfType<AudioManager>().Play("Fully Upgraded");
+        // ajouter également FindObjectOfType<AudioManager>().Play("Not Enough Money");
     }
 }

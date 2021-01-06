@@ -121,6 +121,12 @@ public class EnnemisScript : MonoBehaviour
         if (health <= 0)
         {
             Death();
+            if (isZombie)
+                FindObjectOfType<AudioManager>().Play("Zombie Death");
+            if (isSpider)
+                FindObjectOfType<AudioManager>().Play("Spider Death");
+            if (isSummoner)
+                FindObjectOfType<AudioManager>().Play("Summoner Death");
         }
         else
         {

@@ -10,6 +10,11 @@ public class EnterDungeon : MonoBehaviour
         Debug.Log("can escape");
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
+            FindObjectOfType<AudioManager>().Play("Teleport Out");
+            FindObjectOfType<AudioManager>().StopPlaying("Hub Music");
+            FindObjectOfType<AudioManager>().StopPlaying("Hub Ambient");
+            FindObjectOfType<AudioManager>().Play("Fight Music");
+            
             SceneManager.LoadScene("ProceduralGeneration");
         }
     }

@@ -51,20 +51,20 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Dash
-    clip: {fileID: 8300000, guid: b8ec92494d4950643a286b87cd2d0331, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: 2e2f1759b5f016145a539c625b818e23, type: 3}
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: f5f228e058396584799e81b6a57bd2d5, type: 3}
-    volume: 0.5
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Damage Hit
     clip: {fileID: 8300000, guid: a7b3bc8bb627db743953890c8779db96, type: 3}
-    volume: 0.285
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -75,26 +75,26 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Press Play
-    clip: {fileID: 8300000, guid: 9507a64ecec3cf740b47033ead9c7afe, type: 3}
-    volume: 0.8
+    clip: {fileID: 8300000, guid: 6cd26a36c349f4b4c96a08331b57b24d, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Handgun Charge
     clip: {fileID: 8300000, guid: 14ab92d618d7a0547afca289b0e7ef21, type: 3}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Handgun Shot
     clip: {fileID: 8300000, guid: 4dc6285498b79c84a9e7e29c212d0e1c, type: 3}
-    volume: 0.8
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Chasm
     clip: {fileID: 8300000, guid: 7d1a819f450a31b45a731c5bddd987c9, type: 3}
-    volume: 0.8
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -106,25 +106,109 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Footstep
     clip: {fileID: 8300000, guid: 7170e420f626e0e48a81b9f5085823d2, type: 3}
-    volume: 0.506
+    volume: 0.55
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Gatling
-    clip: {fileID: 8300000, guid: f68c6af7bcdf0ad4f9a25dcca029a67e, type: 3}
+    clip: {fileID: 8300000, guid: b2175d005dbe93d46a50e226d84750dc, type: 3}
     volume: 0.172
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Shotgun
     clip: {fileID: 8300000, guid: 6215f88a21c40014ea8df65cd121b090, type: 3}
-    volume: 0.147
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Reload
     clip: {fileID: 8300000, guid: 0775d8ffa09acec4d98498ba2ad2ecb0, type: 3}
     volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hub Music
+    clip: {fileID: 8300000, guid: 6a399e65c3bdf2f41afa2f762717256a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Hub Ambient
+    clip: {fileID: 8300000, guid: bc53e9edada9cd04da52020ca67c7b5b, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Opening Shop
+    clip: {fileID: 8300000, guid: 12bbe7facaf44a24eb49d649f1651422, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Closing Shop
+    clip: {fileID: 8300000, guid: 8ca74e8ca7fd2ef44b78ec2816554a85, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Buying
+    clip: {fileID: 8300000, guid: 91be0bd26128cc444a16b4d794ac6e87, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Teleport In
+    clip: {fileID: 8300000, guid: c131634a5405cdc4fb9bf94bd8cf1856, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Teleport Out
+    clip: {fileID: 8300000, guid: a9151b943c783ad4490cd1fa9ba0935c, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Fully Upgraded
+    clip: {fileID: 8300000, guid: 72408c2037ab4ed4dbbb6f8e7d2fbac1, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Not Enough Money
+    clip: {fileID: 8300000, guid: 395c5078d1b028b4aa33f67d623235c8, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Summoning
+    clip: {fileID: 8300000, guid: be89289415f0c6c488126346a7f4d575, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Summoner Death
+    clip: {fileID: 8300000, guid: 896c03b3ff891284c919d5980743b048, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spider Shot
+    clip: {fileID: 8300000, guid: f057f2e9f8adcb142bbd2173d656a086, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spider Death
+    clip: {fileID: 8300000, guid: ed24f21ae07a78146a21252baf21330f, type: 3}
+    volume: 0.9
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zombie Death
+    clip: {fileID: 8300000, guid: f6f3c092b8e31f546ad8a4f0559a145e, type: 3}
+    volume: 0.075
     pitch: 1
     loop: 0
     source: {fileID: 0}

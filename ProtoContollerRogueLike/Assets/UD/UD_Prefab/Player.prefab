@@ -490,7 +490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1163558162623733007
 Transform:
   m_ObjectHideFlags: 0
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474c6ae39777bb148afed41a1c0e86fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalPlayerHealthSet: 15
+  totalPlayerHealthSet: 20
   totalPlayerHealthUpgraded: 0
   currentPlayerHealth: 0
   healthPercent: 0
@@ -902,26 +902,26 @@ MonoBehaviour:
   healthTotalUpgradeCountLimit: 3
   healthTotalUpgradeCountCurrent: 0
   healthTotalUpgradeCost: 0
-  healthTotalUpgradeCostBase: 50
+  healthTotalUpgradeCostBase: 10
   healthTotalUpgradeCostMultiplicatorByTier: 1.5
-  dashCooldownUpgradeByTier: 2
-  dashCooldownUpgradeCountLimit: 1
+  dashCooldownUpgradeByTier: 1
+  dashCooldownUpgradeCountLimit: 3
   dashCooldownUpgradeCountCurrent: 0
   dashCooldownUpgradeCost: 0
-  dashCooldownUpgradeCostBase: 100
-  dashCooldownUpgradeCostMultiplicatorByTier: 2
+  dashCooldownUpgradeCostBase: 50
+  dashCooldownUpgradeCostMultiplicatorByTier: 1.3
   swordDamageUpgradeByTier: 5
-  swordDamageUpgradeCountLimit: 4
+  swordDamageUpgradeCountLimit: 5
   swordDamageUpgradeCountCurrent: 0
   swordDamageUpgradeCost: 0
-  swordDamageUpgradeCostBase: 25
-  swordDamageUpgradeCostMultiplicatorByTier: 2
-  ammoMultiplicatorByTier: 1.5
+  swordDamageUpgradeCostBase: 10
+  swordDamageUpgradeCostMultiplicatorByTier: 1.7
+  ammoMultiplicatorByTier: 1.7
   ammoMultiplicatorCountLimit: 3
   ammoMultiplicatorCountCurrent: 0
   ammoMultiplicatorCost: 0
-  ammoMultiplicatorCostBase: 200
-  ammoMultiplicatorCostMultiplicatorByTier: 1.25
+  ammoMultiplicatorCostBase: 100
+  ammoMultiplicatorCostMultiplicatorByTier: 2
   ammoMultiplicatorCurrent: 0
 --- !u!114 &8804865822545781548
 MonoBehaviour:
@@ -935,7 +935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4723d0068e1e444f96a6dce5135e8da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoneyAmount: 0
 --- !u!114 &1678157433
 MonoBehaviour:
   m_ObjectHideFlags: 0
