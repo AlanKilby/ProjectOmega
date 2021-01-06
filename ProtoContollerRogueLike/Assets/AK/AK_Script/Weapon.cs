@@ -242,13 +242,44 @@ public class Weapon : MonoBehaviour
                     break;
                 }
                 
-                // If the inventory IS full AND the gun IS already in the inventory pick up the ammo.
-                if(inventory.isFull[i] == true  && ammoCount > 0 && gunID == inventory.gunID[i])
+                // If the inventory IS full AND the gun IS already in the inventory AND it's a gun of the same rarity pick up the ammo.
+                if(inventory.isFull[i] == true  && ammoCount > 0 && gunID == inventory.gunID[i] && gun.rarity <= inventory.gunGameObject[i].GetComponent<Weapon>().gun.rarity)
                 {
                     gunAlreadyInInv = true;
                     inventory.ammoCounter[gun.ammoID] += (int)(ammoCount * UP.ammoMultiplicatorCurrent);
                     ammoCount = 0;
                     FindObjectOfType<AudioManager>().Play("Reload");
+                }
+                else if (inventory.isFull[i] == true && gunID == inventory.gunID[i] && gun.rarity > inventory.gunGameObject[i].GetComponent<Weapon>().gun.rarity)
+                {
+                    Destroy(inventory.gunGameObject[i]);
+                    inventory.gunGameObject[i] = gameObject;
+
+                    isEquipped = true;
+                    gunSlot = i;
+
+                    ownIconSlot = inventory.slots[i];
+
+                    ownIconSlotDefaultPosition = ownIconSlot.GetComponent<RectTransform>().anchoredPosition;
+
+                    ownIcon = Instantiate(gun.gunIcon, inventory.slots[i].transform, false);
+
+                    ownIconRect = ownIcon.GetComponent<RectTransform>();
+
+                    ownIconSlotRect = ownIconSlot.GetComponent<RectTransform>();
+
+
+                    transform.SetParent(collision.transform);
+
+                    //transform.localPosition = new Vector2(-0.35f,0.15f);
+                    transform.localPosition = new Vector2(-0.52f, 0.75f);
+                    transform.rotation = collision.transform.rotation;
+
+                    inventory.ammoCounter[gun.ammoID] += (int)(ammoCount * UP.ammoMultiplicatorCurrent);
+
+                    ammoCount = 0;
+
+                    break;
                 }
 
             }

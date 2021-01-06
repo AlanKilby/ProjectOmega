@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
+    public int currentDifficulty;
+
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0--> LR, index 1-->LRB, index 2-->LRT, index 3-->TLRB
     public GameObject[] startingRooms; // Rooms where the player will start

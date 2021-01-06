@@ -20,7 +20,7 @@ public class Gun : ScriptableObject
     
 
     // Specific
-    public string rarity;
+    public int rarity; // 0 common, 1 uncommon, 2 rare
 
     // Sound
     public List<AudioClip> gunSounds = new List<AudioClip>();
