@@ -45,6 +45,11 @@ public class Weapon : MonoBehaviour
     [Header("Unlimited Ammo ?")]
     public bool isUnlimitedAmmoGun;
 
+    [Header("Type of Gun ?")]
+    [SerializeField] private bool isHandgun;
+    [SerializeField] private bool isShotgun;
+    [SerializeField] private bool isGatling;
+
 
     void Start()
     {
@@ -92,29 +97,32 @@ public class Weapon : MonoBehaviour
         }
 
         //Shooting
-        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing && !isALoadingGun && !GameManagement.GameIsPaused)
+        if (isEquipped && Input.GetButton("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing && !isHandgun && !GameManagement.GameIsPaused)
         {
-            //FindObjectOfType<AudioManager>().StopPlaying("Handgun Charge");
             WeaponShooting();
         }
 
-        if (isALoadingGun)
+        if (isHandgun && !isGatling && !isShotgun && !GameManagement.GameIsPaused)
         {
             if (isEquipped && Input.GetButtonDown("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
             {
-                audioSource.PlayOneShot(gun.gunSounds[0]);
+                FindObjectOfType<AudioManager>().Play("Handgun Charge");
                 loadingGunCharging = true;
             }
 
             if (isEquipped && Input.GetButtonUp("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
             {
+                FindObjectOfType<AudioManager>().StopPlaying("Handgun Charge");
+                FindObjectOfType<AudioManager>().Play("Handgun Shot");
                 WeaponShooting();
                 loadingGunChargePercentage = 0.0f;
                 loadingGunCharging = false;
             }
 
-            if (!isEquipped || inventory.ammoCounter[gun.ammoID] <= 0 || PM.isDashing)
+            if (!isEquipped || inventory.ammoCounter[gun.ammoID] <= 0 || PM.isDashing || !gunInHand)
             {
+                FindObjectOfType<AudioManager>().StopPlaying("Handgun Charge");
+                FindObjectOfType<AudioManager>().StopPlaying("Handgun Shot"); 
                 loadingGunCharging = false;
             }
 
@@ -159,7 +167,19 @@ public class Weapon : MonoBehaviour
                     GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
+
+                    if (isGatling && !isHandgun)
+                    {
+                        FindObjectOfType<AudioManager>().Play("Gatling");
+                    }
+
+                    if (isShotgun && !isHandgun)
+                    {
+                        FindObjectOfType<AudioManager>().Play("Shotgun");
+                    }
+
                 }
+
                 if (isALoadingGun)
                 {
                     GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
@@ -183,14 +203,13 @@ public class Weapon : MonoBehaviour
             }
             if (PMS.soulScream)
             {
-                //Mettre le Play du Cri
-                audioSource.PlayOneShot(gun.gunSounds[1]);
+                FindObjectOfType<AudioManager>().Play("SoulScream");
+                /*FindObjectOfType<AudioManager>().StopPlaying("Gatling");
+                FindObjectOfType<AudioManager>().StopPlaying("Shotgun");
+                FindObjectOfType<AudioManager>().StopPlaying("Handgun Shot");
+                */
             }
-            else
-            {
-                //FindObjectOfType<AudioManager>().Play("Handgun Shot");
-                audioSource.PlayOneShot(gun.gunSounds[1]);
-            }
+
             if(!isUnlimitedAmmoGun && !CP.hasUnlimitedAmmo)
             {
                 inventory.ammoCounter[gun.ammoID]--;

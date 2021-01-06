@@ -13,4 +13,9 @@ public class GameOver : MonoBehaviour
         Application.Quit();
     }
 
+    public void NewGame()
+    {
+        SceneManager.LoadScene("UD_HUBnewCharacter");
+    }
+
 }

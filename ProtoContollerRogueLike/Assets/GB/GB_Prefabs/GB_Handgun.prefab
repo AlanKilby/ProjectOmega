@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 1965541443119392156}
   - component: {fileID: 1199696823686943621}
   m_Layer: 0
-  m_Name: GB_HandGun
+  m_Name: GB_Handgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -565,6 +565,9 @@ MonoBehaviour:
   canStunWhenCharingMax: 1
   lifeTimeMultiplicatorWhenCharged: 3
   isUnlimitedAmmoGun: 1
+  isHandgun: 1
+  isShotgun: 0
+  isGatling: 0
 --- !u!212 &4756036016220822889
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 9123409782611795825}
   - component: {fileID: 8466187568840485224}
   m_Layer: 0
-  m_Name: UD_Gatling
+  m_Name: GB_Gatling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,9 @@ MonoBehaviour:
   canStunWhenCharingMax: 0
   lifeTimeMultiplicatorWhenCharged: 0
   isUnlimitedAmmoGun: 0
+  isHandgun: 0
+  isShotgun: 0
+  isGatling: 1
 --- !u!212 &2871898901275256708
 SpriteRenderer:
   m_ObjectHideFlags: 0

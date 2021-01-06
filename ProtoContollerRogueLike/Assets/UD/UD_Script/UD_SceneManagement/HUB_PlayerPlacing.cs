@@ -12,6 +12,7 @@ public class HUB_PlayerPlacing : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = startPosition;
+        FindObjectOfType<AudioManager>().Play("Hub Music");
     }
 
 }

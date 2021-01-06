@@ -46,7 +46,7 @@ MonoBehaviour:
   sounds:
   - name: Fight Music
     clip: {fileID: 8300000, guid: c4daed8fb03b7344dba5685a7c250ba8, type: 3}
-    volume: 0.3
+    volume: 0.449
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -76,19 +76,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Press Play
     clip: {fileID: 8300000, guid: 6cd26a36c349f4b4c96a08331b57b24d, type: 3}
-    volume: 0.2
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Handgun Charge
     clip: {fileID: 8300000, guid: 14ab92d618d7a0547afca289b0e7ef21, type: 3}
-    volume: 0.5
+    volume: 0.7
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Handgun Shot
     clip: {fileID: 8300000, guid: 4dc6285498b79c84a9e7e29c212d0e1c, type: 3}
-    volume: 0.2
+    volume: 0.6
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -112,13 +112,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Gatling
     clip: {fileID: 8300000, guid: b2175d005dbe93d46a50e226d84750dc, type: 3}
-    volume: 0.172
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Shotgun
     clip: {fileID: 8300000, guid: 6215f88a21c40014ea8df65cd121b090, type: 3}
-    volume: 0.2
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -208,7 +208,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Zombie Death
     clip: {fileID: 8300000, guid: f6f3c092b8e31f546ad8a4f0559a145e, type: 3}
-    volume: 0.075
+    volume: 0.08
     pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SoulScream
+    clip: {fileID: 8300000, guid: dc57bb825bb4aa44d81c1007dc7cd1af, type: 3}
+    volume: 0.07
+    pitch: 0.9
     loop: 0
     source: {fileID: 0}
