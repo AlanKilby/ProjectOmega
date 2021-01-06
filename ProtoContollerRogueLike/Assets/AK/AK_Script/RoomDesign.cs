@@ -8,7 +8,7 @@ public class RoomDesign : MonoBehaviour
     public GameObject[] roomDesign0;
     public GameObject[] roomDesign1;
     public GameObject[] roomDesign2;
-
+    public GameObject[] roomDesign3;
 
 
 
@@ -32,6 +32,11 @@ public class RoomDesign : MonoBehaviour
         {
             roomPicker = Random.Range(0, roomDesign2.Length);
             Instantiate(roomDesign2[roomPicker], new Vector2(transform.position.x, transform.position.y), Quaternion.identity, transform);
+        }
+        else if (levelGen.GetComponent<LevelGeneration>().currentDifficulty == 3)
+        {
+            roomPicker = Random.Range(0, roomDesign3.Length);
+            Instantiate(roomDesign3[roomPicker], new Vector2(transform.position.x, transform.position.y), Quaternion.identity, transform);
         }
 
     }
