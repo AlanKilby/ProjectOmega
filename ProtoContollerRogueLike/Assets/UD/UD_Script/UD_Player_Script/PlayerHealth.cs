@@ -44,6 +44,16 @@ public class PlayerHealth : MonoBehaviour
     [HideInInspector] public int shieldHealthPointCurrent;
     [HideInInspector] public bool hasShield;
 
+    [Header ("Explosion On Death")]
+    [SerializeField] GameObject explosionPrefab;
+    [SerializeField] float spawnExplosionRate;
+    float spawnExplosionRateTimer;
+    [SerializeField] float maxXspawn;
+    [SerializeField] float maxYspawn;
+    [SerializeField] float minXspawn;
+    [SerializeField] float minYspawn;
+
+
     void Start()
     {
         totalPlayerHealthUpgraded = totalPlayerHealthSet; // A Set en tout début de partie
@@ -107,6 +117,18 @@ public class PlayerHealth : MonoBehaviour
             hasShield = false;
         }
 
+        if(currentPlayerHealth <= 0)
+        {
+            if(spawnExplosionRateTimer <= 0)
+            {
+                SpawnExplosions();
+                spawnExplosionRateTimer = spawnExplosionRate;
+            }
+            else
+            {
+                spawnExplosionRateTimer -= Time.deltaTime;
+            }
+        }
     }
 
     //Ajout Gus
@@ -237,6 +259,15 @@ public class PlayerHealth : MonoBehaviour
             PPERedHealth.canDisappear = true;
 
         }
+    }
+
+    void SpawnExplosions()
+    {
+        float spawnPosX = Random.Range(minXspawn, maxXspawn);
+        float spawnPosY = Random.Range(minYspawn, maxYspawn);
+        Vector3 spawnPos = new Vector3(gameObject.transform.position.x + spawnPosX, gameObject.transform.position.y + spawnPosY, 0.0f);
+        float randRotation = Random.Range(0.0f, 360.0f);
+        Instantiate(explosionPrefab, spawnPos, Quaternion.Euler(0,0,randRotation));
     }
 
     //Ajout Gus

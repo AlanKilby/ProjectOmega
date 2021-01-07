@@ -768,6 +768,13 @@ MonoBehaviour:
   shieldHealthPointSet: 10
   shieldHealthPointCurrent: 0
   hasShield: 0
+  explosionPrefab: {fileID: 4369570632938006429, guid: 57d8452ed5f1c56498b98a2ece40e473,
+    type: 3}
+  spawnExplosionRate: 0.2
+  maxXspawn: 1
+  maxYspawn: 1
+  minXspawn: -1
+  minYspawn: -1
 --- !u!114 &1163558162623733045
 MonoBehaviour:
   m_ObjectHideFlags: 0
