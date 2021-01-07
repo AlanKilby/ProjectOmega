@@ -18,7 +18,7 @@ public class ModuleExplosiveCharge : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
-            for (int i = 0; i < In.slots.Length; i++)
+            for (int i = 0; i < In.moduleSlots.Length; i++)
             {
                 if (In.isFullModule[i] == false)
                 {
