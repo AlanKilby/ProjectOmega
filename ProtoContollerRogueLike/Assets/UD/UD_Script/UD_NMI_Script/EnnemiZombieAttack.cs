@@ -44,8 +44,6 @@ public class EnnemiZombieAttack : MonoBehaviour
         if (combatEnable)
         {
             CheckIfDamage();
-            zombieHitFireRateTimer = zombieHitFireRate;
-            combatEnable = false;
         }
         CheckCombatEnable();
     }
@@ -88,6 +86,8 @@ public class EnnemiZombieAttack : MonoBehaviour
                 //Ajout Gus
                 ChangeAnimationState(ZOMBIE_ATTACK);
                 //
+                zombieHitFireRateTimer = zombieHitFireRate;
+                combatEnable = false;
             }
 
         }
