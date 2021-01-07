@@ -13,6 +13,7 @@ public class UD_BossBase : MonoBehaviour
 
     [SerializeField] LootDrop lootDrop;
     [SerializeField] private Animator anim;
+    public CameraSystem thisRoom;
 
     [Header("Stats")]
     public int health;
@@ -27,19 +28,24 @@ public class UD_BossBase : MonoBehaviour
 
     [HideInInspector] public bool isAlive;
 
+    [Header("Back to HUB when Died")]
+    [SerializeField] GameObject HUBTeleporter;
+    [SerializeField] Transform spawnPosForHUBTeleporter;
+
     //Ajout Gus
     private Material matWhite;
     private Material matDefault;
     SpriteRenderer sr;
     //
 
-    public bool takeDamage;
+    [HideInInspector] public bool takeDamage;
 
     private void Start()
     {
         isAlive = true;
         takeDamage = false;
         CS = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrencySysteme>();
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         lootDrop = GetComponent<LootDrop>();
         anim = GetComponent<Animator>();
         isStunned = false;
@@ -88,21 +94,24 @@ public class UD_BossBase : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        takeDamage = true;
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        {
+            health -= damage;
+            takeDamage = true;
 
-        //Ajout Gus
-        sr.material = matWhite;
-        if (health <= 0)
-        {
-            isAlive = false;
-            Death();
+            //Ajout Gus
+            sr.material = matWhite;
+            if (health <= 0)
+            {
+                isAlive = false;
+                Death();
+            }
+            else
+            {
+                Invoke("ResetMaterial", 0.1f);
+            }
+            //
         }
-        else
-        {
-            Invoke("ResetMaterial", 0.1f);
-        }
-        //
     }
 
     public void Stun()
@@ -126,6 +135,7 @@ public class UD_BossBase : MonoBehaviour
     public void Death()
     {
         CS.GainMoney(moneyDrop);
+        Instantiate(HUBTeleporter, spawnPosForHUBTeleporter);
         //CS.currentMoneyAmount += moneyDrop;
         //lootDrop.DropLoot(); //A VOIR CE QU'IL LOOT A LA MORT
         Destroy(gameObject);

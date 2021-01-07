@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UD_BossStageOne : MonoBehaviour
 {
+    public CameraSystem thisRoom;
+
     [Header("Acide Spray")]
     [SerializeField] GameObject acideWarning;
     [SerializeField] GameObject acideSpray;
@@ -21,6 +23,7 @@ public class UD_BossStageOne : MonoBehaviour
 
     void Start()
     {
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         shootRateTimer = shootRate;
         canShoot = false;
         sprayRateTimer = sprayRate;
@@ -30,18 +33,21 @@ public class UD_BossStageOne : MonoBehaviour
 
     void Update()
     {
-        AcideSprayTimer();
-        AcideShootTimer();
-        if (canSpray)
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
-            StartCoroutine(AcideSprayShoot());
-        }
-        if (canShoot)
-        {
-            acideShootObject.isOn = true;
-            acideShootObject.shootAcideDelay = shootAcideDelaySet;
-            shootRateTimer = shootRate;
-            canShoot = false;
+            AcideSprayTimer();
+            AcideShootTimer();
+            if (canSpray)
+            {
+                StartCoroutine(AcideSprayShoot());
+            }
+            if (canShoot)
+            {
+                acideShootObject.isOn = true;
+                acideShootObject.shootAcideDelay = shootAcideDelaySet;
+                shootRateTimer = shootRate;
+                canShoot = false;
+            }
         }
     }
 
@@ -52,7 +58,7 @@ public class UD_BossStageOne : MonoBehaviour
         acideWarning.SetActive(true);
         yield return new WaitForSeconds(warningDelay);
         acideWarning.SetActive(false);
-        GameObject acideSprayLaunched = Instantiate(acideSpray, gameObject.transform.localPosition, gameObject.transform.rotation);
+        GameObject acideSprayLaunched = Instantiate(acideSpray, gameObject.transform.position, gameObject.transform.rotation);
     }
 
     void AcideSprayTimer()

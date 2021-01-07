@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UD_TentacleBoss : MonoBehaviour
 {
+    public CameraSystem thisRoom;
+
     [SerializeField] LayerMask whatIsPlayer;
 
     Animator anim;
@@ -35,6 +37,7 @@ public class UD_TentacleBoss : MonoBehaviour
 
     void Start()
     {
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<UD_BossBase>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
@@ -45,21 +48,24 @@ public class UD_TentacleBoss : MonoBehaviour
 
     void Update()
     {
-        if(!boss.isAlive || boss == null)
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
-            Destroy(gameObject);
+            if (!boss.isAlive || boss == null)
+            {
+                Destroy(gameObject);
+            }
+            if (canAttack && playerIsInAttackArea)
+            {
+                StartCoroutine(TentacleAttackShoot());
+            }
+            AttackReloadTimer();
+            LifeTimer();
+            if (canTurn)
+            {
+                PlayerDirection();
+            }
+            UpdateAnims();
         }
-        if(canAttack && playerIsInAttackArea)
-        {
-            StartCoroutine(TentacleAttackShoot());
-        }
-        AttackReloadTimer();
-        LifeTimer();
-        if (canTurn)
-        {
-            PlayerDirection();
-        }
-        UpdateAnims();
     }
 
     private void FixedUpdate()
@@ -117,23 +123,26 @@ public class UD_TentacleBoss : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        {
+            health -= damage;
 
-        if (health <= 0)
-        {
-            Death();
+            if (health <= 0)
+            {
+                Death();
+            }
+            /*//Ajout Gus
+            sr.material = matWhite;
+            if (health <= 0)
+            {
+                Death();
+            }
+            else
+            {
+                Invoke("ResetMaterial", 0.1f);
+            }
+            //*/ //GUS DOIT Y VOIR
         }
-        /*//Ajout Gus
-        sr.material = matWhite;
-        if (health <= 0)
-        {
-            Death();
-        }
-        else
-        {
-            Invoke("ResetMaterial", 0.1f);
-        }
-        //*/ //GUS DOIT Y VOIR
     }
 
     public void Death()

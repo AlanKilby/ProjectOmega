@@ -10,6 +10,7 @@ public class EnnemisScript : MonoBehaviour
     AIPath AIP;
     CurrencySysteme CS;
     DifficultyPanel DP;
+    public CameraSystem thisRoom;
 
     [SerializeField] LootDrop lootDrop;
     [SerializeField] private Animator anim;
@@ -43,6 +44,7 @@ public class EnnemisScript : MonoBehaviour
     {
         takeDamage = false;
         CS = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrencySysteme>();
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         lootDrop = GetComponent<LootDrop>();
         anim = GetComponent<Animator>();
         AIP = GetComponent<AIPath>();
@@ -113,26 +115,33 @@ public class EnnemisScript : MonoBehaviour
         
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        takeDamage = true;
-        
-        //Ajout Gus
-        sr.material = matWhite;
-        if (health <= 0)
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
-            Death();
-            if (isZombie)
-                FindObjectOfType<AudioManager>().Play("Zombie Death");
-            if (isSpider)
-                FindObjectOfType<AudioManager>().Play("Spider Death");
-            if (isSummoner)
-                FindObjectOfType<AudioManager>().Play("Summoner Death");
+            health -= damage;
+            takeDamage = true;
+
+            //Ajout Gus
+            sr.material = matWhite;
+            if (health <= 0)
+            {
+                Death();
+                if (isZombie)
+                    FindObjectOfType<AudioManager>().Play("Zombie Death");
+                if (isSpider)
+                    FindObjectOfType<AudioManager>().Play("Spider Death");
+                if (isSummoner)
+                    FindObjectOfType<AudioManager>().Play("Summoner Death");
+            }
+            else
+            {
+                Invoke("ResetMaterial", 0.1f);
+            }
+            //
         }
         else
         {
-            Invoke("ResetMaterial", 0.1f);
+            return;
         }
-        //
     }
 
     public void Stun()

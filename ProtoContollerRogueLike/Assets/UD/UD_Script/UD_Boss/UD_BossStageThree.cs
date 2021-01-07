@@ -24,19 +24,22 @@ public class UD_BossStageThree : MonoBehaviour
 
     void Update()
     {
-        if (canLaunchEgg)
+        if (isPlayerInRoom.playerIsInTheRoom)
         {
-            for(int i = 0; i < launchEggPoints.Length; i++)
+            if (canLaunchEgg)
             {
-                GameObject egg = Instantiate(eggPrefab, launchEggPoints[i].transform.position, launchEggPoints[i].transform.rotation);
-                Rigidbody2D rb = egg.GetComponent<Rigidbody2D>();
-                rb.AddForce(egg.transform.up * eggLaunchVelocity, ForceMode2D.Impulse);
-                egg.transform.SetParent(isPlayerInRoom.transform);
+                for (int i = 0; i < launchEggPoints.Length; i++)
+                {
+                    GameObject egg = Instantiate(eggPrefab, launchEggPoints[i].transform.position, launchEggPoints[i].transform.rotation);
+                    Rigidbody2D rb = egg.GetComponent<Rigidbody2D>();
+                    rb.AddForce(egg.transform.up * eggLaunchVelocity, ForceMode2D.Impulse);
+                    egg.transform.SetParent(isPlayerInRoom.transform);
+                }
+                launchEggRateTimer = launchEggRate;
+                canLaunchEgg = false;
             }
-            launchEggRateTimer = launchEggRate;
-            canLaunchEgg = false;
+            LaunchEggTimer();
         }
-        LaunchEggTimer();
     }
 
     void LaunchEggTimer()

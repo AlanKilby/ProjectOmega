@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UD_BossStageFour : MonoBehaviour
 {
+    public CameraSystem thisRoom;
+
     [Header("Fire Rate of this Attack")]
     [SerializeField] float attackLaunchRate;
     float attackLaunchRateTimer;
@@ -24,19 +26,23 @@ public class UD_BossStageFour : MonoBehaviour
 
     void Start()
     {
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         canFire = false;
         attackLaunchRateTimer = attackLaunchRate;
     }
 
     void Update()
     {
-        LaunchEggTimer();
-        if (canFire)
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
-            print("launch couroutine");
-            StartCoroutine(StageFourAttack());
-            attackLaunchRateTimer = attackLaunchRate;
-            canFire = false;
+            LaunchEggTimer();
+            if (canFire)
+            {
+                print("launch couroutine");
+                StartCoroutine(StageFourAttack());
+                attackLaunchRateTimer = attackLaunchRate;
+                canFire = false;
+            }
         }
     }
 

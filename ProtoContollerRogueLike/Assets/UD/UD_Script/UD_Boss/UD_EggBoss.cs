@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UD_EggBoss : MonoBehaviour
 {
+    public CameraSystem thisRoom;
+
     [SerializeField] GameObject[] spawnerOfThisEggList;
     UD_EggBossSpawner EBS;
     Rigidbody2D rb;
@@ -16,6 +18,7 @@ public class UD_EggBoss : MonoBehaviour
 
     private void Start()
     {
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         rb = GetComponent<Rigidbody2D>();
         isMoving = true;
     }
@@ -48,7 +51,7 @@ public class UD_EggBoss : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
             if (isMoving)
             {
@@ -59,7 +62,7 @@ public class UD_EggBoss : MonoBehaviour
                 Spawn();
             }
         }
-        if (collision.CompareTag("Environement") || collision.CompareTag("BossEgg"))
+        if (collision.CompareTag("Environement") || collision.CompareTag("BossEgg") && thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
             rb.velocity = new Vector3(0, 0, 0);
             isMoving = false;

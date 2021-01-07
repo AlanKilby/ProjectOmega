@@ -154,6 +154,7 @@ Transform:
   - {fileID: 5060245968637711293}
   - {fileID: 5060245967836449042}
   - {fileID: 3284937297880252491}
+  - {fileID: 3807438413655932736}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -337,6 +338,9 @@ MonoBehaviour:
   stunTimerSet: 0
   stunSlowPercentageEffect: 0
   isAlive: 0
+  HUBTeleporter: {fileID: 2083008006340293692, guid: c140d8fca401325468e1275ab2304b54,
+    type: 3}
+  spawnPosForHUBTeleporter: {fileID: 3807438413655932736}
   takeDamage: 0
 --- !u!114 &18072672885834273
 MonoBehaviour:
@@ -1570,6 +1574,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 18072672760886106}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7735276315736146859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3807438413655932736}
+  m_Layer: 0
+  m_Name: SpawnPosForTeleporter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3807438413655932736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7735276315736146859}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 18072672760886106}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &213828288914110089
 PrefabInstance:

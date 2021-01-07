@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UD_BossStageTwo : MonoBehaviour
 {
+    public CameraSystem thisRoom;
+
     [Header("Tentacle Manager")]
     [SerializeField] GameObject tentacleObject;
     [SerializeField] Transform[] tentacleSpawn;
@@ -18,33 +20,37 @@ public class UD_BossStageTwo : MonoBehaviour
 
     void Start()
     {
-        
+        thisRoom = gameObject.GetComponentInParent<CameraSystem>();
+
     }
 
     void Update()
     {
-        if (canSpawn)
+        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
-            for (int i = 0; i < tentacleSpawn.Length; i++)
+            if (canSpawn)
             {
-                GameObject tentacle = Instantiate(tentacleObject, tentacleSpawn[i].position, tentacleSpawn[i].rotation);
-                print("instantiate tentacle no " + i+1);
-                UD_TentacleBoss tentacleScript = tentacleSpawn[i].GetComponent<UD_TentacleBoss>();
-                if (tentacleScript != null)
+                for (int i = 0; i < tentacleSpawn.Length; i++)
                 {
-                    tentacleScript.lifeTimer = tentacleLifeDelaySet;
+                    GameObject tentacle = Instantiate(tentacleObject, tentacleSpawn[i].position, tentacleSpawn[i].rotation);
+                    print("instantiate tentacle no " + i + 1);
+                    UD_TentacleBoss tentacleScript = tentacleSpawn[i].GetComponent<UD_TentacleBoss>();
+                    if (tentacleScript != null)
+                    {
+                        tentacleScript.lifeTimer = tentacleLifeDelaySet;
+                    }
                 }
+                /*GameObject tentacle1 = Instantiate(tentacleObject, tentacleSpawn1.position, tentacleSpawn1.rotation);
+                UD_TentacleBoss tentacle1Script = tentacleSpawn1.GetComponent<UD_TentacleBoss>();
+                tentacle1Script.lifeTimer = tentacleLifeDelaySet;
+                GameObject tentacle2 = Instantiate(tentacleObject, tentacleSpawn2.position, tentacleSpawn2.rotation);
+                GameObject tentacle3 = Instantiate(tentacleObject, tentacleSpawn3.position, tentacleSpawn3.rotation);
+                GameObject tentacle4 = Instantiate(tentacleObject, tentacleSpawn4.position, tentacleSpawn4.rotation);*/ //VERSION DEGUEUE DE CE QUI EST FAIT AU DESSUS
+                spawnRateTimer = spawnRate;
+                canSpawn = false;
             }
-            /*GameObject tentacle1 = Instantiate(tentacleObject, tentacleSpawn1.position, tentacleSpawn1.rotation);
-            UD_TentacleBoss tentacle1Script = tentacleSpawn1.GetComponent<UD_TentacleBoss>();
-            tentacle1Script.lifeTimer = tentacleLifeDelaySet;
-            GameObject tentacle2 = Instantiate(tentacleObject, tentacleSpawn2.position, tentacleSpawn2.rotation);
-            GameObject tentacle3 = Instantiate(tentacleObject, tentacleSpawn3.position, tentacleSpawn3.rotation);
-            GameObject tentacle4 = Instantiate(tentacleObject, tentacleSpawn4.position, tentacleSpawn4.rotation);*/ //VERSION DEGUEUE DE CE QUI EST FAIT AU DESSUS
-            spawnRateTimer = spawnRate;
-            canSpawn = false;
+            AcideSprayTimer();
         }
-        AcideSprayTimer();
     }
 
     void AcideSprayTimer()
