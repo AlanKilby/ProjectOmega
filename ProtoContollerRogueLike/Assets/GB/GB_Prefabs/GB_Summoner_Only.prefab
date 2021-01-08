@@ -391,10 +391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156563478d8b4ab42b17b91a37a81a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDropRate: 0
-  dropGun: 0
-  dropModule: 0
-  dropPowerUp: 0
+  baseDropRate: 100
+  dropGun: 50
+  dropModule: 30
+  dropPowerUp: 20
   thisRoom: {fileID: 0}
 --- !u!114 &9218145522360350849
 MonoBehaviour:
@@ -411,15 +411,16 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
+  thisRoom: {fileID: 0}
   lootDrop: {fileID: 9218145522360350910}
   anim: {fileID: 9218145522360350911}
   isZombie: 0
   isSpider: 0
   isSummoner: 1
-  health: 50
+  health: 45
   dropRate: 2
   speed: 1
-  moneyDrop: 200
+  moneyDrop: 15
   isStunned: 0
   stunTimerSet: 0
   stunSlowPercentageEffect: 0
@@ -443,8 +444,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   anim: {fileID: 9218145522360350911}
-  fleeSpeed: 50
-  summonRate: 5
+  fleeSpeed: 40
+  summonRate: 4
   summoningLenght: 1
   ownRBvelocityX: 0
   ownRBvelocityY: 0

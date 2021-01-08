@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3227524219972715631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.919527, y: -0.64301443, z: -47.35422}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,23 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentModHPMultiplier: 0
-  easyModHPMultiplier: 0
-  normalModHPMultiplier: 0
-  hardModHPMultiplier: 0
+  easyModHPMultiplier: 0.8
+  normalModHPMultiplier: 1
+  hardModHPMultiplier: 1.4
   currentModDamageMultiplier: 0
-  easyModDamageMultiplier: 0
-  normalModDamageMultiplier: 0
-  hardModDamageMultiplier: 0
+  easyModDamageMultiplier: 0.8
+  normalModDamageMultiplier: 1
+  hardModDamageMultiplier: 1.4
   currentStageHPBonusForZombie: 0
-  stageHPBonusForZombie: 0
+  stageHPBonusForZombie: 5
   currentStageHPBonusForSpider: 0
-  stageHPBonusForSpider: 0
+  stageHPBonusForSpider: 5
   currentStageHPBonusForSummoner: 0
-  stageHPBonusForSummoner: 0
+  stageHPBonusForSummoner: 10
   currentStageDamageBonusForZombie: 0
-  stageDamageBonusForZombie: 0
+  stageDamageBonusForZombie: 0.6
   currentStageDamageBonusForSpider: 0
-  stageDamageBonusForSpider: 0
+  stageDamageBonusForSpider: 1.5
   currentStageSpawnRateBonusForSummoner: 0
   stageSpawnRateBonusForSummoner: 0
 --- !u!114 &7073482840251138704
