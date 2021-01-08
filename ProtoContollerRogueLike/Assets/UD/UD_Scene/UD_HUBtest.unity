@@ -7738,7 +7738,7 @@ PrefabInstance:
     - target: {fileID: 881693914251462538, guid: a6687a22989e3a54584eea341a0555aa,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9375
+      value: 0.90625
       objectReference: {fileID: 0}
     - target: {fileID: 881693914840720216, guid: a6687a22989e3a54584eea341a0555aa,
         type: 3}
@@ -7750,6 +7750,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 202112537}
+    - target: {fileID: 881693914847950744, guid: a6687a22989e3a54584eea341a0555aa,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1198099839
+      objectReference: {fileID: 0}
     - target: {fileID: 881693915693227709, guid: a6687a22989e3a54584eea341a0555aa,
         type: 3}
       propertyPath: m_Name
