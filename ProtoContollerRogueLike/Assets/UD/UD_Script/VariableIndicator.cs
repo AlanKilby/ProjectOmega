@@ -9,13 +9,15 @@ public class VariableIndicator : MonoBehaviour
     public bool gameIsPausedIndiactor;
     public bool gameIsLoadingIndicator;
     public bool isSwordAttacking;
+    public bool moduleCheatOn;
 
     void Start()
     {
         SA = GameObject.FindGameObjectWithTag("Player").GetComponent<SwordAttack>();
         gameIsPausedIndiactor = GameManagement.GameIsPaused;
         gameIsLoadingIndicator = GameManagement.GameIsLoading;
-        if(SA != null)
+        moduleCheatOn = UI_PointInfoCheat.moduleCheatEnable;
+        if (SA != null)
         {
             isSwordAttacking = SA.isAttacking;
         }
@@ -25,6 +27,7 @@ public class VariableIndicator : MonoBehaviour
     {
         gameIsPausedIndiactor = GameManagement.GameIsPaused;
         gameIsLoadingIndicator = GameManagement.GameIsLoading;
+        moduleCheatOn = UI_PointInfoCheat.moduleCheatEnable;
         if (SA != null)
         {
             isSwordAttacking = SA.isAttacking;
