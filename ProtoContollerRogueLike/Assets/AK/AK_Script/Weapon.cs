@@ -32,6 +32,7 @@ public class Weapon : MonoBehaviour
     public int gunSlot;
     bool gunAlreadyInInv;
     public bool gunInHand; //Ajout Ulric pour Pastille Pistol
+
     [Header("Loading Gun ?")]
     public bool isALoadingGun;
     bool loadingGunCharging;
@@ -42,6 +43,12 @@ public class Weapon : MonoBehaviour
     public int chargedMaxDamageMultiplicator;
     public bool canStunWhenCharingMax;
     public float lifeTimeMultiplicatorWhenCharged;
+
+    [Header("Screen Shake")]
+    ScreenShakeEffect SSE;
+    [SerializeField] float shakePower;
+    [SerializeField] float shakeDuration;
+
     [Header("Unlimited Ammo ?")]
     public bool isUnlimitedAmmoGun;
 
@@ -58,6 +65,7 @@ public class Weapon : MonoBehaviour
         PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerModuleStation>();
         UP = GameObject.FindGameObjectWithTag("Player").GetComponent<UpgradePlatform>();
         CP = GameObject.FindGameObjectWithTag("Player").GetComponent<ConsumablePlatform>();
+        SSE = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShakeEffect>();
         audioSource = gameObject.GetComponent<AudioSource>();
         canShoot = true;
         isEquipped = false;
@@ -154,6 +162,12 @@ public class Weapon : MonoBehaviour
             gunInHand = false;
         }
 
+        //Retrouve la caméra pour screenshake si changement de scene
+        if(SSE == null)
+        {
+            SSE = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShakeEffect>();
+        }
+
     }
 
     void WeaponShooting()
@@ -164,6 +178,7 @@ public class Weapon : MonoBehaviour
             {
                 if (!isALoadingGun)
                 {
+                    SSE.StartShake(shakePower, shakeDuration);
                     GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
@@ -182,6 +197,7 @@ public class Weapon : MonoBehaviour
 
                 if (isALoadingGun)
                 {
+                    SSE.StartShake(shakePower, shakeDuration);
                     GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
                     Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                     Bullet Bu = bullet.GetComponent<Bullet>();

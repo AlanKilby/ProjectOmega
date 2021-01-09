@@ -53,6 +53,11 @@ public class PlayerMouvement : MonoBehaviour
     [SerializeField] Vector3 lastInput;
 
     Vector2 dashVelocity;
+    
+    [Header("Screen Shake")]
+    ScreenShakeEffect SSE;
+    [SerializeField] float shakePower;
+    [SerializeField] float shakeDuration;
 
     //public AnimationCurve acceleration = AnimationCurve.EaseInOut(0, 0, 0.75f, 2);
     //public AnimationCurve decceleration = AnimationCurve.EaseInOut(0, 1, 1, 0);
@@ -64,12 +69,19 @@ public class PlayerMouvement : MonoBehaviour
         SA = GetComponent<SwordAttack>();
         hasModulePhaseShift = false;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        SSE = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShakeEffect>();
         dashReloadTimeUpgraded = dashReloadTimeSet;
     }
     void Update()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         //UpdateAnim();
+
+        //Retrouve la caméra pour screenshake si changement de scene
+        if (SSE == null)
+        {
+            SSE = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShakeEffect>();
+        }
 
     }
 
@@ -197,6 +209,7 @@ public class PlayerMouvement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && canDash && rb.velocity != new Vector2(0, 0) && !GameManagement.GameIsPaused && !wallIsNear)
         {
+            SSE.StartShake(shakePower, shakeDuration);
             isDashing = true;
             dashVelocity = new Vector2(rb.velocity.x * dashSpeed, rb.velocity.y * dashSpeed);
             if (!hasModulePhaseShift)

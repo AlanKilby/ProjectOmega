@@ -33,11 +33,17 @@ public class SwordAttack : MonoBehaviour
 
     [SerializeField] private Animator anim;
 
+    [Header("Screen Shake")]
+    ScreenShakeEffect SSE;
+    [SerializeField] float shakePower;
+    [SerializeField] float shakeDuration;
+
     private void Start()
     {
         PH = GetComponent<PlayerHealth>();
         counterbladeSlashArea = GameObject.FindGameObjectWithTag("CounterBladeSlashArea");
         PPERed = GameObject.Find("VampireEffect").GetComponent<PostProcessEffect>();
+        SSE = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShakeEffect>();
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         combatEnabled = true;
@@ -61,6 +67,12 @@ public class SwordAttack : MonoBehaviour
             GetAttackInput();
             //ChangeAnimationState(PLAYER_SWORD);
 
+        }
+
+        //Retrouve la caméra pour screenshake si changement de scene
+        if (SSE == null)
+        {
+            SSE = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShakeEffect>();
         }
         /*if (isAttacking && hasCounterBlade)
         {
@@ -105,6 +117,7 @@ public class SwordAttack : MonoBehaviour
 
     public void CheckAttackHitBox()
     {
+        SSE.StartShake(shakePower, shakeDuration);
         Collider2D hitInfo = Physics2D.OverlapCircle(attackHitBoxPos.position, attackRadius, whatIsEnnemy);
         if (hitInfo != null)
         {

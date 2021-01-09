@@ -668,6 +668,8 @@ MonoBehaviour:
   anim: {fileID: 1163558162623733044}
   playerInput: {x: 0, y: 0}
   lastInput: {x: 0, y: 0, z: 0}
+  shakePower: 0.3
+  shakeDuration: 0.2
 --- !u!114 &1163558162623733000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +747,8 @@ MonoBehaviour:
   isVampire: 0
   hasCounterBlade: 0
   anim: {fileID: 1163558162623733044}
+  shakePower: 0.15
+  shakeDuration: 0.1
 --- !u!114 &1163558162623733002
 MonoBehaviour:
   m_ObjectHideFlags: 0
