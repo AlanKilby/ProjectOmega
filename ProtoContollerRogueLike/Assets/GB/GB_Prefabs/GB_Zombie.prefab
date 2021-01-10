@@ -190,8 +190,8 @@ MonoBehaviour:
   speed: 3
   moneyDrop: 3
   isStunned: 0
-  stunTimerSet: 0
-  stunSlowPercentageEffect: 0
+  stunTimerSet: 1.5
+  stunSlowPercentageEffect: 75
   takeDamage: 0
 --- !u!114 &3710740177954171492
 MonoBehaviour:

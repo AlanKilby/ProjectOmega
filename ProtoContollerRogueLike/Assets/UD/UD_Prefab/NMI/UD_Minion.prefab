@@ -190,8 +190,8 @@ MonoBehaviour:
   speed: 3
   moneyDrop: 0
   isStunned: 0
-  stunTimerSet: 0
-  stunSlowPercentageEffect: 0
+  stunTimerSet: 1.5
+  stunSlowPercentageEffect: 75
   takeDamage: 0
 --- !u!114 &4481938651210652585
 MonoBehaviour:
@@ -205,10 +205,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156563478d8b4ab42b17b91a37a81a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDropRate: 50
-  dropGun: 10
-  dropModule: 85
-  dropPowerUp: 5
+  baseDropRate: 3
+  dropGun: 94
+  dropModule: 3
+  dropPowerUp: 3
   thisRoom: {fileID: 0}
 --- !u!114 &1303696921845169771
 MonoBehaviour:
