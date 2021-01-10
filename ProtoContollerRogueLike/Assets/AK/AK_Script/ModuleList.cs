@@ -9,6 +9,8 @@ public class ModuleList : MonoBehaviour
 
     GameObject player;
 
+    public bool canDrop;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -18,22 +20,32 @@ public class ModuleList : MonoBehaviour
     {
         // Il reste a faire un changement pour que le drop ne soit pas fait lorsque l'inventaire de modules est plein ! 
 
-        randomLoot = Random.Range(0, modules.Length - 1);
+        //randomLoot = Random.Range(0, modules.Length);
+        randomLoot = 1;
         Debug.Log(randomLoot);
 
-        for(int i = 0; i < modules.Length; i++)
+        for(int i = 0; i <= player.GetComponent<Inventory>().moduleGameObject.Length; i++)
         {
-            if (player.GetComponent<Inventory>().moduleSlots[i] == modules[randomLoot])
+            Debug.Log("entered for loop");
+
+            if (player.GetComponent<Inventory>().moduleGameObject[i] != null && modules[randomLoot] == player.GetComponent<Inventory>().moduleGameObject[i])
             {
-                randomLoot = Random.Range(0, modules.Length - 1);
-                i = 0;
+                randomLoot = Random.Range(0, modules.Length);
+                i = -1;
+                Debug.Log(randomLoot);
+                Debug.Log("reset loop");
             }
             
+            if(i >= player.GetComponent<Inventory>().moduleGameObject.Length)
+            {
+                GameObject drop = Instantiate(modules[randomLoot], thisObject.transform.position, Quaternion.identity);
+                drop.transform.SetParent(moduleParent);
+            }
             
 
         }
 
-        GameObject drop = Instantiate(modules[Random.Range(0, modules.Length)], gameObject.transform.position, Quaternion.identity);
-        drop.transform.SetParent(moduleParent);
+       
+        
     }
 }

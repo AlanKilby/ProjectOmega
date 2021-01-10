@@ -32,11 +32,11 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < isFull.Length; i++)
         {
-            if (equippedSlot != gunGameObject[i].GetComponent<Weapon>().gunSlot)
+            if (gunGameObject[i] != null && equippedSlot != gunGameObject[i].GetComponent<Weapon>().gunSlot)
             {
                 gunGameObject[i].GetComponent<Weapon>().gunSpriteRenderer.enabled = false;
             }
-            if (equippedSlot == gunGameObject[i].GetComponent<Weapon>().gunSlot)
+            if (gunGameObject[i] != null && equippedSlot == gunGameObject[i].GetComponent<Weapon>().gunSlot)
             {
                 gunGameObject[i].GetComponent<Weapon>().gunSpriteRenderer.enabled = true;
             }

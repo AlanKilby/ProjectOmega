@@ -13,7 +13,7 @@ public class EscapePod : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("can escape");
+        //Debug.Log("can escape");
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             escapeStart = true;
