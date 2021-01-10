@@ -64,7 +64,7 @@ public class Spider : MonoBehaviour
     {
         if (thisRoom.playerIsInTheRoom.playerIsInTheRoom == true)
         {
-            if (playerInSight)
+            if (playerInSight && playerPos != null)
             {
                 LookToPlayer();
             }
@@ -78,7 +78,10 @@ public class Spider : MonoBehaviour
             }
             Move();
         }
-        Invoke("PlayerInSight", 0.2f);
+        if(playerPos != null)
+        {
+            Invoke("PlayerInSight", 0.2f);
+        }
     }
 
     private void FixedUpdate()
@@ -106,7 +109,7 @@ public class Spider : MonoBehaviour
 
         }
 
-        if (playerInAffraidArea)
+        if (playerInAffraidArea && playerPos != null)
         {
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
             Vector3 fleeDirection = playerPos.position - gameObject.transform.position;
@@ -222,10 +225,11 @@ public class Spider : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, playerPos.position);
-        //Gizmos.DrawWireSphere(transform.position, affraidArea);
-
-
+        if(playerPos != null)
+        {
+            Gizmos.DrawLine(transform.position, playerPos.position);
+            //Gizmos.DrawWireSphere(transform.position, affraidArea);
+        }
     }
 
     //Ajout Gus

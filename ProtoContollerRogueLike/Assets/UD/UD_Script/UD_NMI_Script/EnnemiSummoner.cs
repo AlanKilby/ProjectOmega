@@ -66,7 +66,7 @@ public class EnnemiSummoner : MonoBehaviour
     {
         if (thisRoom.playerIsInTheRoom.playerIsInTheRoom == true)
         {
-            if (playerInSight)
+            if (playerInSight && playerPos != null)
             {
                 LookToPlayer();
             }
@@ -82,11 +82,15 @@ public class EnnemiSummoner : MonoBehaviour
             Move();
         }
         UpdateAnims();
+        if(playerPos != null)
+        {
+            Invoke("PlayerInSight", 0.2f);
+        }
     }
 
     private void FixedUpdate()
     {
-        PlayerInSight();
+        //PlayerInSight();
     }
 
     void UpdateAnims()
@@ -143,7 +147,7 @@ public class EnnemiSummoner : MonoBehaviour
             ChangeAnimationState(SUMMONER_CAST);
         }
 
-        if (playerInAffraidArea)
+        if (playerInAffraidArea && playerPos != null)
         {
             gameObject.GetComponent<AIPath>().enabled = false;
             gameObject.GetComponent<Rigidbody2D>().isKinematic = false;
@@ -188,11 +192,14 @@ public class EnnemiSummoner : MonoBehaviour
     private void LookToPlayer()
     {
         // Cette partie du script fut trouvee sur le forum Unity https://answers.unity.com/questions/585035/lookat-2d-equivalent-.html?_ga=2.230719519.1043224240.1601999147-1783980511.1597703941
-        Vector3 diff = playerPos.position - gameObject.transform.position;
-        diff.Normalize();
+        if(playerPos != null)
+        {
+            Vector3 diff = playerPos.position - gameObject.transform.position;
+            diff.Normalize();
 
-        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+            float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        }
     }
 
     private void Summon()
@@ -241,7 +248,10 @@ public class EnnemiSummoner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, playerPos.position);
+        if(playerPos != null)
+        {
+            Gizmos.DrawLine(transform.position, playerPos.position);
+        }
     }
 
     //Ajout Gus
