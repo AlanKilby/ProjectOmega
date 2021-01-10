@@ -75,7 +75,7 @@ MonoBehaviour:
   - {x: -0.72784996, y: -0.34113693, z: 0}
   m_ShapePathHash: 2016747099
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29268
+  m_InstanceId: 30900
 --- !u!1 &1861839584225524584
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   - {x: -0.72784996, y: -0.34113693, z: 0}
   m_ShapePathHash: 2016747099
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29338
+  m_InstanceId: 30970
 --- !u!1 &2911622530213840239
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   - {x: -0.72784996, y: -0.34113693, z: 0}
   m_ShapePathHash: 2016747099
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29270
+  m_InstanceId: 30902
 --- !u!1 &5319866627712541751
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   - {x: -0.72784996, y: -0.34113693, z: 0}
   m_ShapePathHash: -1901231885
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29282
+  m_InstanceId: 30914
 --- !u!1 &5460084684899828549
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   - {x: -0.72784996, y: -0.34113693, z: 0}
   m_ShapePathHash: -1901231885
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29248
+  m_InstanceId: 30880
 --- !u!1 &6824529973510282394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   - {x: -0.72784996, y: -0.34113693, z: 0}
   m_ShapePathHash: 2016747099
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29288
+  m_InstanceId: 30920
 --- !u!1 &7272995283596839055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2418,7 +2418,7 @@ MonoBehaviour:
   - {x: -0.72784996, y: -0.34113693, z: 0}
   m_ShapePathHash: -1901231885
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29294
+  m_InstanceId: 30926
 --- !u!1 &8248290732441166825
 GameObject:
   m_ObjectHideFlags: 0
@@ -6401,7 +6401,7 @@ MonoBehaviour:
   - {x: -0.72784996, y: -0.34113693, z: 0}
   m_ShapePathHash: -1901231885
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29320
+  m_InstanceId: 30952
 --- !u!1 &8972531461007009470
 GameObject:
   m_ObjectHideFlags: 0
@@ -6415,7 +6415,6 @@ GameObject:
   - component: {fileID: 1078543154942487162}
   - component: {fileID: 1142763018435953053}
   - component: {fileID: 1873242640651342258}
-  - component: {fileID: 7424495287312614265}
   m_Layer: 12
   m_Name: AcidePool
   m_TagString: Untagged
@@ -6730,7 +6729,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -6755,110 +6754,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &7424495287312614265
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8972531461007009470}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1142763018435953053}
-    m_ColliderPaths:
-    - - X: -89999900
-        Y: 49999959
-      - X: -89999900
-        Y: 80000041
-      - X: -89999959
-        Y: 80000100
-      - X: -100000041
-        Y: 80000100
-      - X: -100000100
-        Y: 80000041
-      - X: -100000100
-        Y: 49999959
-      - X: -100000041
-        Y: 49999900
-      - X: -89999959
-        Y: 49999900
-    - - X: 100000100
-        Y: 39999959
-      - X: 100000100
-        Y: 50000041
-      - X: 100000041
-        Y: 50000100
-      - X: 69999959
-        Y: 50000100
-      - X: 69999900
-        Y: 50000041
-      - X: 69999900
-        Y: 39999959
-      - X: 69999959
-        Y: 39999900
-      - X: 100000041
-        Y: 39999900
-    - - X: -109999900
-        Y: -50000041
-      - X: -109999900
-        Y: -39999959
-      - X: -109999959
-        Y: -39999900
-      - X: -140000041
-        Y: -39999900
-      - X: -140000100
-        Y: -39999959
-      - X: -140000100
-        Y: -50000041
-      - X: -140000041
-        Y: -50000100
-      - X: -109999959
-        Y: -50000100
-    - - X: 60000100
-        Y: -80000041
-      - X: 60000100
-        Y: -49999959
-      - X: 60000041
-        Y: -49999900
-      - X: 49999959
-        Y: -49999900
-      - X: 49999900
-        Y: -49999959
-      - X: 49999900
-        Y: -80000041
-      - X: 49999959
-        Y: -80000100
-      - X: 60000041
-        Y: -80000100
-  m_CompositePaths:
-    m_Paths:
-    - - {x: -9.000026, y: 4.99999}
-      - {x: -9.000026, y: 8.00001}
-      - {x: -10.00001, y: 7.9999747}
-      - {x: -9.999974, y: 4.99999}
-    - - {x: 9.999974, y: 3.99999}
-      - {x: 9.999974, y: 5.00001}
-      - {x: 6.9999905, y: 4.9999747}
-      - {x: 7.0000257, y: 3.99999}
-    - - {x: -11.000026, y: -5.00001}
-      - {x: -11.000026, y: -3.99999}
-      - {x: -14.00001, y: -4.0000253}
-      - {x: -13.999974, y: -5.00001}
-    - - {x: 5.9999747, y: -8.00001}
-      - {x: 5.9999747, y: -4.99999}
-      - {x: 4.99999, y: -5.0000253}
-      - {x: 5.0000253, y: -8.00001}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!1001 &5613270765750183106
 PrefabInstance:
   m_ObjectHideFlags: 0

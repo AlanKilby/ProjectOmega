@@ -62,7 +62,7 @@ MonoBehaviour:
   - {x: -0.40809727, y: -3.7417772, z: 0.00000023841858}
   m_ShapePathHash: 1586110745
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40778
+  m_InstanceId: 42774
 --- !u!1 &342558320100500258
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   - {x: -0.40809727, y: -3.7417772, z: 0.00000023841858}
   m_ShapePathHash: 1586110745
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40820
+  m_InstanceId: 42816
 --- !u!1 &661669705590053700
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +834,7 @@ MonoBehaviour:
   - {x: -0.4215424, y: -3.7417772, z: 0.00000023841858}
   m_ShapePathHash: 1516219503
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40786
+  m_InstanceId: 42782
 --- !u!1 &2732823460971439159
 GameObject:
   m_ObjectHideFlags: 0
@@ -4761,7 +4761,6 @@ GameObject:
   - component: {fileID: 6443773131814710692}
   - component: {fileID: 6359302731027908163}
   - component: {fileID: 5648702008998254188}
-  - component: {fileID: 3499925752241423527}
   m_Layer: 12
   m_Name: AcidePool
   m_TagString: Untagged
@@ -5130,7 +5129,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -5155,102 +5154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &3499925752241423527
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3107471778903351648}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 6359302731027908163}
-    m_ColliderPaths:
-    - - X: -79999900
-        Y: 39999959
-      - X: -79999900
-        Y: 80000041
-      - X: -79999959
-        Y: 80000100
-      - X: -90000041
-        Y: 80000100
-      - X: -90000100
-        Y: 80000041
-      - X: -90000100
-        Y: 39999959
-      - X: -90000041
-        Y: 39999900
-      - X: -79999959
-        Y: 39999900
-    - - X: 40000000
-        Y: 40000000
-      - X: -10000000
-        Y: 40000000
-      - X: -10000000
-        Y: 30000000
-      - X: 40000000
-        Y: 30000000
-    - - X: -29999900
-        Y: -40000041
-      - X: -29999900
-        Y: -29999959
-      - X: -29999959
-        Y: -29999900
-      - X: -80000041
-        Y: -29999900
-      - X: -80000100
-        Y: -29999959
-      - X: -80000100
-        Y: -40000041
-      - X: -80000041
-        Y: -40000100
-      - X: -29999959
-        Y: -40000100
-    - - X: 50000100
-        Y: -80000041
-      - X: 50000100
-        Y: -39999959
-      - X: 50000041
-        Y: -39999900
-      - X: 39999959
-        Y: -39999900
-      - X: 39999900
-        Y: -39999959
-      - X: 39999900
-        Y: -80000041
-      - X: 39999959
-        Y: -80000100
-      - X: 50000041
-        Y: -80000100
-  m_CompositePaths:
-    m_Paths:
-    - - {x: -8.000026, y: 3.99999}
-      - {x: -8.000026, y: 8.00001}
-      - {x: -9.00001, y: 7.9999747}
-      - {x: -8.999974, y: 3.99999}
-    - - {x: 3.999971, y: 3}
-      - {x: 3.999971, y: 4}
-      - {x: -1, y: 3.999971}
-      - {x: -0.99997073, y: 3}
-    - - {x: -3.0000253, y: -4.00001}
-      - {x: -3.0000253, y: -2.99999}
-      - {x: -8.00001, y: -3.0000253}
-      - {x: -7.9999747, y: -4.00001}
-    - - {x: 4.9999747, y: -8.00001}
-      - {x: 4.9999747, y: -3.99999}
-      - {x: 3.99999, y: -4.0000253}
-      - {x: 4.0000253, y: -8.00001}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!1 &3708149556574326609
 GameObject:
   m_ObjectHideFlags: 0
@@ -5843,7 +5746,7 @@ MonoBehaviour:
   - {x: -0.40809727, y: -3.7417772, z: 0.00000023841858}
   m_ShapePathHash: 359632613
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40834
+  m_InstanceId: 42830
 --- !u!1001 &580768569936861600
 PrefabInstance:
   m_ObjectHideFlags: 0

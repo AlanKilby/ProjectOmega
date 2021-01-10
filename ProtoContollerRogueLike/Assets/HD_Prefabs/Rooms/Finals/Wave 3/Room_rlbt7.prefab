@@ -429,7 +429,7 @@ MonoBehaviour:
   - {x: -0.33977747, y: -0.22653481, z: 0.00000023841858}
   m_ShapePathHash: -1161727161
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34818
+  m_InstanceId: 36372
 --- !u!1 &1607060669994988174
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +443,6 @@ GameObject:
   - component: {fileID: 7223344655941582410}
   - component: {fileID: 7282971578312136109}
   - component: {fileID: 8301999678811587970}
-  - component: {fileID: 990972074284488521}
   m_Layer: 12
   m_Name: AcidePool
   m_TagString: Untagged
@@ -648,7 +647,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -673,30 +672,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &990972074284488521
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607060669994988174}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 7282971578312136109}
-    m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!1 &1782977131632326617
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,7 +4630,7 @@ MonoBehaviour:
   - {x: -1.362108, y: -0.32369575, z: 0.00000023841858}
   m_ShapePathHash: 100410271
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34922
+  m_InstanceId: 36476
 --- !u!1 &3781934222177831082
 GameObject:
   m_ObjectHideFlags: 0
@@ -6116,7 +6091,7 @@ MonoBehaviour:
   - {x: -0.33977747, y: -0.22653481, z: 0.00000023841858}
   m_ShapePathHash: -1161727161
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34856
+  m_InstanceId: 36410
 --- !u!1 &4789371752730134349
 GameObject:
   m_ObjectHideFlags: 0
@@ -6196,7 +6171,7 @@ MonoBehaviour:
   - {x: -1.362108, y: -0.32369575, z: 0.00000023841858}
   m_ShapePathHash: 100410271
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34904
+  m_InstanceId: 36458
 --- !u!1 &4830096605785972956
 GameObject:
   m_ObjectHideFlags: 0
@@ -6276,7 +6251,7 @@ MonoBehaviour:
   - {x: -1.362108, y: -0.32369575, z: 0.00000023841858}
   m_ShapePathHash: 100410271
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34826
+  m_InstanceId: 36380
 --- !u!1 &5508487570829349704
 GameObject:
   m_ObjectHideFlags: 0
@@ -6356,7 +6331,7 @@ MonoBehaviour:
   - {x: -1.362108, y: -0.32369575, z: 0.00000023841858}
   m_ShapePathHash: 100410271
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34838
+  m_InstanceId: 36392
 --- !u!1 &5576470241106993761
 GameObject:
   m_ObjectHideFlags: 0
@@ -6429,7 +6404,7 @@ MonoBehaviour:
   - {x: -0.43518287, y: -0.2077391, z: 0.00000023841858}
   m_ShapePathHash: -1309422702
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34848
+  m_InstanceId: 36402
 --- !u!1 &5882211860080066196
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,7 +6477,7 @@ MonoBehaviour:
   - {x: -0.43518287, y: -0.2077391, z: 0.00000023841858}
   m_ShapePathHash: -1309422702
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34800
+  m_InstanceId: 36354
 --- !u!1 &7805769731445014426
 GameObject:
   m_ObjectHideFlags: 0
@@ -6575,7 +6550,7 @@ MonoBehaviour:
   - {x: -0.43518287, y: -0.2077391, z: 0.00000023841858}
   m_ShapePathHash: -1309422702
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34874
+  m_InstanceId: 36428
 --- !u!1 &8715735260547683766
 GameObject:
   m_ObjectHideFlags: 0
@@ -6648,7 +6623,7 @@ MonoBehaviour:
   - {x: -0.43518287, y: -0.2077391, z: 0.00000023841858}
   m_ShapePathHash: -1309422702
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34814
+  m_InstanceId: 36368
 --- !u!1 &8875189759208841657
 GameObject:
   m_ObjectHideFlags: 0
@@ -6728,7 +6703,7 @@ MonoBehaviour:
   - {x: -1.362108, y: -0.32369575, z: 0.00000023841858}
   m_ShapePathHash: 100410271
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34868
+  m_InstanceId: 36422
 --- !u!1001 &2654459070990482947
 PrefabInstance:
   m_ObjectHideFlags: 0

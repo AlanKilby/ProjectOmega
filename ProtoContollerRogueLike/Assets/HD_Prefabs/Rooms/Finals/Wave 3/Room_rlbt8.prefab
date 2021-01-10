@@ -70,7 +70,7 @@ MonoBehaviour:
   - {x: -0.494812, y: 0.4377463, z: 0}
   m_ShapePathHash: 1531689845
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43708
+  m_InstanceId: 36826
 --- !u!1 &3720614870987173078
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
   - {x: -0.494812, y: 0.4377463, z: 0}
   m_ShapePathHash: 1531689845
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43766
+  m_InstanceId: 36884
 --- !u!1 &4621453198313075947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1070,6 @@ GameObject:
   - component: {fileID: 1180202176423363083}
   - component: {fileID: 1246584509542509036}
   - component: {fileID: 533732257941060035}
-  - component: {fileID: 8763496660329933576}
   m_Layer: 12
   m_Name: AcidePool
   m_TagString: Untagged
@@ -1380,7 +1379,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -1405,90 +1404,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &8763496660329933576
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7067272872846937807}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1246584509542509036}
-    m_ColliderPaths:
-    - - X: -130000000
-        Y: 30000000
-      - X: -120000000
-        Y: 30000000
-      - X: -120000000
-        Y: 20000000
-      - X: -110000000
-        Y: 20000000
-      - X: -110000000
-        Y: 10000000
-      - X: -100000000
-        Y: 10000000
-      - X: -100000000
-        Y: 0
-      - X: -90000000
-        Y: 0
-      - X: -90000000
-        Y: 10000000
-      - X: -80000000
-        Y: 10000000
-      - X: -80000000
-        Y: 20000000
-      - X: -90000000
-        Y: 20000000
-      - X: -90000000
-        Y: 30000000
-      - X: -100000000
-        Y: 30000000
-      - X: -100000000
-        Y: 40000000
-      - X: -110000000
-        Y: 40000000
-      - X: -110000000
-        Y: 50000000
-      - X: -120000000
-        Y: 50000000
-      - X: -120000000
-        Y: 40000000
-      - X: -130000000
-        Y: 40000000
-  m_CompositePaths:
-    m_Paths:
-    - - {x: -9.00003, y: 0}
-      - {x: -8.99997, y: 1}
-      - {x: -8, y: 1.0000293}
-      - {x: -8.00003, y: 2}
-      - {x: -9, y: 2.0000293}
-      - {x: -9.00003, y: 3}
-      - {x: -10, y: 3.0000293}
-      - {x: -10.00003, y: 4}
-      - {x: -11, y: 4.0000296}
-      - {x: -11.00003, y: 5}
-      - {x: -12, y: 4.999971}
-      - {x: -12.00003, y: 4}
-      - {x: -13, y: 3.999971}
-      - {x: -12.99997, y: 3}
-      - {x: -12, y: 2.9999707}
-      - {x: -11.99997, y: 2}
-      - {x: -11, y: 1.9999707}
-      - {x: -10.99997, y: 1}
-      - {x: -10, y: 0.9999706}
-      - {x: -9.99997, y: 0}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!1 &7845545776121924504
 GameObject:
   m_ObjectHideFlags: 0
@@ -6907,7 +6822,7 @@ PrefabInstance:
     - target: {fileID: 382846287475563149, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
       propertyPath: m_InstanceId
-      value: -40004
+      value: -37096
       objectReference: {fileID: 0}
     - target: {fileID: 382846287475563149, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
@@ -6992,7 +6907,7 @@ PrefabInstance:
     - target: {fileID: 2212424072597791177, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
       propertyPath: m_InstanceId
-      value: -40002
+      value: -37094
       objectReference: {fileID: 0}
     - target: {fileID: 2212424072597791177, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
@@ -7737,7 +7652,7 @@ PrefabInstance:
     - target: {fileID: 4320041909799072256, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
       propertyPath: m_InstanceId
-      value: -40006
+      value: -37098
       objectReference: {fileID: 0}
     - target: {fileID: 4320041909799072256, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
@@ -7747,7 +7662,7 @@ PrefabInstance:
     - target: {fileID: 5870872819394437518, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
       propertyPath: m_InstanceId
-      value: -40010
+      value: -37090
       objectReference: {fileID: 0}
     - target: {fileID: 5870872819394437518, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
@@ -7767,7 +7682,7 @@ PrefabInstance:
     - target: {fileID: 5879044848878641308, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
       propertyPath: m_InstanceId
-      value: -40012
+      value: -37092
       objectReference: {fileID: 0}
     - target: {fileID: 5879044848878641308, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
@@ -7982,7 +7897,7 @@ PrefabInstance:
     - target: {fileID: 6139403767103402611, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}
       propertyPath: m_InstanceId
-      value: -40008
+      value: -37088
       objectReference: {fileID: 0}
     - target: {fileID: 6139403767103402611, guid: 8127b156413578e45be954dcdd9403b6,
         type: 3}

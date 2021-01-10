@@ -947,7 +947,7 @@ MonoBehaviour:
   - {x: -0.3772037, y: -0.6540117, z: 0}
   m_ShapePathHash: -90719609
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34960
+  m_InstanceId: 28986
 --- !u!1 &1228321219316948859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   - {x: -0.39860606, y: -0.65401196, z: 0}
   m_ShapePathHash: 138641141
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34938
+  m_InstanceId: 28964
 --- !u!1 &2479729663418117701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,7 +1059,6 @@ GameObject:
   - component: {fileID: 5772155009522819713}
   - component: {fileID: 5852139403103422822}
   - component: {fileID: 5121166100305582409}
-  - component: {fileID: 4171470211549711234}
   m_Layer: 12
   m_Name: AcidePool
   m_TagString: Untagged
@@ -1264,7 +1263,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -1289,30 +1288,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &4171470211549711234
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2479729663418117701}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 5852139403103422822}
-    m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!1 &2769499731697623009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,7 +1363,7 @@ MonoBehaviour:
   - {x: -0.33578426, y: -0.81674206, z: 0}
   m_ShapePathHash: 743678755
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34924
+  m_InstanceId: 28950
 --- !u!1 &2796958658720891458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,7 +1443,7 @@ MonoBehaviour:
   - {x: -0.3772037, y: -0.6540117, z: 0}
   m_ShapePathHash: -90719609
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34964
+  m_InstanceId: 28990
 --- !u!1 &3214094136706771730
 GameObject:
   m_ObjectHideFlags: 0
@@ -5413,7 +5388,7 @@ MonoBehaviour:
   - {x: -0.39860606, y: -0.65401196, z: 0}
   m_ShapePathHash: 1985253595
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34876
+  m_InstanceId: 28902
 --- !u!1 &3865614571690400622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,7 +5458,7 @@ MonoBehaviour:
   - {x: -0.3772037, y: -0.6540117, z: 0}
   m_ShapePathHash: -910588453
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34922
+  m_InstanceId: 28948
 --- !u!1 &4180413044733395060
 GameObject:
   m_ObjectHideFlags: 0
@@ -6337,7 +6312,7 @@ MonoBehaviour:
   - {x: -0.39860606, y: -0.65401196, z: 0}
   m_ShapePathHash: 1311785805
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34906
+  m_InstanceId: 28932
 --- !u!1001 &300357019050467151
 PrefabInstance:
   m_ObjectHideFlags: 0

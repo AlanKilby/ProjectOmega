@@ -62,7 +62,7 @@ MonoBehaviour:
   - {x: -0.34026957, y: 0.1467781, z: 0}
   m_ShapePathHash: 954808059
   m_Mesh: {fileID: 0}
-  m_InstanceId: 59826
+  m_InstanceId: 39748
 --- !u!1 &508528527442081873
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   - {x: -0.34026957, y: 0.1467781, z: 0}
   m_ShapePathHash: 954808059
   m_Mesh: {fileID: 0}
-  m_InstanceId: 59794
+  m_InstanceId: 39716
 --- !u!1 &1130409796639381090
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   - {x: -0.34026957, y: 0.1467781, z: 0}
   m_ShapePathHash: 1731637430
   m_Mesh: {fileID: 0}
-  m_InstanceId: 59840
+  m_InstanceId: 39762
 --- !u!1 &1547207419732230684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,7 +1499,6 @@ GameObject:
   - component: {fileID: 4988458286801859836}
   - component: {fileID: 4906313078766771995}
   - component: {fileID: 5922877173232324404}
-  - component: {fileID: 3225784638643346943}
   m_Layer: 12
   m_Name: AcidePool
   m_TagString: Untagged
@@ -1705,7 +1704,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
@@ -1730,30 +1729,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &3225784638643346943
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3983861556772206648}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 4906313078766771995}
-    m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!1 &4159779667741932911
 GameObject:
   m_ObjectHideFlags: 0
@@ -5694,7 +5669,7 @@ MonoBehaviour:
   - {x: -0.34026957, y: 0.1467781, z: 0}
   m_ShapePathHash: -1407244849
   m_Mesh: {fileID: 0}
-  m_InstanceId: 59824
+  m_InstanceId: 39746
 --- !u!1 &6643927259404396653
 GameObject:
   m_ObjectHideFlags: 0
@@ -5756,7 +5731,7 @@ MonoBehaviour:
   - {x: -0.34026957, y: 0.1467781, z: 0}
   m_ShapePathHash: -1407244849
   m_Mesh: {fileID: 0}
-  m_InstanceId: 59838
+  m_InstanceId: 39760
 --- !u!1 &6781615429973705482
 GameObject:
   m_ObjectHideFlags: 0

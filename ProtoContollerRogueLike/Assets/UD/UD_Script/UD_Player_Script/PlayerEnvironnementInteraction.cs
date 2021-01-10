@@ -10,14 +10,15 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
     public Collider2D ownCollider2D;
 
     [Header("Acide Interaction")]
+    public Transform acideDetectionPos;
     [SerializeField] LayerMask whatIsAcide;
     private bool isInAcide;
     private bool acideDealDamageActive;
 
     [SerializeField] int acideDamage;
     [SerializeField] float acideDetectionRadius;
-    [SerializeField] float acideDetectionRadiusXoffset;
-    [SerializeField] float acideDetectionRadiusYoffset;
+    /*[SerializeField] float acideDetectionRadiusXoffset;
+    [SerializeField] float acideDetectionRadiusYoffset;*/
     [SerializeField] float acideDamageRate;
     private float acideDamageRateTimer;
 
@@ -124,16 +125,16 @@ public class PlayerEnvironnementInteraction : MonoBehaviour
 
     private void CheckSurroundings()
     {
-        Vector3 offset = new Vector3(acideDetectionRadiusXoffset, acideDetectionRadiusYoffset, 0.0f);
-        isInAcide = Physics2D.OverlapCircle(gameObject.transform.position + offset, acideDetectionRadius, whatIsAcide);
+        Vector3 offset = new Vector3(acideDetectionPos.position.x, acideDetectionPos.position.y, 0.0f);
+        isInAcide = Physics2D.OverlapCircle(acideDetectionPos.position, acideDetectionRadius, whatIsAcide);
         //isNearRavine = Physics2D.OverlapCircle(gameObject.transform.position + offset, ravineDetectionRespawnIfDie, whatIsRavin); //N'est plus appelée car la méchanique est abandonnée
         //isTouchingRavine = Physics2D.OverlapCircle(gameObject.transform.position + offset, acideDetectionRadius, whatIsRavin); //N'est plus appelée car la méchanique est abandonnée
     }
 
     private void OnDrawGizmos()
     {
-        Vector3 offset = new Vector3(acideDetectionRadiusXoffset, acideDetectionRadiusYoffset, 0.0f);
-        Gizmos.DrawWireSphere(gameObject.transform.position, acideDetectionRadius);
+        Vector3 offset = new Vector3(acideDetectionPos.position.x, acideDetectionPos.position.y, 0.0f);
+        Gizmos.DrawWireSphere(acideDetectionPos.position, acideDetectionRadius);
         Gizmos.DrawWireSphere(gameObject.transform.position, ravineDetectionRespawnIfDie);
     }
 
