@@ -48,8 +48,9 @@ public class LootDrop : MonoBehaviour
             else if (randomDrop > dropGun && randomDrop <= dropModule)
             {
                 Debug.Log("Drop Module");
-                GameObject drop = Instantiate(moduleList.modules[Random.Range(0, moduleList.modules.Length)], gameObject.transform.position, Quaternion.identity);
-                drop.transform.SetParent(thisRoom.transform);
+                moduleList.DropModule(thisRoom.transform, gameObject.transform);
+                //GameObject drop = Instantiate(moduleList.modules[Random.Range(0, moduleList.modules.Length)], gameObject.transform.position, Quaternion.identity);
+                //drop.transform.SetParent(thisRoom.transform);
                 Destroy(gameObject);
             }
             else if (randomDrop > dropModule && randomDrop <= dropPowerUp )
