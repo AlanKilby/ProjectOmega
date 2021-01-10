@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb4fa2c7defb50438b3d0b2dab9eb17, type: 3}
+  m_Name: Shotgun_Rare
+  m_EditorClassIdentifier: 
+  name: Shotgun_Rare
+  ID: Shotgun
+  damage: 100
+  accuracy: 15
+  fireRate: 30
+  ammoType: {fileID: 3415272654159278721, guid: 377a9415886b62142b84c8c05ded2c45,
+    type: 3}
+  ammoID: 1
+  bulletVelocity: 15
+  rarity: 2
+  gunSounds: []
+  weaponSprites:
+  - {fileID: 21300000, guid: 2f0739bded6cd404facd913d0473e0cf, type: 3}
+  - {fileID: 21300000, guid: 2f0739bded6cd404facd913d0473e0cf, type: 3}
+  - {fileID: 21300000, guid: 2f0739bded6cd404facd913d0473e0cf, type: 3}
+  gunIcon: {fileID: 6920906141876201001, guid: 8b2bb5f4cfae3314e834e313a75bba07, type: 3}
