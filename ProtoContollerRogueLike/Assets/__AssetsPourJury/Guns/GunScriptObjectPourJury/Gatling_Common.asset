@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb4fa2c7defb50438b3d0b2dab9eb17, type: 3}
+  m_Name: Gatling_Common
+  m_EditorClassIdentifier: 
+  name: Gatling_Common
+  ID: Gatling
+  damage: 1
+  accuracy: 5
+  fireRate: 100
+  ammoType: {fileID: 9036960700221565208, guid: 6db1b8aa9612750478c8cb59c2eb2315,
+    type: 3}
+  ammoID: 0
+  bulletVelocity: 8
+  rarity: 0
+  gunSounds: []
+  weaponSprites:
+  - {fileID: 21300000, guid: 2e30154dcddf63d4f8e1b12cc8628d80, type: 3}
+  - {fileID: 21300000, guid: 2e30154dcddf63d4f8e1b12cc8628d80, type: 3}
+  - {fileID: 21300000, guid: 2e30154dcddf63d4f8e1b12cc8628d80, type: 3}
+  gunIcon: {fileID: 1188174759086496625, guid: 9bf9aa48a69213b4393fe3e7b3bd12dd, type: 3}

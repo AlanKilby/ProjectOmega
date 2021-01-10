@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cb4fa2c7defb50438b3d0b2dab9eb17, type: 3}
-  m_Name: SC_Gatling
+  m_Name: SC_Shootgun
   m_EditorClassIdentifier: 
-  name: Gatling
-  ID: 1
-  damage: 2
-  accuracy: 5
+  name: Shootgun
+  ID: 2
+  damage: 5
+  accuracy: 10
   fireRate: 0
-  ammoCount: 200
-  ammoType: {fileID: 9036960700221565208, guid: 6db1b8aa9612750478c8cb59c2eb2315,
+  ammoType: {fileID: 3415272654159278721, guid: 377a9415886b62142b84c8c05ded2c45,
     type: 3}
-  shootingPoints: []
-  dropRate: 0.2
-  rarity: 
+  ammoID: 0
+  bulletVelocity: 0
+  rarity: 0
   gunSounds: []
+  weaponSprites: []
+  gunIcon: {fileID: 0}
