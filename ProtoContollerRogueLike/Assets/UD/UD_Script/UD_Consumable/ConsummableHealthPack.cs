@@ -16,6 +16,7 @@ public class ConsummableHealthPack : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
+            //FindObjectOfType<AudioManager>().Play("Medikit");
             if (PH.currentPlayerHealth < PH.totalPlayerHealthUpgraded - healthRegenerate)
             {
                 PH.currentPlayerHealth = PH.currentPlayerHealth + healthRegenerate;

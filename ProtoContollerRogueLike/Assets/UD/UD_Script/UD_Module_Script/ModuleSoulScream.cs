@@ -24,6 +24,8 @@ public class ModuleSoulScream : MonoBehaviour
             {
                 if (In.isFullModule[i] == false)
                 {
+                    FindObjectOfType<AudioManager>().Play("Piercing Ammo Announcer"); 
+                    
                     Mo.LaunchPopUp();
 
                     In.moduleGameObject[i] = gameObject; //Met le module dans la liste

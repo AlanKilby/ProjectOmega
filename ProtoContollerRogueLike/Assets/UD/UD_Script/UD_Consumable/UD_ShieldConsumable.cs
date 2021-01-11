@@ -15,6 +15,7 @@ public class UD_ShieldConsumable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
+            FindObjectOfType<AudioManager>().Play("Shield"); 
             PH.StartShield();
             Destroy(gameObject);
         }

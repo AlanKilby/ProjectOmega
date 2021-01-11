@@ -24,6 +24,8 @@ public class ModuleRevive : MonoBehaviour
             {
                 if (In.isFullModule[i] == false)
                 {
+                    FindObjectOfType<AudioManager>().Play("Revive Device Announcer"); 
+                    
                     Mo.LaunchPopUp();
 
                     In.moduleGameObject[i] = gameObject; //Met le module dans la liste

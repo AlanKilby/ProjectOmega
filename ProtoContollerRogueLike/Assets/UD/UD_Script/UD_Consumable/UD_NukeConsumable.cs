@@ -23,6 +23,7 @@ public class UD_NukeConsumable : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") == true)
         {
             explode = true;
+            FindObjectOfType<AudioManager>().Play("Nuke");
             nukeFeedback.SetBool("explode", explode);
             foreach(Transform child1 in thisRoom.transform)
             {

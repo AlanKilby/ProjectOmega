@@ -223,6 +223,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentPlayerHealth <= 0 && hasQuickRevive)
         {
+            FindObjectOfType<AudioManager>().Play("Revive Device"); 
             currentPlayerHealth = healthRegenWithQuickRevive;
             hasQuickRevive = false;
             foreach (Transform child in In.moduleSlots[quickReviveIconSlot].transform)

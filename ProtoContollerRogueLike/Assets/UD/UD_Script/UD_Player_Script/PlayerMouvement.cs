@@ -222,6 +222,7 @@ public class PlayerMouvement : MonoBehaviour
             if (hasModulePhaseShift)
             {
                 //Ajout Gus
+                FindObjectOfType<AudioManager>().Play("Sword");
                 FindObjectOfType<AudioManager>().Play("Dash");
                 ChangeAnimationState(PLAYER_DASH_ATTACK);
                 //

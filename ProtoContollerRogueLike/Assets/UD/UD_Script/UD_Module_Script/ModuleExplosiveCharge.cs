@@ -22,6 +22,8 @@ public class ModuleExplosiveCharge : MonoBehaviour
             {
                 if (In.isFullModule[i] == false)
                 {
+                    FindObjectOfType<AudioManager>().Play("Explosive Ammo Announcer"); 
+                    
                     Mo.LaunchPopUp();
 
                     In.moduleGameObject[i] = gameObject; //Met le module dans la liste

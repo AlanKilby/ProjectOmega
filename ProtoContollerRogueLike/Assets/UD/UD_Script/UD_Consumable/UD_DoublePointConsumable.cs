@@ -15,6 +15,7 @@ public class UD_DoublePointConsumable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
+            FindObjectOfType<AudioManager>().Play("Double Point"); 
             CP.StartDoublePoint();
             Destroy(gameObject);
         }

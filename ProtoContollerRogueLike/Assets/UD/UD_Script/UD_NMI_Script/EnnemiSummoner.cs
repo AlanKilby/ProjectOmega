@@ -145,6 +145,7 @@ public class EnnemiSummoner : MonoBehaviour
             ownAffraidArea.SetActive(false);
             playerInAffraidArea = false;
             ChangeAnimationState(SUMMONER_CAST);
+            FindObjectOfType<AudioManager>().Play("Summoning");
         }
 
         if (playerInAffraidArea && playerPos != null)

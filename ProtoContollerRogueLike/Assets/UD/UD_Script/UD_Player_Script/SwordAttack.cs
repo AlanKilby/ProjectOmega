@@ -129,6 +129,7 @@ public class SwordAttack : MonoBehaviour
                 hitInfo.GetComponent<EnnemisScript>().TakeDamage(damageUpgraded);
                 if (isVampire)
                 {
+                    FindObjectOfType<AudioManager>().Play("Vampire Sword"); 
                     PPERed.LaunchEffectToMax();
                     PPERed.canDisappear = true;
                     PPERed.canAppear = false;
