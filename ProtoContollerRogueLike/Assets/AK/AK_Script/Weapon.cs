@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
     RectTransform ownIconSlotRect;
     [SerializeField] Vector3 iconOffsetWhenInHand;
     Vector3 ownIconSlotDefaultPosition;
+    public GameObject ownRarityLight;
 
     //Technical Parts
     public GameObject[] shootingPoints;
@@ -96,11 +97,13 @@ public class Weapon : MonoBehaviour
         {
             if (gunInHand)
             {
-                ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
+                //ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition + iconOffsetWhenInHand;
+                ownIconSlotRect.anchoredPosition = new Vector3(ownIconSlotDefaultPosition.x + iconOffsetWhenInHand.x, -162.5f + iconOffsetWhenInHand.y, ownIconSlotDefaultPosition.z + iconOffsetWhenInHand.z);
             }
             else
             {
-                ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition;
+                //ownIconSlotRect.anchoredPosition = ownIconSlotDefaultPosition;
+                ownIconSlotRect.anchoredPosition = new Vector3(ownIconSlotDefaultPosition.x, -162.5f, ownIconSlotDefaultPosition.z);
             }
         }
 
@@ -244,6 +247,11 @@ public class Weapon : MonoBehaviour
                 // If the inventory IS NOT full AND the gun IS NOT already in the inventory pick up the gun
                 if(inventory.isFull[i] == false && gunAlreadyInInv == false)
                 {
+                    if(ownRarityLight != null)
+                    {
+                        Destroy(ownRarityLight);
+                    }
+
                     inventory.gunGameObject[i] = gameObject;
 
                     gunSlot = i;
@@ -288,6 +296,11 @@ public class Weapon : MonoBehaviour
                 }
                 else if (inventory.isFull[i] == true && gunID == inventory.gunID[i] && gun.rarity > inventory.gunGameObject[i].GetComponent<Weapon>().gun.rarity)
                 {
+                    if (ownRarityLight != null)
+                    {
+                        Destroy(ownRarityLight);
+                    }
+
                     Destroy(inventory.gunGameObject[i]);
                     inventory.gunGameObject[i] = gameObject;
 
