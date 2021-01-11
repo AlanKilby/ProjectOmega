@@ -662,7 +662,7 @@ MonoBehaviour:
   dashTimePercent: 0
   playerRBVelovityX: 0
   playerRBVelovityY: 0
-  wallDetectionRadius: 1.3
+  wallDetectionRadius: 1
   wallDetectionPosition: {fileID: 371513423}
   rb: {fileID: 1163558162623733005}
   cam: {fileID: 0}
@@ -770,7 +770,7 @@ MonoBehaviour:
   quickReviveIconSlot: 0
   hasQuickRevive: 0
   percentageToSetLowHealth: 30
-  shieldHealthPointSet: 10
+  shieldHealthPointSet: 15
   shieldHealthPointCurrent: 0
   hasShield: 0
   explosionPrefab: {fileID: 4369570632938006429, guid: 57d8452ed5f1c56498b98a2ece40e473,
@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c087893c66b4f4fa82adc4e946ea53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlimitedAmmoTimeSet: 10
+  unlimitedAmmoTimeSet: 20
   unlimitedAmmoTimer: 0
   hasUnlimitedAmmo: 0
   doublePointTimeSet: 20

@@ -17,6 +17,13 @@ public class AK_AmmoCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        counter.text = inventory.ammoCounter[inventory.gunGameObject[inventory.equippedSlot].GetComponent<Weapon>().gun.ammoID].ToString();
+        if (inventory.ammoCounter[inventory.gunGameObject[inventory.equippedSlot].GetComponent<Weapon>().gun.ammoID]<=99999)
+        {
+            counter.text = inventory.ammoCounter[inventory.gunGameObject[inventory.equippedSlot].GetComponent<Weapon>().gun.ammoID].ToString();
+        }
+        else
+        {
+            counter.text = "99999";
+        }
     }
 }
