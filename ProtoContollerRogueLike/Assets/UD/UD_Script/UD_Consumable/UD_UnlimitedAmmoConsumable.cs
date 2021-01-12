@@ -15,6 +15,7 @@ public class UD_UnlimitedAmmoConsumable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
+            FindObjectOfType<AudioManager>().Play("Infinite Ammo"); 
             CP.StartUnlimitedAmmo();
             Destroy(gameObject);
         }

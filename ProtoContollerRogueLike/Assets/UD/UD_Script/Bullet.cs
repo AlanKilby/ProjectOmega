@@ -210,6 +210,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.CompareTag("CounterBladeSlashArea") && isEnnemyBullet)
         {
+            FindObjectOfType<AudioManager>().Play("Parry Bullets");
             gameObject.layer = 18; //CounterBladeSlashArea Layer Number
             //Quaternion rot180degrees = Quaternion.Euler(-transform.rotation.eulerAngles); POUR RENVOYER A L'ENVOYEUR
             //rb.velocity = rb.velocity * -1; POUR ALLER VERS L'ENVOYEUR
@@ -254,6 +255,7 @@ public class Bullet : MonoBehaviour
         if (PMS.moduleExplosiveCharge)
         {
             Collider2D explosiveHit = Physics2D.OverlapCircle(gameObject.transform.position, moduleExplosiveChargeRadius, whatIsEnnemi);
+            FindObjectOfType<AudioManager>().Play("Explosive Ammo");
             if (explosiveHit != null)
             {
                 if (explosiveHit.CompareTag("Ennemi"))

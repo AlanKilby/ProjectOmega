@@ -10,7 +10,8 @@ public class MainMenu : MonoBehaviour
         GameManagement.GameIsPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         FindObjectOfType<AudioManager>().Play("Press Play");
-        FindObjectOfType<AudioManager>().Play("Fight Music");
+        //FindObjectOfType<AudioManager>().Play("Fight Music");
+        FindObjectOfType<AudioManager>().Play("Ambient Cave");
     }
     
     public void QuitGame()

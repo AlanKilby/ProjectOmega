@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Fight Music
-    clip: {fileID: 8300000, guid: c4daed8fb03b7344dba5685a7c250ba8, type: 3}
+    clip: {fileID: 8300000, guid: d92bd31ca4c308e4bbc954adef45901c, type: 3}
     volume: 0.449
     pitch: 1
     loop: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Reload
-    clip: {fileID: 8300000, guid: 0775d8ffa09acec4d98498ba2ad2ecb0, type: 3}
+    clip: {fileID: 8300000, guid: 15f4efe875859854c81763ee45dd9124, type: 3}
     volume: 0.2
     pitch: 1
     loop: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Medikit
     clip: {fileID: 8300000, guid: 692666b17b89b5c46b31d66a18e34c19, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -237,13 +237,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Double Point
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: eb43c74c509faa7498ac062d15a13ae2, type: 3}
     volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Infinite Ammo
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: c56afffa6aa5b60448dd487e9389665f, type: 3}
     volume: 0.4
     pitch: 1
     loop: 0
@@ -303,14 +303,26 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Parry Bullets
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7a92a0757392b8b4c84b7cb1ac967727, type: 3}
     volume: 0.4
-    pitch: 1
+    pitch: 1.5
     loop: 0
     source: {fileID: 0}
   - name: Explosive Ammo
     clip: {fileID: 0}
-    volume: 0.4
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Music
+    clip: {fileID: 8300000, guid: d92bd31ca4c308e4bbc954adef45901c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ambient Cave
+    clip: {fileID: 8300000, guid: 876af86667a812e4ea9f49dedb18700f, type: 3}
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}

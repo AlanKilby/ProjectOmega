@@ -64,6 +64,8 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu() 
     {
+        FindObjectOfType<AudioManager>().StopPlaying("Hub Music");
+        FindObjectOfType<AudioManager>().Play("Ambient Cave");
         Destroy(player);
         Destroy(UI);
         Destroy(GameObject.Find("DifficultyPanel"));
