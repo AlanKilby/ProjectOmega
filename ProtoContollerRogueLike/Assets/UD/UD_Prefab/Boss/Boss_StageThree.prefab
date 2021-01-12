@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 8766563700730265995}
   - component: {fileID: 3358442011491469469}
   - component: {fileID: 8766563700730265992}
+  - component: {fileID: 5450178581114024164}
   m_Layer: 19
   m_Name: Boss_StageThree_Himself
   m_TagString: Boss
@@ -347,6 +348,7 @@ MonoBehaviour:
     m_Bits: 256
   lootDrop: {fileID: 0}
   anim: {fileID: 0}
+  thisRoom: {fileID: 0}
   health: 50
   dropRate: 0
   speed: 0
@@ -371,13 +373,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c8020e965917a4ca341f03ea17c36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
   acideWarning: {fileID: 8766563702158641026}
   acideSpray: {fileID: 6072241667710834265, guid: f34cca32d849b7c45af2fcb727a04574,
     type: 3}
-  sprayRate: 10
   warningDelay: 2
   acideShootObject: {fileID: 8766563701440776127}
-  shootRate: 10
   shootAcideDelaySet: 3
 --- !u!114 &3358442011491469469
 MonoBehaviour:
@@ -391,6 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06f2a6b010ccf04685a035a11e0027a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
   tentacleObject: {fileID: 7298915245641731709, guid: f79fd9c72db3ec341a4b1d92b4d52973,
     type: 3}
   tentacleSpawn:
@@ -398,7 +400,6 @@ MonoBehaviour:
   - {fileID: 4598378460883205370}
   - {fileID: 4598378461451309079}
   - {fileID: 4598378460109507256}
-  spawnRate: 30
   tentacleLifeDelaySet: 10
 --- !u!114 &8766563700730265992
 MonoBehaviour:
@@ -422,6 +423,23 @@ MonoBehaviour:
   eggLaunchVelocity: 10
   launchEggRate: 13
   currentRoom: {fileID: 0}
+--- !u!114 &5450178581114024164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766563700730265998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4665368e0e67e8b4688efb471f595a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
+  delayBetweenTentacleAndShoot: 9
+  delayBetweenShootAndSpray: 4
+  delayBetweenSprayAndEgg: 8
+  delayBetweenEggAndTentacle: 4
 --- !u!1 &8766563700771516657
 GameObject:
   m_ObjectHideFlags: 0

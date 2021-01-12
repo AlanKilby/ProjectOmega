@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 5078283455503974889}
   - component: {fileID: 5078283455503974888}
   - component: {fileID: 1246140229595744510}
+  - component: {fileID: 359670823329966289}
   - component: {fileID: 5078283455503974895}
   m_Layer: 19
   m_Name: Boss_StageTwo_Himself
@@ -263,6 +264,7 @@ MonoBehaviour:
     m_Bits: 256
   lootDrop: {fileID: 0}
   anim: {fileID: 0}
+  thisRoom: {fileID: 0}
   health: 50
   dropRate: 0
   speed: 0
@@ -287,13 +289,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c8020e965917a4ca341f03ea17c36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
   acideWarning: {fileID: 5078283456932055009}
   acideSpray: {fileID: 6072241667710834265, guid: f34cca32d849b7c45af2fcb727a04574,
     type: 3}
-  sprayRate: 10
   warningDelay: 2
   acideShootObject: {fileID: 5078283455970953180}
-  shootRate: 10
   shootAcideDelaySet: 3
 --- !u!114 &1246140229595744510
 MonoBehaviour:
@@ -307,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06f2a6b010ccf04685a035a11e0027a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
   tentacleObject: {fileID: 7298915245641731709, guid: f79fd9c72db3ec341a4b1d92b4d52973,
     type: 3}
   tentacleSpawn:
@@ -314,8 +316,23 @@ MonoBehaviour:
   - {fileID: 1192393881}
   - {fileID: 2035191924}
   - {fileID: 695257819}
-  spawnRate: 30
   tentacleLifeDelaySet: 10
+--- !u!114 &359670823329966289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5078283455503974893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704aff157a887e14b854b340080cc772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
+  delayBetweenTentacleAndShoot: 9
+  delayBetweenShootAndSpray: 4
+  delayBetweenSprayAndTentacle: 8
 --- !u!95 &5078283455503974895
 Animator:
   serializedVersion: 3

@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 5312821054547255413}
   - component: {fileID: 5312821054547255418}
   - component: {fileID: 5312821054547255419}
+  - component: {fileID: 6950620260862617245}
   m_Layer: 19
   m_Name: Boss_StageOne_Himself
   m_TagString: Boss
@@ -175,6 +176,7 @@ MonoBehaviour:
     m_Bits: 256
   lootDrop: {fileID: 0}
   anim: {fileID: 0}
+  thisRoom: {fileID: 0}
   health: 50
   dropRate: 0
   speed: 0
@@ -199,13 +201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c8020e965917a4ca341f03ea17c36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
   acideWarning: {fileID: 5312821054642073907}
   acideSpray: {fileID: 6072241667710834265, guid: f34cca32d849b7c45af2fcb727a04574,
     type: 3}
-  sprayRate: 10
   warningDelay: 2
   acideShootObject: {fileID: 9001383620851238251}
-  shootRate: 10
   shootAcideDelaySet: 3
 --- !u!95 &5312821054547255419
 Animator:
@@ -226,6 +227,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6950620260862617245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312821054547255416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29fb7daffb2af04cb458d945137953c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
+  delayBetweenSprayAndShoot: 8
+  delayBetweenShootAndSpray: 4
 --- !u!1 &5312821054642073907
 GameObject:
   m_ObjectHideFlags: 0

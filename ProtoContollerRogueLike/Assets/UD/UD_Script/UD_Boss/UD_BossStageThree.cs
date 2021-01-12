@@ -8,23 +8,23 @@ public class UD_BossStageThree : MonoBehaviour
     [SerializeField] GameObject[] launchEggPoints;
     [SerializeField] float eggLaunchVelocity;
     [SerializeField] float launchEggRate;
-    float launchEggRateTimer;
-    bool canLaunchEgg;
+    //float launchEggRateTimer;
+    //bool canLaunchEgg;
 
     CameraSystem isPlayerInRoom;
     public Transform currentRoom;
 
     void Start()
     {
-        launchEggRateTimer = launchEggRate;
-        canLaunchEgg = false;
+        //launchEggRateTimer = launchEggRate;
+        //canLaunchEgg = false;
         currentRoom = gameObject.transform.parent;
         isPlayerInRoom = currentRoom.GetComponentInParent<CameraSystem>();
     }
 
     void Update()
     {
-        if (isPlayerInRoom.playerIsInTheRoom)
+        /*if (isPlayerInRoom.playerIsInTheRoom)
         {
             if (canLaunchEgg)
             {
@@ -39,10 +39,21 @@ public class UD_BossStageThree : MonoBehaviour
                 canLaunchEgg = false;
             }
             LaunchEggTimer();
+        }*/
+    }
+
+    public void LaunchEggs()
+    {
+        for (int i = 0; i < launchEggPoints.Length; i++)
+        {
+            GameObject egg = Instantiate(eggPrefab, launchEggPoints[i].transform.position, launchEggPoints[i].transform.rotation);
+            Rigidbody2D rb = egg.GetComponent<Rigidbody2D>();
+            rb.AddForce(egg.transform.up * eggLaunchVelocity, ForceMode2D.Impulse);
+            egg.transform.SetParent(isPlayerInRoom.transform);
         }
     }
 
-    void LaunchEggTimer()
+    /*void LaunchEggTimer()
     {
         if (!canLaunchEgg)
         {
@@ -52,5 +63,5 @@ public class UD_BossStageThree : MonoBehaviour
                 canLaunchEgg = true;
             }
         }
-    }
+    }*/
 }

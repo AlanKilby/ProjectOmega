@@ -9,14 +9,14 @@ public class UD_BossStageOne : MonoBehaviour
     [Header("Acide Spray")]
     [SerializeField] GameObject acideWarning;
     [SerializeField] GameObject acideSpray;
-    [SerializeField] float sprayRate;
+    //[SerializeField] float sprayRate;
     float sprayRateTimer;
     [SerializeField] float warningDelay;
     bool canSpray;
 
     [Header("Acide Shoot")]
     [SerializeField] UD_AcideShootBoss acideShootObject;
-    [SerializeField] float shootRate;
+    //[SerializeField] float shootRate;
     float shootRateTimer;
     [SerializeField] float shootAcideDelaySet;
     bool canShoot;
@@ -24,16 +24,16 @@ public class UD_BossStageOne : MonoBehaviour
     void Start()
     {
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
-        shootRateTimer = shootRate;
+        //shootRateTimer = shootRate;
         canShoot = false;
-        sprayRateTimer = sprayRate;
+        //sprayRateTimer = sprayRate;
         canSpray = false;
         acideWarning.SetActive(false);
     }
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        /* (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
             AcideSprayTimer();
             AcideShootTimer();
@@ -48,20 +48,28 @@ public class UD_BossStageOne : MonoBehaviour
                 shootRateTimer = shootRate;
                 canShoot = false;
             }
-        }
+        }*/
     }
 
-    IEnumerator AcideSprayShoot()
+    public IEnumerator AcideSprayShoot()
     {
-        sprayRateTimer = sprayRate;
+        //sprayRateTimer = sprayRate;
         canSpray = false;
         acideWarning.SetActive(true);
         yield return new WaitForSeconds(warningDelay);
         acideWarning.SetActive(false);
         GameObject acideSprayLaunched = Instantiate(acideSpray, gameObject.transform.position, gameObject.transform.rotation);
+        acideSprayLaunched.transform.SetParent(thisRoom.transform);
     }
 
-    void AcideSprayTimer()
+    public void StartAcideShoot()
+    {
+        acideShootObject.isOn = true;
+        acideShootObject.shootAcideDelay = shootAcideDelaySet;
+        //shootRateTimer = shootRate;
+    }
+
+    /*void AcideSprayTimer()
     {
         if (!canSpray)
         {
@@ -83,6 +91,6 @@ public class UD_BossStageOne : MonoBehaviour
                 canShoot = true;
             }
         }
-    }
+    }*/
     
 }

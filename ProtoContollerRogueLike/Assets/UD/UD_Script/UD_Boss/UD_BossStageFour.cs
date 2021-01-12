@@ -6,10 +6,10 @@ public class UD_BossStageFour : MonoBehaviour
 {
     public CameraSystem thisRoom;
 
-    [Header("Fire Rate of this Attack")]
+    /*[Header("Fire Rate of this Attack")]
     [SerializeField] float attackLaunchRate;
     float attackLaunchRateTimer;
-    bool canFire;
+    bool canFire;*/
 
     [Header("Fire Point for each Phase of this Attack")]
     [SerializeField] Transform[] firePointPhaseOne;
@@ -27,13 +27,13 @@ public class UD_BossStageFour : MonoBehaviour
     void Start()
     {
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
-        canFire = false;
-        attackLaunchRateTimer = attackLaunchRate;
+        /*canFire = false;
+        attackLaunchRateTimer = attackLaunchRate;*/
     }
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        /*if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
         {
             LaunchEggTimer();
             if (canFire)
@@ -43,10 +43,10 @@ public class UD_BossStageFour : MonoBehaviour
                 attackLaunchRateTimer = attackLaunchRate;
                 canFire = false;
             }
-        }
+        }*/
     }
 
-    IEnumerator StageFourAttack()
+    public IEnumerator StageFourAttack()
     {
         //Phase One Of the Attack
         for (int i = 0; i < shootPerPointForEachPhase; i++)
@@ -104,7 +104,7 @@ public class UD_BossStageFour : MonoBehaviour
         print("couroutine phase Four finish");
     }
 
-    void LaunchEggTimer()
+    /*void LaunchEggTimer()
     {
         if (!canFire)
         {
@@ -114,5 +114,5 @@ public class UD_BossStageFour : MonoBehaviour
                 canFire = true;
             }
         }
-    }
+    }*/
 }

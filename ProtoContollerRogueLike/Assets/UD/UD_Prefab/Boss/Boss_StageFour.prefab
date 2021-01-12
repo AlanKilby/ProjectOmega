@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 6301300082909023031}
   - component: {fileID: 18072672885834274}
   - component: {fileID: 18072672885834303}
+  - component: {fileID: 4654244613309233056}
   m_Layer: 19
   m_Name: Boss_StageFour_Himself
   m_TagString: Boss
@@ -330,6 +331,7 @@ MonoBehaviour:
     m_Bits: 256
   lootDrop: {fileID: 0}
   anim: {fileID: 0}
+  thisRoom: {fileID: 0}
   health: 50
   dropRate: 0
   speed: 0
@@ -354,13 +356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c8020e965917a4ca341f03ea17c36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
   acideWarning: {fileID: 18072674683307048}
   acideSpray: {fileID: 6072241667710834265, guid: f34cca32d849b7c45af2fcb727a04574,
     type: 3}
-  sprayRate: 10
   warningDelay: 2
   acideShootObject: {fileID: 18072673169572885}
-  shootRate: 10
   shootAcideDelaySet: 3
 --- !u!114 &6301300082909023031
 MonoBehaviour:
@@ -374,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06f2a6b010ccf04685a035a11e0027a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
   tentacleObject: {fileID: 7298915245641731709, guid: f79fd9c72db3ec341a4b1d92b4d52973,
     type: 3}
   tentacleSpawn:
@@ -381,7 +383,6 @@ MonoBehaviour:
   - {fileID: 5060245968199106384}
   - {fileID: 5060245968637711293}
   - {fileID: 5060245967836449042}
-  spawnRate: 30
   tentacleLifeDelaySet: 10
 --- !u!114 &18072672885834274
 MonoBehaviour:
@@ -417,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bc076fe90cd884cb2bf231966edd74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackLaunchRate: 23
+  thisRoom: {fileID: 0}
   firePointPhaseOne:
   - {fileID: 18072672702117390}
   - {fileID: 18072674249651842}
@@ -466,8 +467,26 @@ MonoBehaviour:
     type: 3}
   bulletPrefabSpeed: 7
   shootPerPointForEachPhase: 2
-  timeBetweenShootPerPointEachPhase: 1.25
-  timeBetweenEachPhase: 4
+  timeBetweenShootPerPointEachPhase: 0.1
+  timeBetweenEachPhase: 0.5
+--- !u!114 &4654244613309233056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18072672885834276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabe0a9caad6abe41b2551b5def7de0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
+  delayBetweenTentacleAndShoot: 9
+  delayBetweenShootAndSpray: 4
+  delayBetweenSprayAndTox: 8
+  delayBetweenToxAndEgg: 3
+  delayBetweenEggAndTentacle: 4
 --- !u!1 &18072672891618861
 GameObject:
   m_ObjectHideFlags: 0
