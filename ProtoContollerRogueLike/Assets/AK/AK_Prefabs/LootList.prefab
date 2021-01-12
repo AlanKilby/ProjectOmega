@@ -46,13 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 8751382321535061194, guid: e9617d6c58648164bacf826b1233fc10, type: 3}
-  - {fileID: 3690154127464323754, guid: f0e87d226fca56f4bbfbe354a49cbfef, type: 3}
-  - {fileID: 2065175863727355431, guid: cf95a6cce213d3f43ace0105d0489de2, type: 3}
+  - {fileID: 5327792833033652579, guid: aaff2d1b607a2554bb01696cccbd88a9, type: 3}
+  - {fileID: 6483169279056228305, guid: f751c8d4e74e78146b04cfecf9c8a554, type: 3}
+  - {fileID: 4342797481646851742, guid: 82ad6a302528734409f4fe24d8e677db, type: 3}
+  - {fileID: 7119862615431900103, guid: 66d57863651ec7b4ba55298b69b1b4ff, type: 3}
+  - {fileID: 2942158943550890580, guid: e748c460fef331147a5f4b90df1caff4, type: 3}
+  - {fileID: 6573882504381994922, guid: 466ee191e1b0f274a8b5ed6c4c6c8355, type: 3}
   gunDropRate:
-  - 33
-  - 33
-  - 33
+  - 25
+  - 25
+  - 15
+  - 15
+  - 10
+  - 10
 --- !u!114 &7319567175640029594
 MonoBehaviour:
   m_ObjectHideFlags: 0
