@@ -11,6 +11,7 @@ public class LootDrop : MonoBehaviour
 
     private WeaponList weaponList;
     private ModuleList moduleList;
+    private ConsumableList consumableList;
 
     public CameraSystem thisRoom;
 
@@ -19,6 +20,7 @@ public class LootDrop : MonoBehaviour
     {
         weaponList = GameObject.FindGameObjectWithTag("LootList").GetComponent<WeaponList>();
         moduleList = GameObject.FindGameObjectWithTag("LootList").GetComponent<ModuleList>();
+        consumableList = GameObject.FindGameObjectWithTag("LootList").GetComponent<ConsumableList>();
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
 
         dropModule = (dropGun + dropModule);
@@ -55,6 +57,8 @@ public class LootDrop : MonoBehaviour
             }
             else if (randomDrop > dropModule && randomDrop <= dropPowerUp )
             {
+                GameObject drop = Instantiate(consumableList.consumables[Random.Range(0,consumableList.consumables.Length)], gameObject.transform.position, Quaternion.identity);
+                drop.transform.SetParent(thisRoom.transform);
                 Debug.Log("Drop Power Up");
                 Destroy(gameObject);
             }

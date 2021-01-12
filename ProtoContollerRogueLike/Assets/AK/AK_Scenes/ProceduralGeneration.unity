@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1798,7 +1798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e017534832359e4d890cab7bd4438bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDifficulty: 0
+  currentStage: 0
   startingPositions:
   - {fileID: 334717517}
   - {fileID: 1061083962}
@@ -1814,7 +1814,7 @@ MonoBehaviour:
   - {fileID: 1538125844331880694, guid: 5988a73f4d149f74bbc780d65da90e84, type: 3}
   - {fileID: 9094759799707080312, guid: ec39bde40dc98854dbcfb372d587ee01, type: 3}
   bossRooms:
-  - {fileID: 4207703063893176707, guid: 53e1cd6f362e9e642b4ef0b2bec316c6, type: 3}
+  - {fileID: 0}
   moveAmountHorizontal: 26
   moveAmountVertical: 18
   direction: 0
@@ -1826,6 +1826,9 @@ MonoBehaviour:
   room:
     serializedVersion: 2
     m_Bits: 131072
+  env:
+    serializedVersion: 2
+    m_Bits: 16384
   isFirstRoom: 1
 --- !u!4 &1574707486
 Transform:

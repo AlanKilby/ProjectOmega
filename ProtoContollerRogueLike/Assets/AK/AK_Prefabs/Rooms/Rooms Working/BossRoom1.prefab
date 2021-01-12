@@ -603,7 +603,7 @@ MonoBehaviour:
   - {x: 3.3174076, y: 4.701994, z: 0}
   m_ShapePathHash: 1834714314
   m_Mesh: {fileID: 0}
-  m_InstanceId: 85728
+  m_InstanceId: 86452
 --- !u!1 &2604416030090165075
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,7 +6494,7 @@ MonoBehaviour:
   - {x: -7.362669, y: 4.6659126, z: 0}
   m_ShapePathHash: 1797750260
   m_Mesh: {fileID: 0}
-  m_InstanceId: 85720
+  m_InstanceId: 86444
 --- !u!1 &8241356598744559101
 GameObject:
   m_ObjectHideFlags: 0
@@ -6524,7 +6524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8241356598744559101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4590598615354909783}
@@ -6544,7 +6544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa839838c282f074fbb65103e261a616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
 --- !u!61 &4135294273224888298
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6583,14 +6583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d91b9684aeba2343ab3ad2f045ee1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomDesign:
-  - {fileID: 4308322995286931524, guid: 08b4ec44fbbc26d49be123de2ac09b37, type: 3}
-  - {fileID: 4396513123919055120, guid: be25a3254e4ec4941bfb6d54414b9480, type: 3}
-  - {fileID: 8597736145420448780, guid: 92cf6c401c80b3f4e91634387aaf6dab, type: 3}
-  - {fileID: 7352673263725910483, guid: fdb7385a47cf19a4ab45e5b892956eec, type: 3}
-  - {fileID: 9035068776575534009, guid: 2cb0f7d5b1076fe4da82b43a8ed08d51, type: 3}
-  - {fileID: 4726175846020422864, guid: 112a82b0e2795fc48bfdff222f9ce6fa, type: 3}
-  - {fileID: 4089240092035749999, guid: 5efbf882a718d3e459e060045cd93d52, type: 3}
+  roomDesign0: []
+  roomDesign1: []
+  roomDesign2: []
+  roomDesign3: []
 --- !u!114 &3215857352151771690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6616,7 +6612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f892b43bbde5b11478922995e3fd2886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayerInRoom: {fileID: 0}
+  playerIsInTheRoom: {fileID: 0}
   mainCameraPos: {fileID: 0}
 --- !u!1001 &5798642290691296969
 PrefabInstance:

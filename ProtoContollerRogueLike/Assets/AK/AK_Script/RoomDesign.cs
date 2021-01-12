@@ -18,22 +18,22 @@ public class RoomDesign : MonoBehaviour
     {
         levelGen = GameObject.FindGameObjectWithTag("LevelGen");
 
-        if(levelGen.GetComponent<LevelGeneration>().currentDifficulty <= 0)
+        if(levelGen.GetComponent<LevelGeneration>().currentStage <= 0)
         {
             roomPicker = Random.Range(0, roomDesign0.Length);
             Instantiate(roomDesign0[roomPicker], new Vector2(transform.position.x, transform.position.y), Quaternion.identity, transform);
         }
-        else if (levelGen.GetComponent<LevelGeneration>().currentDifficulty == 1)
+        else if (levelGen.GetComponent<LevelGeneration>().currentStage == 1)
         {
             roomPicker = Random.Range(0, roomDesign1.Length);
             Instantiate(roomDesign1[roomPicker], new Vector2(transform.position.x, transform.position.y), Quaternion.identity, transform);
         }
-        else if (levelGen.GetComponent<LevelGeneration>().currentDifficulty == 2)
+        else if (levelGen.GetComponent<LevelGeneration>().currentStage == 2)
         {
             roomPicker = Random.Range(0, roomDesign2.Length);
             Instantiate(roomDesign2[roomPicker], new Vector2(transform.position.x, transform.position.y), Quaternion.identity, transform);
         }
-        else if (levelGen.GetComponent<LevelGeneration>().currentDifficulty == 3)
+        else if (levelGen.GetComponent<LevelGeneration>().currentStage == 3)
         {
             roomPicker = Random.Range(0, roomDesign3.Length);
             Instantiate(roomDesign3[roomPicker], new Vector2(transform.position.x, transform.position.y), Quaternion.identity, transform);

@@ -69,7 +69,7 @@ public class Weapon : MonoBehaviour
         SSE = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ScreenShakeEffect>();
         audioSource = gameObject.GetComponent<AudioSource>();
         canShoot = true;
-        isEquipped = false;
+        //isEquipped = false;
         gunSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         gunSpriteRenderer.sprite = gun.weaponSprites[0];
         gunID = gun.ID;

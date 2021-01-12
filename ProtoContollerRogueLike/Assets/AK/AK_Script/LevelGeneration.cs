@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour
 {
-    public int currentDifficulty;
+    public int currentStage;
 
     public Transform[] startingPositions;
     public GameObject[] rooms; // index 0--> LR, index 1-->LRB, index 2-->LRT, index 3-->TLRB
@@ -26,6 +26,7 @@ public class LevelGeneration : MonoBehaviour
     public bool StopGeneration;
 
     public LayerMask room;
+    public LayerMask env;
 
     private int downCounter;
 
@@ -41,6 +42,7 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(startingRooms[0], transform.position, Quaternion.identity);
         isFirstRoom = true;
         direction = Random.Range(1, 6);
+        currentStage = GameObject.FindGameObjectWithTag("Player").GetComponent<Stage>().currentStage;
     }
 
     private void Update()

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6595590116734310077}
   - component: {fileID: 6595590116734310066}
   - component: {fileID: 7319567175640029594}
+  - component: {fileID: 8605952689776754976}
   m_Layer: 0
   m_Name: LootList
   m_TagString: LootList
@@ -71,3 +72,22 @@ MonoBehaviour:
   - {fileID: 3366356262841465307, guid: 33a0f703184c47944af5037948cbd97d, type: 3}
   - {fileID: 2484977107593352000, guid: 8961263dd6692654dbb8a94c6da59a81, type: 3}
   - {fileID: 8395520723465719830, guid: 5b6e6f30c405e6942a2ed37132f9394b, type: 3}
+  canDrop: 0
+--- !u!114 &8605952689776754976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595590116734310067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f8e282672bbe242a3af6e8919adf8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumables:
+  - {fileID: 237991808217072498, guid: 7314839b39b307f4186fcdee98fba21d, type: 3}
+  - {fileID: 2591611247747595258, guid: 29490ded52a597c478022f94e4800531, type: 3}
+  - {fileID: 1642069538652020107, guid: f74da91aa34ec7b48841683736933a44, type: 3}
+  - {fileID: 7414798218811393603, guid: fed80cae656211b4d837a9fa121cb1ee, type: 3}
+  - {fileID: 1692965334990390503, guid: 38a13e4d2ad82f14e888134b72da6a12, type: 3}
