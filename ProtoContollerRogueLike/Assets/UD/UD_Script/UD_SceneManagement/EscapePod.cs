@@ -7,7 +7,7 @@ public class EscapePod : MonoBehaviour
 {
     public float escapeTimer;
 
-    private bool escapeStart = false;
+    public bool escapeStart = false;
 
     public GameObject[] escapeSpawners;
 
