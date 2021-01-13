@@ -11,6 +11,13 @@ public class UD_BossStageTwoManagement : MonoBehaviour
 
     bool canLaunchPhaseTwo;
 
+    private Animator anim;
+    private string currentAnimation;
+    const string BOSSIDLE = "BossIdle";
+    const string BOSSFLEE = "BossFlee";
+    const string BOSSACIDESPRAY = "BossAcideSpray";
+    const string BOSSSPIDERSHOW = "BossSpiderShow";
+
     [SerializeField] float delayBetweenTentacleAndShoot;
     [SerializeField] float delayBetweenShootAndSpray;
     [SerializeField] float delayBetweenSprayAndTentacle;
@@ -38,11 +45,28 @@ public class UD_BossStageTwoManagement : MonoBehaviour
     IEnumerator PhaseTwoAttack()
     {
         BSTw.LaunchTentacle();
+        ChangeAnimationState(BOSSIDLE);
         yield return new WaitForSeconds(delayBetweenTentacleAndShoot);
         BSOn.StartAcideShoot();
+        ChangeAnimationState(BOSSSPIDERSHOW);
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
         StartCoroutine(BSOn.AcideSprayShoot());
+        ChangeAnimationState(BOSSACIDESPRAY);
         yield return new WaitForSeconds(delayBetweenSprayAndTentacle);
+        ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseTwo = true;
+    }
+
+    public void ReturnToIdleAnim()
+    {
+        ChangeAnimationState(BOSSIDLE);
+    }
+
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+        currentAnimation = newAnimation;
     }
 }

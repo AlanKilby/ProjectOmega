@@ -13,6 +13,14 @@ public class UD_BossStageFourManagement : MonoBehaviour
 
     bool canLaunchPhaseFour;
 
+    private Animator anim;
+    private string currentAnimation;
+    const string BOSSIDLE = "BossIdle";
+    const string BOSSDIE = "BossDie";
+    const string BOSSACIDESPRAY = "BossAcideSpray";
+    const string BOSSSPIDERSHOW = "BossSpiderShow";
+    const string BOSSTOXSHOOT = "BossToxShoot";
+
     [SerializeField] float delayBetweenTentacleAndShoot;
     [SerializeField] float delayBetweenShootAndSpray;
     [SerializeField] float delayBetweenSprayAndTox;
@@ -44,15 +52,34 @@ public class UD_BossStageFourManagement : MonoBehaviour
     IEnumerator PhaseFourAttack()
     {
         BSTw.LaunchTentacle();
+        ChangeAnimationState(BOSSIDLE);
         yield return new WaitForSeconds(delayBetweenTentacleAndShoot);
         BSOn.StartAcideShoot();
+        ChangeAnimationState(BOSSSPIDERSHOW);
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
         StartCoroutine(BSOn.AcideSprayShoot());
+        ChangeAnimationState(BOSSACIDESPRAY);
         yield return new WaitForSeconds(delayBetweenSprayAndTox);
         StartCoroutine(BSFo.StageFourAttack());
+        ChangeAnimationState(BOSSTOXSHOOT);
         yield return new WaitForSeconds(delayBetweenToxAndEgg);
         BSTh.LaunchEggs();
+        ChangeAnimationState(BOSSIDLE);
         yield return new WaitForSeconds(delayBetweenEggAndTentacle);
+        ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseFour = true;
+    }
+
+    public void ReturnToIdleAnim()
+    {
+        ChangeAnimationState(BOSSIDLE);
+    }
+
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+        currentAnimation = newAnimation;
     }
 }

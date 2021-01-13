@@ -12,6 +12,13 @@ public class UD_BossStageThreeManagement : MonoBehaviour
 
     bool canLaunchPhaseThree;
 
+    private Animator anim;
+    private string currentAnimation;
+    const string BOSSIDLE = "BossIdle";
+    const string BOSSFLEE = "BossFlee";
+    const string BOSSACIDESPRAY = "BossAcideSpray";
+    const string BOSSSPIDERSHOW = "BossSpiderShow";
+
     [SerializeField] float delayBetweenTentacleAndShoot;
     [SerializeField] float delayBetweenShootAndSpray;
     [SerializeField] float delayBetweenSprayAndEgg;
@@ -41,13 +48,31 @@ public class UD_BossStageThreeManagement : MonoBehaviour
     IEnumerator PhaseThreeAttack()
     {
         BSTw.LaunchTentacle();
+        ChangeAnimationState(BOSSIDLE);
         yield return new WaitForSeconds(delayBetweenTentacleAndShoot);
         BSOn.StartAcideShoot();
+        ChangeAnimationState(BOSSSPIDERSHOW);
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
         StartCoroutine(BSOn.AcideSprayShoot());
+        ChangeAnimationState(BOSSACIDESPRAY);
         yield return new WaitForSeconds(delayBetweenSprayAndEgg);
         BSTh.LaunchEggs();
+        ChangeAnimationState(BOSSIDLE);
         yield return new WaitForSeconds(delayBetweenEggAndTentacle);
+        ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseThree = true;
+    }
+
+    public void ReturnToIdleAnim()
+    {
+        ChangeAnimationState(BOSSIDLE);
+    }
+
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+        currentAnimation = newAnimation;
     }
 }

@@ -10,6 +10,13 @@ public class UD_BossStageOneManagement : MonoBehaviour
 
     bool canLaunchPhaseOne;
 
+    private Animator anim;
+    private string currentAnimation;
+    const string BOSSIDLE = "BossIdle";
+    const string BOSSACIDESPRAY = "BossAcideSpray";
+    const string BOSSFLEE = "BossFlee";
+    const string BOSSSPIDERSHOW = "BossSpiderShow";
+
     [SerializeField] float delayBetweenSprayAndShoot;
     [SerializeField] float delayBetweenShootAndSpray;
     void Start()
@@ -34,9 +41,25 @@ public class UD_BossStageOneManagement : MonoBehaviour
     IEnumerator PhaseOneAttack()
     {
         StartCoroutine(BSOn.AcideSprayShoot());
+        ChangeAnimationState(BOSSACIDESPRAY);
         yield return new WaitForSeconds(delayBetweenSprayAndShoot);
         BSOn.StartAcideShoot();
+        ChangeAnimationState(BOSSSPIDERSHOW);
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
+        ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseOne = true;
+    }
+
+    public void ReturnToIdleAnim()
+    {
+        ChangeAnimationState(BOSSIDLE);
+    }
+
+    void ChangeAnimationState(string newAnimation)
+    {
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+        currentAnimation = newAnimation;
     }
 }
