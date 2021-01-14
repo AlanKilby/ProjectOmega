@@ -35,6 +35,7 @@ public class Weapon : MonoBehaviour
     public bool gunInHand; //Ajout Ulric pour Pastille Pistol
 
     [Header("Loading Gun ?")]
+    public GameObject chargedMaxBulletPrefab;
     public bool isALoadingGun;
     bool loadingGunCharging;
     bool loadingGunIsChargedMax;
@@ -198,7 +199,7 @@ public class Weapon : MonoBehaviour
 
                 }
 
-                if (isALoadingGun)
+                if (isALoadingGun && !loadingGunIsChargedMax)
                 {
                     SSE.StartShake(shakePower, shakeDuration);
                     GameObject bullet = Instantiate(gun.ammoType, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
@@ -218,7 +219,27 @@ public class Weapon : MonoBehaviour
                     loadingGunTimer = 0.0f;
                     loadingGunIsChargedMax = false;
                 }
-                                            
+
+                if (isALoadingGun && loadingGunIsChargedMax)
+                {
+                    SSE.StartShake(shakePower, shakeDuration);
+                    GameObject bullet = Instantiate(chargedMaxBulletPrefab, shootingPoints[i].transform.position, shootingPoints[i].transform.rotation * Quaternion.Euler(0.0f, 0.0f, Random.Range(-gun.accuracy, gun.accuracy)));
+                    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                    Bullet Bu = bullet.GetComponent<Bullet>();
+                    //Bu.damage = Bu.damage * loadingGunChargePercentage; MARCHE PAS CAR % en Float et Damage en Int
+                    if (loadingGunIsChargedMax)
+                    {
+                        Bu.damage = Bu.damage * chargedMaxDamageMultiplicator;
+                        Bu.bulletLifeTime = Bu.bulletLifeTime * lifeTimeMultiplicatorWhenCharged;
+                        if (canStunWhenCharingMax)
+                        {
+                            Bu.canStun = true;
+                        }
+                    }
+                    rb.AddForce(bullet.transform.up * gun.bulletVelocity, ForceMode2D.Impulse);
+                    loadingGunTimer = 0.0f;
+                    loadingGunIsChargedMax = false;
+                }
             }
             if (PMS.soulScream)
             {

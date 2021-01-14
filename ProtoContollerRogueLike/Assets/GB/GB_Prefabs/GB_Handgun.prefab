@@ -551,6 +551,7 @@ MonoBehaviour:
   PMS: {fileID: 0}
   gunSpriteRenderer: {fileID: 0}
   iconOffsetWhenInHand: {x: 0, y: 10, z: 0}
+  ownRarityLight: {fileID: 0}
   shootingPoints:
   - {fileID: 6056899180867201409}
   ammoCount: 999999
@@ -558,6 +559,8 @@ MonoBehaviour:
   fireRate: 0.05
   gunSlot: 0
   gunInHand: 0
+  chargedMaxBulletPrefab: {fileID: 7303267908695728939, guid: 7d0b4babdc31ce547b027222e8fc4515,
+    type: 3}
   isALoadingGun: 1
   loadingGunTimeToChargeMax: 0.6
   loadingGunChargePercentage: 0
