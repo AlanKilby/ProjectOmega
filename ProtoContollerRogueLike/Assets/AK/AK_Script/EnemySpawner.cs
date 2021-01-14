@@ -6,14 +6,14 @@ public class EnemySpawner : MonoBehaviour
 {
     public Transform currentRoom;
     public EnemyList enemyList;
-    public RoomTriggerCollider isPlayerInRoom;
+    public CameraSystem isPlayerInRoom;
     public float spawnChance;
     public float waitTime;
 
     private void Start()
     {
         currentRoom = gameObject.transform.parent;
-        isPlayerInRoom = currentRoom.GetComponentInParent<RoomTriggerCollider>();
+        isPlayerInRoom = currentRoom.GetComponentInParent<CameraSystem>();
         enemyList = GameObject.FindGameObjectWithTag("Enemy List").GetComponent<EnemyList>();
         Invoke("SpawnEnemy", waitTime);
     }
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
         {
             int j = Random.Range(0, enemyList.enemies.Length);
             //Debug.Log("Spawned");
-            Instantiate(enemyList.enemies[j], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
+            Instantiate(enemyList.enemies[j], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
         }
     }
 }
