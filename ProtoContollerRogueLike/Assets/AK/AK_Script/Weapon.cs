@@ -314,6 +314,7 @@ public class Weapon : MonoBehaviour
                     inventory.ammoCounter[gun.ammoID] += (int)(ammoCount * UP.ammoMultiplicatorCurrent);
                     ammoCount = 0;
                     FindObjectOfType<AudioManager>().Play("Reload");
+                    Destroy(gameObject);
                 }
                 else if (inventory.isFull[i] == true && gunID == inventory.gunID[i] && gun.rarity > inventory.gunGameObject[i].GetComponent<Weapon>().gun.rarity)
                 {

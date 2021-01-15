@@ -13,7 +13,9 @@ public class Module : MonoBehaviour
 
     UI_ModulePopUp popUpObject;
     Image popUpImage;
-    Text popUpText; 
+    Text popUpText;
+
+    public string moduleID;
 
     private void Start()
     {
