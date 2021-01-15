@@ -8,9 +8,19 @@ public class CurrencySysteme : MonoBehaviour
 
     public static int currentMoneyAmount;
 
+    [SerializeField] int moneyGainWithCheat;
+
     private void Start()
     {
         CP = GameObject.FindGameObjectWithTag("Player").GetComponent<ConsumablePlatform>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            GainMoney(moneyGainWithCheat);
+        }
     }
 
     public void GainMoney(int moneyGained)

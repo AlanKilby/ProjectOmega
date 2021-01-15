@@ -8,7 +8,7 @@ public class UI_PointInfoCheat : MonoBehaviour
 
     private void Start()
     {
-        moduleCheatEnable = false;
+        //moduleCheatEnable = false;
     }
 
     public void EnableModuleCheat()
