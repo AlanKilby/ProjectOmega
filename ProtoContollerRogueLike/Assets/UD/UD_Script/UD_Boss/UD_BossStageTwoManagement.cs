@@ -6,6 +6,7 @@ public class UD_BossStageTwoManagement : MonoBehaviour
 {
     UD_BossStageOne BSOn;
     UD_BossStageTwo BSTw;
+    UD_BossBase BB;
 
     public CameraSystem thisRoom;
 
@@ -22,12 +23,17 @@ public class UD_BossStageTwoManagement : MonoBehaviour
     [SerializeField] float delayBetweenShootAndSpray;
     [SerializeField] float delayBetweenSprayAndTentacle;
 
+    IEnumerator coAtt;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
         BSOn = GetComponent<UD_BossStageOne>();
         BSTw = GetComponent<UD_BossStageTwo>();
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         canLaunchPhaseTwo = true;
+        coAtt = PhaseTwoAttack();
+        BB = GetComponent<UD_BossBase>();
     }
 
     void Update()
@@ -36,9 +42,15 @@ public class UD_BossStageTwoManagement : MonoBehaviour
         {
             if (canLaunchPhaseTwo)
             {
-                StartCoroutine(PhaseTwoAttack());
+                StartCoroutine(coAtt);
                 canLaunchPhaseTwo = false;
             }
+        }
+        if (!BB.isAlive)
+        {
+            canLaunchPhaseTwo = false;
+            StopCoroutine(coAtt);
+            Flee();
         }
     }
 
@@ -55,6 +67,16 @@ public class UD_BossStageTwoManagement : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenSprayAndTentacle);
         ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseTwo = true;
+    }
+
+    public void Flee()
+    {
+        ChangeAnimationState(BOSSFLEE);
+    }
+
+    public void DestroyHimself()
+    {
+        BB.Death();
     }
 
     public void ReturnToIdleAnim()
