@@ -16,11 +16,18 @@ public class UD_EggBoss : MonoBehaviour
 
     [HideInInspector] public bool isMoving;
 
+    Animator anim;
+    private bool explode;
+    private bool canSpawn;
+
     private void Start()
     {
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isMoving = true;
+        canSpawn = true;
+        explode = false;
     }
 
     private void Update()
@@ -36,7 +43,7 @@ public class UD_EggBoss : MonoBehaviour
                 isMoving = false;
             }
         }
-
+        anim.SetBool("explode", explode);
     }
 
     public void Spawn()
@@ -46,26 +53,35 @@ public class UD_EggBoss : MonoBehaviour
             EBS = spawnerOfThisEggList[i].GetComponent<UD_EggBossSpawner>();
             EBS.SpawnEnemies();
         }
+        canSpawn = false;
+        explode = true;
+    }
+
+    public void DestroyHimself()
+    {
         Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (canSpawn)
         {
-            if (isMoving)
+            if (collision.CompareTag("Player") && thisRoom.playerIsInTheRoom.playerIsInTheRoom)
             {
-                collision.GetComponent<PlayerHealth>().TakeDamage(damageOnHitWithPlayer);
+                if (isMoving)
+                {
+                    collision.GetComponent<PlayerHealth>().TakeDamage(damageOnHitWithPlayer);
+                }
+                else
+                {
+                    Spawn();
+                }
             }
-            else
+            if (collision.CompareTag("Environement") || collision.CompareTag("BossEgg") && thisRoom.playerIsInTheRoom.playerIsInTheRoom)
             {
-                Spawn();
+                rb.velocity = new Vector3(0, 0, 0);
+                isMoving = false;
             }
-        }
-        if (collision.CompareTag("Environement") || collision.CompareTag("BossEgg") && thisRoom.playerIsInTheRoom.playerIsInTheRoom)
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-            isMoving = false;
         }
     }
 }

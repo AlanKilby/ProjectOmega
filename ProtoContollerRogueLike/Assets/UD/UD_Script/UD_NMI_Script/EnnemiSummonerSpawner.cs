@@ -14,6 +14,8 @@ public class EnnemiSummonerSpawner : MonoBehaviour
 
     [SerializeField] private bool spawnZoneAllowed;
 
+    [SerializeField] GameObject eggFeedback;
+
     //[SerializeField] GameObject minionsPlayground;
     private void Start()
     {
@@ -27,6 +29,8 @@ public class EnnemiSummonerSpawner : MonoBehaviour
         //Instantiate(ES.minionsPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
         if (spawnZoneAllowed)
         {
+            GameObject egg = Instantiate(eggFeedback, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
+            egg.transform.SetParent(isPlayerInRoom.transform);
             GameObject minion = Instantiate(ES.minionsPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, currentRoom.transform);
             minion.transform.SetParent(isPlayerInRoom.transform);
         }
