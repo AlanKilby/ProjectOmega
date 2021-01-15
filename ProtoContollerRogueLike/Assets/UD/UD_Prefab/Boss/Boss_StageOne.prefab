@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 5312821054547255418}
   - component: {fileID: 5312821054547255419}
   - component: {fileID: 6950620260862617245}
+  - component: {fileID: 4457284526453427542}
   m_Layer: 19
   m_Name: Boss_StageOne_Himself
   m_TagString: Boss
@@ -111,10 +112,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d218f24d416681468d29f3f87ff141b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd0a5bb855a653141bec9f803289a5eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
@@ -150,7 +151,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5312821054547255416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -242,6 +243,40 @@ MonoBehaviour:
   thisRoom: {fileID: 0}
   delayBetweenSprayAndShoot: 8
   delayBetweenShootAndSpray: 4
+--- !u!60 &4457284526453427542
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312821054547255416}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 13.333333, y: 13.333333}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.7, y: -2.12}
+      - {x: -1.49, y: -0.3}
+      - {x: -1.44, y: 1.56}
+      - {x: -0.38, y: 2.06}
+      - {x: 0.38, y: 2.06}
+      - {x: 1.32, y: 1.58}
+      - {x: 1.47, y: -0.22}
+      - {x: 0.67, y: -2.12}
+      - {x: 0.03, y: -2.68}
 --- !u!1 &5312821054642073907
 GameObject:
   m_ObjectHideFlags: 0

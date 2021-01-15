@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UD_BossStageFourManagement : MonoBehaviour
 {
+    UD_BossBase BB;
     UD_BossStageOne BSOn;
     UD_BossStageTwo BSTw;
     UD_BossStageThree BSTh;
@@ -27,14 +28,19 @@ public class UD_BossStageFourManagement : MonoBehaviour
     [SerializeField] float delayBetweenToxAndEgg;
     [SerializeField] float delayBetweenEggAndTentacle;
 
+    IEnumerator coAtt;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
+        BB = GetComponent<UD_BossBase>();
         BSOn = GetComponent<UD_BossStageOne>();
         BSTw = GetComponent<UD_BossStageTwo>();
         BSTh = GetComponent<UD_BossStageThree>();
         BSFo = GetComponent<UD_BossStageFour>();
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         canLaunchPhaseFour = true;
+        coAtt = PhaseFourAttack();
     }
 
     void Update()
@@ -43,9 +49,15 @@ public class UD_BossStageFourManagement : MonoBehaviour
         {
             if (canLaunchPhaseFour)
             {
-                StartCoroutine(PhaseFourAttack());
+                StartCoroutine(coAtt);
                 canLaunchPhaseFour = false;
             }
+        }
+        if (!BB.isAlive)
+        {
+            canLaunchPhaseFour = false;
+            StopCoroutine(coAtt);
+            Die();
         }
     }
 
@@ -68,6 +80,16 @@ public class UD_BossStageFourManagement : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenEggAndTentacle);
         ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseFour = true;
+    }
+
+    public void Die()
+    {
+        ChangeAnimationState(BOSSDIE);
+    }
+
+    public void DestroyHimself()
+    {
+        BB.Death();
     }
 
     public void ReturnToIdleAnim()

@@ -69,7 +69,10 @@ public class UD_BossBase : MonoBehaviour
         {
             //EFFETS SI IL EST N'EST PAS STUN
         }
-        PlayerDirection();
+        if (isAlive)
+        {
+            PlayerDirection();
+        }
         StunnedTimer();
     }
 
@@ -104,7 +107,8 @@ public class UD_BossBase : MonoBehaviour
             if (health <= 0)
             {
                 isAlive = false;
-                Death();
+                //Death();
+                Invoke("ResetMaterial", 0.1f);
             }
             else
             {

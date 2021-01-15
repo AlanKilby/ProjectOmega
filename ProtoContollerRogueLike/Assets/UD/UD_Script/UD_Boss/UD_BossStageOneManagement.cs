@@ -5,6 +5,7 @@ using UnityEngine;
 public class UD_BossStageOneManagement : MonoBehaviour
 {
     UD_BossStageOne BSOn;
+    UD_BossBase BB;
 
     public CameraSystem thisRoom;
 
@@ -19,10 +20,16 @@ public class UD_BossStageOneManagement : MonoBehaviour
 
     [SerializeField] float delayBetweenSprayAndShoot;
     [SerializeField] float delayBetweenShootAndSpray;
+
+    IEnumerator coAtt;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
+        BB = GetComponent<UD_BossBase>();
         BSOn = GetComponent<UD_BossStageOne>();
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
+        coAtt = PhaseOneAttack();
         canLaunchPhaseOne = true;
     }
 
@@ -32,9 +39,15 @@ public class UD_BossStageOneManagement : MonoBehaviour
         {
             if (canLaunchPhaseOne)
             {
-                StartCoroutine(PhaseOneAttack());
+                StartCoroutine(coAtt);
                 canLaunchPhaseOne = false;
             }
+        }
+        if (!BB.isAlive)
+        {
+            canLaunchPhaseOne = false;
+            StopCoroutine(coAtt);
+            Flee();
         }
     }
 
@@ -48,6 +61,16 @@ public class UD_BossStageOneManagement : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
         ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseOne = true;
+    }
+
+    public void Flee()
+    {
+        ChangeAnimationState(BOSSFLEE);
+    }
+
+    public void DestroyHimself()
+    {
+        BB.Death();
     }
 
     public void ReturnToIdleAnim()

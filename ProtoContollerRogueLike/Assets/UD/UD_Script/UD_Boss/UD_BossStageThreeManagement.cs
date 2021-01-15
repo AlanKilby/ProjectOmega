@@ -7,6 +7,7 @@ public class UD_BossStageThreeManagement : MonoBehaviour
     UD_BossStageOne BSOn;
     UD_BossStageTwo BSTw;
     UD_BossStageThree BSTh;
+    UD_BossBase BB;
 
     public CameraSystem thisRoom;
 
@@ -24,13 +25,18 @@ public class UD_BossStageThreeManagement : MonoBehaviour
     [SerializeField] float delayBetweenSprayAndEgg;
     [SerializeField] float delayBetweenEggAndTentacle;
 
+    IEnumerator coAtt;
+
     void Start()
     {
+        anim = GetComponent<Animator>();
+        BB = GetComponent<UD_BossBase>();
         BSOn = GetComponent<UD_BossStageOne>();
         BSTw = GetComponent<UD_BossStageTwo>();
         BSTh = GetComponent<UD_BossStageThree>();
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         canLaunchPhaseThree = true;
+        coAtt = PhaseThreeAttack();
     }
 
     void Update()
@@ -39,9 +45,15 @@ public class UD_BossStageThreeManagement : MonoBehaviour
         {
             if (canLaunchPhaseThree)
             {
-                StartCoroutine(PhaseThreeAttack());
+                StartCoroutine(coAtt);
                 canLaunchPhaseThree = false;
             }
+        }
+        if (!BB.isAlive)
+        {
+            canLaunchPhaseThree = false;
+            StopCoroutine(coAtt);
+            Flee();
         }
     }
 
@@ -61,6 +73,16 @@ public class UD_BossStageThreeManagement : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenEggAndTentacle);
         ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseThree = true;
+    }
+
+    public void Flee()
+    {
+        ChangeAnimationState(BOSSFLEE);
+    }
+
+    public void DestroyHimself()
+    {
+        BB.Death();
     }
 
     public void ReturnToIdleAnim()
