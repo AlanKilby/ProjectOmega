@@ -10,6 +10,7 @@ public class UD_BossBase : MonoBehaviour
     Transform playerPos;
 
     CurrencySysteme CS;
+    DifficultyPanel DP;
 
     [SerializeField] LootDrop lootDrop;
     [SerializeField] private Animator anim;
@@ -44,6 +45,7 @@ public class UD_BossBase : MonoBehaviour
     {
         isAlive = true;
         takeDamage = false;
+        DP = GameObject.Find("DifficultyPanel").GetComponent<DifficultyPanel>();
         CS = GameObject.FindGameObjectWithTag("Player").GetComponent<CurrencySysteme>();
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         lootDrop = GetComponent<LootDrop>();
@@ -139,6 +141,8 @@ public class UD_BossBase : MonoBehaviour
     public void Death()
     {
         CS.GainMoney(moneyDrop);
+        DifficultyPanel.currentStage++;
+        DP.StageUpDifficultyIncreased(DifficultyPanel.currentStage);
         Instantiate(HUBTeleporter, spawnPosForHUBTeleporter);
         //CS.currentMoneyAmount += moneyDrop;
         //lootDrop.DropLoot(); //A VOIR CE QU'IL LOOT A LA MORT

@@ -6,6 +6,7 @@ public enum Difficulty { Easy, Normal, Hard }
 public class DifficultyPanel : MonoBehaviour
 {
     public static Difficulty currentDifficulty;
+    public static int currentStage;
 
     [Header("Difficulty HP multiplier for All Mob")]
     [HideInInspector] public float currentModHPMultiplier;
