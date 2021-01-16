@@ -29,6 +29,11 @@ public class UD_TentacleBoss : MonoBehaviour
     bool tentacleUp;
     bool canTurn;
 
+    private string currentAnimation;
+
+    const string TentacleAttack = "TentacleAttack";
+    const string TentacleHide = "TentacleHide";
+
     //Ajout Gus
     private Material matWhite;
     private Material matDefault;
@@ -76,6 +81,7 @@ public class UD_TentacleBoss : MonoBehaviour
     {
         canTurn = false;
         yield return new WaitForSeconds(hitToPlayerDetectorDelayBeforeAttack);
+        ChangeAnimationState(TentacleAttack);
         tentacleUp = false;
         attackRateTimer = attackRate;
         canAttack = false;
@@ -109,7 +115,7 @@ public class UD_TentacleBoss : MonoBehaviour
         lifeTimer -= Time.deltaTime;
         if(lifeTimer <= 0)
         {
-            Destroy(gameObject);
+            ChangeAnimationState(TentacleHide);
         }
     }
     void PlayerDirection()
@@ -148,7 +154,7 @@ public class UD_TentacleBoss : MonoBehaviour
     public void Death()
     {
         boss.TakeDamage(damageToBossOnDeath);
-        Destroy(gameObject);
+        ChangeAnimationState(TentacleHide);
     }
 
     void UpdateAnims()
@@ -167,4 +173,14 @@ public class UD_TentacleBoss : MonoBehaviour
         sr.material = matDefault;
     }
     //
+
+    void ChangeAnimationState(string newAnimation)
+    {
+
+        if (currentAnimation == newAnimation) return;
+
+        anim.Play(newAnimation);
+
+        currentAnimation = newAnimation;
+    }
 }
