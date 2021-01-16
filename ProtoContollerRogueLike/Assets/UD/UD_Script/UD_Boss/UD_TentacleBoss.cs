@@ -28,6 +28,7 @@ public class UD_TentacleBoss : MonoBehaviour
     bool canAttack;
     bool tentacleUp;
     bool canTurn;
+    bool dead;
 
     private string currentAnimation;
 
@@ -49,6 +50,7 @@ public class UD_TentacleBoss : MonoBehaviour
         tentacleUp = true;
         canTurn = true;
         hitToPlayerDetector.SetActive(false);
+        dead = false;
     }
 
     void Update()
@@ -133,9 +135,10 @@ public class UD_TentacleBoss : MonoBehaviour
         {
             health -= damage;
 
-            if (health <= 0)
+            if (health <= 0 && !dead)
             {
                 Death();
+                dead = true;
             }
             /*//Ajout Gus
             sr.material = matWhite;
