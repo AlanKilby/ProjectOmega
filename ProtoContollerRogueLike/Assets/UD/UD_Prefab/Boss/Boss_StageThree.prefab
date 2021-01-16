@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2231580554688447621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8683458594613880172}
+  m_Layer: 0
+  m_Name: AcideShootPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8683458594613880172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231580554688447621}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.023, y: 0.571, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3835506115630241095}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4598378459823908608
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,6 +150,93 @@ Transform:
   m_Father: {fileID: 8766563700771516656}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4750994478207519114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3835506115630241095}
+  - component: {fileID: 1531384311675564113}
+  m_Layer: 0
+  m_Name: AcideShoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3835506115630241095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750994478207519114}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 0.67, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8683458594613880172}
+  - {fileID: 545113882254432555}
+  - {fileID: 7254664685433852711}
+  m_Father: {fileID: 8766563700730265997}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1531384311675564113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750994478207519114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f0fdb157ae69b4c9c0b8c465522e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootAcideDelay: 0
+  shootPoint1: {fileID: 8683458594613880172}
+  shootPoint2: {fileID: 545113882254432555}
+  shootPoint3: {fileID: 7254664685433852711}
+  acideBullet: {fileID: 1460572243853163105, guid: e17039e175ed57e4486a7be3cb6de0ae,
+    type: 3}
+  shootRateMin: 0.2
+  shootRateMax: 0.4
+  bulletSpeed: 10
+  shootImprecision: 0
+  isOn: 0
+--- !u!1 &5200747025375563983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7254664685433852711}
+  m_Layer: 0
+  m_Name: AcideShootPoint (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7254664685433852711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5200747025375563983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.263, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3835506115630241095}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5901089771982927330
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +267,7 @@ Transform:
   m_Father: {fileID: 8766563700771516656}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8766563700724516231
+--- !u!1 &7365625435001716449
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +275,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8766563700724516230}
+  - component: {fileID: 545113882254432555}
   m_Layer: 0
   m_Name: AcideShootPoint (2)
   m_TagString: Untagged
@@ -166,18 +283,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8766563700724516230
+--- !u!4 &545113882254432555
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766563700724516231}
+  m_GameObject: {fileID: 7365625435001716449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8766563701440776112}
+  m_Father: {fileID: 3835506115630241095}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8766563700730265998
@@ -218,7 +335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8766563702158641025}
-  - {fileID: 8766563701440776112}
+  - {fileID: 3835506115630241095}
   - {fileID: 8766563701409888789}
   - {fileID: 8766563701491798280}
   - {fileID: 8766563701726779542}
@@ -264,7 +381,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: cd0a5bb855a653141bec9f803289a5eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -379,7 +496,7 @@ MonoBehaviour:
   acideSpray: {fileID: 6072241667710834265, guid: f34cca32d849b7c45af2fcb727a04574,
     type: 3}
   warningDelay: 2
-  acideShootObject: {fileID: 8766563701440776127}
+  acideShootObject: {fileID: 1531384311675564113}
   shootAcideDelaySet: 3
 --- !u!114 &3358442011491469469
 MonoBehaviour:
@@ -439,6 +556,8 @@ MonoBehaviour:
   thisRoom: {fileID: 0}
   delayBetweenTentacleAndShoot: 9
   delayBetweenShootAndSpray: 4
+  delayAfterSpiderShoot: 0.2
+  delayBeforeSprayLaunch: 1.9
   delayBetweenSprayAndEgg: 8
   delayBetweenEggAndTentacle: 4
 --- !u!60 &2517544041608063521
@@ -572,63 +691,6 @@ Transform:
   m_Father: {fileID: 8766563700730265997}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
---- !u!1 &8766563701440776113
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8766563701440776112}
-  - component: {fileID: 8766563701440776127}
-  m_Layer: 0
-  m_Name: AcideShoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8766563701440776112
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766563701440776113}
-  m_LocalRotation: {x: -0, y: -0, z: 0.026058905, w: 0.99966043}
-  m_LocalPosition: {x: 0.53, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8766563702052933349}
-  - {fileID: 8766563700724516230}
-  - {fileID: 8766563701549740077}
-  m_Father: {fileID: 8766563700730265997}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.986}
---- !u!114 &8766563701440776127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766563701440776113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52f0fdb157ae69b4c9c0b8c465522e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootAcideDelay: 0
-  shootPoint1: {fileID: 8766563702052933349}
-  shootPoint2: {fileID: 8766563700724516230}
-  shootPoint3: {fileID: 8766563701549740077}
-  acideBullet: {fileID: 1460572243853163105, guid: 8cff21c8e59d1f440b22d01516db1e27,
-    type: 3}
-  shootRateMin: 0.2
-  shootRateMax: 0.4
-  bulletSpeed: 10
-  shootImprecision: 0
-  isOn: 0
 --- !u!1 &8766563701491798281
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,36 +721,6 @@ Transform:
   m_Father: {fileID: 8766563700730265997}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -135}
---- !u!1 &8766563701549740078
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8766563701549740077}
-  m_Layer: 0
-  m_Name: AcideShootPoint (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8766563701549740077
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766563701549740078}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8766563701440776112}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8766563701726779543
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,36 +751,6 @@ Transform:
   m_Father: {fileID: 8766563700730265997}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
---- !u!1 &8766563702052933350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8766563702052933349}
-  m_Layer: 0
-  m_Name: AcideShootPoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8766563702052933349
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766563702052933350}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8766563701440776112}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8766563702158641026
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +821,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 19
   m_Sprite: {fileID: 21300000, guid: 70068d85546c4fa409f8e715ce9a3339, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0

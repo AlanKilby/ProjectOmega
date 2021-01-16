@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6072241667710834267}
   - component: {fileID: 6072241667710834266}
   - component: {fileID: 6072241667710834269}
-  - component: {fileID: 8455999298110375735}
+  - component: {fileID: 4676134135438890040}
+  - component: {fileID: 2907245313299764348}
   m_Layer: 12
   m_Name: AcideSpray
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6072241667710834265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,11 +73,11 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 70068d85546c4fa409f8e715ce9a3339, type: 3}
-  m_Color: {r: 0.13568628, g: 1, b: 0, a: 1}
+  m_SortingOrder: 19
+  m_Sprite: {fileID: 21300000, guid: 4e3334566a3acf14b935eb050dbe10c9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
@@ -94,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 6072241667710834265}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 40b7d61218df5e54d930b13e745d6313, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8e987ff65016fa248b38705715cdd078, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -115,8 +116,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07e2211485e3f148bb163a8cba8275f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisRoom: {fileID: 0}
   acideSprayLifeTimeSet: 6
---- !u!60 &8455999298110375735
+--- !u!114 &4676134135438890040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072241667710834265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54272be653582bf4d90914c41339a60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &2907245313299764348
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +146,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    pivot: {x: 0.5, y: 1}
+    oldSize: {x: 7.3333335, y: 5.866667}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -141,24 +155,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.37, y: 0.85999995}
-      - {x: 0.53, y: 1.3199999}
-      - {x: 0.57, y: 1.42}
-      - {x: 0.72999996, y: 1.8399999}
-      - {x: 0.76, y: 1.92}
-      - {x: 0.78, y: 2}
-      - {x: -0.78, y: 2}
-      - {x: -0.78, y: 1.9799999}
-      - {x: -0.76, y: 1.93}
-      - {x: -0.71999997, y: 1.8199999}
-      - {x: -0.65999997, y: 1.66}
-      - {x: -0.64, y: 1.61}
-      - {x: -0.59, y: 1.48}
-      - {x: -0.48, y: 1.1899999}
-      - {x: -0.21, y: 0.48}
-      - {x: -0.049999997, y: 0.06}
-      - {x: -0.02, y: -0.01}
-      - {x: 0.02, y: -0.01}
-      - {x: 0.08, y: 0.099999994}
-      - {x: 0.13, y: 0.26999998}
-      - {x: 0.19999999, y: 0.44}
+    - - {x: -3.2892506, y: 5.499253}
+      - {x: -3.364526, y: 5.158187}
+      - {x: -0.62660146, y: 1.3282511}
+      - {x: 0.64458865, y: 1.3655968}
+      - {x: 3.3785365, y: 5.164049}
+      - {x: 3.2161114, y: 5.5180793}

@@ -14,11 +14,14 @@ public class UD_BossStageOneManagement : MonoBehaviour
     private Animator anim;
     private string currentAnimation;
     const string BOSSIDLE = "BossIdle";
-    const string BOSSACIDESPRAY = "BossAcideSpray";
     const string BOSSFLEE = "BossFlee";
+    const string BOSSACIDESPRAY = "BossAcideSpray";
     const string BOSSSPIDERSHOW = "BossSpiderShow";
+    const string BOSSSPIDERHIDE = "BossSpiderHide";
 
+    [SerializeField] float delayBeforeSprayLaunch;
     [SerializeField] float delayBetweenSprayAndShoot;
+    [SerializeField] float delayAfterSpiderShoot;
     [SerializeField] float delayBetweenShootAndSpray;
 
     IEnumerator coAtt;
@@ -39,7 +42,9 @@ public class UD_BossStageOneManagement : MonoBehaviour
         {
             if (canLaunchPhaseOne)
             {
-                StartCoroutine(coAtt);
+                ChangeAnimationState(BOSSIDLE);
+                //StartCoroutine(coAtt);
+                StartCoroutine(PhaseOneAttack());
                 canLaunchPhaseOne = false;
             }
         }
@@ -54,12 +59,14 @@ public class UD_BossStageOneManagement : MonoBehaviour
     IEnumerator PhaseOneAttack()
     {
         StartCoroutine(BSOn.AcideSprayShoot());
+        yield return new WaitForSeconds(delayBeforeSprayLaunch);
         ChangeAnimationState(BOSSACIDESPRAY);
         yield return new WaitForSeconds(delayBetweenSprayAndShoot);
         BSOn.StartAcideShoot();
         ChangeAnimationState(BOSSSPIDERSHOW);
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
-        ChangeAnimationState(BOSSIDLE);
+        ChangeAnimationState(BOSSSPIDERHIDE);
+        yield return new WaitForSeconds(delayAfterSpiderShoot);
         canLaunchPhaseOne = true;
     }
 

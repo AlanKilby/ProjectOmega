@@ -5,14 +5,19 @@ using UnityEngine;
 public class UD_AcideSprayScript : MonoBehaviour
 {
     public CameraSystem thisRoom;
+    Animator anim;
 
     public float acideSprayLifeTimeSet;
     private float acideSprayLifeTimer;
 
+    bool disappear;
+
     void Start()
     {
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
+        anim = GetComponent<Animator>();
         acideSprayLifeTimer = acideSprayLifeTimeSet;
+        disappear = false;
     }
 
     void Update()
@@ -22,8 +27,10 @@ public class UD_AcideSprayScript : MonoBehaviour
             acideSprayLifeTimer -= Time.deltaTime;
             if (acideSprayLifeTimer <= 0)
             {
-                Destroy(gameObject);
+                disappear = true;
             }
         }
+
+        anim.SetBool("disappear", disappear);
     }
 }

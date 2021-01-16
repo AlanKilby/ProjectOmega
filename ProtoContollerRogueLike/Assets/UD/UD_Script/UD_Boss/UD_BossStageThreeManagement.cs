@@ -19,9 +19,12 @@ public class UD_BossStageThreeManagement : MonoBehaviour
     const string BOSSFLEE = "BossFlee";
     const string BOSSACIDESPRAY = "BossAcideSpray";
     const string BOSSSPIDERSHOW = "BossSpiderShow";
+    const string BOSSSPIDERHIDE = "BossSpiderHide";
 
     [SerializeField] float delayBetweenTentacleAndShoot;
     [SerializeField] float delayBetweenShootAndSpray;
+    [SerializeField] float delayAfterSpiderShoot;
+    [SerializeField] float delayBeforeSprayLaunch;
     [SerializeField] float delayBetweenSprayAndEgg;
     [SerializeField] float delayBetweenEggAndTentacle;
 
@@ -45,7 +48,9 @@ public class UD_BossStageThreeManagement : MonoBehaviour
         {
             if (canLaunchPhaseThree)
             {
-                StartCoroutine(coAtt);
+                ChangeAnimationState(BOSSIDLE);
+                //StartCoroutine(coAtt);
+                StartCoroutine(PhaseThreeAttack());
                 canLaunchPhaseThree = false;
             }
         }
@@ -65,13 +70,15 @@ public class UD_BossStageThreeManagement : MonoBehaviour
         BSOn.StartAcideShoot();
         ChangeAnimationState(BOSSSPIDERSHOW);
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
+        ChangeAnimationState(BOSSSPIDERHIDE);
+        yield return new WaitForSeconds(delayAfterSpiderShoot);
         StartCoroutine(BSOn.AcideSprayShoot());
+        yield return new WaitForSeconds(delayBeforeSprayLaunch);
         ChangeAnimationState(BOSSACIDESPRAY);
         yield return new WaitForSeconds(delayBetweenSprayAndEgg);
         BSTh.LaunchEggs();
         ChangeAnimationState(BOSSIDLE);
         yield return new WaitForSeconds(delayBetweenEggAndTentacle);
-        ChangeAnimationState(BOSSIDLE);
         canLaunchPhaseThree = true;
     }
 
