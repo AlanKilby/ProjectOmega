@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 public class EnterDungeon : MonoBehaviour
 {
     UI_FloorIndicator FI;
+    FadeSceneManagerScript FSMS;
+
+    private void Start()
+    {
+        FSMS = GameObject.Find("FadeManager").GetComponent<FadeSceneManagerScript>();
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("can escape");
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             FI = GameObject.Find("FloorIndicatorText").GetComponent<UI_FloorIndicator>();
@@ -19,8 +24,10 @@ public class EnterDungeon : MonoBehaviour
             FindObjectOfType<AudioManager>().StopPlaying("Hub Music");
             FindObjectOfType<AudioManager>().StopPlaying("Hub Ambient");
             FindObjectOfType<AudioManager>().Play("Fight Music");
-            
-            SceneManager.LoadScene("ProceduralGeneration");
+
+            //SceneManager.LoadScene("ProceduralGeneration");
+            FadeSceneManagerScript.whatTransition = SceneTransition.Donjon;
+            FSMS.FadeOut();
         }
     }
 }

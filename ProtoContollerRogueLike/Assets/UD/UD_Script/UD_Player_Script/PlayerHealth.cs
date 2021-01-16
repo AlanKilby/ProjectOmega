@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    FadeSceneManagerScript FSMS;
+
     GameObject UI;
     GameObject sol;
     GameObject Room;
@@ -65,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
         sol = GameObject.Find("Sol");
         Room = GameObject.Find("RoomObjects");
         PPERedHealth = GameObject.Find("LowHealthEffect").GetComponent<PostProcessEffect>();
+        FSMS = GameObject.Find("FadeManager").GetComponent<FadeSceneManagerScript>();
         currentPlayerHealth = totalPlayerHealthUpgraded;
         hasQuickRevive = false;
         playerIsLowHealth = false;
@@ -165,7 +168,7 @@ public class PlayerHealth : MonoBehaviour
 
         GetComponent<SwordAttack>().enabled = false;
         ChangeAnimationState(PLAYER_DEATH);
-        Destroy(UI);
+        //Destroy(UI); Maintenant Détruit depuis le FadeSceneManager
         Destroy(sol);
         Destroy(Room);
         /*Destroy(GameObject.Find("DifficultyPanel"));
@@ -243,7 +246,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        //SceneManager.LoadScene("GameOver");
+        FadeSceneManagerScript.whatTransition = SceneTransition.DeathScreen;
+        FSMS.FadeOut();
         //SceneManager.LoadScene("UD_HUBnewCharacter");
     }
 

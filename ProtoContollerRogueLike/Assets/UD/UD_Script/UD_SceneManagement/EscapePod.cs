@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class EscapePod : MonoBehaviour
 {
+    FadeSceneManagerScript FSMS;
+
     public float escapeTimer;
 
     public bool escapeStart = false;
 
     public GameObject[] escapeSpawners;
+
+    private void Start()
+    {
+        FSMS = GameObject.Find("FadeManager").GetComponent<FadeSceneManagerScript>();
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -36,9 +43,11 @@ public class EscapePod : MonoBehaviour
 
         if(escapeTimer <= 0)
         {
-            SceneManager.LoadScene("UD_HUBtest");
+            //SceneManager.LoadScene("UD_HUBtest");
             FindObjectOfType<AudioManager>().Play("Hub Music");
             FindObjectOfType<AudioManager>().Play("Hub Ambient");
+            FadeSceneManagerScript.whatTransition = SceneTransition.HUB;
+            FSMS.FadeOut();
         }
     }
 

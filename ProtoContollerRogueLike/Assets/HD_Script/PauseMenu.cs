@@ -9,12 +9,14 @@ public class PauseMenu : MonoBehaviour
 
     GameObject player;
     GameObject UI;
+    FadeSceneManagerScript FSMS;
 
     private void Start()
     {
         pause = false;
         player = GameObject.FindGameObjectWithTag("Player");
         UI = GameObject.Find("UI");
+        FSMS = GameObject.Find("FadeManager").GetComponent<FadeSceneManagerScript>();
     }
 
     void Update()
@@ -67,12 +69,14 @@ public class PauseMenu : MonoBehaviour
         FindObjectOfType<AudioManager>().StopPlaying("Hub Music");
         FindObjectOfType<AudioManager>().Play("Ambient Cave");
         Destroy(player);
-        Destroy(UI);
+        //Destroy(UI); Maintenant Détruit depuis le FadeSceneManager
         Destroy(GameObject.Find("DifficultyPanel"));
         Destroy(GameObject.Find("GameManager"));
         //Destroy l'audio manager
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        //SceneManager.LoadScene("Menu");
+        FadeSceneManagerScript.whatTransition = SceneTransition.MainMenu;
+        FSMS.FadeOut();
     }
 
     public void QuitGame() 
