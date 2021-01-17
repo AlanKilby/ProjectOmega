@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public GameObject[] enemies;
+    public float[] enemyDropRate;
+
     public Transform currentRoom;
     public EnemyList enemyList;
     public CameraSystem isPlayerInRoom;
@@ -12,6 +15,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        for (int i = 1; i < enemyDropRate.Length; i++)
+        {
+            enemyDropRate[i] = enemyDropRate[i] + enemyDropRate[i - 1];
+        }
         currentRoom = gameObject.transform.parent;
         isPlayerInRoom = currentRoom.GetComponentInParent<CameraSystem>();
         enemyList = GameObject.FindGameObjectWithTag("Enemy List").GetComponent<EnemyList>();
@@ -25,27 +32,25 @@ public class EnemySpawner : MonoBehaviour
         i = Random.Range(1, 100);
 
 
-        
-
         if (i <= spawnChance && i >= 1)
         {
-            float j = Random.Range(0, enemyList.enemyDropRate[enemyList.enemyDropRate.Length-1]);
+            float j = Random.Range(0, enemyDropRate[enemyDropRate.Length-1]);
 
-            if (j <= enemyList.enemyDropRate[0])
+            if (j <= enemyDropRate[0])
             {
-                Instantiate(enemyList.enemies[0], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+                Instantiate(enemies[0], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
             }
             else
             {
-                for (int k = 1; k < enemyList.enemyDropRate.Length; k++)
+                for (int k = 1; k < enemyDropRate.Length; k++)
                 {
-                    if (k != enemyList.enemyDropRate.Length - 1 && j >= enemyList.enemyDropRate[k] && j <= enemyList.enemyDropRate[k + 1])
+                    if (k != enemyDropRate.Length - 1 && j >= enemyDropRate[k] && j <= enemyDropRate[k + 1])
                     {
-                        Instantiate(enemyList.enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+                        Instantiate(enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
                     }
-                    else if (k == enemyList.enemyDropRate.Length - 1 && j >= enemyList.enemyDropRate[k])
+                    else if (k == enemyDropRate.Length - 1 && j >= enemyDropRate[k])
                     {
-                        Instantiate(enemyList.enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+                        Instantiate(enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
                     }
                 }
             }
