@@ -23,7 +23,7 @@ public class WeaponList : MonoBehaviour
         randomLoot = Random.Range(0, gunDropRate[gunDropRate.Length-1]);
         Debug.Log(randomLoot);
         
-        if(randomLoot <= gunDropRate[0])
+        if(randomLoot < gunDropRate[0])
         {
             GameObject drop = Instantiate(weapons[0], thisObject.transform.position, Quaternion.Euler(0, 0, Random.Range(-180, 180)));
             drop.transform.SetParent(gunParent);
@@ -32,15 +32,18 @@ public class WeaponList : MonoBehaviour
         {
             for (int i = 1; i < gunDropRate.Length; i++)
             {
-                if(i != gunDropRate.Length-1 && randomLoot >= gunDropRate[i] && randomLoot <= gunDropRate[i + 1])
+                if(i != gunDropRate.Length-1 && randomLoot < gunDropRate[i] && randomLoot > gunDropRate[i - 1])
                 {
                     GameObject drop = Instantiate(weapons[i], thisObject.transform.position, Quaternion.Euler(0, 0, Random.Range(-180, 180)));
                     drop.transform.SetParent(gunParent);
+                    return;
+
                 }
-                else if(i == gunDropRate.Length-1 && randomLoot >= gunDropRate[i])
+                else if(i == gunDropRate.Length-1 && randomLoot < gunDropRate[i])
                 {
                     GameObject drop = Instantiate(weapons[i], thisObject.transform.position, Quaternion.Euler(0, 0, Random.Range(-180, 180)));
                     drop.transform.SetParent(gunParent);
+                    return;
                 }
             }
         }

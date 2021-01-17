@@ -18,7 +18,9 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 1; i < enemyDropRate.Length; i++)
         {
             enemyDropRate[i] = enemyDropRate[i] + enemyDropRate[i - 1];
+            Debug.Log(enemyDropRate[i]);
         }
+        
         currentRoom = gameObject.transform.parent;
         isPlayerInRoom = currentRoom.GetComponentInParent<CameraSystem>();
         enemyList = GameObject.FindGameObjectWithTag("Enemy List").GetComponent<EnemyList>();
@@ -27,14 +29,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        float i;
-
-        i = Random.Range(1, 100);
-
+        float i = Random.Range(0,100);
+        Debug.Log(i);
 
         if (i <= spawnChance && i >= 1)
         {
-            float j = Random.Range(0, enemyDropRate[enemyDropRate.Length-1]);
+            float j = Random.Range(0, 100);
 
             if (j <= enemyDropRate[0])
             {
@@ -44,14 +44,16 @@ public class EnemySpawner : MonoBehaviour
             {
                 for (int k = 1; k < enemyDropRate.Length; k++)
                 {
-                    if (k != enemyDropRate.Length - 1 && j >= enemyDropRate[k] && j <= enemyDropRate[k + 1])
+                    if ( j > enemyDropRate[k-1] && j < enemyDropRate[k])
                     {
                         Instantiate(enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+                        return;
                     }
-                    else if (k == enemyDropRate.Length - 1 && j >= enemyDropRate[k])
-                    {
-                        Instantiate(enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
-                    }
+                    //else if (k == (enemyDropRate.Length - 1) && j <= enemyDropRate[k])
+                    //{
+                    //    Instantiate(enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+                    //    return;
+                    //}
                 }
             }
 
