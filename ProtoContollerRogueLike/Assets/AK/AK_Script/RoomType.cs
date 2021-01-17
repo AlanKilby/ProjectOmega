@@ -8,6 +8,6 @@ public class RoomType : MonoBehaviour
 
     public void RoomDestruction()
     {
-        Destroy(transform.parent.gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

@@ -44,7 +44,7 @@ public class UD_BossStageThreeManagement : MonoBehaviour
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (thisRoom.playerIsInTheRoom.playerCamera)
         {
             if (canLaunchPhaseThree)
             {

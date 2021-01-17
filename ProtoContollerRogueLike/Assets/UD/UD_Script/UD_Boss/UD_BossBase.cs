@@ -99,7 +99,7 @@ public class UD_BossBase : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (thisRoom.playerIsInTheRoom.playerCamera)
         {
             health -= damage;
             takeDamage = true;

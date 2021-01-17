@@ -22,7 +22,7 @@ public class UD_AcideSprayScript : MonoBehaviour
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (thisRoom.playerIsInTheRoom.playerCamera)
         {
             acideSprayLifeTimer -= Time.deltaTime;
             if (acideSprayLifeTimer <= 0)

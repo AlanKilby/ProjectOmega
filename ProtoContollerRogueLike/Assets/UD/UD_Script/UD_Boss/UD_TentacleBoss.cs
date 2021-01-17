@@ -55,7 +55,7 @@ public class UD_TentacleBoss : MonoBehaviour
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (thisRoom.playerIsInTheRoom.playerCamera)
         {
             if (!boss.isAlive || boss == null)
             {
@@ -131,7 +131,7 @@ public class UD_TentacleBoss : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (thisRoom.playerIsInTheRoom.playerCamera)
         {
             health -= damage;
 

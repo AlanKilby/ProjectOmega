@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CameraSystem : MonoBehaviour
 {
-    public RoomTriggerCollider playerIsInTheRoom;
+    public PlayerCamera playerIsInTheRoom;
     public Transform mainCameraPos;
 
     private void Start()
     {
-        playerIsInTheRoom = GetComponentInChildren<RoomTriggerCollider>();
+        playerIsInTheRoom = GetComponentInChildren<PlayerCamera>();
         mainCameraPos = GameObject.FindGameObjectWithTag("CameraHolder").transform;
     }
 
     private void Update()
     {
-        if (playerIsInTheRoom.playerIsInTheRoom)
+        if (playerIsInTheRoom.playerCamera)
         {
             mainCameraPos.position = new Vector3(gameObject.transform.position.x-2, gameObject.transform.position.y,mainCameraPos.position.z);
         }

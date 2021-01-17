@@ -15,7 +15,7 @@ public class EnnemiRoomTrigger : MonoBehaviour
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (thisRoom.playerIsInTheRoom.playerCamera)
         {
             gameObject.GetComponent<AIPath>().enabled = true;
         }

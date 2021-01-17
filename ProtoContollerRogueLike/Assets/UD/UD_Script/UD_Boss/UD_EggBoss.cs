@@ -66,7 +66,7 @@ public class UD_EggBoss : MonoBehaviour
     {
         if (canSpawn)
         {
-            if (collision.CompareTag("Player") && thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+            if (collision.CompareTag("Player") && thisRoom.playerIsInTheRoom.playerCamera)
             {
                 if (isMoving)
                 {
@@ -77,7 +77,7 @@ public class UD_EggBoss : MonoBehaviour
                     Spawn();
                 }
             }
-            if (collision.CompareTag("Environement") || collision.CompareTag("BossEgg") && thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+            if (collision.CompareTag("Environement") || collision.CompareTag("BossEgg") && thisRoom.playerIsInTheRoom.playerCamera)
             {
                 rb.velocity = new Vector3(0, 0, 0);
                 isMoving = false;

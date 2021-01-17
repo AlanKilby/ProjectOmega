@@ -41,7 +41,7 @@ public class UD_BossStageTwoManagement : MonoBehaviour
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (thisRoom.playerIsInTheRoom.playerCamera)
         {
             if (canLaunchPhaseTwo)
             {

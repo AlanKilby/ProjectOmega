@@ -48,7 +48,7 @@ public class UD_BossStageFourManagement : MonoBehaviour
 
     void Update()
     {
-        if (thisRoom.playerIsInTheRoom.playerIsInTheRoom)
+        if (thisRoom.playerIsInTheRoom.playerCamera)
         {
             if (canLaunchPhaseFour)
             {
