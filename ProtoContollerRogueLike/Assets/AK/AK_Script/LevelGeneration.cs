@@ -42,7 +42,8 @@ public class LevelGeneration : MonoBehaviour
         Instantiate(startingRooms[0], transform.position, Quaternion.identity);
         isFirstRoom = true;
         direction = Random.Range(1, 6);
-        currentStage = GameObject.FindGameObjectWithTag("Player").GetComponent<Stage>().currentStage;
+        //currentStage = GameObject.FindGameObjectWithTag("DifficultyPanel").GetComponent<DifficultyPanel>().currentStage;
+        currentStage = DifficultyPanel.currentStage;
     }
 
     private void Update()
