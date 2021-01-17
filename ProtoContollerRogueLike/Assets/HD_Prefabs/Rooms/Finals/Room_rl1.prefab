@@ -50,19 +50,19 @@ MonoBehaviour:
   m_SelfShadows: 1
   m_ApplyToSortingLayers: 00000000f9b235aa
   m_ShapePath:
-  - {x: -1.053864, y: -1.1606814, z: 0}
-  - {x: -0.19615427, y: -1.2577273, z: 0}
-  - {x: 0.1040138, y: -0.93632746, z: 0}
-  - {x: 0.12717363, y: -0.06384286, z: 0}
-  - {x: -0.05179752, y: 0.18553717, z: 0}
-  - {x: -0.21326688, y: -0.02167396, z: 0}
-  - {x: -0.23876406, y: -0.5994379, z: 0}
-  - {x: -0.4392652, y: -0.8339604, z: 0}
-  - {x: -1.0253952, y: -0.8355006, z: 0}
-  - {x: -1.2560369, y: -0.99561137, z: 0}
-  m_ShapePathHash: -1049432640
+  - {x: -1.3929363, y: -1.3402607, z: 0}
+  - {x: 0.2788341, y: -1.3760927, z: 0}
+  - {x: 0.33874547, y: -0.8712373, z: 0}
+  - {x: 0.3802929, y: -0.49616575, z: 0}
+  - {x: 0.3482647, y: -0.07520962, z: 0}
+  - {x: 0.37600803, y: 0.33032918, z: 0}
+  - {x: -0.34963775, y: 0.3640473, z: 0}
+  - {x: -0.42256463, y: -0.57918096, z: 0}
+  - {x: -0.8517883, y: -0.6910114, z: 0}
+  - {x: -1.3717488, y: -0.6882837, z: 0}
+  m_ShapePathHash: 66321349
   m_Mesh: {fileID: 0}
-  m_InstanceId: 27464
+  m_InstanceId: 23146
 --- !u!1 &2379115743443323780
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   - {x: -1.0594276, y: -0.89956, z: 0}
   m_ShapePathHash: -2042332386
   m_Mesh: {fileID: 0}
-  m_InstanceId: 27556
+  m_InstanceId: 23242
 --- !u!1 &4852663718341650285
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ MonoBehaviour:
   - {x: -0.11779308, y: -1.0893493, z: 0}
   m_ShapePathHash: -1684182835
   m_Mesh: {fileID: 0}
-  m_InstanceId: 27494
+  m_InstanceId: 23174
 --- !u!1 &5118344901778939536
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
   - {x: -0.15188599, y: -3.9142206, z: 0}
   m_ShapePathHash: -561781535
   m_Mesh: {fileID: 0}
-  m_InstanceId: 27568
+  m_InstanceId: 23256
 --- !u!1 &6167591921433271761
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +623,7 @@ MonoBehaviour:
   - {x: -0.15975189, y: -3.9271815, z: 0}
   m_ShapePathHash: 1387075757
   m_Mesh: {fileID: 0}
-  m_InstanceId: 27470
+  m_InstanceId: 23152
 --- !u!1 &6179239841499368459
 GameObject:
   m_ObjectHideFlags: 0
@@ -6329,11 +6329,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6924024216942078679, guid: 1ce75c21347e411498ba4adaea68e9cc,
-        type: 3}
-      propertyPath: m_InstanceId
-      value: -5552
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce75c21347e411498ba4adaea68e9cc, type: 3}
 --- !u!4 &2462403647688944637 stripped
@@ -6417,7 +6412,7 @@ PrefabInstance:
     - target: {fileID: 6924024216942078679, guid: 1ce75c21347e411498ba4adaea68e9cc,
         type: 3}
       propertyPath: m_InstanceId
-      value: -5556
+      value: -20330
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce75c21347e411498ba4adaea68e9cc, type: 3}
@@ -6652,7 +6647,7 @@ PrefabInstance:
     - target: {fileID: 6924024216942078679, guid: 1ce75c21347e411498ba4adaea68e9cc,
         type: 3}
       propertyPath: m_InstanceId
-      value: -5568
+      value: -19200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce75c21347e411498ba4adaea68e9cc, type: 3}
