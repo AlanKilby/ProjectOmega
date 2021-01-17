@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: -0.21920139, y: -0.054806, z: 0}
   m_ShapePathHash: 2109102183
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43914
+  m_InstanceId: 59364
 --- !u!1 &508528527442081873
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3231384892932073276}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &508528527442081875
 MonoBehaviour:
@@ -102,6 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
   currentRoom: {fileID: 0}
   enemyList: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -183,7 +191,7 @@ MonoBehaviour:
   - {x: -0.23588759, y: 1.6638964, z: 0}
   m_ShapePathHash: 1435435844
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43892
+  m_InstanceId: 59342
 --- !u!1 &1547207419732230684
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,12 +997,16 @@ Transform:
   - {fileID: 6386909229644920433}
   - {fileID: 8359464367178727873}
   - {fileID: 5059080593857415440}
+  - {fileID: 1622708542769401988}
   - {fileID: 8231466166374596052}
   - {fileID: 6781615429973705483}
   - {fileID: 508528527442081872}
   - {fileID: 7850916218917302466}
   - {fileID: 8126173505674740151}
-  - {fileID: 1622708542769401988}
+  - {fileID: 5252884771532732208}
+  - {fileID: 1204675275515783164}
+  - {fileID: 8083519831101170397}
+  - {fileID: 92637249571728177}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3347,8 +3359,8 @@ Tilemap:
   - first: {x: -3, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3365,8 +3377,8 @@ Tilemap:
   - first: {x: -1, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4499,8 +4511,8 @@ Tilemap:
   - first: {x: -2, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5039,8 +5051,8 @@ Tilemap:
   - first: {x: -14, y: 7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5246,8 +5258,8 @@ Tilemap:
   - first: {x: 9, y: 7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5310,21 +5322,21 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 403
+  - m_RefCount: 408
     m_Data: {fileID: 11400000, guid: cc4a8b6af55067841ad3671c79388fbe, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 5
-    m_Data: {fileID: 11400000, guid: 79c1f156b881f904895f2dfb5ebe7e4b, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 403
+  - m_RefCount: 408
     m_Data: {fileID: 21300000, guid: c89644fcb920afe4d9ebada88a22d678, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 5
-    m_Data: {fileID: 21300000, guid: 2f8e4869ac698154799a7b8ff9a4cd50, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 408
     m_Data:
@@ -5472,6 +5484,118 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &4226543296279586239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92637249571728177}
+  - component: {fileID: 8503998865590167243}
+  m_Layer: 0
+  m_Name: Spawner (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &92637249571728177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226543296279586239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.99, y: -5.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3231384892932073276}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8503998865590167243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226543296279586239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
+  currentRoom: {fileID: 0}
+  enemyList: {fileID: 0}
+  isPlayerInRoom: {fileID: 0}
+  spawnChance: 90
+  waitTime: 0
+--- !u!1 &4603896506714377793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204675275515783164}
+  - component: {fileID: 6283227776079946686}
+  m_Layer: 0
+  m_Name: Spawner (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204675275515783164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603896506714377793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.28, y: -0.91, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3231384892932073276}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6283227776079946686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603896506714377793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
+  currentRoom: {fileID: 0}
+  enemyList: {fileID: 0}
+  isPlayerInRoom: {fileID: 0}
+  spawnChance: 90
+  waitTime: 0
 --- !u!1 &5525731345831760283
 GameObject:
   m_ObjectHideFlags: 0
@@ -5530,7 +5654,7 @@ MonoBehaviour:
   - {x: -0.21920139, y: -0.054806, z: 0}
   m_ShapePathHash: 2109102183
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43922
+  m_InstanceId: 59372
 --- !u!1 &6781615429973705482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5560,7 +5684,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3231384892932073276}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6781615429973705480
 MonoBehaviour:
@@ -5574,6 +5698,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
+  currentRoom: {fileID: 0}
+  enemyList: {fileID: 0}
+  isPlayerInRoom: {fileID: 0}
+  spawnChance: 90
+  waitTime: 0
+--- !u!1 &7768958441867672785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5252884771532732208}
+  - component: {fileID: 714961425324332472}
+  m_Layer: 0
+  m_Name: Spawner (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5252884771532732208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768958441867672785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.45, y: -0.91, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3231384892932073276}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &714961425324332472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768958441867672785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
   currentRoom: {fileID: 0}
   enemyList: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -5608,7 +5796,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3231384892932073276}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7850916218917302465
 MonoBehaviour:
@@ -5622,6 +5810,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
   currentRoom: {fileID: 0}
   enemyList: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -5656,7 +5852,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3231384892932073276}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8126173505674740148
 MonoBehaviour:
@@ -5670,6 +5866,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
   currentRoom: {fileID: 0}
   enemyList: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -5704,7 +5908,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3231384892932073276}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8231466166374596055
 MonoBehaviour:
@@ -5718,6 +5922,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
+  currentRoom: {fileID: 0}
+  enemyList: {fileID: 0}
+  isPlayerInRoom: {fileID: 0}
+  spawnChance: 90
+  waitTime: 0
+--- !u!1 &8821237887636681257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8083519831101170397}
+  - component: {fileID: 7169453651066957344}
+  m_Layer: 0
+  m_Name: Spawner (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8083519831101170397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821237887636681257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.02, y: -5.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3231384892932073276}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7169453651066957344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821237887636681257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f60629915463d04b8128ed97438caff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 8607137925183316082, guid: a77bdd3b6d025fc4a8a45c6043b90c70, type: 3}
+  - {fileID: 677780095534231841, guid: de54c6cfa41ce1d43879ae496251228f, type: 3}
+  - {fileID: 9218145522360350851, guid: e4ac943a961d1e045af5cd798500bbdd, type: 3}
+  enemyDropRate:
+  - 50
+  - 40
+  - 10
   currentRoom: {fileID: 0}
   enemyList: {fileID: 0}
   isPlayerInRoom: {fileID: 0}
@@ -5756,7 +6024,7 @@ Transform:
   - {fileID: 7439389699286461645}
   - {fileID: 4801110858057914766}
   m_Father: {fileID: 3231384892932073276}
-  m_RootOrder: 9
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3893304603126101194
 PrefabInstance:
@@ -5833,7 +6101,7 @@ PrefabInstance:
     - target: {fileID: 6924024216942078679, guid: 1ce75c21347e411498ba4adaea68e9cc,
         type: 3}
       propertyPath: m_InstanceId
-      value: -313758
+      value: -170160
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce75c21347e411498ba4adaea68e9cc, type: 3}
@@ -5918,7 +6186,7 @@ PrefabInstance:
     - target: {fileID: 6924024216942078679, guid: 1ce75c21347e411498ba4adaea68e9cc,
         type: 3}
       propertyPath: m_InstanceId
-      value: -313762
+      value: -170164
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce75c21347e411498ba4adaea68e9cc, type: 3}
