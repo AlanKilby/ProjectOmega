@@ -40,7 +40,7 @@ public class UD_BossStageOneManagement : MonoBehaviour
     {
         if (thisRoom.playerIsInTheRoom.playerCamera)
         {
-            if (canLaunchPhaseOne)
+            if (canLaunchPhaseOne && BB.isAlive)
             {
                 ChangeAnimationState(BOSSIDLE);
                 //StartCoroutine(coAtt);
@@ -60,12 +60,21 @@ public class UD_BossStageOneManagement : MonoBehaviour
     {
         StartCoroutine(BSOn.AcideSprayShoot());
         yield return new WaitForSeconds(delayBeforeSprayLaunch);
-        ChangeAnimationState(BOSSACIDESPRAY);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSACIDESPRAY);
+        }
         yield return new WaitForSeconds(delayBetweenSprayAndShoot);
         BSOn.StartAcideShoot();
-        ChangeAnimationState(BOSSSPIDERSHOW);
-        yield return new WaitForSeconds(delayBetweenShootAndSpray);
-        ChangeAnimationState(BOSSSPIDERHIDE);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSSPIDERSHOW);
+        }
+        yield return new WaitForSeconds(delayBetweenShootAndSpray); 
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSSPIDERHIDE);
+        }
         yield return new WaitForSeconds(delayAfterSpiderShoot);
         canLaunchPhaseOne = true;
     }

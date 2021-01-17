@@ -43,7 +43,7 @@ public class UD_BossStageTwoManagement : MonoBehaviour
     {
         if (thisRoom.playerIsInTheRoom.playerCamera)
         {
-            if (canLaunchPhaseTwo)
+            if (canLaunchPhaseTwo && BB.isAlive)
             {
                 ChangeAnimationState(BOSSIDLE);
                 //StartCoroutine(coAtt);
@@ -62,16 +62,28 @@ public class UD_BossStageTwoManagement : MonoBehaviour
     IEnumerator PhaseTwoAttack()
     {
         BSTw.LaunchTentacle();
-        ChangeAnimationState(BOSSIDLE);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSIDLE);
+        }
         yield return new WaitForSeconds(delayBetweenTentacleAndShoot);
         BSOn.StartAcideShoot();
-        ChangeAnimationState(BOSSSPIDERSHOW);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSSPIDERSHOW);
+        }
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
-        ChangeAnimationState(BOSSSPIDERHIDE);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSSPIDERHIDE);
+        }
         yield return new WaitForSeconds(delayAfterSpiderShoot);
         StartCoroutine(BSOn.AcideSprayShoot());
         yield return new WaitForSeconds(delayBeforeSprayLaunch);
-        ChangeAnimationState(BOSSACIDESPRAY);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSACIDESPRAY);
+        }
         yield return new WaitForSeconds(delayBetweenSprayAndTentacle);
         canLaunchPhaseTwo = true;
     }

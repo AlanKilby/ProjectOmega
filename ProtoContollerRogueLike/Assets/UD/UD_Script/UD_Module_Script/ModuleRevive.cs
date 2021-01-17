@@ -42,7 +42,7 @@ public class ModuleRevive : MonoBehaviour
 
                     PH.hasQuickRevive = true;
 
-                    i = PH.quickReviveIconSlot;
+                    PH.quickReviveIconSlot = i;
 
                     gameObject.SetActive(false);
 

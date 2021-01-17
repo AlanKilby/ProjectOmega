@@ -46,7 +46,7 @@ public class UD_BossStageThreeManagement : MonoBehaviour
     {
         if (thisRoom.playerIsInTheRoom.playerCamera)
         {
-            if (canLaunchPhaseThree)
+            if (canLaunchPhaseThree && BB.isAlive)
             {
                 ChangeAnimationState(BOSSIDLE);
                 //StartCoroutine(coAtt);
@@ -65,19 +65,34 @@ public class UD_BossStageThreeManagement : MonoBehaviour
     IEnumerator PhaseThreeAttack()
     {
         BSTw.LaunchTentacle();
-        ChangeAnimationState(BOSSIDLE);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSIDLE);
+        }
         yield return new WaitForSeconds(delayBetweenTentacleAndShoot);
         BSOn.StartAcideShoot();
-        ChangeAnimationState(BOSSSPIDERSHOW);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSSPIDERSHOW);
+        }
         yield return new WaitForSeconds(delayBetweenShootAndSpray);
-        ChangeAnimationState(BOSSSPIDERHIDE);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSSPIDERHIDE);
+        }
         yield return new WaitForSeconds(delayAfterSpiderShoot);
         StartCoroutine(BSOn.AcideSprayShoot());
         yield return new WaitForSeconds(delayBeforeSprayLaunch);
-        ChangeAnimationState(BOSSACIDESPRAY);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSACIDESPRAY);
+        }
         yield return new WaitForSeconds(delayBetweenSprayAndEgg);
         BSTh.LaunchEggs();
-        ChangeAnimationState(BOSSIDLE);
+        if (BB.isAlive)
+        {
+            ChangeAnimationState(BOSSIDLE);
+        }
         yield return new WaitForSeconds(delayBetweenEggAndTentacle);
         canLaunchPhaseThree = true;
     }
