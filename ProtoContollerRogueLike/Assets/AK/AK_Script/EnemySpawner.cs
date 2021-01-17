@@ -20,15 +20,39 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        int i;
+        float i;
 
-        i = Random.Range(1, 101);
+        i = Random.Range(1, 100);
+
+
+        
 
         if (i <= spawnChance && i >= 1)
         {
-            int j = Random.Range(0, enemyList.enemies.Length);
+            float j = Random.Range(0, enemyList.enemyDropRate[enemyList.enemyDropRate.Length-1]);
+
+            if (j <= enemyList.enemyDropRate[0])
+            {
+                Instantiate(enemyList.enemies[0], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+            }
+            else
+            {
+                for (int k = 1; k < enemyList.enemyDropRate.Length; k++)
+                {
+                    if (k != enemyList.enemyDropRate.Length - 1 && j >= enemyList.enemyDropRate[k] && j <= enemyList.enemyDropRate[k + 1])
+                    {
+                        Instantiate(enemyList.enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+                    }
+                    else if (k == enemyList.enemyDropRate.Length - 1 && j >= enemyList.enemyDropRate[k])
+                    {
+                        Instantiate(enemyList.enemies[k], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+                    }
+                }
+            }
+
+            
             //Debug.Log("Spawned");
-            Instantiate(enemyList.enemies[j], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
+            //Instantiate(enemyList.enemies[j], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, isPlayerInRoom.transform);
         }
     }
 }
