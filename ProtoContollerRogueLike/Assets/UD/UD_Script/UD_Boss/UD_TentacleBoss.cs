@@ -140,17 +140,18 @@ public class UD_TentacleBoss : MonoBehaviour
                 Death();
                 dead = true;
             }
-            /*//Ajout Gus
+            //Ajout Gus
             sr.material = matWhite;
             if (health <= 0)
             {
                 Death();
+                Invoke("ResetMaterial", 0.1f);
             }
             else
             {
                 Invoke("ResetMaterial", 0.1f);
             }
-            //*/ //GUS DOIT Y VOIR
+            //
         }
     }
 

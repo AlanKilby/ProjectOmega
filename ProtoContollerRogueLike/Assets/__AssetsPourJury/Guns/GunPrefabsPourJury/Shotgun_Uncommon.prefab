@@ -184,11 +184,12 @@ MonoBehaviour:
   - {fileID: 7119862614059456138}
   - {fileID: 7119862615472172390}
   - {fileID: 7119862615095674847}
-  ammoCount: 35
+  ammoCount: 50
   isEquipped: 0
   fireRate: 0.4
   gunSlot: 0
   gunInHand: 0
+  chargedMaxBulletPrefab: {fileID: 0}
   isALoadingGun: 0
   loadingGunTimeToChargeMax: 0
   loadingGunChargePercentage: 0

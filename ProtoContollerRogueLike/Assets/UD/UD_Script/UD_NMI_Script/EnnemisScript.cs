@@ -14,6 +14,7 @@ public class EnnemisScript : MonoBehaviour
 
     [SerializeField] LootDrop lootDrop;
     [SerializeField] private Animator anim;
+    Rigidbody2D rb;
 
     [Header("Type of Enemy ?")]
     [SerializeField] private bool isZombie;
@@ -48,6 +49,7 @@ public class EnnemisScript : MonoBehaviour
         lootDrop = GetComponent<LootDrop>();
         anim = GetComponent<Animator>();
         AIP = GetComponent<AIPath>();
+        rb = GetComponent<Rigidbody2D>();
         AIP.maxSpeed = speed;
         isStunned = false;
 
@@ -92,6 +94,10 @@ public class EnnemisScript : MonoBehaviour
             AIP.maxSpeed = speed;
         }
         StunnedTimer();
+        if (!thisRoom.playerIsInTheRoom.playerCamera)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
     }
 
     //Ajout Gus

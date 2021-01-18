@@ -78,6 +78,13 @@ public class Spider : MonoBehaviour
             }
             Move();
         }
+
+        if (!thisRoom.playerIsInTheRoom.playerCamera)
+        {
+            spiderFireRateTimer = spiderFireRate;
+            canShoot = false;
+        }
+
         if(playerPos != null)
         {
             Invoke("PlayerInSight", 0.2f);

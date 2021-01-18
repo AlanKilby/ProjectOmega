@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
+        CurrencySysteme.currentMoneyAmount = 0;
         GameManagement.GameIsPaused = false;
         SceneManager.LoadScene("UD_GameIntro");
         FindObjectOfType<AudioManager>().Play("Press Play");

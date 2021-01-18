@@ -86,11 +86,12 @@ MonoBehaviour:
   ownRarityLight: {fileID: 5658317430095721045}
   shootingPoints:
   - {fileID: 96414447493158597}
-  ammoCount: 200
+  ammoCount: 75
   isEquipped: 0
-  fireRate: 0.2
+  fireRate: 0.15
   gunSlot: 0
   gunInHand: 0
+  chargedMaxBulletPrefab: {fileID: 0}
   isALoadingGun: 0
   loadingGunTimeToChargeMax: 0
   loadingGunChargePercentage: 0

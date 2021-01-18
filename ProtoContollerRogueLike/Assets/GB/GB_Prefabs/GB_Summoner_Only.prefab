@@ -394,8 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDropRate: 50
-  dropGun: 80
-  dropModule: 10
+  dropGun: 75
+  dropModule: 15
   dropPowerUp: 20
   thisRoom: {fileID: 0}
 --- !u!114 &9218145522360350849
@@ -447,7 +447,7 @@ MonoBehaviour:
     m_Bits: 16384
   anim: {fileID: 9218145522360350911}
   fleeSpeed: 40
-  summonRate: 4
+  summonRate: 6.25
   summoningLenght: 1
   ownRBvelocityX: 0
   ownRBvelocityY: 0
