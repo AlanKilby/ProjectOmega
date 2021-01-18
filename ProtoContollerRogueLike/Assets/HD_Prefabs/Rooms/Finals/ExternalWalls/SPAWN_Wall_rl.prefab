@@ -2799,9 +2799,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomDesign0:
   - {fileID: 2927036935872814003, guid: ebce08b9692aabe4e8122dda201c2d99, type: 3}
-  roomDesign1: []
-  roomDesign2: []
-  roomDesign3: []
+  roomDesign1:
+  - {fileID: 2927036935872814003, guid: ebce08b9692aabe4e8122dda201c2d99, type: 3}
+  roomDesign2:
+  - {fileID: 2927036935872814003, guid: ebce08b9692aabe4e8122dda201c2d99, type: 3}
+  roomDesign3:
+  - {fileID: 2927036935872814003, guid: ebce08b9692aabe4e8122dda201c2d99, type: 3}
 --- !u!114 &6639172255121285031
 MonoBehaviour:
   m_ObjectHideFlags: 0
