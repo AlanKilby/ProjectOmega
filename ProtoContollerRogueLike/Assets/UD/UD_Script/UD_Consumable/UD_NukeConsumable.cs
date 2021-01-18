@@ -8,23 +8,20 @@ public class UD_NukeConsumable : MonoBehaviour
 
     public int nukeDamage;
 
-    bool explode;
-    Animator nukeFeedback;
+    UI_NukeFeedbackEffect nukeFeedback;
 
     private void Start()
     {
-        explode = false;
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
-        nukeFeedback = GameObject.Find("NukeFeedback").GetComponent<Animator>();
+        nukeFeedback = GameObject.Find("NukeFeedback").GetComponent<UI_NukeFeedbackEffect>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") == true)
         {
-            explode = true;
+            nukeFeedback.explode = true;
             FindObjectOfType<AudioManager>().Play("Nuke");
-            nukeFeedback.SetBool("explode", explode);
             foreach(Transform child1 in thisRoom.transform)
             {
                 if (child1.CompareTag("Ennemi"))
