@@ -393,10 +393,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156563478d8b4ab42b17b91a37a81a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDropRate: 100
-  dropGun: 33
-  dropModule: 33
-  dropPowerUp: 33
+  baseDropRate: 50
+  dropGun: 80
+  dropModule: 10
+  dropPowerUp: 20
   thisRoom: {fileID: 0}
 --- !u!114 &9218145522360350849
 MonoBehaviour:

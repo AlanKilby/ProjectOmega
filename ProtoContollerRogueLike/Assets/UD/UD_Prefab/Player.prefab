@@ -658,7 +658,7 @@ MonoBehaviour:
   dashTime: 0.3
   isDashing: 0
   canDash: 0
-  dashReloadTimeSet: 6
+  dashReloadTimeSet: 4
   dashReloadTimeUpgraded: 0
   dashReloadTimer: 3
   dashTimePercent: 0
@@ -907,29 +907,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce227e556baaf4248add3fb0c9a1293e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthTotalUpgradeByTier: 20
+  healthTotalUpgradeByTier: 10
   healthTotalUpgradeCountLimit: 3
   healthTotalUpgradeCountCurrent: 0
   healthTotalUpgradeCost: 0
-  healthTotalUpgradeCostBase: 10
-  healthTotalUpgradeCostMultiplicatorByTier: 1.5
-  dashCooldownUpgradeByTier: 1
-  dashCooldownUpgradeCountLimit: 3
+  healthTotalUpgradeCostBase: 100
+  healthTotalUpgradeCostMultiplicatorByTier: 1.75
+  dashCooldownUpgradeByTier: 0.75
+  dashCooldownUpgradeCountLimit: 4
   dashCooldownUpgradeCountCurrent: 0
   dashCooldownUpgradeCost: 0
-  dashCooldownUpgradeCostBase: 50
-  dashCooldownUpgradeCostMultiplicatorByTier: 1.3
+  dashCooldownUpgradeCostBase: 100
+  dashCooldownUpgradeCostMultiplicatorByTier: 1.5
   swordDamageUpgradeByTier: 5
   swordDamageUpgradeCountLimit: 5
   swordDamageUpgradeCountCurrent: 0
   swordDamageUpgradeCost: 0
-  swordDamageUpgradeCostBase: 10
-  swordDamageUpgradeCostMultiplicatorByTier: 1.7
+  swordDamageUpgradeCostBase: 100
+  swordDamageUpgradeCostMultiplicatorByTier: 1.3
   ammoMultiplicatorByTier: 1.7
   ammoMultiplicatorCountLimit: 3
   ammoMultiplicatorCountCurrent: 0
   ammoMultiplicatorCost: 0
-  ammoMultiplicatorCostBase: 100
+  ammoMultiplicatorCostBase: 200
   ammoMultiplicatorCostMultiplicatorByTier: 2
   ammoMultiplicatorCurrent: 0
 --- !u!114 &8804865822545781548

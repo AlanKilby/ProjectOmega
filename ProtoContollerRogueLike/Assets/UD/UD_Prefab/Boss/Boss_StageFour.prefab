@@ -333,7 +333,7 @@ MonoBehaviour:
   lootDrop: {fileID: 0}
   anim: {fileID: 0}
   thisRoom: {fileID: 0}
-  health: 500
+  health: 700
   dropRate: 0
   speed: 0
   moneyDrop: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisRoom: {fileID: 0}
-  delayBetweenTentacleAndShoot: 9
+  delayBetweenTentacleAndShoot: 5
   delayBetweenShootAndSpray: 4
   delayAfterSpiderShoot: 0.2
   delayBeforeSprayLaunch: 1.9

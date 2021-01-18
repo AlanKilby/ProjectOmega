@@ -366,7 +366,6 @@ GameObject:
   - component: {fileID: 2083008006340293693}
   - component: {fileID: 2083008006340293680}
   - component: {fileID: 8381087122510242868}
-  - component: {fileID: 1768399018794254787}
   - component: {fileID: 1833957218099756660}
   m_Layer: 0
   m_Name: EscapePodTest
@@ -473,19 +472,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.5
---- !u!114 &1768399018794254787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083008006340293692}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe628d995cce2046970ac1f2365a48e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textToShow: {fileID: 2083008005463350439}
 --- !u!114 &1833957218099756660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,8 +623,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 1198099839
-  m_SortingOrder: 0
+  m_SortingLayerID: -1439321351
+  m_SortingOrder: 200
   m_TargetDisplay: 0
 --- !u!114 &1091707293751059764
 MonoBehaviour:
