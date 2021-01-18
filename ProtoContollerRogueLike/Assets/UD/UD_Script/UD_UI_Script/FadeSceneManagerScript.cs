@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public enum SceneTransition { HUB, Donjon, DeathScreen, MainMenu}
+public enum SceneTransition { HUB, Donjon, DeathScreen, MainMenu, Outro}
 public class FadeSceneManagerScript : MonoBehaviour
 {
     public static SceneTransition whatTransition;
@@ -56,6 +56,12 @@ public class FadeSceneManagerScript : MonoBehaviour
         {
             print("goMenu");
             SceneManager.LoadScene("Menu");
+            Destroy(UI);
+        }
+        if(whatTransition == SceneTransition.Outro)
+        {
+            print("goOutro");
+            SceneManager.LoadScene("UD_GameOutro");
             Destroy(UI);
         }
         currentAnimation = "FadeIdle";

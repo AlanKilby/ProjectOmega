@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UD_BossStageFourManagement : MonoBehaviour
 {
+    FadeSceneManagerScript FSMS;
+
     UD_BossBase BB;
     UD_BossStageOne BSOn;
     UD_BossStageTwo BSTw;
@@ -41,6 +43,7 @@ public class UD_BossStageFourManagement : MonoBehaviour
         BSTw = GetComponent<UD_BossStageTwo>();
         BSTh = GetComponent<UD_BossStageThree>();
         BSFo = GetComponent<UD_BossStageFour>();
+        FSMS = GameObject.Find("FadeManager").GetComponent<FadeSceneManagerScript>();
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         canLaunchPhaseFour = true;
         coAtt = PhaseFourAttack();
@@ -114,6 +117,8 @@ public class UD_BossStageFourManagement : MonoBehaviour
 
     public void DestroyHimself()
     {
+        FadeSceneManagerScript.whatTransition = SceneTransition.Outro;
+        FSMS.FadeOut();
         BB.Death();
     }
 

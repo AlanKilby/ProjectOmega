@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         GameManagement.GameIsPaused = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("UD_GameIntro");
         FindObjectOfType<AudioManager>().Play("Press Play");
         //FindObjectOfType<AudioManager>().Play("Fight Music");
         FindObjectOfType<AudioManager>().Play("Ambient Cave");
