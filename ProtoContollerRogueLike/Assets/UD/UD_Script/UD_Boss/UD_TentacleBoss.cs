@@ -51,6 +51,12 @@ public class UD_TentacleBoss : MonoBehaviour
         canTurn = true;
         hitToPlayerDetector.SetActive(false);
         dead = false;
+
+        //Ajout Gus
+        sr = GetComponent<SpriteRenderer>();
+        matWhite = Resources.Load("EnemyFlash", typeof(Material)) as Material;
+        matDefault = sr.material;
+        //
     }
 
     void Update()
@@ -131,7 +137,7 @@ public class UD_TentacleBoss : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (thisRoom.playerIsInTheRoom.playerCamera)
+        if (thisRoom.playerIsInTheRoom.playerCamera && !dead)
         {
             health -= damage;
 
