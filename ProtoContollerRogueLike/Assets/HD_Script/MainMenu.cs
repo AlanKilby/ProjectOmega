@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        CursorManager.SetMenuCursor();
+    }
+
     public void PlayGame()
     {
         CurrencySysteme.currentMoneyAmount = 0;

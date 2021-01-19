@@ -24,6 +24,7 @@ public class UI_VendingMachineOpenClose : MonoBehaviour
 
     public void OpenVendingMachine()
     {
+        CursorManager.SetMenuCursor();
         FindObjectOfType<AudioManager>().Play("Opening Shop");
         vendingMachineUI.SetActive(true);
         GameManagement.GameIsPaused = true;
@@ -32,6 +33,7 @@ public class UI_VendingMachineOpenClose : MonoBehaviour
 
     public void CloseVendingMachine()
     {
+        CursorManager.SetFightCursor();
         FindObjectOfType<AudioManager>().Play("Closing Shop"); 
         vendingMachineUI.SetActive(false);
         GameManagement.GameIsPaused = false;

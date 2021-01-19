@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
             {
                 if (!GameManagement.GameIsPaused)
                 {
+                    CursorManager.SetMenuCursor();
                     Pause();
                 }
             }
@@ -50,6 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        CursorManager.SetFightCursor();
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameManagement.GameIsPaused = false;

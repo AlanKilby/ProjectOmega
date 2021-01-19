@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameOutroEnd : MonoBehaviour
 {
+    private void Start()
+    {
+        CursorManager.SetMenuCursor();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

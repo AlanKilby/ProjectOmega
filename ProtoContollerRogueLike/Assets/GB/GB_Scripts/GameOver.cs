@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    private void Start()
+    {
+        CursorManager.SetMenuCursor();
+    }
+
     public void MainMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -15,6 +20,7 @@ public class GameOver : MonoBehaviour
 
     public void NewGame()
     {
+        CursorManager.SetFightCursor();
         SceneManager.LoadScene("UD_HUBnewCharacter");
     }
 
