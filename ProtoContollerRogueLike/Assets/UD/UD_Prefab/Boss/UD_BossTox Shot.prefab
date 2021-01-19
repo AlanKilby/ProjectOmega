@@ -135,6 +135,7 @@ MonoBehaviour:
   maxEnemyPenetrate: 1
   enemyPiercedFeedbackObject: {fileID: 0}
   invicibilityDelaySet: 0.2
+  damageMultiplicatorIfParried: 10
 --- !u!61 &8868516561278604183
 BoxCollider2D:
   m_ObjectHideFlags: 0

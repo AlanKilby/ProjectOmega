@@ -47,6 +47,9 @@ public class Bullet : MonoBehaviour
     float invicibilityDelayTimer;
     bool isInvicible;
 
+    [Header("CounterBlade Module")]
+    [Range (1,10)] public float damageMultiplicatorIfParried;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -228,6 +231,7 @@ public class Bullet : MonoBehaviour
             Bullet Bu = bullet.GetComponent<Bullet>();
             rb.AddForce(bullet.transform.up * counterBladeBulletSpeed, ForceMode2D.Impulse);
             Bu.isEnnemyBullet = false;
+            Bu.damage = (int) Mathf.Round(damage * damageMultiplicatorIfParried);
             touchObstacle = true;
         }
 

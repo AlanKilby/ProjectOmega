@@ -29,7 +29,7 @@ public class UI_PriceCounter : MonoBehaviour
             {
                 if(UP.healthTotalUpgradeCountCurrent >= UP.healthTotalUpgradeCountLimit)
                 {
-                    priceShowedText.text = ("Full !");
+                    priceShowedText.text = ("Full");
                 }
                 else
                 {
@@ -40,7 +40,7 @@ public class UI_PriceCounter : MonoBehaviour
             {
                 if(UP.dashCooldownUpgradeCountCurrent >= UP.dashCooldownUpgradeCountLimit)
                 {
-                    priceShowedText.text = ("Full !");
+                    priceShowedText.text = ("Full");
                 }
                 else
                 {
@@ -51,7 +51,7 @@ public class UI_PriceCounter : MonoBehaviour
             {
                 if(UP.swordDamageUpgradeCountCurrent >= UP.swordDamageUpgradeCountLimit)
                 {
-                    priceShowedText.text = ("Full !");
+                    priceShowedText.text = ("Full");
                 }
                 else
                 {
@@ -62,7 +62,7 @@ public class UI_PriceCounter : MonoBehaviour
             {
                 if(UP.ammoMultiplicatorCountCurrent >= UP.ammoMultiplicatorCountLimit)
                 {
-                    priceShowedText.text = ("Full !");
+                    priceShowedText.text = ("Full");
                 }
                 else
                 {
