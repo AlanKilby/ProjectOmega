@@ -591,7 +591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!1 &432142611
 GameObject:
@@ -1800,11 +1800,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentStage: 0
   startingPositions:
-  - {fileID: 334717517}
   - {fileID: 1061083962}
   - {fileID: 265884579}
   - {fileID: 1477492280}
-  - {fileID: 1825233893}
   rooms:
   - {fileID: 3346380228933041921, guid: 9dc20f0e8f1e99b4691637e3dbc4e1c1, type: 3}
   - {fileID: 6779495693192679006, guid: 5057fc37b56a80a4b833dca610fec29b, type: 3}
