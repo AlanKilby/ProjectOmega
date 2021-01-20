@@ -59,7 +59,7 @@ public class EnnemiSummoner : MonoBehaviour
         anim = GetComponent<Animator>();
         ES = GetComponent<EnnemisScript>();
         DP = GameObject.Find("DifficultyPanel").GetComponent<DifficultyPanel>();
-        summonRate = (int)Mathf.Round((summonRate - DP.currentStageSpawnRateBonusForSummoner));
+        summonRate = summonRate - DP.currentStageSpawnRateBonusForSummoner;
     }
 
     void Update()
