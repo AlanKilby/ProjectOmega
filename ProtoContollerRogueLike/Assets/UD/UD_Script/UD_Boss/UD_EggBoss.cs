@@ -52,6 +52,7 @@ public class UD_EggBoss : MonoBehaviour
         {
             EBS = spawnerOfThisEggList[i].GetComponent<UD_EggBossSpawner>();
             EBS.SpawnEnemies();
+            FindObjectOfType<AudioManager>().Play("Boss Egg Hatching");
         }
         canSpawn = false;
         explode = true;

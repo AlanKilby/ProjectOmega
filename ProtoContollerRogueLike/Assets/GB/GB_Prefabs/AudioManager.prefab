@@ -308,12 +308,6 @@ MonoBehaviour:
     pitch: 1.5
     loop: 0
     source: {fileID: 0}
-  - name: Explosive Ammo
-    clip: {fileID: 0}
-    volume: 0.05
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: Boss Music
     clip: {fileID: 8300000, guid: d92bd31ca4c308e4bbc954adef45901c, type: 3}
     volume: 0.5
@@ -323,6 +317,72 @@ MonoBehaviour:
   - name: Ambient Cave
     clip: {fileID: 8300000, guid: 876af86667a812e4ea9f49dedb18700f, type: 3}
     volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Idle
+    clip: {fileID: 8300000, guid: 857452785d2ca7844bc1576f079154c9, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Boss Escape
+    clip: {fileID: 8300000, guid: 1e8da1779012d8e48bd93d5363fb5354, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Death
+    clip: {fileID: 8300000, guid: 876af86667a812e4ea9f49dedb18700f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Acid Spit
+    clip: {fileID: 8300000, guid: 3e8aa072aaf407d4aa7681a2e2196bd0, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Acid Charge
+    clip: {fileID: 8300000, guid: d962bac0791bddf4ba783c61a22a70b8, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Spider Shot
+    clip: {fileID: 8300000, guid: 3f4377e4237ef37479d6ab4e64059959, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Tentacle Whip
+    clip: {fileID: 8300000, guid: 15acaee925d9c104796b5eb1c951209c, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Ball Spray
+    clip: {fileID: 8300000, guid: 876af86667a812e4ea9f49dedb18700f, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Egg Launch
+    clip: {fileID: 8300000, guid: d7bea0ce9b0d7634fbffa76bfeb5ca4d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Egg Hatching
+    clip: {fileID: 8300000, guid: 84a4c33933b31c8439cbe22ac4d1ebd5, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Toxic Shot
+    clip: {fileID: 8300000, guid: 067128b32cc837d47a50b68236ed8e30, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}

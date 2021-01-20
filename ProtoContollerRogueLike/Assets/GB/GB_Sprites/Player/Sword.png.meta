@@ -1,34 +1,7 @@
 fileFormatVersion: 2
-guid: e90228e1dc4288c4b8df7ed0d9b7a43a
+guid: bc0f039460082584c8ebdcc2eb9352af
 TextureImporter:
   internalIDToNameTable:
-  - first:
-      213: 8020143640844766479
-    second: spritesheet_0
-  - first:
-      213: -6251682230944352461
-    second: spritesheet_1
-  - first:
-      213: -1259408508766424310
-    second: spritesheet_2
-  - first:
-      213: -5962389079421231736
-    second: spritesheet_3
-  - first:
-      213: 2788568348960109317
-    second: spritesheet_4
-  - first:
-      213: 226702753830753226
-    second: spritesheet_5
-  - first:
-      213: -7921052967969465774
-    second: spritesheet_6
-  - first:
-      213: -1370661682523340017
-    second: spritesheet_7
-  - first:
-      213: -8276262488406422588
-    second: spritesheet_8
   - first:
       213: 712035800519618848
     second: Sword_0
@@ -146,10 +119,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +138,12 @@ TextureImporter:
       name: Sword_1
       rect:
         serializedVersion: 2
-        x: 69
+        x: 84
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +159,12 @@ TextureImporter:
       name: Sword_2
       rect:
         serializedVersion: 2
-        x: 138
+        x: 168
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +180,12 @@ TextureImporter:
       name: Sword_3
       rect:
         serializedVersion: 2
-        x: 207
+        x: 252
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,12 +201,12 @@ TextureImporter:
       name: Sword_4
       rect:
         serializedVersion: 2
-        x: 276
+        x: 336
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,12 +222,12 @@ TextureImporter:
       name: Sword_5
       rect:
         serializedVersion: 2
-        x: 345
+        x: 420
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,12 +243,12 @@ TextureImporter:
       name: Sword_6
       rect:
         serializedVersion: 2
-        x: 414
+        x: 504
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,12 +264,12 @@ TextureImporter:
       name: Sword_7
       rect:
         serializedVersion: 2
-        x: 483
+        x: 588
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,12 +285,12 @@ TextureImporter:
       name: Sword_8
       rect:
         serializedVersion: 2
-        x: 552
+        x: 672
         y: 0
-        width: 69
-        height: 66
+        width: 84
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -339,7 +312,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures:
-    - texture: {fileID: 2800000, guid: e82a36f1eaae33e4ba3126bf5dffae93, type: 3}
+    - texture: {fileID: 2800000, guid: 406e30303c91d1d41be0098b3c49333c, type: 3}
       name: _Emission
   spritePackingTag: 
   pSDRemoveMatte: 0

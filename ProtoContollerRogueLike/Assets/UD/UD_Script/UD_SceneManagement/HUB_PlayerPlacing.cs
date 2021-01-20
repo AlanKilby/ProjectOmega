@@ -12,13 +12,15 @@ public class HUB_PlayerPlacing : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().StopPlaying("Ambient Cave"); 
+        FindObjectOfType<AudioManager>().Play("Hub Music");
         player = GameObject.FindGameObjectWithTag("Player");
         PH = player.GetComponent<PlayerHealth>();
         PH.currentPlayerHealth = PH.totalPlayerHealthUpgraded;
         player.transform.position = startPosition;
         FI = GameObject.Find("FloorIndicatorText").GetComponent<UI_FloorIndicator>();
         FI.IndicatorHUB();
-        FindObjectOfType<AudioManager>().Play("Hub Music");
+        
     }
 
 }

@@ -116,13 +116,13 @@ public class Weapon : MonoBehaviour
 
         if (isHandgun && !isGatling && !isShotgun && !GameManagement.GameIsPaused)
         {
-            if (isEquipped && Input.GetButtonDown("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
+            if (isEquipped && Input.GetButtonDown("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing && gunInHand)
             {
                 FindObjectOfType<AudioManager>().Play("Handgun Charge");
                 loadingGunCharging = true;
             }
 
-            if (isEquipped && Input.GetButtonUp("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing)
+            if (isEquipped && Input.GetButtonUp("Fire1") && inventory.ammoCounter[gun.ammoID] > 0 && !PM.isDashing && gunInHand)
             {
                 FindObjectOfType<AudioManager>().StopPlaying("Handgun Charge");
                 FindObjectOfType<AudioManager>().Play("Handgun Shot");
@@ -133,8 +133,6 @@ public class Weapon : MonoBehaviour
 
             if (!isEquipped || inventory.ammoCounter[gun.ammoID] <= 0 || PM.isDashing || !gunInHand)
             {
-                FindObjectOfType<AudioManager>().StopPlaying("Handgun Charge");
-                FindObjectOfType<AudioManager>().StopPlaying("Handgun Shot"); 
                 loadingGunCharging = false;
             }
 

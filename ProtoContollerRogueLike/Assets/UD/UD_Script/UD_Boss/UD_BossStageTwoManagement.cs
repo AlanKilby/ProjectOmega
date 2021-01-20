@@ -45,7 +45,9 @@ public class UD_BossStageTwoManagement : MonoBehaviour
         {
             if (canLaunchPhaseTwo && BB.isAlive)
             {
+                //FindObjectOfType<AudioManager>().Play("Boss Music"); 
                 ChangeAnimationState(BOSSIDLE);
+                FindObjectOfType<AudioManager>().Play("Boss Idle");
                 //StartCoroutine(coAtt);
                 StartCoroutine(PhaseTwoAttack());
                 canLaunchPhaseTwo = false;
@@ -67,6 +69,7 @@ public class UD_BossStageTwoManagement : MonoBehaviour
             ChangeAnimationState(BOSSIDLE);
         }
         yield return new WaitForSeconds(delayBetweenTentacleAndShoot);
+        FindObjectOfType<AudioManager>().Play("Boss Spider Shot");
         BSOn.StartAcideShoot();
         if (BB.isAlive)
         {
@@ -79,15 +82,27 @@ public class UD_BossStageTwoManagement : MonoBehaviour
         }
         yield return new WaitForSeconds(delayAfterSpiderShoot);
         StartCoroutine(BSOn.AcideSprayShoot());
+        FindObjectOfType<AudioManager>().Play("Boss Acid Charge");
         yield return new WaitForSeconds(delayBeforeSprayLaunch);
         if (BB.isAlive)
         {
             ChangeAnimationState(BOSSACIDESPRAY);
+            FindObjectOfType<AudioManager>().Play("Boss Acid Spit");
         }
         yield return new WaitForSeconds(delayBetweenSprayAndTentacle);
         canLaunchPhaseTwo = true;
     }
 
+    public void EscapeSound()
+    {
+        FindObjectOfType<AudioManager>().StopPlaying("Boss Acid Charge");
+        FindObjectOfType<AudioManager>().StopPlaying("Boss Acid Spit");
+        FindObjectOfType<AudioManager>().StopPlaying("Boss Spider Shot");
+        FindObjectOfType<AudioManager>().StopPlaying("Boss Idle");
+        FindObjectOfType<AudioManager>().StopPlaying("Boss Music");
+        FindObjectOfType<AudioManager>().Play("Boss Escape");
+    }
+    
     public void Flee()
     {
         ChangeAnimationState(BOSSFLEE);

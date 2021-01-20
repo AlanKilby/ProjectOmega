@@ -24,7 +24,8 @@ public class EscapePod : MonoBehaviour
         if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
             escapeStart = true;
-            FindObjectOfType<AudioManager>().StopPlaying("Fight Music"); 
+            FindObjectOfType<AudioManager>().StopPlaying("Fight Music");
+            FindObjectOfType<AudioManager>().StopPlaying("Ambient Cave");
             FindObjectOfType<AudioManager>().Play("Teleport In");
 
             for (int i = 0; i < escapeSpawners.Length; i++)

@@ -101,6 +101,12 @@ public class UD_TentacleBoss : MonoBehaviour
         hitToPlayerDetector.SetActive(false);
     }
 
+    public void TentacleSound()
+    {
+        FindObjectOfType<AudioManager>().StopPlaying("Damage Hit");
+        FindObjectOfType<AudioManager>().Play("Boss Tentacle Whip");
+    }
+
     private void CheckSurroundings()
     {
         playerIsInAttackArea = Physics2D.OverlapCircle(gameObject.transform.position, ownAttackLaunchDetectionRadius, whatIsPlayer);
