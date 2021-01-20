@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Fight Music
-    clip: {fileID: 8300000, guid: d92bd31ca4c308e4bbc954adef45901c, type: 3}
-    volume: 0.449
+    clip: {fileID: 8300000, guid: c4daed8fb03b7344dba5685a7c250ba8, type: 3}
+    volume: 0.45
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -333,8 +333,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Boss Death
-    clip: {fileID: 8300000, guid: 876af86667a812e4ea9f49dedb18700f, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 0178d344368bad340b8cc35436c7bffc, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -359,12 +359,6 @@ MonoBehaviour:
   - name: Boss Tentacle Whip
     clip: {fileID: 8300000, guid: 15acaee925d9c104796b5eb1c951209c, type: 3}
     volume: 0.4
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Boss Ball Spray
-    clip: {fileID: 8300000, guid: 876af86667a812e4ea9f49dedb18700f, type: 3}
-    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}

@@ -85,6 +85,7 @@ public class UD_BossBase : MonoBehaviour
         {
             //Intégrer musique boss
             musicBossStarted = true;
+            FindObjectOfType<AudioManager>().Play("Boss Music");
         }
     }
 

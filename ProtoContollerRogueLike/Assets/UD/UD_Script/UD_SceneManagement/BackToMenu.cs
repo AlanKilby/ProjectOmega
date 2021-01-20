@@ -14,6 +14,7 @@ public class BackToMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene("Menu");
+            FindObjectOfType<AudioManager>().StopPlaying("Fight Music");
         }
     }
 }

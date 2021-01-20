@@ -19,7 +19,7 @@ public class UD_BossStageFourManagement : MonoBehaviour
     private Animator anim;
     private string currentAnimation;
     const string BOSSIDLE = "BossIdle";
-    const string BOSSDIE = "BossDie";
+    const string BOSSDIE = "BossDeathAnim";
     const string BOSSACIDESPRAY = "BossAcideSpray";
     const string BOSSSPIDERSHOW = "BossSpiderShow";
     const string BOSSSPIDERHIDE = "BossSpiderHide";
@@ -47,6 +47,7 @@ public class UD_BossStageFourManagement : MonoBehaviour
         thisRoom = gameObject.GetComponentInParent<CameraSystem>();
         canLaunchPhaseFour = true;
         coAtt = PhaseFourAttack();
+        AudioManager.volumeSlider = 1f;
     }
 
     void Update()
@@ -116,9 +117,9 @@ public class UD_BossStageFourManagement : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenEggAndTentacle);
         canLaunchPhaseFour = true;
     }
-
-    public void EscapeSound()
+    public void Die()
     {
+        ChangeAnimationState(BOSSDIE);
         FindObjectOfType<AudioManager>().StopPlaying("Boss Acid Charge");
         FindObjectOfType<AudioManager>().StopPlaying("Boss Acid Spit");
         FindObjectOfType<AudioManager>().StopPlaying("Boss Spider Shot");
@@ -126,18 +127,17 @@ public class UD_BossStageFourManagement : MonoBehaviour
         FindObjectOfType<AudioManager>().StopPlaying("Boss Music");
         FindObjectOfType<AudioManager>().StopPlaying("Boss Egg Launch");
         FindObjectOfType<AudioManager>().StopPlaying("Boss Toxic Shot");
-        FindObjectOfType<AudioManager>().Play("Boss Escape");
     }
 
-    public void Die()
+    public void DeathSound()
     {
-        ChangeAnimationState(BOSSDIE);
         FindObjectOfType<AudioManager>().Play("Boss Death");
     }
 
     public void DestroyHimself()
     {
         FadeSceneManagerScript.whatTransition = SceneTransition.Outro;
+        FindObjectOfType<AudioManager>().Play("Fight Music");
         FSMS.FadeOut();
         BB.Death();
     }
