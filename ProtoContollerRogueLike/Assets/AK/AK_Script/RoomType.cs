@@ -10,8 +10,8 @@ public class RoomType : MonoBehaviour
     public void RoomDestruction()
     {
         Debug.Log("Destruction executed " + type);
-        Destroy(gameObject);
-        //roomDesign = gameObject.GetComponentInParent<RoomDesign>();
-        //roomDesign.RoomDestruction();
+        //Destroy(gameObject);
+        roomDesign = gameObject.GetComponentInParent<RoomDesign>();
+        roomDesign.RoomDestruction();
     }
 }

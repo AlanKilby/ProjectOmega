@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 1; i < enemyDropRate.Length; i++)
         {
             enemyDropRate[i] = enemyDropRate[i] + enemyDropRate[i - 1];
-            Debug.Log(enemyDropRate[i]);
+            //Debug.Log(enemyDropRate[i]);
         }
         
         currentRoom = gameObject.transform.parent;
@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         float i = Random.Range(0,100);
-        Debug.Log(i);
+        //Debug.Log(i);
 
         if (i <= spawnChance && i >= 1)
         {

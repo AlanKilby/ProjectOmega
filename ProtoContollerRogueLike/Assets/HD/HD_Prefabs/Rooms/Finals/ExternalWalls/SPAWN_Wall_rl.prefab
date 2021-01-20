@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 2515437924896898141}
   - component: {fileID: 6639172255121285031}
   - component: {fileID: -8878946926531421252}
+  - component: {fileID: 8442266583581440505}
   m_Layer: 14
   m_Name: SPAWN_Wall_rl
   m_TagString: Environement
@@ -2833,6 +2834,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &8442266583581440505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538125844331880694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c9aac86a196ed4ea253057aaa9e327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5699018487098782161
 GameObject:
   m_ObjectHideFlags: 0

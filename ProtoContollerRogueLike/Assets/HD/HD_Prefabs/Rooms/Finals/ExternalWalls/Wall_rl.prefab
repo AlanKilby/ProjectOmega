@@ -60,7 +60,7 @@ MonoBehaviour:
   - {x: -9.288078, y: 11.067319, z: 0}
   m_ShapePathHash: -2118100938
   m_Mesh: {fileID: 0}
-  m_InstanceId: 48412
+  m_InstanceId: 34440
 --- !u!1 &2846923132556161258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,7 +3216,7 @@ MonoBehaviour:
   - {x: -9.288078, y: 11.067319, z: 0}
   m_ShapePathHash: -2118100938
   m_Mesh: {fileID: 0}
-  m_InstanceId: 48448
+  m_InstanceId: 34474
 --- !u!1 &7322866933423109142
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,6 +3340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001816632499282852, guid: abba7caa5bca9ba4db87d5db3c590f8e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8563274117771177581, guid: abba7caa5bca9ba4db87d5db3c590f8e,
         type: 3}
