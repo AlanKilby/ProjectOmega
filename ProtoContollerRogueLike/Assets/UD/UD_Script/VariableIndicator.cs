@@ -11,6 +11,9 @@ public class VariableIndicator : MonoBehaviour
     public bool isSwordAttacking;
     public bool moduleCheatOn;
 
+    [Range(0f,1f)]
+    public float volumeSlider;
+
     void Start()
     {
         SA = GameObject.FindGameObjectWithTag("Player").GetComponent<SwordAttack>();
@@ -32,5 +35,6 @@ public class VariableIndicator : MonoBehaviour
         {
             isSwordAttacking = SA.isAttacking;
         }
+        volumeSlider = AudioManager.volumeSlider;
     }
 }

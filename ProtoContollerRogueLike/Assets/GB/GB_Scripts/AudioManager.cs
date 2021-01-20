@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
+    public static float volumeSlider;
+
     public static AudioManager instance;
 
 
@@ -29,9 +31,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Update()
     {
-        
+        foreach (Sound s in sounds)
+            s.source.volume = s.volume * volumeSlider;
+  
     }
     public void Play(string name)
     {
