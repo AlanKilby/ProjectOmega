@@ -32,6 +32,8 @@ public class LevelGeneration : MonoBehaviour
 
     private Vector2 oldPos;
 
+    
+
     [SerializeField]
     private bool isFirstRoom;
     private void Start()
@@ -116,7 +118,7 @@ public class LevelGeneration : MonoBehaviour
 
             if(transform.position.y > minY)
             {
-                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 5, room);
+                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
                 Debug.Log(roomDetection);
                 //Collider2D roomDetection = collider2D1;
 
@@ -167,7 +169,7 @@ public class LevelGeneration : MonoBehaviour
             {
                 StopGeneration = true;
 
-                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 5, room);
+                Collider2D roomDetection = Physics2D.OverlapCircle(transform.position, 1, room);
                 Debug.Log(roomDetection);
                 //Collider2D roomDetection = collider2D1;
 

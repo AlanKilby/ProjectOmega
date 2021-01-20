@@ -17,5 +17,10 @@ public class SpawnRooms : MonoBehaviour
             Instantiate(levelGen.rooms[rand], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        else if(roomDetection != null && levelGen.StopGeneration == true)
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

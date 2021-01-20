@@ -41,4 +41,10 @@ public class RoomDesign : MonoBehaviour
 
     }
 
+
+    public void RoomDestruction()
+    {
+        Destroy(gameObject);
+    }
+
 }

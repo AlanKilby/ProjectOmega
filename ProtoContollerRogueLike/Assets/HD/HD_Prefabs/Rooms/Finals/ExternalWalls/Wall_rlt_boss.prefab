@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: 7.6962676, y: 10.801397, z: 0}
   m_ShapePathHash: -1987890297
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49678
+  m_InstanceId: 43132
 --- !u!1 &960475178218750686
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 4110233903639858065}
   - component: {fileID: 4482257881894141005}
   - component: {fileID: 6391804295283739204}
+  - component: {fileID: 8185758314051207323}
   m_Layer: 14
   m_Name: Wall_rlt_boss
   m_TagString: Environement
@@ -1955,6 +1956,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIsInTheRoom: {fileID: 0}
   mainCameraPos: {fileID: 0}
+--- !u!114 &8185758314051207323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960475178218750686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa839838c282f074fbb65103e261a616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
 --- !u!1 &1268052646439044685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,7 +2029,7 @@ MonoBehaviour:
   - {x: -9.288078, y: 11.067319, z: 0}
   m_ShapePathHash: -2118100938
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49690
+  m_InstanceId: 43144
 --- !u!1 &4278643325712517483
 GameObject:
   m_ObjectHideFlags: 0
@@ -3004,7 +3018,7 @@ MonoBehaviour:
   - {x: 7.6962676, y: 10.801397, z: 0}
   m_ShapePathHash: -1987890297
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49714
+  m_InstanceId: 43170
 --- !u!1001 &8645351191255457490
 PrefabInstance:
   m_ObjectHideFlags: 0

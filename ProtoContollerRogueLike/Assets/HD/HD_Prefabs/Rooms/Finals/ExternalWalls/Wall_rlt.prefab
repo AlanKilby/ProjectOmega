@@ -957,7 +957,7 @@ MonoBehaviour:
   - {x: -9.288078, y: 11.067319, z: 0}
   m_ShapePathHash: -2118100938
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47716
+  m_InstanceId: 42950
 --- !u!1 &4207703063893176707
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +975,7 @@ GameObject:
   - component: {fileID: 1025399338645027020}
   - component: {fileID: 649826193798680336}
   - component: {fileID: -1187603857550083815}
+  - component: {fileID: 3070483789222021348}
   m_Layer: 14
   m_Name: Wall_rlt
   m_TagString: Environement
@@ -3384,6 +3385,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIsInTheRoom: {fileID: 0}
   mainCameraPos: {fileID: 0}
+--- !u!114 &3070483789222021348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4207703063893176707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa839838c282f074fbb65103e261a616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
 --- !u!1 &4319414676991160137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,7 +3456,7 @@ MonoBehaviour:
   - {x: 7.6962676, y: 10.801397, z: 0}
   m_ShapePathHash: -1987890297
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47734
+  m_InstanceId: 42970
 --- !u!1 &7441899542080391668
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,7 +3548,7 @@ MonoBehaviour:
   - {x: 7.6962676, y: 10.801397, z: 0}
   m_ShapePathHash: -1987890297
   m_Mesh: {fileID: 0}
-  m_InstanceId: 47752
+  m_InstanceId: 42988
 --- !u!1001 &2450420743012119365
 PrefabInstance:
   m_ObjectHideFlags: 0
