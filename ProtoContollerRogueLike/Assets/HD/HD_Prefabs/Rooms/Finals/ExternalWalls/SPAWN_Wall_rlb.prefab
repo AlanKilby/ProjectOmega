@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: 7.665219, y: 10.788759, z: 0}
   m_ShapePathHash: -1875677677
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49148
+  m_InstanceId: 42578
 --- !u!1 &3738256014815508032
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   - {x: 7.665219, y: 10.788759, z: 0}
   m_ShapePathHash: -1875677677
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49142
+  m_InstanceId: 42572
 --- !u!1 &4018796421459005898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   - {x: -9.288078, y: 11.067319, z: 0}
   m_ShapePathHash: -2118100938
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49158
+  m_InstanceId: 42590
 --- !u!1 &9094759799707080312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,6 +1126,7 @@ GameObject:
   - component: {fileID: 1304090889473185531}
   - component: {fileID: 2751520709681529123}
   - component: {fileID: 7994262064569140869}
+  - component: {fileID: 8124959153633297617}
   m_Layer: 14
   m_Name: SPAWN_Wall_rlb
   m_TagString: Environement
@@ -3489,6 +3490,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIsInTheRoom: {fileID: 0}
   mainCameraPos: {fileID: 0}
+--- !u!114 &8124959153633297617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9094759799707080312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa839838c282f074fbb65103e261a616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1001 &1859899132249333908
 PrefabInstance:
   m_ObjectHideFlags: 0

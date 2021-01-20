@@ -5,9 +5,13 @@ using UnityEngine;
 public class RoomType : MonoBehaviour
 {
     public int type;
+    private RoomDesign roomDesign;
 
     public void RoomDestruction()
     {
-        Destroy(gameObject.transform.parent.gameObject);
+        Debug.Log("Destruction executed " + type);
+        Destroy(gameObject);
+        //roomDesign = gameObject.GetComponentInParent<RoomDesign>();
+        //roomDesign.RoomDestruction();
     }
 }

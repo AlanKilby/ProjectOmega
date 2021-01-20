@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &102941546
 Transform:
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &181530692
 Transform:
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &220825015
 Transform:
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!1 &294984406
 GameObject:
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &294984408
 Transform:
@@ -624,7 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &432142613
 Transform:
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &524815818
 Transform:
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &551784028
 Transform:
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!1001 &578567161
 PrefabInstance:
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &632890390
 Transform:
@@ -1246,7 +1246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &943737508
 Transform:
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!1 &1137697497
 GameObject:
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1303970666
 Transform:
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1373767367
 Transform:
@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!1 &1489983317
 GameObject:
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1489983319
 Transform:
@@ -1753,7 +1753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1570472788
 Transform:
@@ -1875,7 +1875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1649682867
 Transform:
@@ -1984,7 +1984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!1 &1901370037
 GameObject:
@@ -2017,7 +2017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1901370039
 Transform:
@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1901764369
 Transform:
@@ -2180,7 +2180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1916813101
 Transform:
@@ -2227,7 +2227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &1948067242
 Transform:
@@ -2274,7 +2274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsRoom:
     serializedVersion: 2
-    m_Bits: 131072
+    m_Bits: 147456
   levelGen: {fileID: 1574707485}
 --- !u!4 &2111639553
 Transform:

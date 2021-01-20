@@ -975,6 +975,7 @@ GameObject:
   - component: {fileID: 7373764795797046889}
   - component: {fileID: 1855658074577576874}
   - component: {fileID: 7425078600479293520}
+  - component: {fileID: -6773362917151319222}
   m_Layer: 14
   m_Name: Wall_rl
   m_TagString: Environement
@@ -3142,6 +3143,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIsInTheRoom: {fileID: 0}
   mainCameraPos: {fileID: 0}
+--- !u!114 &-6773362917151319222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3346380228933041921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa839838c282f074fbb65103e261a616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &7084441658111776835
 GameObject:
   m_ObjectHideFlags: 0
