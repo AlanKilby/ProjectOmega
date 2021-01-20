@@ -16,6 +16,8 @@ public class UD_BossBase : MonoBehaviour
     [SerializeField] private Animator anim;
     public CameraSystem thisRoom;
 
+    bool musicBossStarted;
+
     [Header("Stats")]
     public int health;
     public int dropRate;
@@ -59,6 +61,8 @@ public class UD_BossBase : MonoBehaviour
         matWhite = Resources.Load("EnemyFlash", typeof(Material)) as Material;
         matDefault = sr.material;
         //
+
+        musicBossStarted = false;
     }
 
     private void Update()
@@ -76,6 +80,12 @@ public class UD_BossBase : MonoBehaviour
             PlayerDirection();
         }
         StunnedTimer();
+
+        if (thisRoom.playerIsInTheRoom.playerCamera && !musicBossStarted)
+        {
+            //Intégrer musique boss
+            musicBossStarted = true;
+        }
     }
 
     //Ajout Gus
