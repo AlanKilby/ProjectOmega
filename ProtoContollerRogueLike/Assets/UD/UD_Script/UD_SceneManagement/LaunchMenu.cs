@@ -10,6 +10,7 @@ public class LaunchMenu : MonoBehaviour
     private void Start()
     {
         Invoke("StartMenu", launchMenuTime);
+        AudioManager.volumeSlider = 1f;
     }
 
     private void StartMenu()
