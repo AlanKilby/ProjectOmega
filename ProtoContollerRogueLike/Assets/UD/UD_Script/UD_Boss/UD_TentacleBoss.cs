@@ -15,6 +15,7 @@ public class UD_TentacleBoss : MonoBehaviour
     /*[HideInInspector]*/ public float lifeTimer;
     [SerializeField] GameObject hitToPlayerDetector;
     [SerializeField] float hitToPlayerDetectorDelay;
+    [SerializeField] float hitToBackToTurnDelay;
     [SerializeField] float hitToPlayerDetectorDelayBeforeAttack;
     [SerializeField] float ownAttackLaunchDetectionRadius;
 
@@ -96,9 +97,10 @@ public class UD_TentacleBoss : MonoBehaviour
         hitToPlayerDetector.SetActive(true);
         //Moment ou la tentacule claque à terre
         yield return new WaitForSeconds(hitToPlayerDetectorDelay);
+        hitToPlayerDetector.SetActive(false);
+        yield return new WaitForSeconds(hitToBackToTurnDelay);
         canTurn = true;
         tentacleUp = true;
-        hitToPlayerDetector.SetActive(false);
     }
 
     public void TentacleSound()

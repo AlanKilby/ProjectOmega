@@ -162,6 +162,7 @@ MonoBehaviour:
   lifeTimer: 13
   hitToPlayerDetector: {fileID: 7298915246780957415}
   hitToPlayerDetectorDelay: 0.1
+  hitToBackToTurnDelay: 1
   hitToPlayerDetectorDelayBeforeAttack: 0.5
   ownAttackLaunchDetectionRadius: 3
   attackRate: 6
@@ -250,3 +251,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tentacleDamageToPlayer: 3
+  damageTimeSet: 4
