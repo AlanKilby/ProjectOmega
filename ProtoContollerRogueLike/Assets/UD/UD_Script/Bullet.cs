@@ -259,7 +259,7 @@ public class Bullet : MonoBehaviour
         if (PMS.moduleExplosiveCharge)
         {
             Collider2D explosiveHit = Physics2D.OverlapCircle(gameObject.transform.position, moduleExplosiveChargeRadius, whatIsEnnemi);
-            FindObjectOfType<AudioManager>().Play("Explosive Ammo");
+            //FindObjectOfType<AudioManager>().Play("Explosive Ammo");
             if (explosiveHit != null)
             {
                 if (explosiveHit.CompareTag("Ennemi"))

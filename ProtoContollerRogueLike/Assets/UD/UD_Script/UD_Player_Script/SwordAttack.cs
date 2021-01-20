@@ -62,7 +62,7 @@ public class SwordAttack : MonoBehaviour
         CheckMovement();
         //
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && !GameManagement.GameIsPaused)
         {
             GetAttackInput();
             //ChangeAnimationState(PLAYER_SWORD);
