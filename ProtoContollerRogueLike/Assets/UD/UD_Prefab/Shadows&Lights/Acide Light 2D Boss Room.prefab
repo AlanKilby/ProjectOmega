@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1531408591128677051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1531408591128677045}
+  - component: {fileID: 1531408591128677050}
+  m_Layer: 0
+  m_Name: Acide Light 2D Boss Room
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1531408591128677045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531408591128677051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.87, y: 6.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1531408591128677050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531408591128677051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.6
+  m_Color: {r: 0, g: 0.7830189, b: 0.030706715, a: 1}
+  m_Intensity: 1.3
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 1
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 5
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.6096468, y: -2.74735, z: 0}
+  - {x: -0.5235672, y: -2.544373, z: 0}
+  - {x: -0.40781498, y: -2.1864932, z: 0}
+  - {x: 0.042300224, y: -1.8040943, z: 0}
+  - {x: 0.38088226, y: -1.7881613, z: 0}
+  - {x: 0.48917484, y: -1.6224365, z: 0}
+  - {x: 0.52791405, y: -1.1452041, z: 0}
+  - {x: 0.7689066, y: -0.8730712, z: 0}
+  - {x: 1.0466557, y: -0.7769027, z: 0}
+  - {x: 1.3267708, y: -0.7665281, z: 0}
+  - {x: 1.5394478, y: -0.7302165, z: 0}
+  - {x: 1.3942032, y: -0.42416477, z: 0}
+  - {x: 1.7365665, y: -0.009179115, z: 0}
+  - {x: 2.0789413, y: 0.2190628, z: 0}
+  - {x: 4.327123, y: 0.20627165, z: 0}
+  - {x: 4.4703026, y: 0.31762314, z: 0}
+  - {x: 4.5059423, y: 1.3754668, z: 0}
+  - {x: 4.3095155, y: 1.484767, z: 0}
+  - {x: -1.5596771, y: 1.548976, z: 0}
+  - {x: -1.7855425, y: 1.3602729, z: 0}
+  - {x: -1.7522478, y: -2.5862598, z: 0}
+  - {x: -1.5326538, y: -2.755455, z: 0}

@@ -326,6 +326,7 @@ Transform:
   - {fileID: 9208893265887370742}
   - {fileID: 5619139736736945447}
   - {fileID: 8954143893853464165}
+  - {fileID: 1094271291292563356}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5603,6 +5604,81 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &714839466710695463
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2816553377860352779}
+    m_Modifications:
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671381355787160639, guid: e91710af5423afc4d92b59c2aea19e87,
+        type: 3}
+      propertyPath: m_Name
+      value: Acide Light 2D Boss Room Package
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e91710af5423afc4d92b59c2aea19e87, type: 3}
+--- !u!4 &1094271291292563356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 487584221789866427, guid: e91710af5423afc4d92b59c2aea19e87,
+    type: 3}
+  m_PrefabInstance: {fileID: 714839466710695463}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3962932739581285762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5614,6 +5690,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss_StageOne
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035651400589745570, guid: 0053301868e864c4681175dcf2f31618,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5385364224431911911, guid: 0053301868e864c4681175dcf2f31618,
         type: 3}
