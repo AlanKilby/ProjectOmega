@@ -16,6 +16,9 @@ public class EnnemisScript : MonoBehaviour
     [SerializeField] private Animator anim;
     Rigidbody2D rb;
 
+    [SerializeField] GameObject explosionOnDeathEffect;
+    [SerializeField] GameObject[] acideStain;
+
     [Header("Type of Enemy ?")]
     [SerializeField] private bool isZombie;
     [SerializeField] private bool isSpider;
@@ -172,7 +175,19 @@ public class EnnemisScript : MonoBehaviour
     {
         CS.GainMoney(moneyDrop);
         //CS.currentMoneyAmount += moneyDrop;
-        lootDrop.DropLoot();
+        lootDrop.DropLoot(); 
+
+        GameObject explodeEffect = Instantiate(explosionOnDeathEffect, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, thisRoom.playerIsInTheRoom.transform);
+        explodeEffect.transform.SetParent(thisRoom.playerIsInTheRoom.transform);
+        float explodeRot = Random.Range(0, 360);
+        explodeEffect.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, explodeRot);
+
+        int i = Random.Range(0, acideStain.Length); 
+        GameObject stain = Instantiate(acideStain[i], new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0), Quaternion.identity, thisRoom.playerIsInTheRoom.transform);
+        stain.transform.SetParent(thisRoom.playerIsInTheRoom.transform);
+        float stainRot = Random.Range(0, 360);
+        stain.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, stainRot);
+
         Destroy(gameObject);
     }
 

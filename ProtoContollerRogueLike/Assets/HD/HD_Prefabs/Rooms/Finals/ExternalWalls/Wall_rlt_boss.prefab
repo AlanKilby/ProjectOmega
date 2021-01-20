@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: 7.6962676, y: 10.801397, z: 0}
   m_ShapePathHash: -1987890297
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43132
+  m_InstanceId: 63428
 --- !u!1 &960475178218750686
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +99,7 @@ Transform:
   - {fileID: 5084188158098450182}
   - {fileID: 7982593147922150774}
   - {fileID: 6317500610302520340}
+  - {fileID: 9058686456385915679}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2029,7 +2030,7 @@ MonoBehaviour:
   - {x: -9.288078, y: 11.067319, z: 0}
   m_ShapePathHash: -2118100938
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43144
+  m_InstanceId: 63440
 --- !u!1 &4278643325712517483
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,7 +3019,50 @@ MonoBehaviour:
   - {x: 7.6962676, y: 10.801397, z: 0}
   m_ShapePathHash: -1987890297
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43170
+  m_InstanceId: 63466
+--- !u!1 &9177311546820385340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9058686456385915679}
+  - component: {fileID: 4397646170069739159}
+  m_Layer: 8
+  m_Name: PlayerTeleportBoss
+  m_TagString: Teleport
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9058686456385915679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177311546820385340}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4494235014018717998}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4397646170069739159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177311546820385340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc36681bbb17ba40aa44c017f087561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8645351191255457490
 PrefabInstance:
   m_ObjectHideFlags: 0

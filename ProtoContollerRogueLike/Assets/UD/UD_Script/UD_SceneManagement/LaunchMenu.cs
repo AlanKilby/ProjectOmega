@@ -9,8 +9,16 @@ public class LaunchMenu : MonoBehaviour
 
     private void Start()
     {
-        Invoke("StartMenu", launchMenuTime);
+        //Invoke("StartMenu", launchMenuTime);
         AudioManager.volumeSlider = 1f;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartMenu();
+        }
     }
 
     private void StartMenu()

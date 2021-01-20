@@ -182,6 +182,12 @@ MonoBehaviour:
   thisRoom: {fileID: 0}
   lootDrop: {fileID: 0}
   anim: {fileID: 8607137925183316092}
+  explosionOnDeathEffect: {fileID: 6671227202987302579, guid: 3d48fad6e30036548a8c30c7273e0e4f,
+    type: 3}
+  acideStain:
+  - {fileID: 4522504886125338781, guid: 36cc1147b207f9349845fc6eba11aa95, type: 3}
+  - {fileID: 3791032971748341715, guid: 1f1bcaa3e5abb7347863ef5d73e3a635, type: 3}
+  - {fileID: 41871575075822751, guid: 56f42ee91d2d49748898da1524f9b0d8, type: 3}
   isZombie: 1
   isSpider: 0
   isSummoner: 0

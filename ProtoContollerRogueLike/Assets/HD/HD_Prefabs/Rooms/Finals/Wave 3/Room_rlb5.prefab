@@ -41,6 +41,7 @@ Transform:
   - {fileID: 1346209158329302089}
   - {fileID: 6050853088635235770}
   - {fileID: 5788902642038579961}
+  - {fileID: 3180143944666363024}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -323,6 +324,80 @@ CompositeCollider2D:
     m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!1 &1240322493142442008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1240322493142442006}
+  - component: {fileID: 1240322493142442009}
+  m_Layer: 0
+  m_Name: Acide Light 2D 3Tiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1240322493142442006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240322493142442008}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 2.21, y: 7.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3180143944666363024}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1240322493142442009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240322493142442008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.6
+  m_Color: {r: 0, g: 0.7830189, b: 0.030706715, a: 1}
+  m_Intensity: 1.3
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 1
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 5
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -1.8557358, y: -1.3974289, z: 0}
+  - {x: -0.1963911, y: -1.3801016, z: 0}
+  - {x: 0.13518524, y: -1.295985, z: 0}
+  - {x: -0.18656301, y: -1.169165, z: 0}
+  - {x: -1.8488302, y: -1.1842957, z: 0}
+  - {x: -2.1886091, y: -1.2897991, z: 0}
 --- !u!1 &1682325052945021912
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,6 +4670,40 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &2266851954577263779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3180143944666363024}
+  m_Layer: 0
+  m_Name: AcideLights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3180143944666363024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266851954577263779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1240322493142442006}
+  - {fileID: 7278608907783697230}
+  - {fileID: 8154247474109106270}
+  - {fileID: 3481882986843284888}
+  m_Father: {fileID: 921401954343412956}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3251097206277209711
 GameObject:
   m_ObjectHideFlags: 0
@@ -4699,7 +4808,7 @@ MonoBehaviour:
   - {x: -0.1852826, y: 0.5692793, z: 0}
   m_ShapePathHash: -1648369265
   m_Mesh: {fileID: 0}
-  m_InstanceId: 54660
+  m_InstanceId: 53192
 --- !u!1 &3848780744172749308
 GameObject:
   m_ObjectHideFlags: 0
@@ -5648,6 +5757,80 @@ CompositeCollider2D:
       - {x: -5.812487, y: -8}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!1 &4070654864950432752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8154247474109106270}
+  - component: {fileID: 4518605580641817184}
+  m_Layer: 0
+  m_Name: Acide Light 2D 3Tiles (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8154247474109106270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070654864950432752}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 4.4, y: -4.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3180143944666363024}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &4518605580641817184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070654864950432752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.6
+  m_Color: {r: 0, g: 0.7830189, b: 0.030706715, a: 1}
+  m_Intensity: 1.3
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 1
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 5
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -2.4106817, y: -1.2259002, z: 0}
+  - {x: 0.14666653, y: -1.178303, z: 0}
+  - {x: 0.47824287, y: -1.0941863, z: 0}
+  - {x: 0.1564951, y: -0.96736646, z: 0}
+  - {x: -2.4037762, y: -1.0127668, z: 0}
+  - {x: -2.743555, y: -1.1182704, z: 0}
 --- !u!1 &6043312535517244296
 GameObject:
   m_ObjectHideFlags: 0
@@ -5734,7 +5917,81 @@ MonoBehaviour:
   - {x: -0.22116174, y: 0.06673024, z: 0}
   m_ShapePathHash: -1031420385
   m_Mesh: {fileID: 0}
-  m_InstanceId: 54696
+  m_InstanceId: 53230
+--- !u!1 &7278608907783697216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7278608907783697230}
+  - component: {fileID: 7278608907783697217}
+  m_Layer: 0
+  m_Name: Acide Light 2D 3Tiles (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7278608907783697230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278608907783697216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.88, y: 4.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3180143944666363024}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7278608907783697217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278608907783697216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.6
+  m_Color: {r: 0, g: 0.7830189, b: 0.030706715, a: 1}
+  m_Intensity: 1.3
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 1
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 5
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -2.4106817, y: -1.2259002, z: 0}
+  - {x: 0.14666653, y: -1.178303, z: 0}
+  - {x: 0.47824287, y: -1.0941863, z: 0}
+  - {x: 0.1564951, y: -0.96736646, z: 0}
+  - {x: -2.4037762, y: -1.0127668, z: 0}
+  - {x: -2.743555, y: -1.1182704, z: 0}
 --- !u!1 &8404229861366244362
 GameObject:
   m_ObjectHideFlags: 0
@@ -5805,7 +6062,7 @@ MonoBehaviour:
   - {x: -0.9477761, y: 0.8361697, z: 0}
   m_ShapePathHash: -852907612
   m_Mesh: {fileID: 0}
-  m_InstanceId: 54692
+  m_InstanceId: 53226
 --- !u!1 &8452231220421519374
 GameObject:
   m_ObjectHideFlags: 0
@@ -5907,7 +6164,95 @@ MonoBehaviour:
   - {x: 0.07313222, y: 0.13283536, z: 0}
   m_ShapePathHash: 559042425
   m_Mesh: {fileID: 0}
-  m_InstanceId: 54632
+  m_InstanceId: 53164
+--- !u!1 &9111637172616501907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3481882986843284888}
+  - component: {fileID: 1341461888210865464}
+  m_Layer: 0
+  m_Name: Acide Light 2D 3Tiles (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3481882986843284888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111637172616501907}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -5.76, y: -2.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3180143944666363024}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1341461888210865464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9111637172616501907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.6
+  m_Color: {r: 0, g: 0.7830189, b: 0.030706715, a: 1}
+  m_Intensity: 1.3
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 1
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_PointLightDistance: 5
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -1.8557358, y: -1.3974289, z: 0}
+  - {x: -1.4877887, y: -1.4602277, z: 0}
+  - {x: -1.1342769, y: -1.846513, z: 0}
+  - {x: -1.134277, y: -2.231434, z: 0}
+  - {x: -1.0210689, y: -2.3842733, z: 0}
+  - {x: -0.76068157, y: -2.3276675, z: 0}
+  - {x: -0.4493489, y: -2.525788, z: 0}
+  - {x: -0.16631894, y: -2.769194, z: 0}
+  - {x: -0.053107128, y: -3.165436, z: 0}
+  - {x: -0.002686167, y: -3.4531372, z: 0}
+  - {x: 0.11105048, y: -3.2107208, z: 0}
+  - {x: 0.1393535, y: -2.271062, z: 0}
+  - {x: 0.0034990457, y: -2.123886, z: 0}
+  - {x: -0.22858545, y: -2.1974733, z: 0}
+  - {x: -0.5285927, y: -1.9993495, z: 0}
+  - {x: -0.8455866, y: -1.6483921, z: 0}
+  - {x: -0.8852105, y: -1.3313984, z: 0}
+  - {x: -1.0245838, y: -1.1432127, z: 0}
+  - {x: -1.8488302, y: -1.1842957, z: 0}
+  - {x: -2.1886091, y: -1.2897991, z: 0}
 --- !u!1001 &261735812206853312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6583,7 +6928,7 @@ PrefabInstance:
     - target: {fileID: 6924024216942078679, guid: 1ce75c21347e411498ba4adaea68e9cc,
         type: 3}
       propertyPath: m_InstanceId
-      value: -140822
+      value: -227292
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ce75c21347e411498ba4adaea68e9cc, type: 3}
