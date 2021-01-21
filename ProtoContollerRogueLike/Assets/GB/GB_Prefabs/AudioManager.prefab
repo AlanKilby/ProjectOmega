@@ -45,8 +45,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Fight Music
-    clip: {fileID: 8300000, guid: c4daed8fb03b7344dba5685a7c250ba8, type: 3}
-    volume: 0.45
+    clip: {fileID: 8300000, guid: d92bd31ca4c308e4bbc954adef45901c, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Splashscreen Music
+    clip: {fileID: 8300000, guid: dcf1b6aebaa6a30488beaf737849e1f5, type: 3}
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
@@ -74,9 +80,27 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Press Play
+  - name: Play
     clip: {fileID: 8300000, guid: 6cd26a36c349f4b4c96a08331b57b24d, type: 3}
     volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ok
+    clip: {fileID: 8300000, guid: 9507a64ecec3cf740b47033ead9c7afe, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Back
+    clip: {fileID: 8300000, guid: d279857f79dc81b44b4edf5e554069ce, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pause
+    clip: {fileID: 8300000, guid: 08e7e6639dbb86a4f9c1d21fa9b6805e, type: 3}
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -88,13 +112,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Handgun Shot
     clip: {fileID: 8300000, guid: 4dc6285498b79c84a9e7e29c212d0e1c, type: 3}
-    volume: 0.6
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Chasm
-    clip: {fileID: 8300000, guid: 7d1a819f450a31b45a731c5bddd987c9, type: 3}
-    volume: 0.7
+    volume: 0.55
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -123,19 +141,19 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Reload
-    clip: {fileID: 8300000, guid: 15f4efe875859854c81763ee45dd9124, type: 3}
+    clip: {fileID: 8300000, guid: 0775d8ffa09acec4d98498ba2ad2ecb0, type: 3}
     volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Hub Music
-    clip: {fileID: 8300000, guid: 6a399e65c3bdf2f41afa2f762717256a, type: 3}
-    volume: 0.3
+    clip: {fileID: 8300000, guid: 60df0eed67c71c14aaf182ff5bc3e193, type: 3}
+    volume: 0.4
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: Hub Ambient
-    clip: {fileID: 8300000, guid: bc53e9edada9cd04da52020ca67c7b5b, type: 3}
+  - name: Ambient Cave
+    clip: {fileID: 8300000, guid: 4c9ab9c49f074cc4e9a06c2d76f8c5de, type: 3}
     volume: 0.2
     pitch: 1
     loop: 1
@@ -202,13 +220,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Spider Death
     clip: {fileID: 8300000, guid: ed24f21ae07a78146a21252baf21330f, type: 3}
-    volume: 0.9
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Zombie Death
     clip: {fileID: 8300000, guid: f6f3c092b8e31f546ad8a4f0559a145e, type: 3}
-    volume: 0.08
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -291,7 +309,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Revive Device
-    clip: {fileID: 8300000, guid: 4b17f42db00aeb54d848591a7cc73f32, type: 3}
+    clip: {fileID: 8300000, guid: 7eecebd38e4754349b277acf70eb2caf, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -309,16 +327,10 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Boss Music
-    clip: {fileID: 8300000, guid: d92bd31ca4c308e4bbc954adef45901c, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: c4daed8fb03b7344dba5685a7c250ba8, type: 3}
+    volume: 0.4
     pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Ambient Cave
-    clip: {fileID: 8300000, guid: 876af86667a812e4ea9f49dedb18700f, type: 3}
-    volume: 0.3
-    pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: Boss Idle
     clip: {fileID: 8300000, guid: 857452785d2ca7844bc1576f079154c9, type: 3}
@@ -376,7 +388,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Boss Toxic Shot
     clip: {fileID: 8300000, guid: 067128b32cc837d47a50b68236ed8e30, type: 3}
-    volume: 1
+    volume: 0.9
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Tentacle Up
+    clip: {fileID: 8300000, guid: f92e4ce79018a574782be6dac08ee339, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Boss Tentacle Down
+    clip: {fileID: 8300000, guid: f25339cd1d35782458dab00148ecd918, type: 3}
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}

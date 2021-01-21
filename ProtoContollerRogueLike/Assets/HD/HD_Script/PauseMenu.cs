@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour
             if (pause)
             {
                 Resume();
+                FindObjectOfType<AudioManager>().Play("Ok");
             }
             else
             {
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
                 {
                     CursorManager.SetMenuCursor();
                     Pause();
+                    FindObjectOfType<AudioManager>().Play("Pause");
                 }
             }
             /*if (GameManagement.GameIsPaused)
@@ -69,7 +71,9 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu() 
     {
         FindObjectOfType<AudioManager>().StopPlaying("Hub Music");
-        FindObjectOfType<AudioManager>().Play("Ambient Cave");
+        FindObjectOfType<AudioManager>().StopPlaying("Ambient Cave");
+        FindObjectOfType<AudioManager>().StopPlaying("Boss Music");
+        FindObjectOfType<AudioManager>().StopPlaying("Fight Music");
         Destroy(player);
         //Destroy(UI); Maintenant Détruit depuis le FadeSceneManager
         Destroy(GameObject.Find("DifficultyPanel"));

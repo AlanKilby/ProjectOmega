@@ -8,6 +8,7 @@ public class GameOutroEnd : MonoBehaviour
     private void Start()
     {
         CursorManager.SetMenuCursor();
+        FindObjectOfType<AudioManager>().Play("Credits Music");
     }
     void Update()
     {

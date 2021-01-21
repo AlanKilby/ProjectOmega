@@ -11,6 +11,7 @@ public class LaunchMenu : MonoBehaviour
     {
         //Invoke("StartMenu", launchMenuTime);
         AudioManager.volumeSlider = 1f;
+        FindObjectOfType<AudioManager>().Play("Splashscreen Music");
     }
 
     private void Update()

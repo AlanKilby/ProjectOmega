@@ -46,7 +46,6 @@ public class EscapePod : MonoBehaviour
         {
             //SceneManager.LoadScene("UD_HUBtest");
             FindObjectOfType<AudioManager>().Play("Hub Music");
-            FindObjectOfType<AudioManager>().Play("Hub Ambient");
             FadeSceneManagerScript.whatTransition = SceneTransition.HUB;
             FSMS.FadeOut();
         }

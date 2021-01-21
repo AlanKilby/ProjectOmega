@@ -15,6 +15,8 @@ public class BackToMenu : MonoBehaviour
         {
             SceneManager.LoadScene("Menu");
             FindObjectOfType<AudioManager>().StopPlaying("Fight Music");
+            FindObjectOfType<AudioManager>().StopPlaying("Hub Music");
+            FindObjectOfType<AudioManager>().StopPlaying("Boss Music");
         }
     }
 }
